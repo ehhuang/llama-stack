@@ -19,6 +19,10 @@ jobs:
     strategy:
       matrix:
         provider: [fireworks, together]
+
+    # Dumb approach to restrict the users who trigger the gh actions
+    if: contains('["ashwinb", "yanxi0830", "hardikjshah", "dltn", "raghotham", "dineshyv", "vladimirivic", "sixianyi0721"]', github.actor)
+
     steps:
       - uses: actions/checkout@v4
         with:

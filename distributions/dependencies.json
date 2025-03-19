@@ -30,6 +30,7 @@
     "sentencepiece",
     "tqdm",
     "transformers",
+    "tree_sitter",
     "uvicorn"
   ],
   "cerebras": [
@@ -62,6 +63,7 @@
     "sentencepiece",
     "tqdm",
     "transformers",
+    "tree_sitter",
     "uvicorn",
     "sentence-transformers --no-deps",
     "torch torchvision --index-url https://download.pytorch.org/whl/cpu"
@@ -97,6 +99,7 @@
     "sqlite-vec",
     "tqdm",
     "transformers",
+    "tree_sitter",
     "uvicorn",
     "sentence-transformers --no-deps",
     "torch torchvision --index-url https://download.pytorch.org/whl/cpu"
@@ -132,6 +135,7 @@
     "sentencepiece",
     "tqdm",
     "transformers",
+    "tree_sitter",
     "uvicorn",
     "sentence-transformers --no-deps",
     "torch torchvision --index-url https://download.pytorch.org/whl/cpu"
@@ -168,6 +172,7 @@
     "sqlite-vec",
     "tqdm",
     "transformers",
+    "tree_sitter",
     "uvicorn",
     "sentence-transformers --no-deps",
     "torch torchvision --index-url https://download.pytorch.org/whl/cpu"
@@ -203,6 +208,7 @@
     "sentencepiece",
     "tqdm",
     "transformers",
+    "tree_sitter",
     "uvicorn",
     "sentence-transformers --no-deps",
     "torch torchvision --index-url https://download.pytorch.org/whl/cpu"
@@ -236,6 +242,7 @@
     "sentencepiece",
     "tqdm",
     "transformers",
+    "tree_sitter",
     "uvicorn"
   ],
   "hf-endpoint": [
@@ -270,6 +277,7 @@
     "sentencepiece",
     "tqdm",
     "transformers",
+    "tree_sitter",
     "uvicorn"
   ],
   "hf-serverless": [
@@ -304,6 +312,7 @@
     "sentencepiece",
     "tqdm",
     "transformers",
+    "tree_sitter",
     "uvicorn",
     "sentence-transformers --no-deps",
     "torch torchvision --index-url https://download.pytorch.org/whl/cpu"
@@ -344,6 +353,7 @@
     "torchvision",
     "tqdm",
     "transformers",
+    "tree_sitter",
     "uvicorn",
     "zmq"
   ],
@@ -385,21 +395,19 @@
     "torchvision",
     "tqdm",
     "transformers",
+    "tree_sitter",
     "uvicorn",
     "zmq"
   ],
   "nvidia": [
     "aiosqlite",
-    "autoevals",
     "blobfile",
     "chardet",
-    "datasets",
     "faiss-cpu",
     "fastapi",
     "fire",
     "httpx",
     "matplotlib",
-    "mcp",
     "nltk",
     "numpy",
     "openai",
@@ -417,6 +425,7 @@
     "sentencepiece",
     "tqdm",
     "transformers",
+    "tree_sitter",
     "uvicorn"
   ],
   "ollama": [
@@ -451,6 +460,7 @@
     "sentencepiece",
     "tqdm",
     "transformers",
+    "tree_sitter",
     "uvicorn"
   ],
   "open-benchmark": [
@@ -485,6 +495,7 @@
     "together",
     "tqdm",
     "transformers",
+    "tree_sitter",
     "uvicorn"
   ],
   "passthrough": [
@@ -517,6 +528,7 @@
     "sentencepiece",
     "tqdm",
     "transformers",
+    "tree_sitter",
     "uvicorn",
     "sentence-transformers --no-deps",
     "torch torchvision --index-url https://download.pytorch.org/whl/cpu"
@@ -551,6 +563,7 @@
     "sentencepiece",
     "tqdm",
     "transformers",
+    "tree_sitter",
     "uvicorn",
     "sentence-transformers --no-deps",
     "torch torchvision --index-url https://download.pytorch.org/whl/cpu"
@@ -616,6 +629,7 @@
     "sentencepiece",
     "tqdm",
     "transformers",
+    "tree_sitter",
     "uvicorn",
     "sentence-transformers --no-deps",
     "torch torchvision --index-url https://download.pytorch.org/whl/cpu"
@@ -651,6 +665,7 @@
     "together",
     "tqdm",
     "transformers",
+    "tree_sitter",
     "uvicorn",
     "sentence-transformers --no-deps",
     "torch torchvision --index-url https://download.pytorch.org/whl/cpu"
@@ -685,6 +700,7 @@
     "sentencepiece",
     "tqdm",
     "transformers",
+    "tree_sitter",
     "uvicorn",
     "vllm",
     "sentence-transformers --no-deps",

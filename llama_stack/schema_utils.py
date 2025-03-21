@@ -18,6 +18,8 @@ class WebMethod:
     response_examples: Optional[List[Any]] = None
     method: Optional[str] = None
     raw_bytes_request_body: Optional[bool] = False
+    # A descriptive name of the corresponding span created by tracing
+    descriptive_name: Optional[str] = None
 
 
 T = TypeVar("T", bound=Callable[..., Any])
@@ -49,6 +51,7 @@ def webmethod(
             request_examples=request_examples,
             response_examples=response_examples,
             raw_bytes_request_body=raw_bytes_request_body,
+            descriptive_name=descriptive_name,
         )
         return func
 

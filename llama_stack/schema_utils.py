@@ -5,7 +5,7 @@
 # the root directory of this source tree.
 
 from dataclasses import dataclass
-from typing import Any, Callable, List, Optional, Protocol, TypeVar
+from typing import Any, Callable, List, Optional, TypeVar
 
 from .strong_typing.schema import json_schema_type, register_schema  # noqa: F401
 

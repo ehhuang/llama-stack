@@ -19,6 +19,7 @@ class ApiEndpoint(BaseModel):
     route: str
     method: str
     name: str
+    descriptive_name: str | None = None
 
 
 def toolgroup_protocol_map():
@@ -58,7 +59,9 @@ def get_all_api_endpoints() -> Dict[Api, List[ApiEndpoint]]:
                 method = "delete"
             else:
                 method = "post"
-            endpoints.append(ApiEndpoint(route=route, method=method, name=name))
+            endpoints.append(
+                ApiEndpoint(route=route, method=method, name=name, descriptive_name=webmethod.descriptive_name)
+            )
 
         apis[api] = endpoints
 

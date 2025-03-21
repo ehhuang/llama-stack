@@ -254,7 +254,10 @@ class AsyncLlamaStackAsLibraryClient(AsyncLlamaStackClient):
                 func = getattr(impl, endpoint.name)
                 if endpoint.method not in endpoint_impls:
                     endpoint_impls[endpoint.method] = {}
-                endpoint_impls[endpoint.method][_convert_path_to_regex(endpoint.route)] = (func, endpoint.route)
+                endpoint_impls[endpoint.method][_convert_path_to_regex(endpoint.route)] = (
+                    func,
+                    endpoint.descriptive_name or endpoint.route,
+                )
 
         self.endpoint_impls = endpoint_impls
         return True

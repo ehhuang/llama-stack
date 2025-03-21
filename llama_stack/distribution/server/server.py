@@ -269,7 +269,7 @@ class TracingMiddleware:
                     break
 
             if matches:
-                return route_path
+                return route.descriptive_name or route_path
 
         return None
 

@@ -33,6 +33,7 @@ from llama_stack.apis.inference import (
     ToolResponse,
     ToolResponseMessage,
     UserMessage,
+    ToolParamDefinition,
 )
 from llama_stack.apis.safety import SafetyViolation
 from llama_stack.apis.tools import ToolDef
@@ -195,12 +196,61 @@ AgentToolGroup = Union[
 register_schema(AgentToolGroup, name="AgentTool")
 
 
+from llama_stack.apis.inference import (
+    ToolType as InferenceToolType,
+    WebSearchTool,
+    WolframAlphaTool,
+    CodeInterpreterTool,
+    FunctionToolDefinition,
+)
+
+
+class ToolType(InferenceToolType):
+    knowledge_search = "knowledge_search"  # currently rag tool
+    tool_group = "tool_group"
+
+
+class KnowledgeSearchTool(BaseModel):
+    """
+    :param name: how the model refers to the tool. Use this to set different names when multiple KnowledgeSearchTool's are used.
+    :param description: can be set to inform the model about the types of knoweldge/contents stored in the DB, e.g. "research papers", "textbooks", etc.
+    """
+
+    type: Literal[ToolType.knowledge_search] = ToolType.knowledge_search
+    vector_db_ids: List[str] = Field(default_factory=list)
+    name: str = Field(default="knowledge_search")
+    description: str | None = None
+
+
+class ToolGroup(BaseModel):
+    """
+    A tool group is a collection of tools.
+
+    :param toolgroup_id: The ID of the tool group.
+    :param tool_names: List of tool names to use from the tool group, defaults to all tools in the group.
+    """
+
+    type: Literal[ToolType.tool_group] = ToolType.tool_group
+    toolgroup_id: str
+    tool_names: List[str] | None = Field(default_factory=list)
+
+
+ToolDefinition = Annotated[
+    Union[WebSearchTool, WolframAlphaTool, CodeInterpreterTool, KnowledgeSearchTool, FunctionToolDefinition, ToolGroup],
+    Field(discriminator="type"),
+]
+
+
 class AgentConfigCommon(BaseModel):
     sampling_params: Optional[SamplingParams] = Field(default_factory=SamplingParams)
 
     input_shields: Optional[List[str]] = Field(default_factory=list)
     output_shields: Optional[List[str]] = Field(default_factory=list)
+    # New
+    tools: Optional[List[ToolDefinition]] = Field(default_factory=list)
+    # TODO: deprecate
     toolgroups: Optional[List[AgentToolGroup]] = Field(default_factory=list)
+    # TODO: deprecate
     client_tools: Optional[List[ToolDef]] = Field(default_factory=list)
     tool_choice: Optional[ToolChoice] = Field(default=None, deprecated="use tool_config instead")
     tool_prompt_format: Optional[ToolPromptFormat] = Field(default=None, deprecated="use tool_config instead")
@@ -421,6 +471,7 @@ class Agents(Protocol):
         stream: Optional[bool] = False,
         documents: Optional[List[Document]] = None,
         toolgroups: Optional[List[AgentToolGroup]] = None,
+        tools: List[ToolDefinition] | None = None,
         tool_config: Optional[ToolConfig] = None,
     ) -> Union[Turn, AsyncIterator[AgentTurnResponseStreamChunk]]:
         """Create a new turn for an agent.

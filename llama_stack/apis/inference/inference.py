@@ -28,7 +28,7 @@ from llama_stack.models.llama.datatypes import (
     SamplingParams,
     StopReason,
     ToolCall,
-    ToolDefinition,
+    ToolParamDefinition,
     ToolPromptFormat,
 )
 from llama_stack.providers.utils.telemetry.trace_protocol import trace_protocol
@@ -159,19 +159,10 @@ register_schema(Message, name="Message")
 @json_schema_type
 class ToolResponse(BaseModel):
     call_id: str
-    tool_name: Union[BuiltinTool, str]
+    # remove BuiltinTool from the API as these can be matched in the implementation
+    tool_name: str
     content: InterleavedContent
     metadata: Optional[Dict[str, Any]] = None
-
-    @field_validator("tool_name", mode="before")
-    @classmethod
-    def validate_field(cls, v):
-        if isinstance(v, str):
-            try:
-                return BuiltinTool(v)
-            except ValueError:
-                return v
-        return v
 
 
 class ToolChoice(Enum):
@@ -346,6 +337,41 @@ class ToolConfig(BaseModel):
                 pass
 
 
+class ToolType(Enum):
+    function = "function"
+    # changed this from brave_search to web_searchbe more generic
+    # the final prompt template will still use brave_search as that's how the model's trained
+    web_search = "web_search"
+    wolfram_alpha = "wolfram_alpha"
+    code_interpreter = "code_interpreter"
+    photogen = "photogen"  # what is this? I don't see on llama.com
+
+
+class WebSearchTool(BaseModel):
+    type: Literal[ToolType.web_search] = ToolType.web_search
+
+
+class WolframAlphaTool(BaseModel):
+    type: Literal[ToolType.wolfram_alpha] = ToolType.wolfram_alpha
+
+
+class CodeInterpreterTool(BaseModel):
+    type: Literal[ToolType.code_interpreter] = ToolType.code_interpreter
+
+
+@json_schema_type
+class FunctionToolDefinition(BaseModel):
+    type: Literal[ToolType.function] = ToolType.function
+    name: str
+    description: Optional[str] = None
+    parameters: Optional[Dict[str, ToolParamDefinition]] = None
+
+
+ToolDefinition = Annotated[
+    Union[WebSearchTool, WolframAlphaTool, CodeInterpreterTool, FunctionToolDefinition], Field(discriminator="type")
+]
+
+
 # This is an internally used class
 @json_schema_type
 class ChatCompletionRequest(BaseModel):
@@ -462,7 +488,7 @@ class Inference(Protocol):
         model_id: str,
         messages: List[Message],
         sampling_params: Optional[SamplingParams] = None,
-        tools: Optional[List[ToolDefinition]] = None,
+        tools: List[ToolDefinition] | None = None,
         tool_choice: Optional[ToolChoice] = ToolChoice.auto,
         tool_prompt_format: Optional[ToolPromptFormat] = None,
         response_format: Optional[ResponseFormat] = None,

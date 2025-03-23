@@ -33,6 +33,7 @@ from llama_stack.apis.inference import (
     ToolResponse,
     ToolResponseMessage,
     UserMessage,
+    ToolParamDefinition,
 )
 from llama_stack.apis.safety import SafetyViolation
 from llama_stack.apis.tools import ToolDef
@@ -195,12 +196,63 @@ AgentToolGroup = Union[
 register_schema(AgentToolGroup, name="AgentTool")
 
 
+from llama_stack.apis.inference import (
+    ToolType as InferenceToolType,
+    WebSearchTool,
+    WolframAlphaTool,
+    CodeInterpreterTool,
+    FunctionToolDefinition,
+)
+
+
+class ToolType(InferenceToolType):
+    knowledge_search = "knowledge_search"  # currently rag tool
+
+    # MCP
+    model_context_protocol = "model_context_protocol"
+
+
+class KnowledgeSearchTool(BaseModel):
+    """
+    :param name: how the model refers to the tool. Use this to set different names when multiple KnowledgeSearchTool's are used.
+    :param description: can be set to inform the model about the types of knoweldge/contents stored in the DB, e.g. "research papers", "textbooks", etc.
+    """
+
+    type: Literal[ToolType.knowledge_search] = ToolType.knowledge_search
+    vector_db_ids: List[str] = Field(default_factory=list)
+    name: str = Field(default="knowledge_search")
+    description: str | None = None
+
+
+class MCPTool(BaseModel):
+    """
+    :param server_uri: endpoint URI of the MCP server
+    :param tool_names: if specified, only the tools here will be made available to the model, otherwise all tools from the server are included.
+    :param namespace: if specified, the tool names will be prepended with this value. Can be used to avoid name conflicts with other tools.
+    """
+
+    type: Literal[ToolType.model_context_protocol] = ToolType.model_context_protocol
+    server_uri: str
+    tool_names: List[str] | None = Field(default_factory=list)
+    namespace: str | None = None  # TODO: nice to have, but can also leave out for now
+
+
+ToolDefinition = Annotated[
+    Union[WebSearchTool, WolframAlphaTool, CodeInterpreterTool, KnowledgeSearchTool, MCPTool, FunctionToolDefinition],
+    Field(discriminator="type"),
+]
+
+
 class AgentConfigCommon(BaseModel):
     sampling_params: Optional[SamplingParams] = Field(default_factory=SamplingParams)
 
     input_shields: Optional[List[str]] = Field(default_factory=list)
     output_shields: Optional[List[str]] = Field(default_factory=list)
+    # New
+    tools: Optional[List[ToolDefinition]] = Field(default_factory=list)
+    # TODO: deprecate
     toolgroups: Optional[List[AgentToolGroup]] = Field(default_factory=list)
+    # TODO: deprecate
     client_tools: Optional[List[ToolDef]] = Field(default_factory=list)
     tool_choice: Optional[ToolChoice] = Field(default=None, deprecated="use tool_config instead")
     tool_prompt_format: Optional[ToolPromptFormat] = Field(default=None, deprecated="use tool_config instead")
@@ -421,6 +473,7 @@ class Agents(Protocol):
         stream: Optional[bool] = False,
         documents: Optional[List[Document]] = None,
         toolgroups: Optional[List[AgentToolGroup]] = None,
+        tools: List[ToolDefinition] | None = None,
         tool_config: Optional[ToolConfig] = None,
     ) -> Union[Turn, AsyncIterator[AgentTurnResponseStreamChunk]]:
         """Create a new turn for an agent.

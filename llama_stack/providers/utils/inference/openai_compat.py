@@ -80,12 +80,12 @@ from llama_stack.apis.inference import (
     UserMessage,
 )
 from llama_stack.models.llama.datatypes import (
-    BuiltinTool,
     GreedySamplingStrategy,
     SamplingParams,
     StopReason,
     ToolCall,
     ToolDefinition,
+    ToolType,
     TopKSamplingStrategy,
     TopPSamplingStrategy,
 )
@@ -271,7 +271,12 @@ def process_chat_completion_response(
         else:
             # only return tool_calls if provided in the request
             new_tool_calls = []
-            request_tools = {t.tool_name: t for t in request.tools}
+            request_tools = {}
+            for t in request.tools:
+                if t.type == ToolType.function:
+                    request_tools[t.name] = t
+                else:
+                    request_tools[t.type.value] = t
             for t in raw_message.tool_calls:
                 if t.tool_name in request_tools:
                     new_tool_calls.append(t)
@@ -423,7 +428,12 @@ async def process_chat_completion_stream_response(
             )
         )
 
-    request_tools = {t.tool_name: t for t in request.tools}
+    request_tools = {}
+    for t in request.tools:
+        if t.type == ToolType.function:
+            request_tools[t.name] = t
+        else:
+            request_tools[t.type.value] = t
     for tool_call in message.tool_calls:
         if tool_call.tool_name in request_tools:
             yield ChatCompletionResponseStreamChunk(
@@ -574,7 +584,7 @@ async def convert_message_to_openai_dict_new(
                 OpenAIChatCompletionMessageToolCall(
                     id=tool.call_id,
                     function=OpenAIFunction(
-                        name=(tool.tool_name if not isinstance(tool.tool_name, BuiltinTool) else tool.tool_name.value),
+                        name=tool.tool_name,
                         arguments=json.dumps(tool.arguments),
                     ),
                     type="function",
@@ -638,7 +648,7 @@ def convert_tooldef_to_openai_tool(tool: ToolDefinition) -> dict:
     Convert a ToolDefinition to an OpenAI API-compatible dictionary.
 
     ToolDefinition:
-        tool_name: str | BuiltinTool
+        tool_name: str
         description: Optional[str]
         parameters: Optional[Dict[str, ToolParamDefinition]]
 
@@ -677,34 +687,34 @@ def convert_tooldef_to_openai_tool(tool: ToolDefinition) -> dict:
     }
     function = out["function"]
 
-    if isinstance(tool.tool_name, BuiltinTool):
-        function.update(name=tool.tool_name.value)  # TODO(mf): is this sufficient?
+    if tool.type == ToolType.function:
+        function.update(name=tool.name)
+
+        if tool.description:
+            function.update(description=tool.description)
+
+        if tool.parameters:
+            parameters = {
+                "type": "object",
+                "properties": {},
+            }
+            properties = parameters["properties"]
+            required = []
+            for param_name, param in tool.parameters.items():
+                properties[param_name] = {"type": PYTHON_TYPE_TO_LITELLM_TYPE.get(param.param_type, param.param_type)}
+                if param.description:
+                    properties[param_name].update(description=param.description)
+                if param.default:
+                    properties[param_name].update(default=param.default)
+                if param.required:
+                    required.append(param_name)
+
+            if required:
+                parameters.update(required=required)
+
+            function.update(parameters=parameters)
     else:
-        function.update(name=tool.tool_name)
-
-    if tool.description:
-        function.update(description=tool.description)
-
-    if tool.parameters:
-        parameters = {
-            "type": "object",
-            "properties": {},
-        }
-        properties = parameters["properties"]
-        required = []
-        for param_name, param in tool.parameters.items():
-            properties[param_name] = {"type": PYTHON_TYPE_TO_LITELLM_TYPE.get(param.param_type, param.param_type)}
-            if param.description:
-                properties[param_name].update(description=param.description)
-            if param.default:
-                properties[param_name].update(default=param.default)
-            if param.required:
-                required.append(param_name)
-
-        if required:
-            parameters.update(required=required)
-
-        function.update(parameters=parameters)
+        function.update(name=tool.type.value)
 
     return out
 

@@ -146,6 +146,7 @@
           "tool_calls": [
             {
               "call_id": "1",
+              "type": "function",
               "tool_name": "get_object_namespace_list",
               "arguments": {
                 "kind": "pod",

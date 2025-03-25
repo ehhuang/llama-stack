@@ -432,14 +432,11 @@ def test_text_chat_completion_tool_calling_tools_not_in_request(
 ):
     tc = TestCase(test_case)
 
-    # TODO: more dynamic lookup on tool_prompt_format for model family
-    tool_prompt_format = "json" if "3.1" in text_model_id else "python_list"
     request = {
         "model_id": text_model_id,
         "messages": tc["messages"],
         "tools": tc["tools"],
         "tool_choice": "auto",
-        "tool_prompt_format": tool_prompt_format,
         "stream": streaming,
     }
 

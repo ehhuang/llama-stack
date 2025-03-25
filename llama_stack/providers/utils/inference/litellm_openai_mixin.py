@@ -99,6 +99,7 @@ class LiteLLMOpenAIMixin(
         if sampling_params is None:
             sampling_params = SamplingParams()
         model = await self.model_store.get_model(model_id)
+        # TODO: convert tools for builtins
         request = ChatCompletionRequest(
             model=model.provider_resource_id,
             messages=messages,

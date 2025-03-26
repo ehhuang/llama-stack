@@ -33,10 +33,10 @@ class Role(Enum):
     tool = "tool"
 
 
-class BuiltinTool(Enum):
-    brave_search = "brave_search"
+class ToolType(Enum):
+    function = "function"
+    web_search = "web_search"
     wolfram_alpha = "wolfram_alpha"
-    photogen = "photogen"
     code_interpreter = "code_interpreter"
 
 
@@ -45,8 +45,9 @@ RecursiveType = Union[Primitive, List[Primitive], Dict[str, Primitive]]
 
 
 class ToolCall(BaseModel):
+    type: ToolType
     call_id: str
-    tool_name: Union[BuiltinTool, str]
+    tool_name: str
     # Plan is to deprecate the Dict in favor of a JSON string
     # that is parsed on the client side instead of trying to manage
     # the recursive type here.
@@ -59,12 +60,32 @@ class ToolCall(BaseModel):
     @field_validator("tool_name", mode="before")
     @classmethod
     def validate_field(cls, v):
+        # for backwards compatibility, we allow the tool name to be a string or a BuiltinTool
+        tool_name = v
         if isinstance(v, str):
             try:
-                return BuiltinTool(v)
+                tool_name = BuiltinTool(v)
             except ValueError:
-                return v
-        return v
+                pass
+
+        if isinstance(tool_name, BuiltinTool):
+            return tool_name.to_tool().type
+        return tool_name
+
+    # @field_validator("type", mode="before")
+    # @classmethod
+    # def set_type_from_tool_name(cls, v, values):
+    #     tool_name = values.data.get("tool_name")
+    #     # for backwards compatibility, we allow the tool name to be a string or a BuiltinTool
+    #     if isinstance(tool_name, str):
+    #         try:
+    #             tool_name = BuiltinTool(v)
+    #         except ValueError:
+    #             pass
+
+    #     if isinstance(tool_name, BuiltinTool):
+    #         return tool_name.to_tool().type
+    #     return ToolType.function
 
 
 class ToolPromptFormat(Enum):
@@ -152,7 +173,118 @@ class ToolParamDefinition(BaseModel):
 
 
 @json_schema_type
-class ToolDefinition(BaseModel):
+class WebSearchTool(BaseModel):
+    type: Literal[ToolType.web_search.value] = ToolType.web_search.value
+
+    @property
+    def name(self) -> str:
+        return "web_search"
+
+    @property
+    def description(self) -> str:
+        return "Search the web for information"
+
+    @property
+    def parameters(self) -> Dict[str, ToolParamDefinition]:
+        return {
+            "query": ToolParamDefinition(
+                description="The query to search for",
+                param_type="string",
+                required=True,
+            ),
+        }
+
+
+@json_schema_type
+class WolframAlphaTool(BaseModel):
+    type: Literal[ToolType.wolfram_alpha.value] = ToolType.wolfram_alpha.value
+
+    @property
+    def name(self) -> str:
+        return "wolfram_alpha"
+
+    @property
+    def description(self) -> str:
+        return "Query WolframAlpha for computational knowledge"
+
+    @property
+    def parameters(self) -> Dict[str, ToolParamDefinition]:
+        return {
+            "query": ToolParamDefinition(
+                description="The query to compute",
+                param_type="string",
+                required=True,
+            ),
+        }
+
+
+@json_schema_type
+class CodeInterpreterTool(BaseModel):
+    type: Literal[ToolType.code_interpreter.value] = ToolType.code_interpreter.value
+
+    @property
+    def name(self) -> str:
+        return "code_interpreter"
+
+    @property
+    def description(self) -> str:
+        return "Execute code"
+
+    @property
+    def parameters(self) -> Dict[str, ToolParamDefinition]:
+        return {
+            "code": ToolParamDefinition(
+                description="The code to execute",
+                param_type="string",
+                required=True,
+            ),
+        }
+
+
+@json_schema_type
+class FunctionTool(BaseModel):
+    type: Literal[ToolType.function.value] = ToolType.function.value
+    name: str
+    description: Optional[str] = None
+    parameters: Optional[Dict[str, ToolParamDefinition]] = None
+
+    @field_validator("name", mode="before")
+    @classmethod
+    def validate_name(cls, v):
+        if v in ToolType.__members__:
+            raise ValueError(f"Tool name '{v}' is a tool type and cannot be used as a name of a function tool")
+        return v
+
+
+ToolDefinition = Annotated[
+    Union[WebSearchTool, WolframAlphaTool, CodeInterpreterTool, FunctionTool], Field(discriminator="type")
+]
+
+
+class BuiltinTool(Enum):
+    brave_search = "brave_search"
+    wolfram_alpha = "wolfram_alpha"
+    code_interpreter = "code_interpreter"
+
+    def to_tool_type(self) -> ToolType:
+        if self == BuiltinTool.brave_search:
+            return ToolType.web_search
+        elif self == BuiltinTool.wolfram_alpha:
+            return ToolType.wolfram_alpha
+        elif self == BuiltinTool.code_interpreter:
+            return ToolType.code_interpreter
+
+    def to_tool(self) -> WebSearchTool | WolframAlphaTool | CodeInterpreterTool:
+        if self == BuiltinTool.brave_search:
+            return WebSearchTool()
+        elif self == BuiltinTool.wolfram_alpha:
+            return WolframAlphaTool()
+        elif self == BuiltinTool.code_interpreter:
+            return CodeInterpreterTool()
+
+
+@json_schema_type
+class ToolDefinitionDeprecated(BaseModel):
     tool_name: Union[BuiltinTool, str]
     description: Optional[str] = None
     parameters: Optional[Dict[str, ToolParamDefinition]] = None
@@ -166,6 +298,21 @@ class ToolDefinition(BaseModel):
             except ValueError:
                 return v
         return v
+
+    def to_tool_definition(self) -> ToolDefinition:
+        # convert to ToolDefinition
+        if self.tool_name == BuiltinTool.brave_search:
+            return WebSearchTool()
+        elif self.tool_name == BuiltinTool.code_interpreter:
+            return CodeInterpreterTool()
+        elif self.tool_name == BuiltinTool.wolfram_alpha:
+            return WolframAlphaTool()
+        else:
+            return FunctionTool(
+                name=self.tool_name,
+                description=self.description,
+                parameters=self.parameters,
+            )
 
 
 @json_schema_type

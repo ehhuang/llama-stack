@@ -284,6 +284,7 @@ def test_text_chat_completion_streaming(client_with_models, text_model_id, test_
     "test_case",
     [
         "inference:chat_completion:tool_calling",
+        "inference:chat_completion:tool_calling_deprecated",
     ],
 )
 def test_text_chat_completion_with_tool_calling_and_non_streaming(client_with_models, text_model_id, test_case):
@@ -432,14 +433,11 @@ def test_text_chat_completion_tool_calling_tools_not_in_request(
 ):
     tc = TestCase(test_case)
 
-    # TODO: more dynamic lookup on tool_prompt_format for model family
-    tool_prompt_format = "json" if "3.1" in text_model_id else "python_list"
     request = {
         "model_id": text_model_id,
         "messages": tc["messages"],
         "tools": tc["tools"],
         "tool_choice": "auto",
-        "tool_prompt_format": tool_prompt_format,
         "stream": streaming,
     }
 
@@ -457,3 +455,30 @@ def test_text_chat_completion_tool_calling_tools_not_in_request(
     else:
         for tc in response.completion_message.tool_calls:
             assert tc.tool_name == "get_object_namespace_list"
+
+
+@pytest.mark.parametrize(
+    "test_case",
+    [
+        "inference:chat_completion:tool_calling_builtin_web_search",
+        "inference:chat_completion:tool_calling_builtin_brave_search",
+        "inference:chat_completion:tool_calling_builtin_code_interpreter",
+        "inference:chat_completion:tool_calling_builtin_code_interpreter_deprecated",
+    ],
+)
+def test_text_chat_completion_tool_calling_builtin(client_with_models, text_model_id, test_case):
+    tc = TestCase(test_case)
+
+    request = {
+        "model_id": text_model_id,
+        "messages": tc["messages"],
+        "tools": tc["tools"],
+        "tool_choice": "auto",
+        "stream": False,
+    }
+
+    response = client_with_models.inference.chat_completion(**request)
+
+    for tool_call in response.completion_message.tool_calls:
+        print(tool_call)
+        assert tool_call.tool_name == tc["expected"]

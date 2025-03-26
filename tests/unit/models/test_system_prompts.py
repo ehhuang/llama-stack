@@ -15,6 +15,7 @@ import textwrap
 import unittest
 from datetime import datetime
 
+from llama_stack.models.llama.datatypes import ToolType
 from llama_stack.models.llama.llama3.prompt_templates import (
     BuiltinToolGenerator,
     FunctionTagCustomToolGenerator,
@@ -33,7 +34,7 @@ class PromptTemplateTests(unittest.TestCase):
             if not example:
                 continue
             for tool in example:
-                assert tool.tool_name in text
+                assert tool.name in text
 
     def test_system_default(self):
         generator = SystemDefaultGenerator()

@@ -186,7 +186,7 @@ class TelemetryAdapter(TelemetryDatasetMixin, Telemetry):
 
     def _log_structured(self, event: StructuredLogEvent, ttl_seconds: int) -> None:
         with self._lock:
-            span_id = int(event.span_id, 16)
+            span_id = event.span_id
             tracer = trace.get_tracer(__name__)
             if event.attributes is None:
                 event.attributes = {}

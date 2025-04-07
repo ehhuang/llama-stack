@@ -225,6 +225,36 @@ def available_providers() -> List[ProviderSpec]:
         remote_provider_spec(
             api=Api.inference,
             adapter=AdapterSpec(
+                adapter_type="llama-openai-compat",
+                pip_packages=["litellm"],
+                module="llama_stack.providers.remote.inference.llama_openai_compat",
+                config_class="llama_stack.providers.remote.inference.llama_openai_compat.config.LlamaConfig",
+                provider_data_validator="llama_stack.providers.remote.inference.llama_openai_compat.config.LlamaProviderDataValidator",
+            ),
+        ),
+        remote_provider_spec(
+            api=Api.inference,
+            adapter=AdapterSpec(
+                adapter_type="fireworks-openai-compat",
+                pip_packages=["litellm"],
+                module="llama_stack.providers.remote.inference.fireworks_compat",
+                config_class="llama_stack.providers.remote.inference.fireworks_compat.config.FireworksCompatConfig",
+                provider_data_validator="llama_stack.providers.remote.inference.fireworks_compat.config.FireworksProviderDataValidator",
+            ),
+        ),
+        remote_provider_spec(
+            api=Api.inference,
+            adapter=AdapterSpec(
+                adapter_type="together-openai-compat",
+                pip_packages=["litellm"],
+                module="llama_stack.providers.remote.inference.together_compat",
+                config_class="llama_stack.providers.remote.inference.together_compat.config.TogetherCompatConfig",
+                provider_data_validator="llama_stack.providers.remote.inference.together_compat.config.TogetherProviderDataValidator",
+            ),
+        ),
+        remote_provider_spec(
+            api=Api.inference,
+            adapter=AdapterSpec(
                 adapter_type="sambanova",
                 pip_packages=[
                     "openai",

@@ -1,0 +1,1329 @@
+{
+  "created": 1744239422.4927979,
+  "duration": 58.21826481819153,
+  "exitcode": 1,
+  "root": "/Users/erichuang/projects/llama-stack",
+  "environment": {},
+  "summary": {
+    "passed": 28,
+    "skipped": 2,
+    "failed": 3,
+    "total": 33,
+    "collected": 33
+  },
+  "collectors": [
+    {
+      "nodeid": "",
+      "outcome": "passed",
+      "result": [
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py",
+          "type": "Module"
+        }
+      ]
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py",
+      "outcome": "passed",
+      "result": [
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_basic[accounts/fireworks/models/llama-v3p3-70b-instruct-earth]",
+          "type": "Function",
+          "lineno": 89
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_basic[accounts/fireworks/models/llama-v3p3-70b-instruct-saturn]",
+          "type": "Function",
+          "lineno": 89
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_basic[accounts/fireworks/models/llama4-scout-instruct-basic-earth]",
+          "type": "Function",
+          "lineno": 89
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_basic[accounts/fireworks/models/llama4-scout-instruct-basic-saturn]",
+          "type": "Function",
+          "lineno": 89
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_basic[accounts/fireworks/models/llama4-maverick-instruct-basic-earth]",
+          "type": "Function",
+          "lineno": 89
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_basic[accounts/fireworks/models/llama4-maverick-instruct-basic-saturn]",
+          "type": "Function",
+          "lineno": 89
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_streaming_basic[accounts/fireworks/models/llama-v3p3-70b-instruct-earth]",
+          "type": "Function",
+          "lineno": 108
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_streaming_basic[accounts/fireworks/models/llama-v3p3-70b-instruct-saturn]",
+          "type": "Function",
+          "lineno": 108
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_streaming_basic[accounts/fireworks/models/llama4-scout-instruct-basic-earth]",
+          "type": "Function",
+          "lineno": 108
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_streaming_basic[accounts/fireworks/models/llama4-scout-instruct-basic-saturn]",
+          "type": "Function",
+          "lineno": 108
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_streaming_basic[accounts/fireworks/models/llama4-maverick-instruct-basic-earth]",
+          "type": "Function",
+          "lineno": 108
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_streaming_basic[accounts/fireworks/models/llama4-maverick-instruct-basic-saturn]",
+          "type": "Function",
+          "lineno": 108
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_image[accounts/fireworks/models/llama-v3p3-70b-instruct-case0]",
+          "type": "Function",
+          "lineno": 132
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_image[accounts/fireworks/models/llama4-scout-instruct-basic-case0]",
+          "type": "Function",
+          "lineno": 132
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_image[accounts/fireworks/models/llama4-maverick-instruct-basic-case0]",
+          "type": "Function",
+          "lineno": 132
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_streaming_image[accounts/fireworks/models/llama-v3p3-70b-instruct-case0]",
+          "type": "Function",
+          "lineno": 151
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_streaming_image[accounts/fireworks/models/llama4-scout-instruct-basic-case0]",
+          "type": "Function",
+          "lineno": 151
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_streaming_image[accounts/fireworks/models/llama4-maverick-instruct-basic-case0]",
+          "type": "Function",
+          "lineno": 151
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_structured_output[accounts/fireworks/models/llama-v3p3-70b-instruct-calendar]",
+          "type": "Function",
+          "lineno": 175
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_structured_output[accounts/fireworks/models/llama-v3p3-70b-instruct-math]",
+          "type": "Function",
+          "lineno": 175
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_structured_output[accounts/fireworks/models/llama4-scout-instruct-basic-calendar]",
+          "type": "Function",
+          "lineno": 175
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_structured_output[accounts/fireworks/models/llama4-scout-instruct-basic-math]",
+          "type": "Function",
+          "lineno": 175
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_structured_output[accounts/fireworks/models/llama4-maverick-instruct-basic-calendar]",
+          "type": "Function",
+          "lineno": 175
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_structured_output[accounts/fireworks/models/llama4-maverick-instruct-basic-math]",
+          "type": "Function",
+          "lineno": 175
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_streaming_structured_output[accounts/fireworks/models/llama-v3p3-70b-instruct-calendar]",
+          "type": "Function",
+          "lineno": 198
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_streaming_structured_output[accounts/fireworks/models/llama-v3p3-70b-instruct-math]",
+          "type": "Function",
+          "lineno": 198
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_streaming_structured_output[accounts/fireworks/models/llama4-scout-instruct-basic-calendar]",
+          "type": "Function",
+          "lineno": 198
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_streaming_structured_output[accounts/fireworks/models/llama4-scout-instruct-basic-math]",
+          "type": "Function",
+          "lineno": 198
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_streaming_structured_output[accounts/fireworks/models/llama4-maverick-instruct-basic-calendar]",
+          "type": "Function",
+          "lineno": 198
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_streaming_structured_output[accounts/fireworks/models/llama4-maverick-instruct-basic-math]",
+          "type": "Function",
+          "lineno": 198
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_tool_calling[accounts/fireworks/models/llama-v3p3-70b-instruct-case0]",
+          "type": "Function",
+          "lineno": 220
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_tool_calling[accounts/fireworks/models/llama4-scout-instruct-basic-case0]",
+          "type": "Function",
+          "lineno": 220
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_tool_calling[accounts/fireworks/models/llama4-maverick-instruct-basic-case0]",
+          "type": "Function",
+          "lineno": 220
+        }
+      ]
+    }
+  ],
+  "tests": [
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_basic[accounts/fireworks/models/llama-v3p3-70b-instruct-earth]",
+      "lineno": 89,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_non_streaming_basic[accounts/fireworks/models/llama-v3p3-70b-instruct-earth]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama-v3p3-70b-instruct-earth",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama-v3p3-70b-instruct",
+        "case_id": "earth"
+      },
+      "setup": {
+        "duration": 0.15537170798052102,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.9133582919603214,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0001806250074878335,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_basic[accounts/fireworks/models/llama-v3p3-70b-instruct-saturn]",
+      "lineno": 89,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_non_streaming_basic[accounts/fireworks/models/llama-v3p3-70b-instruct-saturn]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama-v3p3-70b-instruct-saturn",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama-v3p3-70b-instruct",
+        "case_id": "saturn"
+      },
+      "setup": {
+        "duration": 0.006683333078399301,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.40919991699047387,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0004338339203968644,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_basic[accounts/fireworks/models/llama4-scout-instruct-basic-earth]",
+      "lineno": 89,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_non_streaming_basic[accounts/fireworks/models/llama4-scout-instruct-basic-earth]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama4-scout-instruct-basic-earth",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama4-scout-instruct-basic",
+        "case_id": "earth"
+      },
+      "setup": {
+        "duration": 0.008507499936968088,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.9011739999987185,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0003041250165551901,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_basic[accounts/fireworks/models/llama4-scout-instruct-basic-saturn]",
+      "lineno": 89,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_non_streaming_basic[accounts/fireworks/models/llama4-scout-instruct-basic-saturn]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama4-scout-instruct-basic-saturn",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama4-scout-instruct-basic",
+        "case_id": "saturn"
+      },
+      "setup": {
+        "duration": 0.01130749995354563,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.6512553329812363,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0005465410649776459,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_basic[accounts/fireworks/models/llama4-maverick-instruct-basic-earth]",
+      "lineno": 89,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_non_streaming_basic[accounts/fireworks/models/llama4-maverick-instruct-basic-earth]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama4-maverick-instruct-basic-earth",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama4-maverick-instruct-basic",
+        "case_id": "earth"
+      },
+      "setup": {
+        "duration": 0.00806058302987367,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.9459439580095932,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.00019283394794911146,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_basic[accounts/fireworks/models/llama4-maverick-instruct-basic-saturn]",
+      "lineno": 89,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_non_streaming_basic[accounts/fireworks/models/llama4-maverick-instruct-basic-saturn]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama4-maverick-instruct-basic-saturn",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama4-maverick-instruct-basic",
+        "case_id": "saturn"
+      },
+      "setup": {
+        "duration": 0.007632583030499518,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.5771151670487598,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0001604999415576458,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_streaming_basic[accounts/fireworks/models/llama-v3p3-70b-instruct-earth]",
+      "lineno": 108,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_streaming_basic[accounts/fireworks/models/llama-v3p3-70b-instruct-earth]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama-v3p3-70b-instruct-earth",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama-v3p3-70b-instruct",
+        "case_id": "earth"
+      },
+      "setup": {
+        "duration": 0.0069437079364433885,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.399718250031583,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.00019812502432614565,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_streaming_basic[accounts/fireworks/models/llama-v3p3-70b-instruct-saturn]",
+      "lineno": 108,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_streaming_basic[accounts/fireworks/models/llama-v3p3-70b-instruct-saturn]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama-v3p3-70b-instruct-saturn",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama-v3p3-70b-instruct",
+        "case_id": "saturn"
+      },
+      "setup": {
+        "duration": 0.010878166067413986,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.525176375056617,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0003147920360788703,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_streaming_basic[accounts/fireworks/models/llama4-scout-instruct-basic-earth]",
+      "lineno": 108,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_streaming_basic[accounts/fireworks/models/llama4-scout-instruct-basic-earth]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama4-scout-instruct-basic-earth",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama4-scout-instruct-basic",
+        "case_id": "earth"
+      },
+      "setup": {
+        "duration": 0.012211333028972149,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.817475083982572,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.00026179105043411255,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_streaming_basic[accounts/fireworks/models/llama4-scout-instruct-basic-saturn]",
+      "lineno": 108,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_streaming_basic[accounts/fireworks/models/llama4-scout-instruct-basic-saturn]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama4-scout-instruct-basic-saturn",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama4-scout-instruct-basic",
+        "case_id": "saturn"
+      },
+      "setup": {
+        "duration": 0.011550666997209191,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.629822124959901,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0007216669619083405,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_streaming_basic[accounts/fireworks/models/llama4-maverick-instruct-basic-earth]",
+      "lineno": 108,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_streaming_basic[accounts/fireworks/models/llama4-maverick-instruct-basic-earth]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama4-maverick-instruct-basic-earth",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama4-maverick-instruct-basic",
+        "case_id": "earth"
+      },
+      "setup": {
+        "duration": 0.07059275009669363,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 1.0507562919519842,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0005967079196125269,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_streaming_basic[accounts/fireworks/models/llama4-maverick-instruct-basic-saturn]",
+      "lineno": 108,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_streaming_basic[accounts/fireworks/models/llama4-maverick-instruct-basic-saturn]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama4-maverick-instruct-basic-saturn",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama4-maverick-instruct-basic",
+        "case_id": "saturn"
+      },
+      "setup": {
+        "duration": 0.008579917019233108,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.7013194169849157,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.00023387500550597906,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_image[accounts/fireworks/models/llama-v3p3-70b-instruct-case0]",
+      "lineno": 132,
+      "outcome": "skipped",
+      "keywords": [
+        "test_chat_non_streaming_image[accounts/fireworks/models/llama-v3p3-70b-instruct-case0]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama-v3p3-70b-instruct-case0",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama-v3p3-70b-instruct",
+        "case_id": "case0"
+      },
+      "setup": {
+        "duration": 0.009830915951170027,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.0003564170328900218,
+        "outcome": "skipped",
+        "longrepr": "('/Users/erichuang/projects/llama-stack/tests/verifications/openai/test_chat_completion.py', 141, 'Skipped: Skipping test_chat_non_streaming_image for model accounts/fireworks/models/llama-v3p3-70b-instruct on provider fireworks based on config.')"
+      },
+      "teardown": {
+        "duration": 0.0002417090581730008,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_image[accounts/fireworks/models/llama4-scout-instruct-basic-case0]",
+      "lineno": 132,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_non_streaming_image[accounts/fireworks/models/llama4-scout-instruct-basic-case0]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama4-scout-instruct-basic-case0",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama4-scout-instruct-basic",
+        "case_id": "case0"
+      },
+      "setup": {
+        "duration": 0.02221116703003645,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 2.8726498750038445,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.00031583302188664675,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_image[accounts/fireworks/models/llama4-maverick-instruct-basic-case0]",
+      "lineno": 132,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_non_streaming_image[accounts/fireworks/models/llama4-maverick-instruct-basic-case0]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama4-maverick-instruct-basic-case0",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama4-maverick-instruct-basic",
+        "case_id": "case0"
+      },
+      "setup": {
+        "duration": 0.009584625018760562,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 3.0978688339237124,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.00019920803606510162,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_streaming_image[accounts/fireworks/models/llama-v3p3-70b-instruct-case0]",
+      "lineno": 151,
+      "outcome": "skipped",
+      "keywords": [
+        "test_chat_streaming_image[accounts/fireworks/models/llama-v3p3-70b-instruct-case0]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama-v3p3-70b-instruct-case0",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama-v3p3-70b-instruct",
+        "case_id": "case0"
+      },
+      "setup": {
+        "duration": 0.028188916970975697,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.00037304102443158627,
+        "outcome": "skipped",
+        "longrepr": "('/Users/erichuang/projects/llama-stack/tests/verifications/openai/test_chat_completion.py', 160, 'Skipped: Skipping test_chat_streaming_image for model accounts/fireworks/models/llama-v3p3-70b-instruct on provider fireworks based on config.')"
+      },
+      "teardown": {
+        "duration": 0.00019979197531938553,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_streaming_image[accounts/fireworks/models/llama4-scout-instruct-basic-case0]",
+      "lineno": 151,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_streaming_image[accounts/fireworks/models/llama4-scout-instruct-basic-case0]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama4-scout-instruct-basic-case0",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama4-scout-instruct-basic",
+        "case_id": "case0"
+      },
+      "setup": {
+        "duration": 0.010779874981380999,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 4.3372179579455405,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0005431660683825612,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_streaming_image[accounts/fireworks/models/llama4-maverick-instruct-basic-case0]",
+      "lineno": 151,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_streaming_image[accounts/fireworks/models/llama4-maverick-instruct-basic-case0]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama4-maverick-instruct-basic-case0",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama4-maverick-instruct-basic",
+        "case_id": "case0"
+      },
+      "setup": {
+        "duration": 0.008036875049583614,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 2.1431101659545675,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0003732909681275487,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_structured_output[accounts/fireworks/models/llama-v3p3-70b-instruct-calendar]",
+      "lineno": 175,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_non_streaming_structured_output[accounts/fireworks/models/llama-v3p3-70b-instruct-calendar]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama-v3p3-70b-instruct-calendar",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama-v3p3-70b-instruct",
+        "case_id": "calendar"
+      },
+      "setup": {
+        "duration": 0.018655457999557257,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.8155794170452282,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.00016341591253876686,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_structured_output[accounts/fireworks/models/llama-v3p3-70b-instruct-math]",
+      "lineno": 175,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_non_streaming_structured_output[accounts/fireworks/models/llama-v3p3-70b-instruct-math]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama-v3p3-70b-instruct-math",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama-v3p3-70b-instruct",
+        "case_id": "math"
+      },
+      "setup": {
+        "duration": 0.008017374901100993,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 2.0618860409595072,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0003495409619063139,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_structured_output[accounts/fireworks/models/llama4-scout-instruct-basic-calendar]",
+      "lineno": 175,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_non_streaming_structured_output[accounts/fireworks/models/llama4-scout-instruct-basic-calendar]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama4-scout-instruct-basic-calendar",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama4-scout-instruct-basic",
+        "case_id": "calendar"
+      },
+      "setup": {
+        "duration": 0.014514166046865284,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.9484057079534978,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.00017424998804926872,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_structured_output[accounts/fireworks/models/llama4-scout-instruct-basic-math]",
+      "lineno": 175,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_non_streaming_structured_output[accounts/fireworks/models/llama4-scout-instruct-basic-math]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama4-scout-instruct-basic-math",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama4-scout-instruct-basic",
+        "case_id": "math"
+      },
+      "setup": {
+        "duration": 0.008280457928776741,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 3.1487124579725787,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.00016924994997680187,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_structured_output[accounts/fireworks/models/llama4-maverick-instruct-basic-calendar]",
+      "lineno": 175,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_non_streaming_structured_output[accounts/fireworks/models/llama4-maverick-instruct-basic-calendar]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama4-maverick-instruct-basic-calendar",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama4-maverick-instruct-basic",
+        "case_id": "calendar"
+      },
+      "setup": {
+        "duration": 0.008495541987940669,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.9013374160276726,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0005652910331264138,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_structured_output[accounts/fireworks/models/llama4-maverick-instruct-basic-math]",
+      "lineno": 175,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_non_streaming_structured_output[accounts/fireworks/models/llama4-maverick-instruct-basic-math]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama4-maverick-instruct-basic-math",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama4-maverick-instruct-basic",
+        "case_id": "math"
+      },
+      "setup": {
+        "duration": 0.012977750040590763,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 2.371539333020337,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.00029320898465812206,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_streaming_structured_output[accounts/fireworks/models/llama-v3p3-70b-instruct-calendar]",
+      "lineno": 198,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_streaming_structured_output[accounts/fireworks/models/llama-v3p3-70b-instruct-calendar]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama-v3p3-70b-instruct-calendar",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama-v3p3-70b-instruct",
+        "case_id": "calendar"
+      },
+      "setup": {
+        "duration": 0.015030749957077205,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 2.986424957984127,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.00034258293453603983,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_streaming_structured_output[accounts/fireworks/models/llama-v3p3-70b-instruct-math]",
+      "lineno": 198,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_streaming_structured_output[accounts/fireworks/models/llama-v3p3-70b-instruct-math]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama-v3p3-70b-instruct-math",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama-v3p3-70b-instruct",
+        "case_id": "math"
+      },
+      "setup": {
+        "duration": 0.009167707990854979,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 2.824369167094119,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.00025275000371038914,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_streaming_structured_output[accounts/fireworks/models/llama4-scout-instruct-basic-calendar]",
+      "lineno": 198,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_streaming_structured_output[accounts/fireworks/models/llama4-scout-instruct-basic-calendar]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama4-scout-instruct-basic-calendar",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama4-scout-instruct-basic",
+        "case_id": "calendar"
+      },
+      "setup": {
+        "duration": 0.010990749928168952,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.9615629590116441,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0003264590632170439,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_streaming_structured_output[accounts/fireworks/models/llama4-scout-instruct-basic-math]",
+      "lineno": 198,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_streaming_structured_output[accounts/fireworks/models/llama4-scout-instruct-basic-math]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama4-scout-instruct-basic-math",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama4-scout-instruct-basic",
+        "case_id": "math"
+      },
+      "setup": {
+        "duration": 0.03659174998756498,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 2.529148624977097,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.00019337504636496305,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_streaming_structured_output[accounts/fireworks/models/llama4-maverick-instruct-basic-calendar]",
+      "lineno": 198,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_streaming_structured_output[accounts/fireworks/models/llama4-maverick-instruct-basic-calendar]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama4-maverick-instruct-basic-calendar",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama4-maverick-instruct-basic",
+        "case_id": "calendar"
+      },
+      "setup": {
+        "duration": 0.04494391696061939,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.7919033749494702,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0003654579631984234,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_streaming_structured_output[accounts/fireworks/models/llama4-maverick-instruct-basic-math]",
+      "lineno": 198,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_streaming_structured_output[accounts/fireworks/models/llama4-maverick-instruct-basic-math]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama4-maverick-instruct-basic-math",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama4-maverick-instruct-basic",
+        "case_id": "math"
+      },
+      "setup": {
+        "duration": 0.015060083009302616,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 2.0313304170267656,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.00047566695138812065,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_tool_calling[accounts/fireworks/models/llama-v3p3-70b-instruct-case0]",
+      "lineno": 220,
+      "outcome": "failed",
+      "keywords": [
+        "test_chat_non_streaming_tool_calling[accounts/fireworks/models/llama-v3p3-70b-instruct-case0]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama-v3p3-70b-instruct-case0",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama-v3p3-70b-instruct",
+        "case_id": "case0"
+      },
+      "setup": {
+        "duration": 0.010955083067528903,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.48026724997907877,
+        "outcome": "failed",
+        "crash": {
+          "path": "/Users/erichuang/projects/llama-stack/tests/verifications/openai/test_chat_completion.py",
+          "lineno": 239,
+          "message": "TypeError: object of type 'NoneType' has no len()"
+        },
+        "traceback": [
+          {
+            "path": "tests/verifications/openai/test_chat_completion.py",
+            "lineno": 239,
+            "message": "TypeError"
+          }
+        ],
+        "longrepr": "request = <FixtureRequest for <Function test_chat_non_streaming_tool_calling[accounts/fireworks/models/llama-v3p3-70b-instruct-case0]>>\nopenai_client = <openai.OpenAI object at 0x113e45f00>\nmodel = 'accounts/fireworks/models/llama-v3p3-70b-instruct'\nprovider = 'fireworks'\nverification_config = {'providers': {'cerebras': {'model_display_names': {'llama-3.3-70b': 'Llama-3.3-70B-Instruct'}, 'models': ['llama-3.3-... {'gpt-4o': 'gpt-4o', 'gpt-4o-mini': 'gpt-4o-mini'}, 'models': ['gpt-4o', 'gpt-4o-mini'], 'test_exclusions': {}}, ...}}\ncase = {'input': {'messages': [{'content': 'You are a helpful assistant that can use tools to get information.', 'role': 'sys..., 'properties': {...}, 'required': [...], 'type': 'object'}}, 'type': 'function'}]}, 'output': 'get_weather_tool_call'}\n\n    @pytest.mark.parametrize(\n        \"case\",\n        chat_completion_test_cases[\"test_tool_calling\"][\"test_params\"][\"case\"],\n        ids=case_id_generator,\n    )\n    def test_chat_non_streaming_tool_calling(request, openai_client, model, provider, verification_config, case):\n        test_name_base = get_base_test_name(request)\n        if should_skip_test(verification_config, provider, model, test_name_base):\n            pytest.skip(f\"Skipping {test_name_base} for model {model} on provider {provider} based on config.\")\n    \n        response = openai_client.chat.completions.create(\n            model=model,\n            messages=case[\"input\"][\"messages\"],\n            tools=case[\"input\"][\"tools\"],\n            stream=False,\n        )\n    \n        assert response.choices[0].message.role == \"assistant\"\n>       assert len(response.choices[0].message.tool_calls) > 0\nE       TypeError: object of type 'NoneType' has no len()\n\ntests/verifications/openai/test_chat_completion.py:239: TypeError"
+      },
+      "teardown": {
+        "duration": 0.00038475007750093937,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_tool_calling[accounts/fireworks/models/llama4-scout-instruct-basic-case0]",
+      "lineno": 220,
+      "outcome": "failed",
+      "keywords": [
+        "test_chat_non_streaming_tool_calling[accounts/fireworks/models/llama4-scout-instruct-basic-case0]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama4-scout-instruct-basic-case0",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama4-scout-instruct-basic",
+        "case_id": "case0"
+      },
+      "setup": {
+        "duration": 0.007370791980065405,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 3.917275207932107,
+        "outcome": "failed",
+        "crash": {
+          "path": "/Users/erichuang/projects/llama-stack/tests/verifications/openai/test_chat_completion.py",
+          "lineno": 239,
+          "message": "TypeError: object of type 'NoneType' has no len()"
+        },
+        "traceback": [
+          {
+            "path": "tests/verifications/openai/test_chat_completion.py",
+            "lineno": 239,
+            "message": "TypeError"
+          }
+        ],
+        "longrepr": "request = <FixtureRequest for <Function test_chat_non_streaming_tool_calling[accounts/fireworks/models/llama4-scout-instruct-basic-case0]>>\nopenai_client = <openai.OpenAI object at 0x113e588b0>\nmodel = 'accounts/fireworks/models/llama4-scout-instruct-basic'\nprovider = 'fireworks'\nverification_config = {'providers': {'cerebras': {'model_display_names': {'llama-3.3-70b': 'Llama-3.3-70B-Instruct'}, 'models': ['llama-3.3-... {'gpt-4o': 'gpt-4o', 'gpt-4o-mini': 'gpt-4o-mini'}, 'models': ['gpt-4o', 'gpt-4o-mini'], 'test_exclusions': {}}, ...}}\ncase = {'input': {'messages': [{'content': 'You are a helpful assistant that can use tools to get information.', 'role': 'sys..., 'properties': {...}, 'required': [...], 'type': 'object'}}, 'type': 'function'}]}, 'output': 'get_weather_tool_call'}\n\n    @pytest.mark.parametrize(\n        \"case\",\n        chat_completion_test_cases[\"test_tool_calling\"][\"test_params\"][\"case\"],\n        ids=case_id_generator,\n    )\n    def test_chat_non_streaming_tool_calling(request, openai_client, model, provider, verification_config, case):\n        test_name_base = get_base_test_name(request)\n        if should_skip_test(verification_config, provider, model, test_name_base):\n            pytest.skip(f\"Skipping {test_name_base} for model {model} on provider {provider} based on config.\")\n    \n        response = openai_client.chat.completions.create(\n            model=model,\n            messages=case[\"input\"][\"messages\"],\n            tools=case[\"input\"][\"tools\"],\n            stream=False,\n        )\n    \n        assert response.choices[0].message.role == \"assistant\"\n>       assert len(response.choices[0].message.tool_calls) > 0\nE       TypeError: object of type 'NoneType' has no len()\n\ntests/verifications/openai/test_chat_completion.py:239: TypeError"
+      },
+      "teardown": {
+        "duration": 0.0003637919435277581,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_tool_calling[accounts/fireworks/models/llama4-maverick-instruct-basic-case0]",
+      "lineno": 220,
+      "outcome": "failed",
+      "keywords": [
+        "test_chat_non_streaming_tool_calling[accounts/fireworks/models/llama4-maverick-instruct-basic-case0]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama4-maverick-instruct-basic-case0",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama4-maverick-instruct-basic",
+        "case_id": "case0"
+      },
+      "setup": {
+        "duration": 0.01879091700538993,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 9.500533916987479,
+        "outcome": "failed",
+        "crash": {
+          "path": "/Users/erichuang/projects/llama-stack/tests/verifications/openai/test_chat_completion.py",
+          "lineno": 239,
+          "message": "TypeError: object of type 'NoneType' has no len()"
+        },
+        "traceback": [
+          {
+            "path": "tests/verifications/openai/test_chat_completion.py",
+            "lineno": 239,
+            "message": "TypeError"
+          }
+        ],
+        "longrepr": "request = <FixtureRequest for <Function test_chat_non_streaming_tool_calling[accounts/fireworks/models/llama4-maverick-instruct-basic-case0]>>\nopenai_client = <openai.OpenAI object at 0x11369e140>\nmodel = 'accounts/fireworks/models/llama4-maverick-instruct-basic'\nprovider = 'fireworks'\nverification_config = {'providers': {'cerebras': {'model_display_names': {'llama-3.3-70b': 'Llama-3.3-70B-Instruct'}, 'models': ['llama-3.3-... {'gpt-4o': 'gpt-4o', 'gpt-4o-mini': 'gpt-4o-mini'}, 'models': ['gpt-4o', 'gpt-4o-mini'], 'test_exclusions': {}}, ...}}\ncase = {'input': {'messages': [{'content': 'You are a helpful assistant that can use tools to get information.', 'role': 'sys..., 'properties': {...}, 'required': [...], 'type': 'object'}}, 'type': 'function'}]}, 'output': 'get_weather_tool_call'}\n\n    @pytest.mark.parametrize(\n        \"case\",\n        chat_completion_test_cases[\"test_tool_calling\"][\"test_params\"][\"case\"],\n        ids=case_id_generator,\n    )\n    def test_chat_non_streaming_tool_calling(request, openai_client, model, provider, verification_config, case):\n        test_name_base = get_base_test_name(request)\n        if should_skip_test(verification_config, provider, model, test_name_base):\n            pytest.skip(f\"Skipping {test_name_base} for model {model} on provider {provider} based on config.\")\n    \n        response = openai_client.chat.completions.create(\n            model=model,\n            messages=case[\"input\"][\"messages\"],\n            tools=case[\"input\"][\"tools\"],\n            stream=False,\n        )\n    \n        assert response.choices[0].message.role == \"assistant\"\n>       assert len(response.choices[0].message.tool_calls) > 0\nE       TypeError: object of type 'NoneType' has no len()\n\ntests/verifications/openai/test_chat_completion.py:239: TypeError"
+      },
+      "teardown": {
+        "duration": 0.000509750097990036,
+        "outcome": "passed"
+      }
+    }
+  ]
+}

@@ -4,9 +4,12 @@
 # This source code is licensed under the terms described in the LICENSE file in
 # the root directory of this source tree.
 
+import re
+from pathlib import Path
 from typing import Any
 
 import pytest
+import yaml
 from pydantic import BaseModel
 
 from tests.verifications.openai.fixtures.load import load_test_cases
@@ -14,39 +17,108 @@ from tests.verifications.openai.fixtures.load import load_test_cases
 chat_completion_test_cases = load_test_cases("chat_completion")
 
 
-@pytest.fixture
-def correct_model_name(model, provider, providers_model_mapping):
-    """Return the provider-specific model name based on the generic model name."""
-    mapping = providers_model_mapping[provider]
-    if model not in mapping:
-        pytest.skip(f"Provider {provider} does not support model {model}")
-    return mapping[model]
+def case_id_generator(case):
+    """Generate a test ID from the case's 'case_id' field, or use a default."""
+    case_id = case.get("case_id")
+    if isinstance(case_id, (str, int)):
+        return re.sub(r"\\W|^(?=\\d)", "_", str(case_id))
+    return None
 
 
-@pytest.mark.parametrize("model", chat_completion_test_cases["test_chat_basic"]["test_params"]["model"])
+def pytest_generate_tests(metafunc):
+    """Dynamically parametrize tests based on the selected provider and config."""
+    if "model" in metafunc.fixturenames:
+        # Assumes --provider is passed via command line (similar to generate_report.py)
+        provider = metafunc.config.getoption("provider")
+        if not provider:
+            # If provider is not specified, we might skip or raise an error.
+            # For now, let's skip parametrization if provider is missing.
+            # Alternatively, consider a default provider or error handling.
+            print("Warning: --provider not specified. Skipping model parametrization.")
+            metafunc.parametrize("model", [])
+            return
+
+        # --- Load config directly within the hook for robustness ---
+
+        config_data = {}
+        config_path = Path(__file__).parent.parent / "config.yaml"
+        if config_path.exists():
+            try:
+                with open(config_path, "r") as f:
+                    config_data = yaml.safe_load(f)
+                    if config_data is None:  # Handle empty YAML file
+                        config_data = {}
+            except Exception as e:
+                print(f"ERROR loading verification config {config_path}: {e}")
+                config_data = {}  # Default to empty on error
+        else:
+            print(f"Warning: Verification config file not found at {config_path}")
+            config_data = {}  # Default to empty if file not found
+        # --- End direct load ---
+
+        provider_config = config_data.get("providers", {}).get(provider)
+        if provider_config:
+            models = provider_config.get("models", [])
+            if models:
+                metafunc.parametrize("model", models)
+            else:
+                print(f"Warning: No models found for provider '{provider}' in config.")
+                metafunc.parametrize("model", [])  # Parametrize empty if no models found
+        else:
+            print(f"Warning: Provider '{provider}' not found in config. No models parametrized.")
+            metafunc.parametrize("model", [])  # Parametrize empty if provider not found
+
+
+def should_skip_test(verification_config, provider, model, test_name_base):
+    """Check if a test should be skipped based on config exclusions."""
+    provider_config = verification_config.get("providers", {}).get(provider)
+    if not provider_config:
+        return False  # No config for provider, don't skip
+
+    exclusions = provider_config.get("test_exclusions", {}).get(model, [])
+    return test_name_base in exclusions
+
+
+# Helper to get the base test name from the request object
+def get_base_test_name(request):
+    return request.node.originalname
+
+
+# --- Test Functions ---
+
+
 @pytest.mark.parametrize(
-    "input_output",
-    chat_completion_test_cases["test_chat_basic"]["test_params"]["input_output"],
+    "case",
+    chat_completion_test_cases["test_chat_basic"]["test_params"]["case"],
+    ids=case_id_generator,
 )
-def test_chat_non_streaming_basic(openai_client, input_output, correct_model_name):
+def test_chat_non_streaming_basic(request, openai_client, model, provider, verification_config, case):
+    test_name_base = get_base_test_name(request)
+    if should_skip_test(verification_config, provider, model, test_name_base):
+        pytest.skip(f"Skipping {test_name_base} for model {model} on provider {provider} based on config.")
+
     response = openai_client.chat.completions.create(
-        model=correct_model_name,
-        messages=input_output["input"]["messages"],
+        model=model,
+        messages=case["input"]["messages"],
         stream=False,
     )
     assert response.choices[0].message.role == "assistant"
-    assert input_output["output"].lower() in response.choices[0].message.content.lower()
+    assert case["output"].lower() in response.choices[0].message.content.lower()
 
 
-@pytest.mark.parametrize("model", chat_completion_test_cases["test_chat_basic"]["test_params"]["model"])
 @pytest.mark.parametrize(
-    "input_output",
-    chat_completion_test_cases["test_chat_basic"]["test_params"]["input_output"],
+    "case",
+    chat_completion_test_cases["test_chat_basic"]["test_params"]["case"],
+    ids=case_id_generator,
 )
-def test_chat_streaming_basic(openai_client, input_output, correct_model_name):
+def test_chat_streaming_basic(request, openai_client, model, provider, verification_config, case):
+    test_name_base = get_base_test_name(request)
+    if should_skip_test(verification_config, provider, model, test_name_base):
+        pytest.skip(f"Skipping {test_name_base} for model {model} on provider {provider} based on config.")
+
     response = openai_client.chat.completions.create(
-        model=correct_model_name,
-        messages=input_output["input"]["messages"],
+        model=model,
+        messages=case["input"]["messages"],
         stream=True,
     )
     content = ""
@@ -55,33 +127,41 @@ def test_chat_streaming_basic(openai_client, input_output, correct_model_name):
 
     # TODO: add detailed type validation
 
-    assert input_output["output"].lower() in content.lower()
+    assert case["output"].lower() in content.lower()
 
 
-@pytest.mark.parametrize("model", chat_completion_test_cases["test_chat_image"]["test_params"]["model"])
 @pytest.mark.parametrize(
-    "input_output",
-    chat_completion_test_cases["test_chat_image"]["test_params"]["input_output"],
+    "case",
+    chat_completion_test_cases["test_chat_image"]["test_params"]["case"],
+    ids=case_id_generator,
 )
-def test_chat_non_streaming_image(openai_client, input_output, correct_model_name):
+def test_chat_non_streaming_image(request, openai_client, model, provider, verification_config, case):
+    test_name_base = get_base_test_name(request)
+    if should_skip_test(verification_config, provider, model, test_name_base):
+        pytest.skip(f"Skipping {test_name_base} for model {model} on provider {provider} based on config.")
+
     response = openai_client.chat.completions.create(
-        model=correct_model_name,
-        messages=input_output["input"]["messages"],
+        model=model,
+        messages=case["input"]["messages"],
         stream=False,
     )
     assert response.choices[0].message.role == "assistant"
-    assert input_output["output"].lower() in response.choices[0].message.content.lower()
+    assert case["output"].lower() in response.choices[0].message.content.lower()
 
 
-@pytest.mark.parametrize("model", chat_completion_test_cases["test_chat_image"]["test_params"]["model"])
 @pytest.mark.parametrize(
-    "input_output",
-    chat_completion_test_cases["test_chat_image"]["test_params"]["input_output"],
+    "case",
+    chat_completion_test_cases["test_chat_image"]["test_params"]["case"],
+    ids=case_id_generator,
 )
-def test_chat_streaming_image(openai_client, input_output, correct_model_name):
+def test_chat_streaming_image(request, openai_client, model, provider, verification_config, case):
+    test_name_base = get_base_test_name(request)
+    if should_skip_test(verification_config, provider, model, test_name_base):
+        pytest.skip(f"Skipping {test_name_base} for model {model} on provider {provider} based on config.")
+
     response = openai_client.chat.completions.create(
-        model=correct_model_name,
-        messages=input_output["input"]["messages"],
+        model=model,
+        messages=case["input"]["messages"],
         stream=True,
     )
     content = ""
@@ -90,73 +170,79 @@ def test_chat_streaming_image(openai_client, input_output, correct_model_name):
 
     # TODO: add detailed type validation
 
-    assert input_output["output"].lower() in content.lower()
+    assert case["output"].lower() in content.lower()
 
 
 @pytest.mark.parametrize(
-    "model",
-    chat_completion_test_cases["test_chat_structured_output"]["test_params"]["model"],
+    "case",
+    chat_completion_test_cases["test_chat_structured_output"]["test_params"]["case"],
+    ids=case_id_generator,
 )
-@pytest.mark.parametrize(
-    "input_output",
-    chat_completion_test_cases["test_chat_structured_output"]["test_params"]["input_output"],
-)
-def test_chat_non_streaming_structured_output(openai_client, input_output, correct_model_name):
+def test_chat_non_streaming_structured_output(request, openai_client, model, provider, verification_config, case):
+    test_name_base = get_base_test_name(request)
+    if should_skip_test(verification_config, provider, model, test_name_base):
+        pytest.skip(f"Skipping {test_name_base} for model {model} on provider {provider} based on config.")
+
     response = openai_client.chat.completions.create(
-        model=correct_model_name,
-        messages=input_output["input"]["messages"],
-        response_format=input_output["input"]["response_format"],
+        model=model,
+        messages=case["input"]["messages"],
+        response_format=case["input"]["response_format"],
         stream=False,
     )
 
     assert response.choices[0].message.role == "assistant"
     maybe_json_content = response.choices[0].message.content
 
-    validate_structured_output(maybe_json_content, input_output["output"])
+    validate_structured_output(maybe_json_content, case["output"])
 
 
 @pytest.mark.parametrize(
-    "model",
-    chat_completion_test_cases["test_chat_structured_output"]["test_params"]["model"],
+    "case",
+    chat_completion_test_cases["test_chat_structured_output"]["test_params"]["case"],
+    ids=case_id_generator,
 )
-@pytest.mark.parametrize(
-    "input_output",
-    chat_completion_test_cases["test_chat_structured_output"]["test_params"]["input_output"],
-)
-def test_chat_streaming_structured_output(openai_client, input_output, correct_model_name):
+def test_chat_streaming_structured_output(request, openai_client, model, provider, verification_config, case):
+    test_name_base = get_base_test_name(request)
+    if should_skip_test(verification_config, provider, model, test_name_base):
+        pytest.skip(f"Skipping {test_name_base} for model {model} on provider {provider} based on config.")
+
     response = openai_client.chat.completions.create(
-        model=correct_model_name,
-        messages=input_output["input"]["messages"],
-        response_format=input_output["input"]["response_format"],
+        model=model,
+        messages=case["input"]["messages"],
+        response_format=case["input"]["response_format"],
         stream=True,
     )
     maybe_json_content = ""
     for chunk in response:
         maybe_json_content += chunk.choices[0].delta.content or ""
-    validate_structured_output(maybe_json_content, input_output["output"])
+    validate_structured_output(maybe_json_content, case["output"])
 
 
 @pytest.mark.parametrize(
-    "model",
-    chat_completion_test_cases["test_tool_calling"]["test_params"]["model"],
+    "case",
+    chat_completion_test_cases["test_tool_calling"]["test_params"]["case"],
+    ids=case_id_generator,
 )
-@pytest.mark.parametrize(
-    "input_output",
-    chat_completion_test_cases["test_tool_calling"]["test_params"]["input_output"],
-)
-def test_chat_non_streaming_tool_calling(openai_client, input_output, correct_model_name):
+def test_chat_non_streaming_tool_calling(request, openai_client, model, provider, verification_config, case):
+    test_name_base = get_base_test_name(request)
+    if should_skip_test(verification_config, provider, model, test_name_base):
+        pytest.skip(f"Skipping {test_name_base} for model {model} on provider {provider} based on config.")
+
     response = openai_client.chat.completions.create(
-        model=correct_model_name,
-        messages=input_output["input"]["messages"],
-        tools=input_output["input"]["tools"],
+        model=model,
+        messages=case["input"]["messages"],
+        tools=case["input"]["tools"],
         stream=False,
     )
 
     assert response.choices[0].message.role == "assistant"
     assert len(response.choices[0].message.tool_calls) > 0
-    assert input_output["output"] == "get_weather_tool_call"
+    assert case["output"] == "get_weather_tool_call"
     assert response.choices[0].message.tool_calls[0].function.name == "get_weather"
     # TODO: add detailed type validation
+
+
+# --- Helper functions (structured output validation) ---
 
 
 def get_structured_output(maybe_json_content: str, schema_name: str) -> Any | None:

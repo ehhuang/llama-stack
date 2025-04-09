@@ -5,43 +5,21 @@
 # the root directory of this source tree.
 
 import os
+from pathlib import Path
 
 import pytest
+import yaml
 from openai import OpenAI
 
 
-@pytest.fixture
-def providers_model_mapping():
-    """
-    Mapping from model names used in test cases to provider's model names.
-    """
-    return {
-        "fireworks": {
-            "Llama-3.3-70B-Instruct": "accounts/fireworks/models/llama-v3p1-70b-instruct",
-            "Llama-3.2-11B-Vision-Instruct": "accounts/fireworks/models/llama-v3p2-11b-vision-instruct",
-            "Llama-4-Scout-17B-16E-Instruct": "accounts/fireworks/models/llama4-scout-instruct-basic",
-            "Llama-4-Maverick-17B-128E-Instruct": "accounts/fireworks/models/llama4-maverick-instruct-basic",
-        },
-        "together": {
-            "Llama-3.3-70B-Instruct": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
-            "Llama-3.2-11B-Vision-Instruct": "meta-llama/Llama-3.2-11B-Vision-Instruct-Turbo",
-            "Llama-4-Scout-17B-16E-Instruct": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
-            "Llama-4-Maverick-17B-128E-Instruct": "meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8",
-        },
-        "groq": {
-            "Llama-3.3-70B-Instruct": "llama-3.3-70b-versatile",
-            "Llama-3.2-11B-Vision-Instruct": "llama-3.2-11b-vision-preview",
-            "Llama-4-Scout-17B-16E-Instruct": "llama-4-scout-17b-16e-instruct",
-            "Llama-4-Maverick-17B-128E-Instruct": "llama-4-maverick-17b-128e-instruct",
-        },
-        "cerebras": {
-            "Llama-3.3-70B-Instruct": "llama-3.3-70b",
-        },
-        "openai": {
-            "gpt-4o": "gpt-4o",
-            "gpt-4o-mini": "gpt-4o-mini",
-        },
-    }
+@pytest.fixture(scope="session")
+def verification_config():
+    """Load the verification config file."""
+    config_path = Path(__file__).parent.parent.parent / "config.yaml"
+    if not config_path.exists():
+        pytest.fail(f"Verification config file not found at {config_path}")
+    with open(config_path, "r") as f:
+        return yaml.safe_load(f)
 
 
 @pytest.fixture

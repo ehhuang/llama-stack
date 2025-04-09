@@ -1,0 +1,1420 @@
+{
+  "created": 1744240584.247523,
+  "duration": 57.19744420051575,
+  "exitcode": 1,
+  "root": "/Users/erichuang/projects/llama-stack",
+  "environment": {},
+  "summary": {
+    "passed": 21,
+    "failed": 10,
+    "skipped": 2,
+    "total": 33,
+    "collected": 33
+  },
+  "collectors": [
+    {
+      "nodeid": "",
+      "outcome": "passed",
+      "result": [
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py",
+          "type": "Module"
+        }
+      ]
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py",
+      "outcome": "passed",
+      "result": [
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_basic[meta-llama/Llama-3.3-70B-Instruct-Turbo-earth]",
+          "type": "Function",
+          "lineno": 89
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_basic[meta-llama/Llama-3.3-70B-Instruct-Turbo-saturn]",
+          "type": "Function",
+          "lineno": 89
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_basic[meta-llama/Llama-4-Scout-17B-16E-Instruct-earth]",
+          "type": "Function",
+          "lineno": 89
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_basic[meta-llama/Llama-4-Scout-17B-16E-Instruct-saturn]",
+          "type": "Function",
+          "lineno": 89
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_basic[meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8-earth]",
+          "type": "Function",
+          "lineno": 89
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_basic[meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8-saturn]",
+          "type": "Function",
+          "lineno": 89
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_streaming_basic[meta-llama/Llama-3.3-70B-Instruct-Turbo-earth]",
+          "type": "Function",
+          "lineno": 108
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_streaming_basic[meta-llama/Llama-3.3-70B-Instruct-Turbo-saturn]",
+          "type": "Function",
+          "lineno": 108
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_streaming_basic[meta-llama/Llama-4-Scout-17B-16E-Instruct-earth]",
+          "type": "Function",
+          "lineno": 108
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_streaming_basic[meta-llama/Llama-4-Scout-17B-16E-Instruct-saturn]",
+          "type": "Function",
+          "lineno": 108
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_streaming_basic[meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8-earth]",
+          "type": "Function",
+          "lineno": 108
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_streaming_basic[meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8-saturn]",
+          "type": "Function",
+          "lineno": 108
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_image[meta-llama/Llama-3.3-70B-Instruct-Turbo-case0]",
+          "type": "Function",
+          "lineno": 132
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_image[meta-llama/Llama-4-Scout-17B-16E-Instruct-case0]",
+          "type": "Function",
+          "lineno": 132
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_image[meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8-case0]",
+          "type": "Function",
+          "lineno": 132
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_streaming_image[meta-llama/Llama-3.3-70B-Instruct-Turbo-case0]",
+          "type": "Function",
+          "lineno": 151
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_streaming_image[meta-llama/Llama-4-Scout-17B-16E-Instruct-case0]",
+          "type": "Function",
+          "lineno": 151
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_streaming_image[meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8-case0]",
+          "type": "Function",
+          "lineno": 151
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_structured_output[meta-llama/Llama-3.3-70B-Instruct-Turbo-calendar]",
+          "type": "Function",
+          "lineno": 175
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_structured_output[meta-llama/Llama-3.3-70B-Instruct-Turbo-math]",
+          "type": "Function",
+          "lineno": 175
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_structured_output[meta-llama/Llama-4-Scout-17B-16E-Instruct-calendar]",
+          "type": "Function",
+          "lineno": 175
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_structured_output[meta-llama/Llama-4-Scout-17B-16E-Instruct-math]",
+          "type": "Function",
+          "lineno": 175
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_structured_output[meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8-calendar]",
+          "type": "Function",
+          "lineno": 175
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_structured_output[meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8-math]",
+          "type": "Function",
+          "lineno": 175
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_streaming_structured_output[meta-llama/Llama-3.3-70B-Instruct-Turbo-calendar]",
+          "type": "Function",
+          "lineno": 198
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_streaming_structured_output[meta-llama/Llama-3.3-70B-Instruct-Turbo-math]",
+          "type": "Function",
+          "lineno": 198
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_streaming_structured_output[meta-llama/Llama-4-Scout-17B-16E-Instruct-calendar]",
+          "type": "Function",
+          "lineno": 198
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_streaming_structured_output[meta-llama/Llama-4-Scout-17B-16E-Instruct-math]",
+          "type": "Function",
+          "lineno": 198
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_streaming_structured_output[meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8-calendar]",
+          "type": "Function",
+          "lineno": 198
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_streaming_structured_output[meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8-math]",
+          "type": "Function",
+          "lineno": 198
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_tool_calling[meta-llama/Llama-3.3-70B-Instruct-Turbo-case0]",
+          "type": "Function",
+          "lineno": 220
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_tool_calling[meta-llama/Llama-4-Scout-17B-16E-Instruct-case0]",
+          "type": "Function",
+          "lineno": 220
+        },
+        {
+          "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_tool_calling[meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8-case0]",
+          "type": "Function",
+          "lineno": 220
+        }
+      ]
+    }
+  ],
+  "tests": [
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_basic[meta-llama/Llama-3.3-70B-Instruct-Turbo-earth]",
+      "lineno": 89,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_non_streaming_basic[meta-llama/Llama-3.3-70B-Instruct-Turbo-earth]",
+        "parametrize",
+        "pytestmark",
+        "meta-llama/Llama-3.3-70B-Instruct-Turbo-earth",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+        "case_id": "earth"
+      },
+      "setup": {
+        "duration": 0.08709249994717538,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.5483262500492856,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0004592089680954814,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_basic[meta-llama/Llama-3.3-70B-Instruct-Turbo-saturn]",
+      "lineno": 89,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_non_streaming_basic[meta-llama/Llama-3.3-70B-Instruct-Turbo-saturn]",
+        "parametrize",
+        "pytestmark",
+        "meta-llama/Llama-3.3-70B-Instruct-Turbo-saturn",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+        "case_id": "saturn"
+      },
+      "setup": {
+        "duration": 0.015929291024804115,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.3223788330797106,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.00040445802733302116,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_basic[meta-llama/Llama-4-Scout-17B-16E-Instruct-earth]",
+      "lineno": 89,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_non_streaming_basic[meta-llama/Llama-4-Scout-17B-16E-Instruct-earth]",
+        "parametrize",
+        "pytestmark",
+        "meta-llama/Llama-4-Scout-17B-16E-Instruct-earth",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+        "case_id": "earth"
+      },
+      "setup": {
+        "duration": 0.016636624932289124,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.6475660420255736,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.00031004101037979126,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_basic[meta-llama/Llama-4-Scout-17B-16E-Instruct-saturn]",
+      "lineno": 89,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_non_streaming_basic[meta-llama/Llama-4-Scout-17B-16E-Instruct-saturn]",
+        "parametrize",
+        "pytestmark",
+        "meta-llama/Llama-4-Scout-17B-16E-Instruct-saturn",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+        "case_id": "saturn"
+      },
+      "setup": {
+        "duration": 0.013790583005174994,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.46620470797643065,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.00027912494260817766,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_basic[meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8-earth]",
+      "lineno": 89,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_non_streaming_basic[meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8-earth]",
+        "parametrize",
+        "pytestmark",
+        "meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8-earth",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8",
+        "case_id": "earth"
+      },
+      "setup": {
+        "duration": 0.010507958009839058,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.8933301250217482,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0002495420631021261,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_basic[meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8-saturn]",
+      "lineno": 89,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_non_streaming_basic[meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8-saturn]",
+        "parametrize",
+        "pytestmark",
+        "meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8-saturn",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8",
+        "case_id": "saturn"
+      },
+      "setup": {
+        "duration": 0.014187959022819996,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.32115270907524973,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.000651499954983592,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_streaming_basic[meta-llama/Llama-3.3-70B-Instruct-Turbo-earth]",
+      "lineno": 108,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_streaming_basic[meta-llama/Llama-3.3-70B-Instruct-Turbo-earth]",
+        "parametrize",
+        "pytestmark",
+        "meta-llama/Llama-3.3-70B-Instruct-Turbo-earth",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+        "case_id": "earth"
+      },
+      "setup": {
+        "duration": 0.014218374970369041,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 7.66581641708035,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.00029620900750160217,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_streaming_basic[meta-llama/Llama-3.3-70B-Instruct-Turbo-saturn]",
+      "lineno": 108,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_streaming_basic[meta-llama/Llama-3.3-70B-Instruct-Turbo-saturn]",
+        "parametrize",
+        "pytestmark",
+        "meta-llama/Llama-3.3-70B-Instruct-Turbo-saturn",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+        "case_id": "saturn"
+      },
+      "setup": {
+        "duration": 0.019030333030968904,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.39091379195451736,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.00019924994558095932,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_streaming_basic[meta-llama/Llama-4-Scout-17B-16E-Instruct-earth]",
+      "lineno": 108,
+      "outcome": "failed",
+      "keywords": [
+        "test_chat_streaming_basic[meta-llama/Llama-4-Scout-17B-16E-Instruct-earth]",
+        "parametrize",
+        "pytestmark",
+        "meta-llama/Llama-4-Scout-17B-16E-Instruct-earth",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+        "case_id": "earth"
+      },
+      "setup": {
+        "duration": 0.007340208976529539,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.25061620806809515,
+        "outcome": "failed",
+        "crash": {
+          "path": "/Users/erichuang/projects/llama-stack/tests/verifications/openai/test_chat_completion.py",
+          "lineno": 126,
+          "message": "IndexError: list index out of range"
+        },
+        "traceback": [
+          {
+            "path": "tests/verifications/openai/test_chat_completion.py",
+            "lineno": 126,
+            "message": "IndexError"
+          }
+        ],
+        "longrepr": "request = <FixtureRequest for <Function test_chat_streaming_basic[meta-llama/Llama-4-Scout-17B-16E-Instruct-earth]>>\nopenai_client = <openai.OpenAI object at 0x120ab8a30>\nmodel = 'meta-llama/Llama-4-Scout-17B-16E-Instruct', provider = 'together'\nverification_config = {'providers': {'cerebras': {'model_display_names': {'llama-3.3-70b': 'Llama-3.3-70B-Instruct'}, 'models': ['llama-3.3-... {'gpt-4o': 'gpt-4o', 'gpt-4o-mini': 'gpt-4o-mini'}, 'models': ['gpt-4o', 'gpt-4o-mini'], 'test_exclusions': {}}, ...}}\ncase = {'case_id': 'earth', 'input': {'messages': [{'content': 'Which planet do humans live on?', 'role': 'user'}]}, 'output': 'Earth'}\n\n    @pytest.mark.parametrize(\n        \"case\",\n        chat_completion_test_cases[\"test_chat_basic\"][\"test_params\"][\"case\"],\n        ids=case_id_generator,\n    )\n    def test_chat_streaming_basic(request, openai_client, model, provider, verification_config, case):\n        test_name_base = get_base_test_name(request)\n        if should_skip_test(verification_config, provider, model, test_name_base):\n            pytest.skip(f\"Skipping {test_name_base} for model {model} on provider {provider} based on config.\")\n    \n        response = openai_client.chat.completions.create(\n            model=model,\n            messages=case[\"input\"][\"messages\"],\n            stream=True,\n        )\n        content = \"\"\n        for chunk in response:\n>           content += chunk.choices[0].delta.content or \"\"\nE           IndexError: list index out of range\n\ntests/verifications/openai/test_chat_completion.py:126: IndexError"
+      },
+      "teardown": {
+        "duration": 0.00025237491354346275,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_streaming_basic[meta-llama/Llama-4-Scout-17B-16E-Instruct-saturn]",
+      "lineno": 108,
+      "outcome": "failed",
+      "keywords": [
+        "test_chat_streaming_basic[meta-llama/Llama-4-Scout-17B-16E-Instruct-saturn]",
+        "parametrize",
+        "pytestmark",
+        "meta-llama/Llama-4-Scout-17B-16E-Instruct-saturn",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+        "case_id": "saturn"
+      },
+      "setup": {
+        "duration": 0.012916040956042707,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.4032867499627173,
+        "outcome": "failed",
+        "crash": {
+          "path": "/Users/erichuang/projects/llama-stack/tests/verifications/openai/test_chat_completion.py",
+          "lineno": 126,
+          "message": "IndexError: list index out of range"
+        },
+        "traceback": [
+          {
+            "path": "tests/verifications/openai/test_chat_completion.py",
+            "lineno": 126,
+            "message": "IndexError"
+          }
+        ],
+        "longrepr": "request = <FixtureRequest for <Function test_chat_streaming_basic[meta-llama/Llama-4-Scout-17B-16E-Instruct-saturn]>>\nopenai_client = <openai.OpenAI object at 0x120a0dcc0>\nmodel = 'meta-llama/Llama-4-Scout-17B-16E-Instruct', provider = 'together'\nverification_config = {'providers': {'cerebras': {'model_display_names': {'llama-3.3-70b': 'Llama-3.3-70B-Instruct'}, 'models': ['llama-3.3-... {'gpt-4o': 'gpt-4o', 'gpt-4o-mini': 'gpt-4o-mini'}, 'models': ['gpt-4o', 'gpt-4o-mini'], 'test_exclusions': {}}, ...}}\ncase = {'case_id': 'saturn', 'input': {'messages': [{'content': 'Which planet has rings around it with a name starting with letter S?', 'role': 'user'}]}, 'output': 'Saturn'}\n\n    @pytest.mark.parametrize(\n        \"case\",\n        chat_completion_test_cases[\"test_chat_basic\"][\"test_params\"][\"case\"],\n        ids=case_id_generator,\n    )\n    def test_chat_streaming_basic(request, openai_client, model, provider, verification_config, case):\n        test_name_base = get_base_test_name(request)\n        if should_skip_test(verification_config, provider, model, test_name_base):\n            pytest.skip(f\"Skipping {test_name_base} for model {model} on provider {provider} based on config.\")\n    \n        response = openai_client.chat.completions.create(\n            model=model,\n            messages=case[\"input\"][\"messages\"],\n            stream=True,\n        )\n        content = \"\"\n        for chunk in response:\n>           content += chunk.choices[0].delta.content or \"\"\nE           IndexError: list index out of range\n\ntests/verifications/openai/test_chat_completion.py:126: IndexError"
+      },
+      "teardown": {
+        "duration": 0.00027183303609490395,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_streaming_basic[meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8-earth]",
+      "lineno": 108,
+      "outcome": "failed",
+      "keywords": [
+        "test_chat_streaming_basic[meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8-earth]",
+        "parametrize",
+        "pytestmark",
+        "meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8-earth",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8",
+        "case_id": "earth"
+      },
+      "setup": {
+        "duration": 0.007383999996818602,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.8117790831020102,
+        "outcome": "failed",
+        "crash": {
+          "path": "/Users/erichuang/projects/llama-stack/tests/verifications/openai/test_chat_completion.py",
+          "lineno": 126,
+          "message": "IndexError: list index out of range"
+        },
+        "traceback": [
+          {
+            "path": "tests/verifications/openai/test_chat_completion.py",
+            "lineno": 126,
+            "message": "IndexError"
+          }
+        ],
+        "longrepr": "request = <FixtureRequest for <Function test_chat_streaming_basic[meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8-earth]>>\nopenai_client = <openai.OpenAI object at 0x120c16cb0>\nmodel = 'meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8'\nprovider = 'together'\nverification_config = {'providers': {'cerebras': {'model_display_names': {'llama-3.3-70b': 'Llama-3.3-70B-Instruct'}, 'models': ['llama-3.3-... {'gpt-4o': 'gpt-4o', 'gpt-4o-mini': 'gpt-4o-mini'}, 'models': ['gpt-4o', 'gpt-4o-mini'], 'test_exclusions': {}}, ...}}\ncase = {'case_id': 'earth', 'input': {'messages': [{'content': 'Which planet do humans live on?', 'role': 'user'}]}, 'output': 'Earth'}\n\n    @pytest.mark.parametrize(\n        \"case\",\n        chat_completion_test_cases[\"test_chat_basic\"][\"test_params\"][\"case\"],\n        ids=case_id_generator,\n    )\n    def test_chat_streaming_basic(request, openai_client, model, provider, verification_config, case):\n        test_name_base = get_base_test_name(request)\n        if should_skip_test(verification_config, provider, model, test_name_base):\n            pytest.skip(f\"Skipping {test_name_base} for model {model} on provider {provider} based on config.\")\n    \n        response = openai_client.chat.completions.create(\n            model=model,\n            messages=case[\"input\"][\"messages\"],\n            stream=True,\n        )\n        content = \"\"\n        for chunk in response:\n>           content += chunk.choices[0].delta.content or \"\"\nE           IndexError: list index out of range\n\ntests/verifications/openai/test_chat_completion.py:126: IndexError"
+      },
+      "teardown": {
+        "duration": 0.00023570796474814415,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_streaming_basic[meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8-saturn]",
+      "lineno": 108,
+      "outcome": "failed",
+      "keywords": [
+        "test_chat_streaming_basic[meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8-saturn]",
+        "parametrize",
+        "pytestmark",
+        "meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8-saturn",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8",
+        "case_id": "saturn"
+      },
+      "setup": {
+        "duration": 0.011373958899639547,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.5793767910217866,
+        "outcome": "failed",
+        "crash": {
+          "path": "/Users/erichuang/projects/llama-stack/tests/verifications/openai/test_chat_completion.py",
+          "lineno": 126,
+          "message": "IndexError: list index out of range"
+        },
+        "traceback": [
+          {
+            "path": "tests/verifications/openai/test_chat_completion.py",
+            "lineno": 126,
+            "message": "IndexError"
+          }
+        ],
+        "longrepr": "request = <FixtureRequest for <Function test_chat_streaming_basic[meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8-saturn]>>\nopenai_client = <openai.OpenAI object at 0x120a0f6d0>\nmodel = 'meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8'\nprovider = 'together'\nverification_config = {'providers': {'cerebras': {'model_display_names': {'llama-3.3-70b': 'Llama-3.3-70B-Instruct'}, 'models': ['llama-3.3-... {'gpt-4o': 'gpt-4o', 'gpt-4o-mini': 'gpt-4o-mini'}, 'models': ['gpt-4o', 'gpt-4o-mini'], 'test_exclusions': {}}, ...}}\ncase = {'case_id': 'saturn', 'input': {'messages': [{'content': 'Which planet has rings around it with a name starting with letter S?', 'role': 'user'}]}, 'output': 'Saturn'}\n\n    @pytest.mark.parametrize(\n        \"case\",\n        chat_completion_test_cases[\"test_chat_basic\"][\"test_params\"][\"case\"],\n        ids=case_id_generator,\n    )\n    def test_chat_streaming_basic(request, openai_client, model, provider, verification_config, case):\n        test_name_base = get_base_test_name(request)\n        if should_skip_test(verification_config, provider, model, test_name_base):\n            pytest.skip(f\"Skipping {test_name_base} for model {model} on provider {provider} based on config.\")\n    \n        response = openai_client.chat.completions.create(\n            model=model,\n            messages=case[\"input\"][\"messages\"],\n            stream=True,\n        )\n        content = \"\"\n        for chunk in response:\n>           content += chunk.choices[0].delta.content or \"\"\nE           IndexError: list index out of range\n\ntests/verifications/openai/test_chat_completion.py:126: IndexError"
+      },
+      "teardown": {
+        "duration": 0.00028158293571323156,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_image[meta-llama/Llama-3.3-70B-Instruct-Turbo-case0]",
+      "lineno": 132,
+      "outcome": "skipped",
+      "keywords": [
+        "test_chat_non_streaming_image[meta-llama/Llama-3.3-70B-Instruct-Turbo-case0]",
+        "parametrize",
+        "pytestmark",
+        "meta-llama/Llama-3.3-70B-Instruct-Turbo-case0",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+        "case_id": "case0"
+      },
+      "setup": {
+        "duration": 0.006967624998651445,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.00015966594219207764,
+        "outcome": "skipped",
+        "longrepr": "('/Users/erichuang/projects/llama-stack/tests/verifications/openai/test_chat_completion.py', 141, 'Skipped: Skipping test_chat_non_streaming_image for model meta-llama/Llama-3.3-70B-Instruct-Turbo on provider together based on config.')"
+      },
+      "teardown": {
+        "duration": 0.0001644589938223362,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_image[meta-llama/Llama-4-Scout-17B-16E-Instruct-case0]",
+      "lineno": 132,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_non_streaming_image[meta-llama/Llama-4-Scout-17B-16E-Instruct-case0]",
+        "parametrize",
+        "pytestmark",
+        "meta-llama/Llama-4-Scout-17B-16E-Instruct-case0",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+        "case_id": "case0"
+      },
+      "setup": {
+        "duration": 0.00786758295726031,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 3.504629415925592,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.00018854194786399603,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_image[meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8-case0]",
+      "lineno": 132,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_non_streaming_image[meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8-case0]",
+        "parametrize",
+        "pytestmark",
+        "meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8-case0",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8",
+        "case_id": "case0"
+      },
+      "setup": {
+        "duration": 0.0074378750286996365,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 2.418070500018075,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0007645000005140901,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_streaming_image[meta-llama/Llama-3.3-70B-Instruct-Turbo-case0]",
+      "lineno": 151,
+      "outcome": "skipped",
+      "keywords": [
+        "test_chat_streaming_image[meta-llama/Llama-3.3-70B-Instruct-Turbo-case0]",
+        "parametrize",
+        "pytestmark",
+        "meta-llama/Llama-3.3-70B-Instruct-Turbo-case0",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+        "case_id": "case0"
+      },
+      "setup": {
+        "duration": 0.013794707949273288,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.00025162496604025364,
+        "outcome": "skipped",
+        "longrepr": "('/Users/erichuang/projects/llama-stack/tests/verifications/openai/test_chat_completion.py', 160, 'Skipped: Skipping test_chat_streaming_image for model meta-llama/Llama-3.3-70B-Instruct-Turbo on provider together based on config.')"
+      },
+      "teardown": {
+        "duration": 0.00023208395577967167,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_streaming_image[meta-llama/Llama-4-Scout-17B-16E-Instruct-case0]",
+      "lineno": 151,
+      "outcome": "failed",
+      "keywords": [
+        "test_chat_streaming_image[meta-llama/Llama-4-Scout-17B-16E-Instruct-case0]",
+        "parametrize",
+        "pytestmark",
+        "meta-llama/Llama-4-Scout-17B-16E-Instruct-case0",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+        "case_id": "case0"
+      },
+      "setup": {
+        "duration": 0.012781040975823998,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 5.205227333004586,
+        "outcome": "failed",
+        "crash": {
+          "path": "/Users/erichuang/projects/llama-stack/tests/verifications/openai/test_chat_completion.py",
+          "lineno": 169,
+          "message": "IndexError: list index out of range"
+        },
+        "traceback": [
+          {
+            "path": "tests/verifications/openai/test_chat_completion.py",
+            "lineno": 169,
+            "message": "IndexError"
+          }
+        ],
+        "longrepr": "request = <FixtureRequest for <Function test_chat_streaming_image[meta-llama/Llama-4-Scout-17B-16E-Instruct-case0]>>\nopenai_client = <openai.OpenAI object at 0x120c505b0>\nmodel = 'meta-llama/Llama-4-Scout-17B-16E-Instruct', provider = 'together'\nverification_config = {'providers': {'cerebras': {'model_display_names': {'llama-3.3-70b': 'Llama-3.3-70B-Instruct'}, 'models': ['llama-3.3-... {'gpt-4o': 'gpt-4o', 'gpt-4o-mini': 'gpt-4o-mini'}, 'models': ['gpt-4o', 'gpt-4o-mini'], 'test_exclusions': {}}, ...}}\ncase = {'input': {'messages': [{'content': [{'text': 'What is in this image?', 'type': 'text'}, {'image_url': {...}, 'type': 'image_url'}], 'role': 'user'}]}, 'output': 'llama'}\n\n    @pytest.mark.parametrize(\n        \"case\",\n        chat_completion_test_cases[\"test_chat_image\"][\"test_params\"][\"case\"],\n        ids=case_id_generator,\n    )\n    def test_chat_streaming_image(request, openai_client, model, provider, verification_config, case):\n        test_name_base = get_base_test_name(request)\n        if should_skip_test(verification_config, provider, model, test_name_base):\n            pytest.skip(f\"Skipping {test_name_base} for model {model} on provider {provider} based on config.\")\n    \n        response = openai_client.chat.completions.create(\n            model=model,\n            messages=case[\"input\"][\"messages\"],\n            stream=True,\n        )\n        content = \"\"\n        for chunk in response:\n>           content += chunk.choices[0].delta.content or \"\"\nE           IndexError: list index out of range\n\ntests/verifications/openai/test_chat_completion.py:169: IndexError"
+      },
+      "teardown": {
+        "duration": 0.0003083330811932683,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_streaming_image[meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8-case0]",
+      "lineno": 151,
+      "outcome": "failed",
+      "keywords": [
+        "test_chat_streaming_image[meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8-case0]",
+        "parametrize",
+        "pytestmark",
+        "meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8-case0",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8",
+        "case_id": "case0"
+      },
+      "setup": {
+        "duration": 0.009099417016841471,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 3.66007125005126,
+        "outcome": "failed",
+        "crash": {
+          "path": "/Users/erichuang/projects/llama-stack/tests/verifications/openai/test_chat_completion.py",
+          "lineno": 169,
+          "message": "IndexError: list index out of range"
+        },
+        "traceback": [
+          {
+            "path": "tests/verifications/openai/test_chat_completion.py",
+            "lineno": 169,
+            "message": "IndexError"
+          }
+        ],
+        "longrepr": "request = <FixtureRequest for <Function test_chat_streaming_image[meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8-case0]>>\nopenai_client = <openai.OpenAI object at 0x120c835e0>\nmodel = 'meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8'\nprovider = 'together'\nverification_config = {'providers': {'cerebras': {'model_display_names': {'llama-3.3-70b': 'Llama-3.3-70B-Instruct'}, 'models': ['llama-3.3-... {'gpt-4o': 'gpt-4o', 'gpt-4o-mini': 'gpt-4o-mini'}, 'models': ['gpt-4o', 'gpt-4o-mini'], 'test_exclusions': {}}, ...}}\ncase = {'input': {'messages': [{'content': [{'text': 'What is in this image?', 'type': 'text'}, {'image_url': {...}, 'type': 'image_url'}], 'role': 'user'}]}, 'output': 'llama'}\n\n    @pytest.mark.parametrize(\n        \"case\",\n        chat_completion_test_cases[\"test_chat_image\"][\"test_params\"][\"case\"],\n        ids=case_id_generator,\n    )\n    def test_chat_streaming_image(request, openai_client, model, provider, verification_config, case):\n        test_name_base = get_base_test_name(request)\n        if should_skip_test(verification_config, provider, model, test_name_base):\n            pytest.skip(f\"Skipping {test_name_base} for model {model} on provider {provider} based on config.\")\n    \n        response = openai_client.chat.completions.create(\n            model=model,\n            messages=case[\"input\"][\"messages\"],\n            stream=True,\n        )\n        content = \"\"\n        for chunk in response:\n>           content += chunk.choices[0].delta.content or \"\"\nE           IndexError: list index out of range\n\ntests/verifications/openai/test_chat_completion.py:169: IndexError"
+      },
+      "teardown": {
+        "duration": 0.0004588329466059804,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_structured_output[meta-llama/Llama-3.3-70B-Instruct-Turbo-calendar]",
+      "lineno": 175,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_non_streaming_structured_output[meta-llama/Llama-3.3-70B-Instruct-Turbo-calendar]",
+        "parametrize",
+        "pytestmark",
+        "meta-llama/Llama-3.3-70B-Instruct-Turbo-calendar",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+        "case_id": "calendar"
+      },
+      "setup": {
+        "duration": 0.009180666995234787,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.6210660829674453,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0004754170076921582,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_structured_output[meta-llama/Llama-3.3-70B-Instruct-Turbo-math]",
+      "lineno": 175,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_non_streaming_structured_output[meta-llama/Llama-3.3-70B-Instruct-Turbo-math]",
+        "parametrize",
+        "pytestmark",
+        "meta-llama/Llama-3.3-70B-Instruct-Turbo-math",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+        "case_id": "math"
+      },
+      "setup": {
+        "duration": 0.00864745897706598,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 1.5313720420235768,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.00016850000247359276,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_structured_output[meta-llama/Llama-4-Scout-17B-16E-Instruct-calendar]",
+      "lineno": 175,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_non_streaming_structured_output[meta-llama/Llama-4-Scout-17B-16E-Instruct-calendar]",
+        "parametrize",
+        "pytestmark",
+        "meta-llama/Llama-4-Scout-17B-16E-Instruct-calendar",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+        "case_id": "calendar"
+      },
+      "setup": {
+        "duration": 0.010739582940004766,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.7144505410687998,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0002755420282483101,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_structured_output[meta-llama/Llama-4-Scout-17B-16E-Instruct-math]",
+      "lineno": 175,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_non_streaming_structured_output[meta-llama/Llama-4-Scout-17B-16E-Instruct-math]",
+        "parametrize",
+        "pytestmark",
+        "meta-llama/Llama-4-Scout-17B-16E-Instruct-math",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+        "case_id": "math"
+      },
+      "setup": {
+        "duration": 0.008732457994483411,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 5.219635457964614,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0005635000998154283,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_structured_output[meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8-calendar]",
+      "lineno": 175,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_non_streaming_structured_output[meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8-calendar]",
+        "parametrize",
+        "pytestmark",
+        "meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8-calendar",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8",
+        "case_id": "calendar"
+      },
+      "setup": {
+        "duration": 0.016624041949398816,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.7206310420297086,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0002245830837637186,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_structured_output[meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8-math]",
+      "lineno": 175,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_non_streaming_structured_output[meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8-math]",
+        "parametrize",
+        "pytestmark",
+        "meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8-math",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8",
+        "case_id": "math"
+      },
+      "setup": {
+        "duration": 0.016191291972063482,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 3.188462999998592,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.00018691702280193567,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_streaming_structured_output[meta-llama/Llama-3.3-70B-Instruct-Turbo-calendar]",
+      "lineno": 198,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_streaming_structured_output[meta-llama/Llama-3.3-70B-Instruct-Turbo-calendar]",
+        "parametrize",
+        "pytestmark",
+        "meta-llama/Llama-3.3-70B-Instruct-Turbo-calendar",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+        "case_id": "calendar"
+      },
+      "setup": {
+        "duration": 0.00830591598059982,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.9970618749503046,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.000287500093691051,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_streaming_structured_output[meta-llama/Llama-3.3-70B-Instruct-Turbo-math]",
+      "lineno": 198,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_streaming_structured_output[meta-llama/Llama-3.3-70B-Instruct-Turbo-math]",
+        "parametrize",
+        "pytestmark",
+        "meta-llama/Llama-3.3-70B-Instruct-Turbo-math",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+        "case_id": "math"
+      },
+      "setup": {
+        "duration": 0.008404624997638166,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 4.292204207973555,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.00041120906826108694,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_streaming_structured_output[meta-llama/Llama-4-Scout-17B-16E-Instruct-calendar]",
+      "lineno": 198,
+      "outcome": "failed",
+      "keywords": [
+        "test_chat_streaming_structured_output[meta-llama/Llama-4-Scout-17B-16E-Instruct-calendar]",
+        "parametrize",
+        "pytestmark",
+        "meta-llama/Llama-4-Scout-17B-16E-Instruct-calendar",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+        "case_id": "calendar"
+      },
+      "setup": {
+        "duration": 0.027296333923004568,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 2.192567916936241,
+        "outcome": "failed",
+        "crash": {
+          "path": "/Users/erichuang/projects/llama-stack/tests/verifications/openai/test_chat_completion.py",
+          "lineno": 217,
+          "message": "IndexError: list index out of range"
+        },
+        "traceback": [
+          {
+            "path": "tests/verifications/openai/test_chat_completion.py",
+            "lineno": 217,
+            "message": "IndexError"
+          }
+        ],
+        "longrepr": "request = <FixtureRequest for <Function test_chat_streaming_structured_output[meta-llama/Llama-4-Scout-17B-16E-Instruct-calendar]>>\nopenai_client = <openai.OpenAI object at 0x120c16b30>\nmodel = 'meta-llama/Llama-4-Scout-17B-16E-Instruct', provider = 'together'\nverification_config = {'providers': {'cerebras': {'model_display_names': {'llama-3.3-70b': 'Llama-3.3-70B-Instruct'}, 'models': ['llama-3.3-... {'gpt-4o': 'gpt-4o', 'gpt-4o-mini': 'gpt-4o-mini'}, 'models': ['gpt-4o', 'gpt-4o-mini'], 'test_exclusions': {}}, ...}}\ncase = {'case_id': 'calendar', 'input': {'messages': [{'content': 'Extract the event information.', 'role': 'system'}, {'cont...articipants'], 'title': 'CalendarEvent', 'type': 'object'}}, 'type': 'json_schema'}}, 'output': 'valid_calendar_event'}\n\n    @pytest.mark.parametrize(\n        \"case\",\n        chat_completion_test_cases[\"test_chat_structured_output\"][\"test_params\"][\"case\"],\n        ids=case_id_generator,\n    )\n    def test_chat_streaming_structured_output(request, openai_client, model, provider, verification_config, case):\n        test_name_base = get_base_test_name(request)\n        if should_skip_test(verification_config, provider, model, test_name_base):\n            pytest.skip(f\"Skipping {test_name_base} for model {model} on provider {provider} based on config.\")\n    \n        response = openai_client.chat.completions.create(\n            model=model,\n            messages=case[\"input\"][\"messages\"],\n            response_format=case[\"input\"][\"response_format\"],\n            stream=True,\n        )\n        maybe_json_content = \"\"\n        for chunk in response:\n>           maybe_json_content += chunk.choices[0].delta.content or \"\"\nE           IndexError: list index out of range\n\ntests/verifications/openai/test_chat_completion.py:217: IndexError"
+      },
+      "teardown": {
+        "duration": 0.0002517920220270753,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_streaming_structured_output[meta-llama/Llama-4-Scout-17B-16E-Instruct-math]",
+      "lineno": 198,
+      "outcome": "failed",
+      "keywords": [
+        "test_chat_streaming_structured_output[meta-llama/Llama-4-Scout-17B-16E-Instruct-math]",
+        "parametrize",
+        "pytestmark",
+        "meta-llama/Llama-4-Scout-17B-16E-Instruct-math",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+        "case_id": "math"
+      },
+      "setup": {
+        "duration": 0.007035750080831349,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 4.051536708022468,
+        "outcome": "failed",
+        "crash": {
+          "path": "/Users/erichuang/projects/llama-stack/tests/verifications/openai/test_chat_completion.py",
+          "lineno": 217,
+          "message": "IndexError: list index out of range"
+        },
+        "traceback": [
+          {
+            "path": "tests/verifications/openai/test_chat_completion.py",
+            "lineno": 217,
+            "message": "IndexError"
+          }
+        ],
+        "longrepr": "request = <FixtureRequest for <Function test_chat_streaming_structured_output[meta-llama/Llama-4-Scout-17B-16E-Instruct-math]>>\nopenai_client = <openai.OpenAI object at 0x120c9f8e0>\nmodel = 'meta-llama/Llama-4-Scout-17B-16E-Instruct', provider = 'together'\nverification_config = {'providers': {'cerebras': {'model_display_names': {'llama-3.3-70b': 'Llama-3.3-70B-Instruct'}, 'models': ['llama-3.3-... {'gpt-4o': 'gpt-4o', 'gpt-4o-mini': 'gpt-4o-mini'}, 'models': ['gpt-4o', 'gpt-4o-mini'], 'test_exclusions': {}}, ...}}\ncase = {'case_id': 'math', 'input': {'messages': [{'content': 'You are a helpful math tutor. Guide the user through the solut... ['steps', 'final_answer'], 'title': 'MathReasoning', ...}}, 'type': 'json_schema'}}, 'output': 'valid_math_reasoning'}\n\n    @pytest.mark.parametrize(\n        \"case\",\n        chat_completion_test_cases[\"test_chat_structured_output\"][\"test_params\"][\"case\"],\n        ids=case_id_generator,\n    )\n    def test_chat_streaming_structured_output(request, openai_client, model, provider, verification_config, case):\n        test_name_base = get_base_test_name(request)\n        if should_skip_test(verification_config, provider, model, test_name_base):\n            pytest.skip(f\"Skipping {test_name_base} for model {model} on provider {provider} based on config.\")\n    \n        response = openai_client.chat.completions.create(\n            model=model,\n            messages=case[\"input\"][\"messages\"],\n            response_format=case[\"input\"][\"response_format\"],\n            stream=True,\n        )\n        maybe_json_content = \"\"\n        for chunk in response:\n>           maybe_json_content += chunk.choices[0].delta.content or \"\"\nE           IndexError: list index out of range\n\ntests/verifications/openai/test_chat_completion.py:217: IndexError"
+      },
+      "teardown": {
+        "duration": 0.00022549997083842754,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_streaming_structured_output[meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8-calendar]",
+      "lineno": 198,
+      "outcome": "failed",
+      "keywords": [
+        "test_chat_streaming_structured_output[meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8-calendar]",
+        "parametrize",
+        "pytestmark",
+        "meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8-calendar",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8",
+        "case_id": "calendar"
+      },
+      "setup": {
+        "duration": 0.006969042005948722,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.4531534999841824,
+        "outcome": "failed",
+        "crash": {
+          "path": "/Users/erichuang/projects/llama-stack/tests/verifications/openai/test_chat_completion.py",
+          "lineno": 217,
+          "message": "IndexError: list index out of range"
+        },
+        "traceback": [
+          {
+            "path": "tests/verifications/openai/test_chat_completion.py",
+            "lineno": 217,
+            "message": "IndexError"
+          }
+        ],
+        "longrepr": "request = <FixtureRequest for <Function test_chat_streaming_structured_output[meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8-calendar]>>\nopenai_client = <openai.OpenAI object at 0x1208e2740>\nmodel = 'meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8'\nprovider = 'together'\nverification_config = {'providers': {'cerebras': {'model_display_names': {'llama-3.3-70b': 'Llama-3.3-70B-Instruct'}, 'models': ['llama-3.3-... {'gpt-4o': 'gpt-4o', 'gpt-4o-mini': 'gpt-4o-mini'}, 'models': ['gpt-4o', 'gpt-4o-mini'], 'test_exclusions': {}}, ...}}\ncase = {'case_id': 'calendar', 'input': {'messages': [{'content': 'Extract the event information.', 'role': 'system'}, {'cont...articipants'], 'title': 'CalendarEvent', 'type': 'object'}}, 'type': 'json_schema'}}, 'output': 'valid_calendar_event'}\n\n    @pytest.mark.parametrize(\n        \"case\",\n        chat_completion_test_cases[\"test_chat_structured_output\"][\"test_params\"][\"case\"],\n        ids=case_id_generator,\n    )\n    def test_chat_streaming_structured_output(request, openai_client, model, provider, verification_config, case):\n        test_name_base = get_base_test_name(request)\n        if should_skip_test(verification_config, provider, model, test_name_base):\n            pytest.skip(f\"Skipping {test_name_base} for model {model} on provider {provider} based on config.\")\n    \n        response = openai_client.chat.completions.create(\n            model=model,\n            messages=case[\"input\"][\"messages\"],\n            response_format=case[\"input\"][\"response_format\"],\n            stream=True,\n        )\n        maybe_json_content = \"\"\n        for chunk in response:\n>           maybe_json_content += chunk.choices[0].delta.content or \"\"\nE           IndexError: list index out of range\n\ntests/verifications/openai/test_chat_completion.py:217: IndexError"
+      },
+      "teardown": {
+        "duration": 0.00023820798378437757,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_streaming_structured_output[meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8-math]",
+      "lineno": 198,
+      "outcome": "failed",
+      "keywords": [
+        "test_chat_streaming_structured_output[meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8-math]",
+        "parametrize",
+        "pytestmark",
+        "meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8-math",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8",
+        "case_id": "math"
+      },
+      "setup": {
+        "duration": 0.008685083012096584,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 2.4182821670547128,
+        "outcome": "failed",
+        "crash": {
+          "path": "/Users/erichuang/projects/llama-stack/tests/verifications/openai/test_chat_completion.py",
+          "lineno": 217,
+          "message": "IndexError: list index out of range"
+        },
+        "traceback": [
+          {
+            "path": "tests/verifications/openai/test_chat_completion.py",
+            "lineno": 217,
+            "message": "IndexError"
+          }
+        ],
+        "longrepr": "request = <FixtureRequest for <Function test_chat_streaming_structured_output[meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8-math]>>\nopenai_client = <openai.OpenAI object at 0x120c16a70>\nmodel = 'meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8'\nprovider = 'together'\nverification_config = {'providers': {'cerebras': {'model_display_names': {'llama-3.3-70b': 'Llama-3.3-70B-Instruct'}, 'models': ['llama-3.3-... {'gpt-4o': 'gpt-4o', 'gpt-4o-mini': 'gpt-4o-mini'}, 'models': ['gpt-4o', 'gpt-4o-mini'], 'test_exclusions': {}}, ...}}\ncase = {'case_id': 'math', 'input': {'messages': [{'content': 'You are a helpful math tutor. Guide the user through the solut... ['steps', 'final_answer'], 'title': 'MathReasoning', ...}}, 'type': 'json_schema'}}, 'output': 'valid_math_reasoning'}\n\n    @pytest.mark.parametrize(\n        \"case\",\n        chat_completion_test_cases[\"test_chat_structured_output\"][\"test_params\"][\"case\"],\n        ids=case_id_generator,\n    )\n    def test_chat_streaming_structured_output(request, openai_client, model, provider, verification_config, case):\n        test_name_base = get_base_test_name(request)\n        if should_skip_test(verification_config, provider, model, test_name_base):\n            pytest.skip(f\"Skipping {test_name_base} for model {model} on provider {provider} based on config.\")\n    \n        response = openai_client.chat.completions.create(\n            model=model,\n            messages=case[\"input\"][\"messages\"],\n            response_format=case[\"input\"][\"response_format\"],\n            stream=True,\n        )\n        maybe_json_content = \"\"\n        for chunk in response:\n>           maybe_json_content += chunk.choices[0].delta.content or \"\"\nE           IndexError: list index out of range\n\ntests/verifications/openai/test_chat_completion.py:217: IndexError"
+      },
+      "teardown": {
+        "duration": 0.00033904099836945534,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_tool_calling[meta-llama/Llama-3.3-70B-Instruct-Turbo-case0]",
+      "lineno": 220,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_non_streaming_tool_calling[meta-llama/Llama-3.3-70B-Instruct-Turbo-case0]",
+        "parametrize",
+        "pytestmark",
+        "meta-llama/Llama-3.3-70B-Instruct-Turbo-case0",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+        "case_id": "case0"
+      },
+      "setup": {
+        "duration": 0.0075543749844655395,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.7174332920694724,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0005241250619292259,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_tool_calling[meta-llama/Llama-4-Scout-17B-16E-Instruct-case0]",
+      "lineno": 220,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_non_streaming_tool_calling[meta-llama/Llama-4-Scout-17B-16E-Instruct-case0]",
+        "parametrize",
+        "pytestmark",
+        "meta-llama/Llama-4-Scout-17B-16E-Instruct-case0",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+        "case_id": "case0"
+      },
+      "setup": {
+        "duration": 0.008240833994932473,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.3450087499804795,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0002781660296022892,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai/test_chat_completion.py::test_chat_non_streaming_tool_calling[meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8-case0]",
+      "lineno": 220,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_non_streaming_tool_calling[meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8-case0]",
+        "parametrize",
+        "pytestmark",
+        "meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8-case0",
+        "test_chat_completion.py",
+        "openai",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8",
+        "case_id": "case0"
+      },
+      "setup": {
+        "duration": 0.00763149990234524,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.8856662499019876,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0008754580048844218,
+        "outcome": "passed"
+      }
+    }
+  ]
+}

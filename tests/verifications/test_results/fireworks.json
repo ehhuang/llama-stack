@@ -1,15 +1,15 @@
 {
-  "created": 1744328795.171092,
-  "duration": 107.57908606529236,
+  "created": 1744671930.172655,
+  "duration": 228.47982001304626,
   "exitcode": 1,
   "root": "/Users/erichuang/projects/llama-stack",
   "environment": {},
   "summary": {
-    "passed": 28,
+    "passed": 58,
     "skipped": 2,
-    "failed": 6,
-    "total": 36,
-    "collected": 36
+    "failed": 18,
+    "total": 78,
+    "collected": 78
   },
   "collectors": [
     {
@@ -29,182 +29,392 @@
         {
           "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_basic[accounts/fireworks/models/llama-v3p3-70b-instruct-earth]",
           "type": "Function",
-          "lineno": 73
+          "lineno": 74
         },
         {
           "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_basic[accounts/fireworks/models/llama-v3p3-70b-instruct-saturn]",
           "type": "Function",
-          "lineno": 73
+          "lineno": 74
         },
         {
           "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_basic[accounts/fireworks/models/llama4-scout-instruct-basic-earth]",
           "type": "Function",
-          "lineno": 73
+          "lineno": 74
         },
         {
           "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_basic[accounts/fireworks/models/llama4-scout-instruct-basic-saturn]",
           "type": "Function",
-          "lineno": 73
+          "lineno": 74
         },
         {
           "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_basic[accounts/fireworks/models/llama4-maverick-instruct-basic-earth]",
           "type": "Function",
-          "lineno": 73
+          "lineno": 74
         },
         {
           "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_basic[accounts/fireworks/models/llama4-maverick-instruct-basic-saturn]",
           "type": "Function",
-          "lineno": 73
+          "lineno": 74
         },
         {
           "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_basic[accounts/fireworks/models/llama-v3p3-70b-instruct-earth]",
           "type": "Function",
-          "lineno": 92
+          "lineno": 93
         },
         {
           "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_basic[accounts/fireworks/models/llama-v3p3-70b-instruct-saturn]",
           "type": "Function",
-          "lineno": 92
+          "lineno": 93
         },
         {
           "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_basic[accounts/fireworks/models/llama4-scout-instruct-basic-earth]",
           "type": "Function",
-          "lineno": 92
+          "lineno": 93
         },
         {
           "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_basic[accounts/fireworks/models/llama4-scout-instruct-basic-saturn]",
           "type": "Function",
-          "lineno": 92
+          "lineno": 93
         },
         {
           "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_basic[accounts/fireworks/models/llama4-maverick-instruct-basic-earth]",
           "type": "Function",
-          "lineno": 92
+          "lineno": 93
         },
         {
           "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_basic[accounts/fireworks/models/llama4-maverick-instruct-basic-saturn]",
           "type": "Function",
-          "lineno": 92
+          "lineno": 93
         },
         {
           "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_image[accounts/fireworks/models/llama-v3p3-70b-instruct-case0]",
           "type": "Function",
-          "lineno": 116
+          "lineno": 117
         },
         {
           "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_image[accounts/fireworks/models/llama4-scout-instruct-basic-case0]",
           "type": "Function",
-          "lineno": 116
+          "lineno": 117
         },
         {
           "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_image[accounts/fireworks/models/llama4-maverick-instruct-basic-case0]",
           "type": "Function",
-          "lineno": 116
+          "lineno": 117
         },
         {
           "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_image[accounts/fireworks/models/llama-v3p3-70b-instruct-case0]",
           "type": "Function",
-          "lineno": 135
+          "lineno": 136
         },
         {
           "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_image[accounts/fireworks/models/llama4-scout-instruct-basic-case0]",
           "type": "Function",
-          "lineno": 135
+          "lineno": 136
         },
         {
           "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_image[accounts/fireworks/models/llama4-maverick-instruct-basic-case0]",
           "type": "Function",
-          "lineno": 135
+          "lineno": 136
         },
         {
           "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_structured_output[accounts/fireworks/models/llama-v3p3-70b-instruct-calendar]",
           "type": "Function",
-          "lineno": 159
+          "lineno": 160
         },
         {
           "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_structured_output[accounts/fireworks/models/llama-v3p3-70b-instruct-math]",
           "type": "Function",
-          "lineno": 159
+          "lineno": 160
         },
         {
           "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_structured_output[accounts/fireworks/models/llama4-scout-instruct-basic-calendar]",
           "type": "Function",
-          "lineno": 159
+          "lineno": 160
         },
         {
           "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_structured_output[accounts/fireworks/models/llama4-scout-instruct-basic-math]",
           "type": "Function",
-          "lineno": 159
+          "lineno": 160
         },
         {
           "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_structured_output[accounts/fireworks/models/llama4-maverick-instruct-basic-calendar]",
           "type": "Function",
-          "lineno": 159
+          "lineno": 160
         },
         {
           "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_structured_output[accounts/fireworks/models/llama4-maverick-instruct-basic-math]",
           "type": "Function",
-          "lineno": 159
+          "lineno": 160
         },
         {
           "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_structured_output[accounts/fireworks/models/llama-v3p3-70b-instruct-calendar]",
           "type": "Function",
-          "lineno": 182
+          "lineno": 183
         },
         {
           "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_structured_output[accounts/fireworks/models/llama-v3p3-70b-instruct-math]",
           "type": "Function",
-          "lineno": 182
+          "lineno": 183
         },
         {
           "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_structured_output[accounts/fireworks/models/llama4-scout-instruct-basic-calendar]",
           "type": "Function",
-          "lineno": 182
+          "lineno": 183
         },
         {
           "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_structured_output[accounts/fireworks/models/llama4-scout-instruct-basic-math]",
           "type": "Function",
-          "lineno": 182
+          "lineno": 183
         },
         {
           "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_structured_output[accounts/fireworks/models/llama4-maverick-instruct-basic-calendar]",
           "type": "Function",
-          "lineno": 182
+          "lineno": 183
         },
         {
           "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_structured_output[accounts/fireworks/models/llama4-maverick-instruct-basic-math]",
           "type": "Function",
-          "lineno": 182
+          "lineno": 183
         },
         {
           "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_tool_calling[accounts/fireworks/models/llama-v3p3-70b-instruct-case0]",
           "type": "Function",
-          "lineno": 204
+          "lineno": 205
         },
         {
           "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_tool_calling[accounts/fireworks/models/llama4-scout-instruct-basic-case0]",
           "type": "Function",
-          "lineno": 204
+          "lineno": 205
         },
         {
           "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_tool_calling[accounts/fireworks/models/llama4-maverick-instruct-basic-case0]",
           "type": "Function",
-          "lineno": 204
+          "lineno": 205
         },
         {
           "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_tool_calling[accounts/fireworks/models/llama-v3p3-70b-instruct-case0]",
           "type": "Function",
-          "lineno": 228
+          "lineno": 229
         },
         {
           "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_tool_calling[accounts/fireworks/models/llama4-scout-instruct-basic-case0]",
           "type": "Function",
-          "lineno": 228
+          "lineno": 229
         },
         {
           "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_tool_calling[accounts/fireworks/models/llama4-maverick-instruct-basic-case0]",
           "type": "Function",
-          "lineno": 228
+          "lineno": 229
+        },
+        {
+          "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_tool_choice_required[accounts/fireworks/models/llama-v3p3-70b-instruct-case0]",
+          "type": "Function",
+          "lineno": 257
+        },
+        {
+          "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_tool_choice_required[accounts/fireworks/models/llama4-scout-instruct-basic-case0]",
+          "type": "Function",
+          "lineno": 257
+        },
+        {
+          "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_tool_choice_required[accounts/fireworks/models/llama4-maverick-instruct-basic-case0]",
+          "type": "Function",
+          "lineno": 257
+        },
+        {
+          "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_tool_choice_required[accounts/fireworks/models/llama-v3p3-70b-instruct-case0]",
+          "type": "Function",
+          "lineno": 281
+        },
+        {
+          "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_tool_choice_required[accounts/fireworks/models/llama4-scout-instruct-basic-case0]",
+          "type": "Function",
+          "lineno": 281
+        },
+        {
+          "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_tool_choice_required[accounts/fireworks/models/llama4-maverick-instruct-basic-case0]",
+          "type": "Function",
+          "lineno": 281
+        },
+        {
+          "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_tool_choice_none[accounts/fireworks/models/llama-v3p3-70b-instruct-case0]",
+          "type": "Function",
+          "lineno": 308
+        },
+        {
+          "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_tool_choice_none[accounts/fireworks/models/llama4-scout-instruct-basic-case0]",
+          "type": "Function",
+          "lineno": 308
+        },
+        {
+          "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_tool_choice_none[accounts/fireworks/models/llama4-maverick-instruct-basic-case0]",
+          "type": "Function",
+          "lineno": 308
+        },
+        {
+          "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_tool_choice_none[accounts/fireworks/models/llama-v3p3-70b-instruct-case0]",
+          "type": "Function",
+          "lineno": 331
+        },
+        {
+          "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_tool_choice_none[accounts/fireworks/models/llama4-scout-instruct-basic-case0]",
+          "type": "Function",
+          "lineno": 331
+        },
+        {
+          "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_tool_choice_none[accounts/fireworks/models/llama4-maverick-instruct-basic-case0]",
+          "type": "Function",
+          "lineno": 331
+        },
+        {
+          "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama-v3p3-70b-instruct-text_then_weather_tool]",
+          "type": "Function",
+          "lineno": 359
+        },
+        {
+          "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama-v3p3-70b-instruct-weather_tool_then_text]",
+          "type": "Function",
+          "lineno": 359
+        },
+        {
+          "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama-v3p3-70b-instruct-add_product_tool]",
+          "type": "Function",
+          "lineno": 359
+        },
+        {
+          "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama-v3p3-70b-instruct-get_then_create_event_tool]",
+          "type": "Function",
+          "lineno": 359
+        },
+        {
+          "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama-v3p3-70b-instruct-compare_monthly_expense_tool]",
+          "type": "Function",
+          "lineno": 359
+        },
+        {
+          "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-scout-instruct-basic-text_then_weather_tool]",
+          "type": "Function",
+          "lineno": 359
+        },
+        {
+          "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-scout-instruct-basic-weather_tool_then_text]",
+          "type": "Function",
+          "lineno": 359
+        },
+        {
+          "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-scout-instruct-basic-add_product_tool]",
+          "type": "Function",
+          "lineno": 359
+        },
+        {
+          "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-scout-instruct-basic-get_then_create_event_tool]",
+          "type": "Function",
+          "lineno": 359
+        },
+        {
+          "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-scout-instruct-basic-compare_monthly_expense_tool]",
+          "type": "Function",
+          "lineno": 359
+        },
+        {
+          "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-maverick-instruct-basic-text_then_weather_tool]",
+          "type": "Function",
+          "lineno": 359
+        },
+        {
+          "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-maverick-instruct-basic-weather_tool_then_text]",
+          "type": "Function",
+          "lineno": 359
+        },
+        {
+          "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-maverick-instruct-basic-add_product_tool]",
+          "type": "Function",
+          "lineno": 359
+        },
+        {
+          "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-maverick-instruct-basic-get_then_create_event_tool]",
+          "type": "Function",
+          "lineno": 359
+        },
+        {
+          "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-maverick-instruct-basic-compare_monthly_expense_tool]",
+          "type": "Function",
+          "lineno": 359
+        },
+        {
+          "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama-v3p3-70b-instruct-text_then_weather_tool]",
+          "type": "Function",
+          "lineno": 450
+        },
+        {
+          "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama-v3p3-70b-instruct-weather_tool_then_text]",
+          "type": "Function",
+          "lineno": 450
+        },
+        {
+          "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama-v3p3-70b-instruct-add_product_tool]",
+          "type": "Function",
+          "lineno": 450
+        },
+        {
+          "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama-v3p3-70b-instruct-get_then_create_event_tool]",
+          "type": "Function",
+          "lineno": 450
+        },
+        {
+          "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama-v3p3-70b-instruct-compare_monthly_expense_tool]",
+          "type": "Function",
+          "lineno": 450
+        },
+        {
+          "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-scout-instruct-basic-text_then_weather_tool]",
+          "type": "Function",
+          "lineno": 450
+        },
+        {
+          "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-scout-instruct-basic-weather_tool_then_text]",
+          "type": "Function",
+          "lineno": 450
+        },
+        {
+          "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-scout-instruct-basic-add_product_tool]",
+          "type": "Function",
+          "lineno": 450
+        },
+        {
+          "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-scout-instruct-basic-get_then_create_event_tool]",
+          "type": "Function",
+          "lineno": 450
+        },
+        {
+          "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-scout-instruct-basic-compare_monthly_expense_tool]",
+          "type": "Function",
+          "lineno": 450
+        },
+        {
+          "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-maverick-instruct-basic-text_then_weather_tool]",
+          "type": "Function",
+          "lineno": 450
+        },
+        {
+          "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-maverick-instruct-basic-weather_tool_then_text]",
+          "type": "Function",
+          "lineno": 450
+        },
+        {
+          "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-maverick-instruct-basic-add_product_tool]",
+          "type": "Function",
+          "lineno": 450
+        },
+        {
+          "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-maverick-instruct-basic-get_then_create_event_tool]",
+          "type": "Function",
+          "lineno": 450
+        },
+        {
+          "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-maverick-instruct-basic-compare_monthly_expense_tool]",
+          "type": "Function",
+          "lineno": 450
         }
       ]
     }
@@ -212,7 +422,7 @@
   "tests": [
     {
       "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_basic[accounts/fireworks/models/llama-v3p3-70b-instruct-earth]",
-      "lineno": 73,
+      "lineno": 74,
       "outcome": "passed",
       "keywords": [
         "test_chat_non_streaming_basic[accounts/fireworks/models/llama-v3p3-70b-instruct-earth]",
@@ -231,21 +441,21 @@
         "case_id": "earth"
       },
       "setup": {
-        "duration": 0.2175025000469759,
+        "duration": 0.1498101658653468,
         "outcome": "passed"
       },
       "call": {
-        "duration": 0.7433859170414507,
+        "duration": 1.0949818750377744,
         "outcome": "passed"
       },
       "teardown": {
-        "duration": 0.0001592918997630477,
+        "duration": 0.0002009579911828041,
         "outcome": "passed"
       }
     },
     {
       "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_basic[accounts/fireworks/models/llama-v3p3-70b-instruct-saturn]",
-      "lineno": 73,
+      "lineno": 74,
       "outcome": "passed",
       "keywords": [
         "test_chat_non_streaming_basic[accounts/fireworks/models/llama-v3p3-70b-instruct-saturn]",
@@ -264,21 +474,21 @@
         "case_id": "saturn"
       },
       "setup": {
-        "duration": 0.007383499993011355,
+        "duration": 0.007462708046659827,
         "outcome": "passed"
       },
       "call": {
-        "duration": 0.5949292909353971,
+        "duration": 0.7118316669948399,
         "outcome": "passed"
       },
       "teardown": {
-        "duration": 0.00015891704242676497,
+        "duration": 0.0002672499977052212,
         "outcome": "passed"
       }
     },
     {
       "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_basic[accounts/fireworks/models/llama4-scout-instruct-basic-earth]",
-      "lineno": 73,
+      "lineno": 74,
       "outcome": "passed",
       "keywords": [
         "test_chat_non_streaming_basic[accounts/fireworks/models/llama4-scout-instruct-basic-earth]",
@@ -297,21 +507,21 @@
         "case_id": "earth"
       },
       "setup": {
-        "duration": 0.010730999987572432,
+        "duration": 0.010475749848410487,
         "outcome": "passed"
       },
       "call": {
-        "duration": 0.8945954169612378,
+        "duration": 0.6387299161870033,
         "outcome": "passed"
       },
       "teardown": {
-        "duration": 0.0003751249751076102,
+        "duration": 0.0005134998355060816,
         "outcome": "passed"
       }
     },
     {
       "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_basic[accounts/fireworks/models/llama4-scout-instruct-basic-saturn]",
-      "lineno": 73,
+      "lineno": 74,
       "outcome": "passed",
       "keywords": [
         "test_chat_non_streaming_basic[accounts/fireworks/models/llama4-scout-instruct-basic-saturn]",
@@ -330,21 +540,21 @@
         "case_id": "saturn"
       },
       "setup": {
-        "duration": 0.01665666699409485,
+        "duration": 0.008309417171403766,
         "outcome": "passed"
       },
       "call": {
-        "duration": 0.907927209045738,
+        "duration": 1.016638166969642,
         "outcome": "passed"
       },
       "teardown": {
-        "duration": 0.00024874997325241566,
+        "duration": 0.00016662501730024815,
         "outcome": "passed"
       }
     },
     {
       "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_basic[accounts/fireworks/models/llama4-maverick-instruct-basic-earth]",
-      "lineno": 73,
+      "lineno": 74,
       "outcome": "passed",
       "keywords": [
         "test_chat_non_streaming_basic[accounts/fireworks/models/llama4-maverick-instruct-basic-earth]",
@@ -363,21 +573,21 @@
         "case_id": "earth"
       },
       "setup": {
-        "duration": 0.01039199996739626,
+        "duration": 0.011883624829351902,
         "outcome": "passed"
       },
       "call": {
-        "duration": 0.5971567500382662,
+        "duration": 2.4041098339948803,
         "outcome": "passed"
       },
       "teardown": {
-        "duration": 0.0003488330403342843,
+        "duration": 0.0006204580422490835,
         "outcome": "passed"
       }
     },
     {
       "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_basic[accounts/fireworks/models/llama4-maverick-instruct-basic-saturn]",
-      "lineno": 73,
+      "lineno": 74,
       "outcome": "passed",
       "keywords": [
         "test_chat_non_streaming_basic[accounts/fireworks/models/llama4-maverick-instruct-basic-saturn]",
@@ -396,21 +606,21 @@
         "case_id": "saturn"
       },
       "setup": {
-        "duration": 0.018627874902449548,
+        "duration": 0.007864832878112793,
         "outcome": "passed"
       },
       "call": {
-        "duration": 2.0586736251134425,
+        "duration": 1.2395499590784311,
         "outcome": "passed"
       },
       "teardown": {
-        "duration": 0.00046974990982562304,
+        "duration": 0.0005675000138580799,
         "outcome": "passed"
       }
     },
     {
       "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_basic[accounts/fireworks/models/llama-v3p3-70b-instruct-earth]",
-      "lineno": 92,
+      "lineno": 93,
       "outcome": "passed",
       "keywords": [
         "test_chat_streaming_basic[accounts/fireworks/models/llama-v3p3-70b-instruct-earth]",
@@ -429,21 +639,21 @@
         "case_id": "earth"
       },
       "setup": {
-        "duration": 0.01706262503284961,
+        "duration": 0.007023082813248038,
         "outcome": "passed"
       },
       "call": {
-        "duration": 0.6679969580145553,
+        "duration": 4.479311124887317,
         "outcome": "passed"
       },
       "teardown": {
-        "duration": 0.0004670419730246067,
+        "duration": 0.00015904195606708527,
         "outcome": "passed"
       }
     },
     {
       "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_basic[accounts/fireworks/models/llama-v3p3-70b-instruct-saturn]",
-      "lineno": 92,
+      "lineno": 93,
       "outcome": "passed",
       "keywords": [
         "test_chat_streaming_basic[accounts/fireworks/models/llama-v3p3-70b-instruct-saturn]",
@@ -462,21 +672,21 @@
         "case_id": "saturn"
       },
       "setup": {
-        "duration": 0.025956374942325056,
+        "duration": 0.006866500014439225,
         "outcome": "passed"
       },
       "call": {
-        "duration": 2.052679874934256,
+        "duration": 1.2328933340031654,
         "outcome": "passed"
       },
       "teardown": {
-        "duration": 0.00026958296075463295,
+        "duration": 0.0005138330161571503,
         "outcome": "passed"
       }
     },
     {
       "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_basic[accounts/fireworks/models/llama4-scout-instruct-basic-earth]",
-      "lineno": 92,
+      "lineno": 93,
       "outcome": "passed",
       "keywords": [
         "test_chat_streaming_basic[accounts/fireworks/models/llama4-scout-instruct-basic-earth]",
@@ -495,21 +705,21 @@
         "case_id": "earth"
       },
       "setup": {
-        "duration": 0.015856957994401455,
+        "duration": 0.016436500009149313,
         "outcome": "passed"
       },
       "call": {
-        "duration": 0.3096678329166025,
+        "duration": 0.8974114169832319,
         "outcome": "passed"
       },
       "teardown": {
-        "duration": 0.0007620420074090362,
+        "duration": 0.00015762494876980782,
         "outcome": "passed"
       }
     },
     {
       "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_basic[accounts/fireworks/models/llama4-scout-instruct-basic-saturn]",
-      "lineno": 92,
+      "lineno": 93,
       "outcome": "passed",
       "keywords": [
         "test_chat_streaming_basic[accounts/fireworks/models/llama4-scout-instruct-basic-saturn]",
@@ -528,21 +738,21 @@
         "case_id": "saturn"
       },
       "setup": {
-        "duration": 0.013509334065020084,
+        "duration": 0.007323000114411116,
         "outcome": "passed"
       },
       "call": {
-        "duration": 0.5914681670255959,
+        "duration": 0.4573235830757767,
         "outcome": "passed"
       },
       "teardown": {
-        "duration": 0.0002906669396907091,
+        "duration": 0.00033733388409018517,
         "outcome": "passed"
       }
     },
     {
       "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_basic[accounts/fireworks/models/llama4-maverick-instruct-basic-earth]",
-      "lineno": 92,
+      "lineno": 93,
       "outcome": "passed",
       "keywords": [
         "test_chat_streaming_basic[accounts/fireworks/models/llama4-maverick-instruct-basic-earth]",
@@ -561,21 +771,21 @@
         "case_id": "earth"
       },
       "setup": {
-        "duration": 0.013216375024057925,
+        "duration": 0.011158207897096872,
         "outcome": "passed"
       },
       "call": {
-        "duration": 1.8804527079919353,
+        "duration": 2.353601709008217,
         "outcome": "passed"
       },
       "teardown": {
-        "duration": 0.0002026669681072235,
+        "duration": 0.0011005420237779617,
         "outcome": "passed"
       }
     },
     {
       "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_basic[accounts/fireworks/models/llama4-maverick-instruct-basic-saturn]",
-      "lineno": 92,
+      "lineno": 93,
       "outcome": "passed",
       "keywords": [
         "test_chat_streaming_basic[accounts/fireworks/models/llama4-maverick-instruct-basic-saturn]",
@@ -594,21 +804,21 @@
         "case_id": "saturn"
       },
       "setup": {
-        "duration": 0.00827441702131182,
+        "duration": 0.016385083086788654,
         "outcome": "passed"
       },
       "call": {
-        "duration": 0.7407040420221165,
+        "duration": 1.8050138750113547,
         "outcome": "passed"
       },
       "teardown": {
-        "duration": 0.0005084159784018993,
+        "duration": 0.0003277501091361046,
         "outcome": "passed"
       }
     },
     {
       "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_image[accounts/fireworks/models/llama-v3p3-70b-instruct-case0]",
-      "lineno": 116,
+      "lineno": 117,
       "outcome": "skipped",
       "keywords": [
         "test_chat_non_streaming_image[accounts/fireworks/models/llama-v3p3-70b-instruct-case0]",
@@ -627,22 +837,22 @@
         "case_id": "case0"
       },
       "setup": {
-        "duration": 0.012424499960616231,
+        "duration": 0.013576833065599203,
         "outcome": "passed"
       },
       "call": {
-        "duration": 0.00032762496266514063,
+        "duration": 0.0002423750702291727,
         "outcome": "skipped",
-        "longrepr": "('/Users/erichuang/projects/llama-stack/tests/verifications/openai_api/test_chat_completion.py', 125, 'Skipped: Skipping test_chat_non_streaming_image for model accounts/fireworks/models/llama-v3p3-70b-instruct on provider fireworks based on config.')"
+        "longrepr": "('/Users/erichuang/projects/llama-stack/tests/verifications/openai_api/test_chat_completion.py', 126, 'Skipped: Skipping test_chat_non_streaming_image for model accounts/fireworks/models/llama-v3p3-70b-instruct on provider fireworks based on config.')"
       },
       "teardown": {
-        "duration": 0.00032416603062301874,
+        "duration": 0.00019712490029633045,
         "outcome": "passed"
       }
     },
     {
       "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_image[accounts/fireworks/models/llama4-scout-instruct-basic-case0]",
-      "lineno": 116,
+      "lineno": 117,
       "outcome": "passed",
       "keywords": [
         "test_chat_non_streaming_image[accounts/fireworks/models/llama4-scout-instruct-basic-case0]",
@@ -661,21 +871,21 @@
         "case_id": "case0"
       },
       "setup": {
-        "duration": 0.02253958396613598,
+        "duration": 0.00987579207867384,
         "outcome": "passed"
       },
       "call": {
-        "duration": 2.64042466704268,
+        "duration": 3.903242165921256,
         "outcome": "passed"
       },
       "teardown": {
-        "duration": 0.0003636250039562583,
+        "duration": 0.00016116700135171413,
         "outcome": "passed"
       }
     },
     {
       "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_image[accounts/fireworks/models/llama4-maverick-instruct-basic-case0]",
-      "lineno": 116,
+      "lineno": 117,
       "outcome": "passed",
       "keywords": [
         "test_chat_non_streaming_image[accounts/fireworks/models/llama4-maverick-instruct-basic-case0]",
@@ -694,21 +904,21 @@
         "case_id": "case0"
       },
       "setup": {
-        "duration": 0.014634749968536198,
+        "duration": 0.0588019578717649,
         "outcome": "passed"
       },
       "call": {
-        "duration": 5.126485540997237,
+        "duration": 6.318468000041321,
         "outcome": "passed"
       },
       "teardown": {
-        "duration": 0.0002988330088555813,
+        "duration": 0.00020979205146431923,
         "outcome": "passed"
       }
     },
     {
       "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_image[accounts/fireworks/models/llama-v3p3-70b-instruct-case0]",
-      "lineno": 135,
+      "lineno": 136,
       "outcome": "skipped",
       "keywords": [
         "test_chat_streaming_image[accounts/fireworks/models/llama-v3p3-70b-instruct-case0]",
@@ -727,22 +937,22 @@
         "case_id": "case0"
       },
       "setup": {
-        "duration": 0.015854416065849364,
+        "duration": 0.008292875019833446,
         "outcome": "passed"
       },
       "call": {
-        "duration": 0.00038058299105614424,
+        "duration": 0.00017566699534654617,
         "outcome": "skipped",
-        "longrepr": "('/Users/erichuang/projects/llama-stack/tests/verifications/openai_api/test_chat_completion.py', 144, 'Skipped: Skipping test_chat_streaming_image for model accounts/fireworks/models/llama-v3p3-70b-instruct on provider fireworks based on config.')"
+        "longrepr": "('/Users/erichuang/projects/llama-stack/tests/verifications/openai_api/test_chat_completion.py', 145, 'Skipped: Skipping test_chat_streaming_image for model accounts/fireworks/models/llama-v3p3-70b-instruct on provider fireworks based on config.')"
       },
       "teardown": {
-        "duration": 0.0002689170651137829,
+        "duration": 0.00012029195204377174,
         "outcome": "passed"
       }
     },
     {
       "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_image[accounts/fireworks/models/llama4-scout-instruct-basic-case0]",
-      "lineno": 135,
+      "lineno": 136,
       "outcome": "passed",
       "keywords": [
         "test_chat_streaming_image[accounts/fireworks/models/llama4-scout-instruct-basic-case0]",
@@ -761,21 +971,21 @@
         "case_id": "case0"
       },
       "setup": {
-        "duration": 0.011205915943719447,
+        "duration": 0.018375666812062263,
         "outcome": "passed"
       },
       "call": {
-        "duration": 3.2596546669956297,
+        "duration": 5.915768791921437,
         "outcome": "passed"
       },
       "teardown": {
-        "duration": 0.0006222500232979655,
+        "duration": 0.0003945000935345888,
         "outcome": "passed"
       }
     },
     {
       "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_image[accounts/fireworks/models/llama4-maverick-instruct-basic-case0]",
-      "lineno": 135,
+      "lineno": 136,
       "outcome": "passed",
       "keywords": [
         "test_chat_streaming_image[accounts/fireworks/models/llama4-maverick-instruct-basic-case0]",
@@ -794,21 +1004,21 @@
         "case_id": "case0"
       },
       "setup": {
-        "duration": 0.016557667055167258,
+        "duration": 0.014138749800622463,
         "outcome": "passed"
       },
       "call": {
-        "duration": 4.930164708988741,
+        "duration": 5.056917999871075,
         "outcome": "passed"
       },
       "teardown": {
-        "duration": 0.00048687495291233063,
+        "duration": 0.00022562500089406967,
         "outcome": "passed"
       }
     },
     {
       "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_structured_output[accounts/fireworks/models/llama-v3p3-70b-instruct-calendar]",
-      "lineno": 159,
+      "lineno": 160,
       "outcome": "passed",
       "keywords": [
         "test_chat_non_streaming_structured_output[accounts/fireworks/models/llama-v3p3-70b-instruct-calendar]",
@@ -827,21 +1037,21 @@
         "case_id": "calendar"
       },
       "setup": {
-        "duration": 0.00886166701093316,
+        "duration": 0.01011645793914795,
         "outcome": "passed"
       },
       "call": {
-        "duration": 0.8833738330285996,
+        "duration": 0.9190842499956489,
         "outcome": "passed"
       },
       "teardown": {
-        "duration": 0.00025583396200090647,
+        "duration": 0.00014341599307954311,
         "outcome": "passed"
       }
     },
     {
       "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_structured_output[accounts/fireworks/models/llama-v3p3-70b-instruct-math]",
-      "lineno": 159,
+      "lineno": 160,
       "outcome": "passed",
       "keywords": [
         "test_chat_non_streaming_structured_output[accounts/fireworks/models/llama-v3p3-70b-instruct-math]",
@@ -860,21 +1070,21 @@
         "case_id": "math"
       },
       "setup": {
-        "duration": 0.01297520799562335,
+        "duration": 0.008462124969810247,
         "outcome": "passed"
       },
       "call": {
-        "duration": 1.9960687910206616,
+        "duration": 1.9541033750865608,
         "outcome": "passed"
       },
       "teardown": {
-        "duration": 0.0005048330640420318,
+        "duration": 0.00015816581435501575,
         "outcome": "passed"
       }
     },
     {
       "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_structured_output[accounts/fireworks/models/llama4-scout-instruct-basic-calendar]",
-      "lineno": 159,
+      "lineno": 160,
       "outcome": "passed",
       "keywords": [
         "test_chat_non_streaming_structured_output[accounts/fireworks/models/llama4-scout-instruct-basic-calendar]",
@@ -893,21 +1103,21 @@
         "case_id": "calendar"
       },
       "setup": {
-        "duration": 0.007275875075720251,
+        "duration": 0.007259249920025468,
         "outcome": "passed"
       },
       "call": {
-        "duration": 0.9094266659813002,
+        "duration": 0.7777647499460727,
         "outcome": "passed"
       },
       "teardown": {
-        "duration": 0.00028041598852723837,
+        "duration": 0.00025104102678596973,
         "outcome": "passed"
       }
     },
     {
       "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_structured_output[accounts/fireworks/models/llama4-scout-instruct-basic-math]",
-      "lineno": 159,
+      "lineno": 160,
       "outcome": "passed",
       "keywords": [
         "test_chat_non_streaming_structured_output[accounts/fireworks/models/llama4-scout-instruct-basic-math]",
@@ -926,21 +1136,21 @@
         "case_id": "math"
       },
       "setup": {
-        "duration": 0.008899332955479622,
+        "duration": 0.010674375109374523,
         "outcome": "passed"
       },
       "call": {
-        "duration": 3.117967874975875,
+        "duration": 2.8422553329728544,
         "outcome": "passed"
       },
       "teardown": {
-        "duration": 0.00017600005958229303,
+        "duration": 0.00027650012634694576,
         "outcome": "passed"
       }
     },
     {
       "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_structured_output[accounts/fireworks/models/llama4-maverick-instruct-basic-calendar]",
-      "lineno": 159,
+      "lineno": 160,
       "outcome": "passed",
       "keywords": [
         "test_chat_non_streaming_structured_output[accounts/fireworks/models/llama4-maverick-instruct-basic-calendar]",
@@ -959,21 +1169,21 @@
         "case_id": "calendar"
       },
       "setup": {
-        "duration": 0.0073364999843761325,
+        "duration": 0.007393833016976714,
         "outcome": "passed"
       },
       "call": {
-        "duration": 2.2714374579954892,
+        "duration": 2.7110047910828143,
         "outcome": "passed"
       },
       "teardown": {
-        "duration": 0.0001814159331843257,
+        "duration": 0.0001582079567015171,
         "outcome": "passed"
       }
     },
     {
       "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_structured_output[accounts/fireworks/models/llama4-maverick-instruct-basic-math]",
-      "lineno": 159,
+      "lineno": 160,
       "outcome": "passed",
       "keywords": [
         "test_chat_non_streaming_structured_output[accounts/fireworks/models/llama4-maverick-instruct-basic-math]",
@@ -992,21 +1202,21 @@
         "case_id": "math"
       },
       "setup": {
-        "duration": 0.010546459001488984,
+        "duration": 0.007898916024714708,
         "outcome": "passed"
       },
       "call": {
-        "duration": 3.9954450000077486,
+        "duration": 9.368705208180472,
         "outcome": "passed"
       },
       "teardown": {
-        "duration": 0.0002719159238040447,
+        "duration": 0.00039166701026260853,
         "outcome": "passed"
       }
     },
     {
       "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_structured_output[accounts/fireworks/models/llama-v3p3-70b-instruct-calendar]",
-      "lineno": 182,
+      "lineno": 183,
       "outcome": "passed",
       "keywords": [
         "test_chat_streaming_structured_output[accounts/fireworks/models/llama-v3p3-70b-instruct-calendar]",
@@ -1025,21 +1235,21 @@
         "case_id": "calendar"
       },
       "setup": {
-        "duration": 0.012508000014349818,
+        "duration": 0.035191542003303766,
         "outcome": "passed"
       },
       "call": {
-        "duration": 9.095425167004578,
+        "duration": 1.4346875420305878,
         "outcome": "passed"
       },
       "teardown": {
-        "duration": 0.00029200001154094934,
+        "duration": 0.00046487501822412014,
         "outcome": "passed"
       }
     },
     {
       "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_structured_output[accounts/fireworks/models/llama-v3p3-70b-instruct-math]",
-      "lineno": 182,
+      "lineno": 183,
       "outcome": "passed",
       "keywords": [
         "test_chat_streaming_structured_output[accounts/fireworks/models/llama-v3p3-70b-instruct-math]",
@@ -1058,21 +1268,21 @@
         "case_id": "math"
       },
       "setup": {
-        "duration": 0.014769250061362982,
+        "duration": 0.03189449990168214,
         "outcome": "passed"
       },
       "call": {
-        "duration": 1.9875252910424024,
+        "duration": 3.3109396670479327,
         "outcome": "passed"
       },
       "teardown": {
-        "duration": 0.0006288329605013132,
+        "duration": 0.0003927911166101694,
         "outcome": "passed"
       }
     },
     {
       "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_structured_output[accounts/fireworks/models/llama4-scout-instruct-basic-calendar]",
-      "lineno": 182,
+      "lineno": 183,
       "outcome": "passed",
       "keywords": [
         "test_chat_streaming_structured_output[accounts/fireworks/models/llama4-scout-instruct-basic-calendar]",
@@ -1091,21 +1301,21 @@
         "case_id": "calendar"
       },
       "setup": {
-        "duration": 0.014440709026530385,
+        "duration": 0.0154271658975631,
         "outcome": "passed"
       },
       "call": {
-        "duration": 1.2613736250204965,
+        "duration": 0.8317269580438733,
         "outcome": "passed"
       },
       "teardown": {
-        "duration": 0.0001937919296324253,
+        "duration": 0.00034491694532334805,
         "outcome": "passed"
       }
     },
     {
       "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_structured_output[accounts/fireworks/models/llama4-scout-instruct-basic-math]",
-      "lineno": 182,
+      "lineno": 183,
       "outcome": "passed",
       "keywords": [
         "test_chat_streaming_structured_output[accounts/fireworks/models/llama4-scout-instruct-basic-math]",
@@ -1124,21 +1334,21 @@
         "case_id": "math"
       },
       "setup": {
-        "duration": 0.0071510839043185115,
+        "duration": 0.015619250014424324,
         "outcome": "passed"
       },
       "call": {
-        "duration": 2.2953888749470934,
+        "duration": 1.6041000001132488,
         "outcome": "passed"
       },
       "teardown": {
-        "duration": 0.00016245793085545301,
+        "duration": 0.0004446660168468952,
         "outcome": "passed"
       }
     },
     {
       "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_structured_output[accounts/fireworks/models/llama4-maverick-instruct-basic-calendar]",
-      "lineno": 182,
+      "lineno": 183,
       "outcome": "passed",
       "keywords": [
         "test_chat_streaming_structured_output[accounts/fireworks/models/llama4-maverick-instruct-basic-calendar]",
@@ -1157,21 +1367,21 @@
         "case_id": "calendar"
       },
       "setup": {
-        "duration": 0.007294666953384876,
+        "duration": 0.016331749968230724,
         "outcome": "passed"
       },
       "call": {
-        "duration": 2.194703874993138,
+        "duration": 1.85857899999246,
         "outcome": "passed"
       },
       "teardown": {
-        "duration": 0.00017604196909815073,
+        "duration": 0.00040483311749994755,
         "outcome": "passed"
       }
     },
     {
       "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_structured_output[accounts/fireworks/models/llama4-maverick-instruct-basic-math]",
-      "lineno": 182,
+      "lineno": 183,
       "outcome": "passed",
       "keywords": [
         "test_chat_streaming_structured_output[accounts/fireworks/models/llama4-maverick-instruct-basic-math]",
@@ -1190,21 +1400,21 @@
         "case_id": "math"
       },
       "setup": {
-        "duration": 0.019950625021010637,
+        "duration": 0.01592887518927455,
         "outcome": "passed"
       },
       "call": {
-        "duration": 8.4994609169662,
+        "duration": 4.442963916808367,
         "outcome": "passed"
       },
       "teardown": {
-        "duration": 0.00026404205709695816,
+        "duration": 0.00043266708962619305,
         "outcome": "passed"
       }
     },
     {
       "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_tool_calling[accounts/fireworks/models/llama-v3p3-70b-instruct-case0]",
-      "lineno": 204,
+      "lineno": 205,
       "outcome": "failed",
       "keywords": [
         "test_chat_non_streaming_tool_calling[accounts/fireworks/models/llama-v3p3-70b-instruct-case0]",
@@ -1223,34 +1433,34 @@
         "case_id": "case0"
       },
       "setup": {
-        "duration": 0.011928000021725893,
+        "duration": 0.0161035000346601,
         "outcome": "passed"
       },
       "call": {
-        "duration": 0.5664792089955881,
+        "duration": 0.7035455000586808,
         "outcome": "failed",
         "crash": {
           "path": "/Users/erichuang/projects/llama-stack/tests/verifications/openai_api/test_chat_completion.py",
-          "lineno": 223,
+          "lineno": 224,
           "message": "TypeError: object of type 'NoneType' has no len()"
         },
         "traceback": [
           {
             "path": "tests/verifications/openai_api/test_chat_completion.py",
-            "lineno": 223,
+            "lineno": 224,
             "message": "TypeError"
           }
         ],
-        "longrepr": "request = <FixtureRequest for <Function test_chat_non_streaming_tool_calling[accounts/fireworks/models/llama-v3p3-70b-instruct-case0]>>\nopenai_client = <openai.OpenAI object at 0x123a6dcf0>\nmodel = 'accounts/fireworks/models/llama-v3p3-70b-instruct'\nprovider = 'fireworks'\nverification_config = {'providers': {'cerebras': {'api_key_var': 'CEREBRAS_API_KEY', 'base_url': 'https://api.cerebras.ai/v1', 'model_displa...el_display_names': {'gpt-4o': 'gpt-4o', 'gpt-4o-mini': 'gpt-4o-mini'}, 'models': ['gpt-4o', 'gpt-4o-mini'], ...}, ...}}\ncase = {'input': {'messages': [{'content': 'You are a helpful assistant that can use tools to get information.', 'role': 'sys..., 'properties': {...}, 'required': [...], 'type': 'object'}}, 'type': 'function'}]}, 'output': 'get_weather_tool_call'}\n\n    @pytest.mark.parametrize(\n        \"case\",\n        chat_completion_test_cases[\"test_tool_calling\"][\"test_params\"][\"case\"],\n        ids=case_id_generator,\n    )\n    def test_chat_non_streaming_tool_calling(request, openai_client, model, provider, verification_config, case):\n        test_name_base = get_base_test_name(request)\n        if should_skip_test(verification_config, provider, model, test_name_base):\n            pytest.skip(f\"Skipping {test_name_base} for model {model} on provider {provider} based on config.\")\n    \n        response = openai_client.chat.completions.create(\n            model=model,\n            messages=case[\"input\"][\"messages\"],\n            tools=case[\"input\"][\"tools\"],\n            stream=False,\n        )\n    \n        assert response.choices[0].message.role == \"assistant\"\n>       assert len(response.choices[0].message.tool_calls) > 0\nE       TypeError: object of type 'NoneType' has no len()\n\ntests/verifications/openai_api/test_chat_completion.py:223: TypeError"
+        "longrepr": "request = <FixtureRequest for <Function test_chat_non_streaming_tool_calling[accounts/fireworks/models/llama-v3p3-70b-instruct-case0]>>\nopenai_client = <openai.OpenAI object at 0x10b16a530>\nmodel = 'accounts/fireworks/models/llama-v3p3-70b-instruct'\nprovider = 'fireworks'\nverification_config = {'providers': {'cerebras': {'api_key_var': 'CEREBRAS_API_KEY', 'base_url': 'https://api.cerebras.ai/v1', 'model_displa...-versatile', 'meta-llama/llama-4-scout-17b-16e-instruct', 'meta-llama/llama-4-maverick-17b-128e-instruct'], ...}, ...}}\ncase = {'input': {'messages': [{'content': 'You are a helpful assistant that can use tools to get information.', 'role': 'sys..., 'properties': {...}, 'required': [...], 'type': 'object'}}, 'type': 'function'}]}, 'output': 'get_weather_tool_call'}\n\n    @pytest.mark.parametrize(\n        \"case\",\n        chat_completion_test_cases[\"test_tool_calling\"][\"test_params\"][\"case\"],\n        ids=case_id_generator,\n    )\n    def test_chat_non_streaming_tool_calling(request, openai_client, model, provider, verification_config, case):\n        test_name_base = get_base_test_name(request)\n        if should_skip_test(verification_config, provider, model, test_name_base):\n            pytest.skip(f\"Skipping {test_name_base} for model {model} on provider {provider} based on config.\")\n    \n        response = openai_client.chat.completions.create(\n            model=model,\n            messages=case[\"input\"][\"messages\"],\n            tools=case[\"input\"][\"tools\"],\n            stream=False,\n        )\n    \n        assert response.choices[0].message.role == \"assistant\"\n>       assert len(response.choices[0].message.tool_calls) > 0\nE       TypeError: object of type 'NoneType' has no len()\n\ntests/verifications/openai_api/test_chat_completion.py:224: TypeError"
       },
       "teardown": {
-        "duration": 0.00023799994960427284,
+        "duration": 0.00023233285173773766,
         "outcome": "passed"
       }
     },
     {
       "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_tool_calling[accounts/fireworks/models/llama4-scout-instruct-basic-case0]",
-      "lineno": 204,
+      "lineno": 205,
       "outcome": "failed",
       "keywords": [
         "test_chat_non_streaming_tool_calling[accounts/fireworks/models/llama4-scout-instruct-basic-case0]",
@@ -1269,34 +1479,34 @@
         "case_id": "case0"
       },
       "setup": {
-        "duration": 0.006813624990172684,
+        "duration": 0.006426959065720439,
         "outcome": "passed"
       },
       "call": {
-        "duration": 3.170418416033499,
+        "duration": 4.276823916938156,
         "outcome": "failed",
         "crash": {
           "path": "/Users/erichuang/projects/llama-stack/tests/verifications/openai_api/test_chat_completion.py",
-          "lineno": 223,
+          "lineno": 224,
           "message": "TypeError: object of type 'NoneType' has no len()"
         },
         "traceback": [
           {
             "path": "tests/verifications/openai_api/test_chat_completion.py",
-            "lineno": 223,
+            "lineno": 224,
             "message": "TypeError"
           }
         ],
-        "longrepr": "request = <FixtureRequest for <Function test_chat_non_streaming_tool_calling[accounts/fireworks/models/llama4-scout-instruct-basic-case0]>>\nopenai_client = <openai.OpenAI object at 0x123af3ac0>\nmodel = 'accounts/fireworks/models/llama4-scout-instruct-basic'\nprovider = 'fireworks'\nverification_config = {'providers': {'cerebras': {'api_key_var': 'CEREBRAS_API_KEY', 'base_url': 'https://api.cerebras.ai/v1', 'model_displa...el_display_names': {'gpt-4o': 'gpt-4o', 'gpt-4o-mini': 'gpt-4o-mini'}, 'models': ['gpt-4o', 'gpt-4o-mini'], ...}, ...}}\ncase = {'input': {'messages': [{'content': 'You are a helpful assistant that can use tools to get information.', 'role': 'sys..., 'properties': {...}, 'required': [...], 'type': 'object'}}, 'type': 'function'}]}, 'output': 'get_weather_tool_call'}\n\n    @pytest.mark.parametrize(\n        \"case\",\n        chat_completion_test_cases[\"test_tool_calling\"][\"test_params\"][\"case\"],\n        ids=case_id_generator,\n    )\n    def test_chat_non_streaming_tool_calling(request, openai_client, model, provider, verification_config, case):\n        test_name_base = get_base_test_name(request)\n        if should_skip_test(verification_config, provider, model, test_name_base):\n            pytest.skip(f\"Skipping {test_name_base} for model {model} on provider {provider} based on config.\")\n    \n        response = openai_client.chat.completions.create(\n            model=model,\n            messages=case[\"input\"][\"messages\"],\n            tools=case[\"input\"][\"tools\"],\n            stream=False,\n        )\n    \n        assert response.choices[0].message.role == \"assistant\"\n>       assert len(response.choices[0].message.tool_calls) > 0\nE       TypeError: object of type 'NoneType' has no len()\n\ntests/verifications/openai_api/test_chat_completion.py:223: TypeError"
+        "longrepr": "request = <FixtureRequest for <Function test_chat_non_streaming_tool_calling[accounts/fireworks/models/llama4-scout-instruct-basic-case0]>>\nopenai_client = <openai.OpenAI object at 0x10b82fbe0>\nmodel = 'accounts/fireworks/models/llama4-scout-instruct-basic'\nprovider = 'fireworks'\nverification_config = {'providers': {'cerebras': {'api_key_var': 'CEREBRAS_API_KEY', 'base_url': 'https://api.cerebras.ai/v1', 'model_displa...-versatile', 'meta-llama/llama-4-scout-17b-16e-instruct', 'meta-llama/llama-4-maverick-17b-128e-instruct'], ...}, ...}}\ncase = {'input': {'messages': [{'content': 'You are a helpful assistant that can use tools to get information.', 'role': 'sys..., 'properties': {...}, 'required': [...], 'type': 'object'}}, 'type': 'function'}]}, 'output': 'get_weather_tool_call'}\n\n    @pytest.mark.parametrize(\n        \"case\",\n        chat_completion_test_cases[\"test_tool_calling\"][\"test_params\"][\"case\"],\n        ids=case_id_generator,\n    )\n    def test_chat_non_streaming_tool_calling(request, openai_client, model, provider, verification_config, case):\n        test_name_base = get_base_test_name(request)\n        if should_skip_test(verification_config, provider, model, test_name_base):\n            pytest.skip(f\"Skipping {test_name_base} for model {model} on provider {provider} based on config.\")\n    \n        response = openai_client.chat.completions.create(\n            model=model,\n            messages=case[\"input\"][\"messages\"],\n            tools=case[\"input\"][\"tools\"],\n            stream=False,\n        )\n    \n        assert response.choices[0].message.role == \"assistant\"\n>       assert len(response.choices[0].message.tool_calls) > 0\nE       TypeError: object of type 'NoneType' has no len()\n\ntests/verifications/openai_api/test_chat_completion.py:224: TypeError"
       },
       "teardown": {
-        "duration": 0.0004129580920562148,
+        "duration": 0.0003593750298023224,
         "outcome": "passed"
       }
     },
     {
       "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_tool_calling[accounts/fireworks/models/llama4-maverick-instruct-basic-case0]",
-      "lineno": 204,
+      "lineno": 205,
       "outcome": "failed",
       "keywords": [
         "test_chat_non_streaming_tool_calling[accounts/fireworks/models/llama4-maverick-instruct-basic-case0]",
@@ -1315,34 +1525,34 @@
         "case_id": "case0"
       },
       "setup": {
-        "duration": 0.01656208303757012,
+        "duration": 0.008922874927520752,
         "outcome": "passed"
       },
       "call": {
-        "duration": 22.76337137504015,
+        "duration": 16.097670458024368,
         "outcome": "failed",
         "crash": {
           "path": "/Users/erichuang/projects/llama-stack/tests/verifications/openai_api/test_chat_completion.py",
-          "lineno": 223,
+          "lineno": 224,
           "message": "TypeError: object of type 'NoneType' has no len()"
         },
         "traceback": [
           {
             "path": "tests/verifications/openai_api/test_chat_completion.py",
-            "lineno": 223,
+            "lineno": 224,
             "message": "TypeError"
           }
         ],
-        "longrepr": "request = <FixtureRequest for <Function test_chat_non_streaming_tool_calling[accounts/fireworks/models/llama4-maverick-instruct-basic-case0]>>\nopenai_client = <openai.OpenAI object at 0x1231f0460>\nmodel = 'accounts/fireworks/models/llama4-maverick-instruct-basic'\nprovider = 'fireworks'\nverification_config = {'providers': {'cerebras': {'api_key_var': 'CEREBRAS_API_KEY', 'base_url': 'https://api.cerebras.ai/v1', 'model_displa...el_display_names': {'gpt-4o': 'gpt-4o', 'gpt-4o-mini': 'gpt-4o-mini'}, 'models': ['gpt-4o', 'gpt-4o-mini'], ...}, ...}}\ncase = {'input': {'messages': [{'content': 'You are a helpful assistant that can use tools to get information.', 'role': 'sys..., 'properties': {...}, 'required': [...], 'type': 'object'}}, 'type': 'function'}]}, 'output': 'get_weather_tool_call'}\n\n    @pytest.mark.parametrize(\n        \"case\",\n        chat_completion_test_cases[\"test_tool_calling\"][\"test_params\"][\"case\"],\n        ids=case_id_generator,\n    )\n    def test_chat_non_streaming_tool_calling(request, openai_client, model, provider, verification_config, case):\n        test_name_base = get_base_test_name(request)\n        if should_skip_test(verification_config, provider, model, test_name_base):\n            pytest.skip(f\"Skipping {test_name_base} for model {model} on provider {provider} based on config.\")\n    \n        response = openai_client.chat.completions.create(\n            model=model,\n            messages=case[\"input\"][\"messages\"],\n            tools=case[\"input\"][\"tools\"],\n            stream=False,\n        )\n    \n        assert response.choices[0].message.role == \"assistant\"\n>       assert len(response.choices[0].message.tool_calls) > 0\nE       TypeError: object of type 'NoneType' has no len()\n\ntests/verifications/openai_api/test_chat_completion.py:223: TypeError"
+        "longrepr": "request = <FixtureRequest for <Function test_chat_non_streaming_tool_calling[accounts/fireworks/models/llama4-maverick-instruct-basic-case0]>>\nopenai_client = <openai.OpenAI object at 0x10b613820>\nmodel = 'accounts/fireworks/models/llama4-maverick-instruct-basic'\nprovider = 'fireworks'\nverification_config = {'providers': {'cerebras': {'api_key_var': 'CEREBRAS_API_KEY', 'base_url': 'https://api.cerebras.ai/v1', 'model_displa...-versatile', 'meta-llama/llama-4-scout-17b-16e-instruct', 'meta-llama/llama-4-maverick-17b-128e-instruct'], ...}, ...}}\ncase = {'input': {'messages': [{'content': 'You are a helpful assistant that can use tools to get information.', 'role': 'sys..., 'properties': {...}, 'required': [...], 'type': 'object'}}, 'type': 'function'}]}, 'output': 'get_weather_tool_call'}\n\n    @pytest.mark.parametrize(\n        \"case\",\n        chat_completion_test_cases[\"test_tool_calling\"][\"test_params\"][\"case\"],\n        ids=case_id_generator,\n    )\n    def test_chat_non_streaming_tool_calling(request, openai_client, model, provider, verification_config, case):\n        test_name_base = get_base_test_name(request)\n        if should_skip_test(verification_config, provider, model, test_name_base):\n            pytest.skip(f\"Skipping {test_name_base} for model {model} on provider {provider} based on config.\")\n    \n        response = openai_client.chat.completions.create(\n            model=model,\n            messages=case[\"input\"][\"messages\"],\n            tools=case[\"input\"][\"tools\"],\n            stream=False,\n        )\n    \n        assert response.choices[0].message.role == \"assistant\"\n>       assert len(response.choices[0].message.tool_calls) > 0\nE       TypeError: object of type 'NoneType' has no len()\n\ntests/verifications/openai_api/test_chat_completion.py:224: TypeError"
       },
       "teardown": {
-        "duration": 0.00038704206235706806,
+        "duration": 0.00033079180866479874,
         "outcome": "passed"
       }
     },
     {
       "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_tool_calling[accounts/fireworks/models/llama-v3p3-70b-instruct-case0]",
-      "lineno": 228,
+      "lineno": 229,
       "outcome": "failed",
       "keywords": [
         "test_chat_streaming_tool_calling[accounts/fireworks/models/llama-v3p3-70b-instruct-case0]",
@@ -1361,34 +1571,34 @@
         "case_id": "case0"
       },
       "setup": {
-        "duration": 0.015727541991509497,
+        "duration": 0.011594583047553897,
         "outcome": "passed"
       },
       "call": {
-        "duration": 0.5719050420448184,
+        "duration": 0.5610957499593496,
         "outcome": "failed",
         "crash": {
           "path": "/Users/erichuang/projects/llama-stack/tests/verifications/openai_api/test_chat_completion.py",
-          "lineno": 274,
-          "message": "assert 0 == 1\n +  where 0 = len({})"
+          "lineno": 248,
+          "message": "assert 0 == 1\n +  where 0 = len([])"
         },
         "traceback": [
           {
             "path": "tests/verifications/openai_api/test_chat_completion.py",
-            "lineno": 274,
+            "lineno": 248,
             "message": "AssertionError"
           }
         ],
-        "longrepr": "request = <FixtureRequest for <Function test_chat_streaming_tool_calling[accounts/fireworks/models/llama-v3p3-70b-instruct-case0]>>\nopenai_client = <openai.OpenAI object at 0x122ef2bc0>\nmodel = 'accounts/fireworks/models/llama-v3p3-70b-instruct'\nprovider = 'fireworks'\nverification_config = {'providers': {'cerebras': {'api_key_var': 'CEREBRAS_API_KEY', 'base_url': 'https://api.cerebras.ai/v1', 'model_displa...el_display_names': {'gpt-4o': 'gpt-4o', 'gpt-4o-mini': 'gpt-4o-mini'}, 'models': ['gpt-4o', 'gpt-4o-mini'], ...}, ...}}\ncase = {'input': {'messages': [{'content': 'You are a helpful assistant that can use tools to get information.', 'role': 'sys..., 'properties': {...}, 'required': [...], 'type': 'object'}}, 'type': 'function'}]}, 'output': 'get_weather_tool_call'}\n\n    @pytest.mark.parametrize(\n        \"case\",\n        chat_completion_test_cases[\"test_tool_calling\"][\"test_params\"][\"case\"],\n        ids=case_id_generator,\n    )\n    def test_chat_streaming_tool_calling(request, openai_client, model, provider, verification_config, case):\n        test_name_base = get_base_test_name(request)\n        if should_skip_test(verification_config, provider, model, test_name_base):\n            pytest.skip(f\"Skipping {test_name_base} for model {model} on provider {provider} based on config.\")\n    \n        stream = openai_client.chat.completions.create(\n            model=model,\n            messages=case[\"input\"][\"messages\"],\n            tools=case[\"input\"][\"tools\"],\n            stream=True,\n        )\n    \n        # Accumulate partial tool_calls here\n        tool_calls_buffer = {}\n        current_id = None\n        # Process streaming chunks\n        for chunk in stream:\n            choice = chunk.choices[0]\n            delta = choice.delta\n    \n            if delta.tool_calls is None:\n                continue\n    \n            for tool_call_delta in delta.tool_calls:\n                if tool_call_delta.id:\n                    current_id = tool_call_delta.id\n                call_id = current_id\n                func_delta = tool_call_delta.function\n    \n                if call_id not in tool_calls_buffer:\n                    tool_calls_buffer[call_id] = {\n                        \"id\": call_id,\n                        \"type\": tool_call_delta.type,\n                        \"name\": func_delta.name,\n                        \"arguments\": \"\",\n                    }\n    \n                if func_delta.arguments:\n                    tool_calls_buffer[call_id][\"arguments\"] += func_delta.arguments\n    \n>       assert len(tool_calls_buffer) == 1\nE       assert 0 == 1\nE        +  where 0 = len({})\n\ntests/verifications/openai_api/test_chat_completion.py:274: AssertionError"
+        "longrepr": "request = <FixtureRequest for <Function test_chat_streaming_tool_calling[accounts/fireworks/models/llama-v3p3-70b-instruct-case0]>>\nopenai_client = <openai.OpenAI object at 0x10b82d390>\nmodel = 'accounts/fireworks/models/llama-v3p3-70b-instruct'\nprovider = 'fireworks'\nverification_config = {'providers': {'cerebras': {'api_key_var': 'CEREBRAS_API_KEY', 'base_url': 'https://api.cerebras.ai/v1', 'model_displa...-versatile', 'meta-llama/llama-4-scout-17b-16e-instruct', 'meta-llama/llama-4-maverick-17b-128e-instruct'], ...}, ...}}\ncase = {'input': {'messages': [{'content': 'You are a helpful assistant that can use tools to get information.', 'role': 'sys..., 'properties': {...}, 'required': [...], 'type': 'object'}}, 'type': 'function'}]}, 'output': 'get_weather_tool_call'}\n\n    @pytest.mark.parametrize(\n        \"case\",\n        chat_completion_test_cases[\"test_tool_calling\"][\"test_params\"][\"case\"],\n        ids=case_id_generator,\n    )\n    def test_chat_streaming_tool_calling(request, openai_client, model, provider, verification_config, case):\n        test_name_base = get_base_test_name(request)\n        if should_skip_test(verification_config, provider, model, test_name_base):\n            pytest.skip(f\"Skipping {test_name_base} for model {model} on provider {provider} based on config.\")\n    \n        stream = openai_client.chat.completions.create(\n            model=model,\n            messages=case[\"input\"][\"messages\"],\n            tools=case[\"input\"][\"tools\"],\n            stream=True,\n        )\n    \n        _, tool_calls_buffer = _accumulate_streaming_tool_calls(stream)\n>       assert len(tool_calls_buffer) == 1\nE       assert 0 == 1\nE        +  where 0 = len([])\n\ntests/verifications/openai_api/test_chat_completion.py:248: AssertionError"
       },
       "teardown": {
-        "duration": 0.0003532909322530031,
+        "duration": 0.00027991714887320995,
         "outcome": "passed"
       }
     },
     {
       "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_tool_calling[accounts/fireworks/models/llama4-scout-instruct-basic-case0]",
-      "lineno": 228,
+      "lineno": 229,
       "outcome": "failed",
       "keywords": [
         "test_chat_streaming_tool_calling[accounts/fireworks/models/llama4-scout-instruct-basic-case0]",
@@ -1407,34 +1617,34 @@
         "case_id": "case0"
       },
       "setup": {
-        "duration": 0.011914041941054165,
+        "duration": 0.010900916997343302,
         "outcome": "passed"
       },
       "call": {
-        "duration": 5.403063916950487,
+        "duration": 7.091165333986282,
         "outcome": "failed",
         "crash": {
           "path": "/Users/erichuang/projects/llama-stack/tests/verifications/openai_api/test_chat_completion.py",
-          "lineno": 274,
-          "message": "assert 0 == 1\n +  where 0 = len({})"
+          "lineno": 248,
+          "message": "assert 0 == 1\n +  where 0 = len([])"
         },
         "traceback": [
           {
             "path": "tests/verifications/openai_api/test_chat_completion.py",
-            "lineno": 274,
+            "lineno": 248,
             "message": "AssertionError"
           }
         ],
-        "longrepr": "request = <FixtureRequest for <Function test_chat_streaming_tool_calling[accounts/fireworks/models/llama4-scout-instruct-basic-case0]>>\nopenai_client = <openai.OpenAI object at 0x1231f19c0>\nmodel = 'accounts/fireworks/models/llama4-scout-instruct-basic'\nprovider = 'fireworks'\nverification_config = {'providers': {'cerebras': {'api_key_var': 'CEREBRAS_API_KEY', 'base_url': 'https://api.cerebras.ai/v1', 'model_displa...el_display_names': {'gpt-4o': 'gpt-4o', 'gpt-4o-mini': 'gpt-4o-mini'}, 'models': ['gpt-4o', 'gpt-4o-mini'], ...}, ...}}\ncase = {'input': {'messages': [{'content': 'You are a helpful assistant that can use tools to get information.', 'role': 'sys..., 'properties': {...}, 'required': [...], 'type': 'object'}}, 'type': 'function'}]}, 'output': 'get_weather_tool_call'}\n\n    @pytest.mark.parametrize(\n        \"case\",\n        chat_completion_test_cases[\"test_tool_calling\"][\"test_params\"][\"case\"],\n        ids=case_id_generator,\n    )\n    def test_chat_streaming_tool_calling(request, openai_client, model, provider, verification_config, case):\n        test_name_base = get_base_test_name(request)\n        if should_skip_test(verification_config, provider, model, test_name_base):\n            pytest.skip(f\"Skipping {test_name_base} for model {model} on provider {provider} based on config.\")\n    \n        stream = openai_client.chat.completions.create(\n            model=model,\n            messages=case[\"input\"][\"messages\"],\n            tools=case[\"input\"][\"tools\"],\n            stream=True,\n        )\n    \n        # Accumulate partial tool_calls here\n        tool_calls_buffer = {}\n        current_id = None\n        # Process streaming chunks\n        for chunk in stream:\n            choice = chunk.choices[0]\n            delta = choice.delta\n    \n            if delta.tool_calls is None:\n                continue\n    \n            for tool_call_delta in delta.tool_calls:\n                if tool_call_delta.id:\n                    current_id = tool_call_delta.id\n                call_id = current_id\n                func_delta = tool_call_delta.function\n    \n                if call_id not in tool_calls_buffer:\n                    tool_calls_buffer[call_id] = {\n                        \"id\": call_id,\n                        \"type\": tool_call_delta.type,\n                        \"name\": func_delta.name,\n                        \"arguments\": \"\",\n                    }\n    \n                if func_delta.arguments:\n                    tool_calls_buffer[call_id][\"arguments\"] += func_delta.arguments\n    \n>       assert len(tool_calls_buffer) == 1\nE       assert 0 == 1\nE        +  where 0 = len({})\n\ntests/verifications/openai_api/test_chat_completion.py:274: AssertionError"
+        "longrepr": "request = <FixtureRequest for <Function test_chat_streaming_tool_calling[accounts/fireworks/models/llama4-scout-instruct-basic-case0]>>\nopenai_client = <openai.OpenAI object at 0x10b6b42b0>\nmodel = 'accounts/fireworks/models/llama4-scout-instruct-basic'\nprovider = 'fireworks'\nverification_config = {'providers': {'cerebras': {'api_key_var': 'CEREBRAS_API_KEY', 'base_url': 'https://api.cerebras.ai/v1', 'model_displa...-versatile', 'meta-llama/llama-4-scout-17b-16e-instruct', 'meta-llama/llama-4-maverick-17b-128e-instruct'], ...}, ...}}\ncase = {'input': {'messages': [{'content': 'You are a helpful assistant that can use tools to get information.', 'role': 'sys..., 'properties': {...}, 'required': [...], 'type': 'object'}}, 'type': 'function'}]}, 'output': 'get_weather_tool_call'}\n\n    @pytest.mark.parametrize(\n        \"case\",\n        chat_completion_test_cases[\"test_tool_calling\"][\"test_params\"][\"case\"],\n        ids=case_id_generator,\n    )\n    def test_chat_streaming_tool_calling(request, openai_client, model, provider, verification_config, case):\n        test_name_base = get_base_test_name(request)\n        if should_skip_test(verification_config, provider, model, test_name_base):\n            pytest.skip(f\"Skipping {test_name_base} for model {model} on provider {provider} based on config.\")\n    \n        stream = openai_client.chat.completions.create(\n            model=model,\n            messages=case[\"input\"][\"messages\"],\n            tools=case[\"input\"][\"tools\"],\n            stream=True,\n        )\n    \n        _, tool_calls_buffer = _accumulate_streaming_tool_calls(stream)\n>       assert len(tool_calls_buffer) == 1\nE       assert 0 == 1\nE        +  where 0 = len([])\n\ntests/verifications/openai_api/test_chat_completion.py:248: AssertionError"
       },
       "teardown": {
-        "duration": 0.0005193749675527215,
+        "duration": 0.00046066707000136375,
         "outcome": "passed"
       }
     },
     {
       "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_tool_calling[accounts/fireworks/models/llama4-maverick-instruct-basic-case0]",
-      "lineno": 228,
+      "lineno": 229,
       "outcome": "failed",
       "keywords": [
         "test_chat_streaming_tool_calling[accounts/fireworks/models/llama4-maverick-instruct-basic-case0]",
@@ -1453,31 +1663,1573 @@
         "case_id": "case0"
       },
       "setup": {
-        "duration": 0.012608832912519574,
+        "duration": 0.023017500061541796,
         "outcome": "passed"
       },
       "call": {
-        "duration": 7.587262416025624,
+        "duration": 4.810586791951209,
         "outcome": "failed",
         "crash": {
           "path": "/Users/erichuang/projects/llama-stack/tests/verifications/openai_api/test_chat_completion.py",
-          "lineno": 274,
-          "message": "assert 0 == 1\n +  where 0 = len({})"
+          "lineno": 248,
+          "message": "assert 0 == 1\n +  where 0 = len([])"
         },
         "traceback": [
           {
             "path": "tests/verifications/openai_api/test_chat_completion.py",
-            "lineno": 274,
+            "lineno": 248,
             "message": "AssertionError"
           }
         ],
-        "longrepr": "request = <FixtureRequest for <Function test_chat_streaming_tool_calling[accounts/fireworks/models/llama4-maverick-instruct-basic-case0]>>\nopenai_client = <openai.OpenAI object at 0x123a56d70>\nmodel = 'accounts/fireworks/models/llama4-maverick-instruct-basic'\nprovider = 'fireworks'\nverification_config = {'providers': {'cerebras': {'api_key_var': 'CEREBRAS_API_KEY', 'base_url': 'https://api.cerebras.ai/v1', 'model_displa...el_display_names': {'gpt-4o': 'gpt-4o', 'gpt-4o-mini': 'gpt-4o-mini'}, 'models': ['gpt-4o', 'gpt-4o-mini'], ...}, ...}}\ncase = {'input': {'messages': [{'content': 'You are a helpful assistant that can use tools to get information.', 'role': 'sys..., 'properties': {...}, 'required': [...], 'type': 'object'}}, 'type': 'function'}]}, 'output': 'get_weather_tool_call'}\n\n    @pytest.mark.parametrize(\n        \"case\",\n        chat_completion_test_cases[\"test_tool_calling\"][\"test_params\"][\"case\"],\n        ids=case_id_generator,\n    )\n    def test_chat_streaming_tool_calling(request, openai_client, model, provider, verification_config, case):\n        test_name_base = get_base_test_name(request)\n        if should_skip_test(verification_config, provider, model, test_name_base):\n            pytest.skip(f\"Skipping {test_name_base} for model {model} on provider {provider} based on config.\")\n    \n        stream = openai_client.chat.completions.create(\n            model=model,\n            messages=case[\"input\"][\"messages\"],\n            tools=case[\"input\"][\"tools\"],\n            stream=True,\n        )\n    \n        # Accumulate partial tool_calls here\n        tool_calls_buffer = {}\n        current_id = None\n        # Process streaming chunks\n        for chunk in stream:\n            choice = chunk.choices[0]\n            delta = choice.delta\n    \n            if delta.tool_calls is None:\n                continue\n    \n            for tool_call_delta in delta.tool_calls:\n                if tool_call_delta.id:\n                    current_id = tool_call_delta.id\n                call_id = current_id\n                func_delta = tool_call_delta.function\n    \n                if call_id not in tool_calls_buffer:\n                    tool_calls_buffer[call_id] = {\n                        \"id\": call_id,\n                        \"type\": tool_call_delta.type,\n                        \"name\": func_delta.name,\n                        \"arguments\": \"\",\n                    }\n    \n                if func_delta.arguments:\n                    tool_calls_buffer[call_id][\"arguments\"] += func_delta.arguments\n    \n>       assert len(tool_calls_buffer) == 1\nE       assert 0 == 1\nE        +  where 0 = len({})\n\ntests/verifications/openai_api/test_chat_completion.py:274: AssertionError"
+        "longrepr": "request = <FixtureRequest for <Function test_chat_streaming_tool_calling[accounts/fireworks/models/llama4-maverick-instruct-basic-case0]>>\nopenai_client = <openai.OpenAI object at 0x10b6413f0>\nmodel = 'accounts/fireworks/models/llama4-maverick-instruct-basic'\nprovider = 'fireworks'\nverification_config = {'providers': {'cerebras': {'api_key_var': 'CEREBRAS_API_KEY', 'base_url': 'https://api.cerebras.ai/v1', 'model_displa...-versatile', 'meta-llama/llama-4-scout-17b-16e-instruct', 'meta-llama/llama-4-maverick-17b-128e-instruct'], ...}, ...}}\ncase = {'input': {'messages': [{'content': 'You are a helpful assistant that can use tools to get information.', 'role': 'sys..., 'properties': {...}, 'required': [...], 'type': 'object'}}, 'type': 'function'}]}, 'output': 'get_weather_tool_call'}\n\n    @pytest.mark.parametrize(\n        \"case\",\n        chat_completion_test_cases[\"test_tool_calling\"][\"test_params\"][\"case\"],\n        ids=case_id_generator,\n    )\n    def test_chat_streaming_tool_calling(request, openai_client, model, provider, verification_config, case):\n        test_name_base = get_base_test_name(request)\n        if should_skip_test(verification_config, provider, model, test_name_base):\n            pytest.skip(f\"Skipping {test_name_base} for model {model} on provider {provider} based on config.\")\n    \n        stream = openai_client.chat.completions.create(\n            model=model,\n            messages=case[\"input\"][\"messages\"],\n            tools=case[\"input\"][\"tools\"],\n            stream=True,\n        )\n    \n        _, tool_calls_buffer = _accumulate_streaming_tool_calls(stream)\n>       assert len(tool_calls_buffer) == 1\nE       assert 0 == 1\nE        +  where 0 = len([])\n\ntests/verifications/openai_api/test_chat_completion.py:248: AssertionError"
       },
       "teardown": {
-        "duration": 0.0008685829816386104,
+        "duration": 0.0005940839182585478,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_tool_choice_required[accounts/fireworks/models/llama-v3p3-70b-instruct-case0]",
+      "lineno": 257,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_non_streaming_tool_choice_required[accounts/fireworks/models/llama-v3p3-70b-instruct-case0]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama-v3p3-70b-instruct-case0",
+        "test_chat_completion.py",
+        "openai_api",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama-v3p3-70b-instruct",
+        "case_id": "case0"
+      },
+      "setup": {
+        "duration": 0.01773837488144636,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 1.2453141671139747,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0001699579879641533,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_tool_choice_required[accounts/fireworks/models/llama4-scout-instruct-basic-case0]",
+      "lineno": 257,
+      "outcome": "failed",
+      "keywords": [
+        "test_chat_non_streaming_tool_choice_required[accounts/fireworks/models/llama4-scout-instruct-basic-case0]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama4-scout-instruct-basic-case0",
+        "test_chat_completion.py",
+        "openai_api",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama4-scout-instruct-basic",
+        "case_id": "case0"
+      },
+      "setup": {
+        "duration": 0.011289000045508146,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 5.707215582951903,
+        "outcome": "failed",
+        "crash": {
+          "path": "/Users/erichuang/projects/llama-stack/tests/verifications/openai_api/test_chat_completion.py",
+          "lineno": 277,
+          "message": "TypeError: object of type 'NoneType' has no len()"
+        },
+        "traceback": [
+          {
+            "path": "tests/verifications/openai_api/test_chat_completion.py",
+            "lineno": 277,
+            "message": "TypeError"
+          }
+        ],
+        "longrepr": "request = <FixtureRequest for <Function test_chat_non_streaming_tool_choice_required[accounts/fireworks/models/llama4-scout-instruct-basic-case0]>>\nopenai_client = <openai.OpenAI object at 0x10a7b7a00>\nmodel = 'accounts/fireworks/models/llama4-scout-instruct-basic'\nprovider = 'fireworks'\nverification_config = {'providers': {'cerebras': {'api_key_var': 'CEREBRAS_API_KEY', 'base_url': 'https://api.cerebras.ai/v1', 'model_displa...-versatile', 'meta-llama/llama-4-scout-17b-16e-instruct', 'meta-llama/llama-4-maverick-17b-128e-instruct'], ...}, ...}}\ncase = {'input': {'messages': [{'content': 'You are a helpful assistant that can use tools to get information.', 'role': 'sys..., 'properties': {...}, 'required': [...], 'type': 'object'}}, 'type': 'function'}]}, 'output': 'get_weather_tool_call'}\n\n    @pytest.mark.parametrize(\n        \"case\",\n        chat_completion_test_cases[\"test_tool_calling\"][\"test_params\"][\"case\"],  # Reusing existing case for now\n        ids=case_id_generator,\n    )\n    def test_chat_non_streaming_tool_choice_required(request, openai_client, model, provider, verification_config, case):\n        test_name_base = get_base_test_name(request)\n        if should_skip_test(verification_config, provider, model, test_name_base):\n            pytest.skip(f\"Skipping {test_name_base} for model {model} on provider {provider} based on config.\")\n    \n        response = openai_client.chat.completions.create(\n            model=model,\n            messages=case[\"input\"][\"messages\"],\n            tools=case[\"input\"][\"tools\"],\n            tool_choice=\"required\",  # Force tool call\n            stream=False,\n        )\n    \n        assert response.choices[0].message.role == \"assistant\"\n>       assert len(response.choices[0].message.tool_calls) > 0, \"Expected tool call when tool_choice='required'\"\nE       TypeError: object of type 'NoneType' has no len()\n\ntests/verifications/openai_api/test_chat_completion.py:277: TypeError"
+      },
+      "teardown": {
+        "duration": 0.0003486250061541796,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_tool_choice_required[accounts/fireworks/models/llama4-maverick-instruct-basic-case0]",
+      "lineno": 257,
+      "outcome": "failed",
+      "keywords": [
+        "test_chat_non_streaming_tool_choice_required[accounts/fireworks/models/llama4-maverick-instruct-basic-case0]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama4-maverick-instruct-basic-case0",
+        "test_chat_completion.py",
+        "openai_api",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama4-maverick-instruct-basic",
+        "case_id": "case0"
+      },
+      "setup": {
+        "duration": 0.011989000020548701,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 9.07522345916368,
+        "outcome": "failed",
+        "crash": {
+          "path": "/Users/erichuang/projects/llama-stack/tests/verifications/openai_api/test_chat_completion.py",
+          "lineno": 277,
+          "message": "TypeError: object of type 'NoneType' has no len()"
+        },
+        "traceback": [
+          {
+            "path": "tests/verifications/openai_api/test_chat_completion.py",
+            "lineno": 277,
+            "message": "TypeError"
+          }
+        ],
+        "longrepr": "request = <FixtureRequest for <Function test_chat_non_streaming_tool_choice_required[accounts/fireworks/models/llama4-maverick-instruct-basic-case0]>>\nopenai_client = <openai.OpenAI object at 0x10b6251b0>\nmodel = 'accounts/fireworks/models/llama4-maverick-instruct-basic'\nprovider = 'fireworks'\nverification_config = {'providers': {'cerebras': {'api_key_var': 'CEREBRAS_API_KEY', 'base_url': 'https://api.cerebras.ai/v1', 'model_displa...-versatile', 'meta-llama/llama-4-scout-17b-16e-instruct', 'meta-llama/llama-4-maverick-17b-128e-instruct'], ...}, ...}}\ncase = {'input': {'messages': [{'content': 'You are a helpful assistant that can use tools to get information.', 'role': 'sys..., 'properties': {...}, 'required': [...], 'type': 'object'}}, 'type': 'function'}]}, 'output': 'get_weather_tool_call'}\n\n    @pytest.mark.parametrize(\n        \"case\",\n        chat_completion_test_cases[\"test_tool_calling\"][\"test_params\"][\"case\"],  # Reusing existing case for now\n        ids=case_id_generator,\n    )\n    def test_chat_non_streaming_tool_choice_required(request, openai_client, model, provider, verification_config, case):\n        test_name_base = get_base_test_name(request)\n        if should_skip_test(verification_config, provider, model, test_name_base):\n            pytest.skip(f\"Skipping {test_name_base} for model {model} on provider {provider} based on config.\")\n    \n        response = openai_client.chat.completions.create(\n            model=model,\n            messages=case[\"input\"][\"messages\"],\n            tools=case[\"input\"][\"tools\"],\n            tool_choice=\"required\",  # Force tool call\n            stream=False,\n        )\n    \n        assert response.choices[0].message.role == \"assistant\"\n>       assert len(response.choices[0].message.tool_calls) > 0, \"Expected tool call when tool_choice='required'\"\nE       TypeError: object of type 'NoneType' has no len()\n\ntests/verifications/openai_api/test_chat_completion.py:277: TypeError"
+      },
+      "teardown": {
+        "duration": 0.0003685830160975456,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_tool_choice_required[accounts/fireworks/models/llama-v3p3-70b-instruct-case0]",
+      "lineno": 281,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_streaming_tool_choice_required[accounts/fireworks/models/llama-v3p3-70b-instruct-case0]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama-v3p3-70b-instruct-case0",
+        "test_chat_completion.py",
+        "openai_api",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama-v3p3-70b-instruct",
+        "case_id": "case0"
+      },
+      "setup": {
+        "duration": 0.011483999900519848,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 1.5142888331320137,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0002834161277860403,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_tool_choice_required[accounts/fireworks/models/llama4-scout-instruct-basic-case0]",
+      "lineno": 281,
+      "outcome": "failed",
+      "keywords": [
+        "test_chat_streaming_tool_choice_required[accounts/fireworks/models/llama4-scout-instruct-basic-case0]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama4-scout-instruct-basic-case0",
+        "test_chat_completion.py",
+        "openai_api",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama4-scout-instruct-basic",
+        "case_id": "case0"
+      },
+      "setup": {
+        "duration": 0.017522500129416585,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 5.372929374920204,
+        "outcome": "failed",
+        "crash": {
+          "path": "/Users/erichuang/projects/llama-stack/tests/verifications/openai_api/test_chat_completion.py",
+          "lineno": 302,
+          "message": "AssertionError: Expected tool call when tool_choice='required'\nassert 0 > 0\n +  where 0 = len([])"
+        },
+        "traceback": [
+          {
+            "path": "tests/verifications/openai_api/test_chat_completion.py",
+            "lineno": 302,
+            "message": "AssertionError"
+          }
+        ],
+        "longrepr": "request = <FixtureRequest for <Function test_chat_streaming_tool_choice_required[accounts/fireworks/models/llama4-scout-instruct-basic-case0]>>\nopenai_client = <openai.OpenAI object at 0x10b1d3eb0>\nmodel = 'accounts/fireworks/models/llama4-scout-instruct-basic'\nprovider = 'fireworks'\nverification_config = {'providers': {'cerebras': {'api_key_var': 'CEREBRAS_API_KEY', 'base_url': 'https://api.cerebras.ai/v1', 'model_displa...-versatile', 'meta-llama/llama-4-scout-17b-16e-instruct', 'meta-llama/llama-4-maverick-17b-128e-instruct'], ...}, ...}}\ncase = {'input': {'messages': [{'content': 'You are a helpful assistant that can use tools to get information.', 'role': 'sys..., 'properties': {...}, 'required': [...], 'type': 'object'}}, 'type': 'function'}]}, 'output': 'get_weather_tool_call'}\n\n    @pytest.mark.parametrize(\n        \"case\",\n        chat_completion_test_cases[\"test_tool_calling\"][\"test_params\"][\"case\"],  # Reusing existing case for now\n        ids=case_id_generator,\n    )\n    def test_chat_streaming_tool_choice_required(request, openai_client, model, provider, verification_config, case):\n        test_name_base = get_base_test_name(request)\n        if should_skip_test(verification_config, provider, model, test_name_base):\n            pytest.skip(f\"Skipping {test_name_base} for model {model} on provider {provider} based on config.\")\n    \n        stream = openai_client.chat.completions.create(\n            model=model,\n            messages=case[\"input\"][\"messages\"],\n            tools=case[\"input\"][\"tools\"],\n            tool_choice=\"required\",  # Force tool call\n            stream=True,\n        )\n    \n        _, tool_calls_buffer = _accumulate_streaming_tool_calls(stream)\n    \n>       assert len(tool_calls_buffer) > 0, \"Expected tool call when tool_choice='required'\"\nE       AssertionError: Expected tool call when tool_choice='required'\nE       assert 0 > 0\nE        +  where 0 = len([])\n\ntests/verifications/openai_api/test_chat_completion.py:302: AssertionError"
+      },
+      "teardown": {
+        "duration": 0.00031162495724856853,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_tool_choice_required[accounts/fireworks/models/llama4-maverick-instruct-basic-case0]",
+      "lineno": 281,
+      "outcome": "failed",
+      "keywords": [
+        "test_chat_streaming_tool_choice_required[accounts/fireworks/models/llama4-maverick-instruct-basic-case0]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama4-maverick-instruct-basic-case0",
+        "test_chat_completion.py",
+        "openai_api",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama4-maverick-instruct-basic",
+        "case_id": "case0"
+      },
+      "setup": {
+        "duration": 0.013310875045135617,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 3.6934481249190867,
+        "outcome": "failed",
+        "crash": {
+          "path": "/Users/erichuang/projects/llama-stack/tests/verifications/openai_api/test_chat_completion.py",
+          "lineno": 302,
+          "message": "AssertionError: Expected tool call when tool_choice='required'\nassert 0 > 0\n +  where 0 = len([])"
+        },
+        "traceback": [
+          {
+            "path": "tests/verifications/openai_api/test_chat_completion.py",
+            "lineno": 302,
+            "message": "AssertionError"
+          }
+        ],
+        "longrepr": "request = <FixtureRequest for <Function test_chat_streaming_tool_choice_required[accounts/fireworks/models/llama4-maverick-instruct-basic-case0]>>\nopenai_client = <openai.OpenAI object at 0x10b62bac0>\nmodel = 'accounts/fireworks/models/llama4-maverick-instruct-basic'\nprovider = 'fireworks'\nverification_config = {'providers': {'cerebras': {'api_key_var': 'CEREBRAS_API_KEY', 'base_url': 'https://api.cerebras.ai/v1', 'model_displa...-versatile', 'meta-llama/llama-4-scout-17b-16e-instruct', 'meta-llama/llama-4-maverick-17b-128e-instruct'], ...}, ...}}\ncase = {'input': {'messages': [{'content': 'You are a helpful assistant that can use tools to get information.', 'role': 'sys..., 'properties': {...}, 'required': [...], 'type': 'object'}}, 'type': 'function'}]}, 'output': 'get_weather_tool_call'}\n\n    @pytest.mark.parametrize(\n        \"case\",\n        chat_completion_test_cases[\"test_tool_calling\"][\"test_params\"][\"case\"],  # Reusing existing case for now\n        ids=case_id_generator,\n    )\n    def test_chat_streaming_tool_choice_required(request, openai_client, model, provider, verification_config, case):\n        test_name_base = get_base_test_name(request)\n        if should_skip_test(verification_config, provider, model, test_name_base):\n            pytest.skip(f\"Skipping {test_name_base} for model {model} on provider {provider} based on config.\")\n    \n        stream = openai_client.chat.completions.create(\n            model=model,\n            messages=case[\"input\"][\"messages\"],\n            tools=case[\"input\"][\"tools\"],\n            tool_choice=\"required\",  # Force tool call\n            stream=True,\n        )\n    \n        _, tool_calls_buffer = _accumulate_streaming_tool_calls(stream)\n    \n>       assert len(tool_calls_buffer) > 0, \"Expected tool call when tool_choice='required'\"\nE       AssertionError: Expected tool call when tool_choice='required'\nE       assert 0 > 0\nE        +  where 0 = len([])\n\ntests/verifications/openai_api/test_chat_completion.py:302: AssertionError"
+      },
+      "teardown": {
+        "duration": 0.0005109580233693123,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_tool_choice_none[accounts/fireworks/models/llama-v3p3-70b-instruct-case0]",
+      "lineno": 308,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_non_streaming_tool_choice_none[accounts/fireworks/models/llama-v3p3-70b-instruct-case0]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama-v3p3-70b-instruct-case0",
+        "test_chat_completion.py",
+        "openai_api",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama-v3p3-70b-instruct",
+        "case_id": "case0"
+      },
+      "setup": {
+        "duration": 0.015361249912530184,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.600287500070408,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0004643341526389122,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_tool_choice_none[accounts/fireworks/models/llama4-scout-instruct-basic-case0]",
+      "lineno": 308,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_non_streaming_tool_choice_none[accounts/fireworks/models/llama4-scout-instruct-basic-case0]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama4-scout-instruct-basic-case0",
+        "test_chat_completion.py",
+        "openai_api",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama4-scout-instruct-basic",
+        "case_id": "case0"
+      },
+      "setup": {
+        "duration": 0.025748957879841328,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 19.668536250013858,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.000461790943518281,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_tool_choice_none[accounts/fireworks/models/llama4-maverick-instruct-basic-case0]",
+      "lineno": 308,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_non_streaming_tool_choice_none[accounts/fireworks/models/llama4-maverick-instruct-basic-case0]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama4-maverick-instruct-basic-case0",
+        "test_chat_completion.py",
+        "openai_api",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama4-maverick-instruct-basic",
+        "case_id": "case0"
+      },
+      "setup": {
+        "duration": 0.01627741614356637,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 6.804841166129336,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0005244170315563679,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_tool_choice_none[accounts/fireworks/models/llama-v3p3-70b-instruct-case0]",
+      "lineno": 331,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_streaming_tool_choice_none[accounts/fireworks/models/llama-v3p3-70b-instruct-case0]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama-v3p3-70b-instruct-case0",
+        "test_chat_completion.py",
+        "openai_api",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama-v3p3-70b-instruct",
+        "case_id": "case0"
+      },
+      "setup": {
+        "duration": 0.025144167011603713,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 3.792729000095278,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0006942921318113804,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_tool_choice_none[accounts/fireworks/models/llama4-scout-instruct-basic-case0]",
+      "lineno": 331,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_streaming_tool_choice_none[accounts/fireworks/models/llama4-scout-instruct-basic-case0]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama4-scout-instruct-basic-case0",
+        "test_chat_completion.py",
+        "openai_api",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama4-scout-instruct-basic",
+        "case_id": "case0"
+      },
+      "setup": {
+        "duration": 0.007873958209529519,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 17.502581083914265,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0004955411422997713,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_tool_choice_none[accounts/fireworks/models/llama4-maverick-instruct-basic-case0]",
+      "lineno": 331,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_streaming_tool_choice_none[accounts/fireworks/models/llama4-maverick-instruct-basic-case0]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama4-maverick-instruct-basic-case0",
+        "test_chat_completion.py",
+        "openai_api",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama4-maverick-instruct-basic",
+        "case_id": "case0"
+      },
+      "setup": {
+        "duration": 0.02004849980585277,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 18.55947674997151,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.00024966592900455,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama-v3p3-70b-instruct-text_then_weather_tool]",
+      "lineno": 359,
+      "outcome": "failed",
+      "keywords": [
+        "test_chat_non_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama-v3p3-70b-instruct-text_then_weather_tool]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama-v3p3-70b-instruct-text_then_weather_tool",
+        "test_chat_completion.py",
+        "openai_api",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama-v3p3-70b-instruct",
+        "case_id": "text_then_weather_tool"
+      },
+      "setup": {
+        "duration": 0.01340541709214449,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.7060169579926878,
+        "outcome": "failed",
+        "crash": {
+          "path": "/Users/erichuang/projects/llama-stack/tests/verifications/openai_api/test_chat_completion.py",
+          "lineno": 446,
+          "message": "AssertionError: Expected one of ['sol'] in content, but got: 'I cannot perform this task as it requires additional functionality that is not available in the given functions.'\nassert False\n +  where False = any(<generator object test_chat_non_streaming_multi_turn_tool_calling.<locals>.<genexpr> at 0x10b85ac00>)"
+        },
+        "traceback": [
+          {
+            "path": "tests/verifications/openai_api/test_chat_completion.py",
+            "lineno": 446,
+            "message": "AssertionError"
+          }
+        ],
+        "longrepr": "request = <FixtureRequest for <Function test_chat_non_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama-v3p3-70b-instruct-text_then_weather_tool]>>\nopenai_client = <openai.OpenAI object at 0x10b8367a0>\nmodel = 'accounts/fireworks/models/llama-v3p3-70b-instruct'\nprovider = 'fireworks'\nverification_config = {'providers': {'cerebras': {'api_key_var': 'CEREBRAS_API_KEY', 'base_url': 'https://api.cerebras.ai/v1', 'model_displa...-versatile', 'meta-llama/llama-4-scout-17b-16e-instruct', 'meta-llama/llama-4-maverick-17b-128e-instruct'], ...}, ...}}\ncase = {'case_id': 'text_then_weather_tool', 'expected': [{'answer': ['sol'], 'num_tool_calls': 0}, {'num_tool_calls': 1, 'to...], 'type': 'object'}}, 'type': 'function'}]}, 'tool_responses': [{'response': \"{'response': '70 degrees and foggy'}\"}]}\n\n    @pytest.mark.parametrize(\n        \"case\",\n        chat_completion_test_cases.get(\"test_chat_multi_turn_tool_calling\", {}).get(\"test_params\", {}).get(\"case\", []),\n        ids=case_id_generator,\n    )\n    def test_chat_non_streaming_multi_turn_tool_calling(request, openai_client, model, provider, verification_config, case):\n        \"\"\"\n        Test cases for multi-turn tool calling.\n        Tool calls are asserted.\n        Tool responses are provided in the test case.\n        Final response is asserted.\n        \"\"\"\n    \n        test_name_base = get_base_test_name(request)\n        if should_skip_test(verification_config, provider, model, test_name_base):\n            pytest.skip(f\"Skipping {test_name_base} for model {model} on provider {provider} based on config.\")\n    \n        # Create a copy of the messages list to avoid modifying the original\n        messages = []\n        tools = case[\"input\"][\"tools\"]\n        # Use deepcopy to prevent modification across runs/parametrization\n        expected_results = copy.deepcopy(case[\"expected\"])\n        tool_responses = copy.deepcopy(case.get(\"tool_responses\", []))\n    \n        # keep going until either\n        # 1. we have messages to test in multi-turn\n        # 2. no messages but last message is tool response\n        while len(case[\"input\"][\"messages\"]) > 0 or (len(messages) > 0 and messages[-1][\"role\"] == \"tool\"):\n            # do not take new messages if last message is tool response\n            if len(messages) == 0 or messages[-1][\"role\"] != \"tool\":\n                new_messages = case[\"input\"][\"messages\"].pop(0)\n                # Ensure new_messages is a list of message objects\n                if isinstance(new_messages, list):\n                    messages.extend(new_messages)\n                else:\n                    # If it's a single message object, add it directly\n                    messages.append(new_messages)\n    \n            # --- API Call ---\n            response = openai_client.chat.completions.create(\n                model=model,\n                messages=messages,\n                tools=tools,\n                tool_choice=\"auto\",  # Assuming auto, could be specified per turn if needed\n                stream=False,\n            )\n    \n            # --- Process Response ---\n            assistant_message = response.choices[0].message\n            messages.append(assistant_message.model_dump(exclude_unset=True))\n    \n            assert assistant_message.role == \"assistant\"\n    \n            # Get the expected result data\n            expected = expected_results.pop(0)\n            num_tool_calls = expected[\"num_tool_calls\"]\n    \n            # --- Assertions based on expected result ---\n            assert len(assistant_message.tool_calls or []) == num_tool_calls, (\n                f\"Expected {num_tool_calls} tool calls, but got {len(assistant_message.tool_calls or [])}\"\n            )\n    \n            if num_tool_calls > 0:\n                tool_call = assistant_message.tool_calls[0]\n                assert tool_call.function.name == expected[\"tool_name\"], (\n                    f\"Expected tool '{expected['tool_name']}', got '{tool_call.function.name}'\"\n                )\n                # Parse the JSON string arguments before comparing\n                actual_arguments = json.loads(tool_call.function.arguments)\n                assert actual_arguments == expected[\"tool_arguments\"], (\n                    f\"Expected arguments '{expected['tool_arguments']}', got '{actual_arguments}'\"\n                )\n    \n                # Prepare and append the tool response for the next turn\n                tool_response = tool_responses.pop(0)\n                messages.append(\n                    {\n                        \"role\": \"tool\",\n                        \"tool_call_id\": tool_call.id,\n                        \"content\": tool_response[\"response\"],\n                    }\n                )\n            else:\n                assert assistant_message.content is not None, \"Expected content, but none received.\"\n                expected_answers = expected[\"answer\"]  # This is now a list\n                content_lower = assistant_message.content.lower()\n>               assert any(ans.lower() in content_lower for ans in expected_answers), (\n                    f\"Expected one of {expected_answers} in content, but got: '{assistant_message.content}'\"\n                )\nE               AssertionError: Expected one of ['sol'] in content, but got: 'I cannot perform this task as it requires additional functionality that is not available in the given functions.'\nE               assert False\nE                +  where False = any(<generator object test_chat_non_streaming_multi_turn_tool_calling.<locals>.<genexpr> at 0x10b85ac00>)\n\ntests/verifications/openai_api/test_chat_completion.py:446: AssertionError"
+      },
+      "teardown": {
+        "duration": 0.0010956660844385624,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama-v3p3-70b-instruct-weather_tool_then_text]",
+      "lineno": 359,
+      "outcome": "failed",
+      "keywords": [
+        "test_chat_non_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama-v3p3-70b-instruct-weather_tool_then_text]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama-v3p3-70b-instruct-weather_tool_then_text",
+        "test_chat_completion.py",
+        "openai_api",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama-v3p3-70b-instruct",
+        "case_id": "weather_tool_then_text"
+      },
+      "setup": {
+        "duration": 0.011999916983768344,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.5289724159520119,
+        "outcome": "failed",
+        "crash": {
+          "path": "/Users/erichuang/projects/llama-stack/tests/verifications/openai_api/test_chat_completion.py",
+          "lineno": 418,
+          "message": "AssertionError: Expected 1 tool calls, but got 0\nassert 0 == 1\n +  where 0 = len((None or []))\n +    where None = ChatCompletionMessage(content='{\"type\": \"function\", \"name\": \"get_weather\", \"parameters\": {\"location\": \"San Francisco, CA\"}}', refusal=None, role='assistant', annotations=None, audio=None, function_call=None, tool_calls=None).tool_calls"
+        },
+        "traceback": [
+          {
+            "path": "tests/verifications/openai_api/test_chat_completion.py",
+            "lineno": 418,
+            "message": "AssertionError"
+          }
+        ],
+        "longrepr": "request = <FixtureRequest for <Function test_chat_non_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama-v3p3-70b-instruct-weather_tool_then_text]>>\nopenai_client = <openai.OpenAI object at 0x10b8356c0>\nmodel = 'accounts/fireworks/models/llama-v3p3-70b-instruct'\nprovider = 'fireworks'\nverification_config = {'providers': {'cerebras': {'api_key_var': 'CEREBRAS_API_KEY', 'base_url': 'https://api.cerebras.ai/v1', 'model_displa...-versatile', 'meta-llama/llama-4-scout-17b-16e-instruct', 'meta-llama/llama-4-maverick-17b-128e-instruct'], ...}, ...}}\ncase = {'case_id': 'weather_tool_then_text', 'expected': [{'num_tool_calls': 1, 'tool_arguments': {'location': 'San Francisco...], 'type': 'object'}}, 'type': 'function'}]}, 'tool_responses': [{'response': \"{'response': '70 degrees and foggy'}\"}]}\n\n    @pytest.mark.parametrize(\n        \"case\",\n        chat_completion_test_cases.get(\"test_chat_multi_turn_tool_calling\", {}).get(\"test_params\", {}).get(\"case\", []),\n        ids=case_id_generator,\n    )\n    def test_chat_non_streaming_multi_turn_tool_calling(request, openai_client, model, provider, verification_config, case):\n        \"\"\"\n        Test cases for multi-turn tool calling.\n        Tool calls are asserted.\n        Tool responses are provided in the test case.\n        Final response is asserted.\n        \"\"\"\n    \n        test_name_base = get_base_test_name(request)\n        if should_skip_test(verification_config, provider, model, test_name_base):\n            pytest.skip(f\"Skipping {test_name_base} for model {model} on provider {provider} based on config.\")\n    \n        # Create a copy of the messages list to avoid modifying the original\n        messages = []\n        tools = case[\"input\"][\"tools\"]\n        # Use deepcopy to prevent modification across runs/parametrization\n        expected_results = copy.deepcopy(case[\"expected\"])\n        tool_responses = copy.deepcopy(case.get(\"tool_responses\", []))\n    \n        # keep going until either\n        # 1. we have messages to test in multi-turn\n        # 2. no messages but last message is tool response\n        while len(case[\"input\"][\"messages\"]) > 0 or (len(messages) > 0 and messages[-1][\"role\"] == \"tool\"):\n            # do not take new messages if last message is tool response\n            if len(messages) == 0 or messages[-1][\"role\"] != \"tool\":\n                new_messages = case[\"input\"][\"messages\"].pop(0)\n                # Ensure new_messages is a list of message objects\n                if isinstance(new_messages, list):\n                    messages.extend(new_messages)\n                else:\n                    # If it's a single message object, add it directly\n                    messages.append(new_messages)\n    \n            # --- API Call ---\n            response = openai_client.chat.completions.create(\n                model=model,\n                messages=messages,\n                tools=tools,\n                tool_choice=\"auto\",  # Assuming auto, could be specified per turn if needed\n                stream=False,\n            )\n    \n            # --- Process Response ---\n            assistant_message = response.choices[0].message\n            messages.append(assistant_message.model_dump(exclude_unset=True))\n    \n            assert assistant_message.role == \"assistant\"\n    \n            # Get the expected result data\n            expected = expected_results.pop(0)\n            num_tool_calls = expected[\"num_tool_calls\"]\n    \n            # --- Assertions based on expected result ---\n>           assert len(assistant_message.tool_calls or []) == num_tool_calls, (\n                f\"Expected {num_tool_calls} tool calls, but got {len(assistant_message.tool_calls or [])}\"\n            )\nE           AssertionError: Expected 1 tool calls, but got 0\nE           assert 0 == 1\nE            +  where 0 = len((None or []))\nE            +    where None = ChatCompletionMessage(content='{\"type\": \"function\", \"name\": \"get_weather\", \"parameters\": {\"location\": \"San Francisco, CA\"}}', refusal=None, role='assistant', annotations=None, audio=None, function_call=None, tool_calls=None).tool_calls\n\ntests/verifications/openai_api/test_chat_completion.py:418: AssertionError"
+      },
+      "teardown": {
+        "duration": 0.0005287081003189087,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama-v3p3-70b-instruct-add_product_tool]",
+      "lineno": 359,
+      "outcome": "failed",
+      "keywords": [
+        "test_chat_non_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama-v3p3-70b-instruct-add_product_tool]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama-v3p3-70b-instruct-add_product_tool",
+        "test_chat_completion.py",
+        "openai_api",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama-v3p3-70b-instruct",
+        "case_id": "add_product_tool"
+      },
+      "setup": {
+        "duration": 0.012971208896487951,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.5359549589920789,
+        "outcome": "failed",
+        "crash": {
+          "path": "/Users/erichuang/projects/llama-stack/tests/verifications/openai_api/test_chat_completion.py",
+          "lineno": 418,
+          "message": "AssertionError: Expected 1 tool calls, but got 0\nassert 0 == 1\n +  where 0 = len((None or []))\n +    where None = ChatCompletionMessage(content='{\"type\": \"function\", \"name\": \"addProduct\", \"parameters\": {\"name\": \"Widget\", \"price\": \"19.99\", \"inStock\": \"true\", \"tags\": \"[\\\\\"new\\\\\", \\\\\"sale\\\\\"]\"}}', refusal=None, role='assistant', annotations=None, audio=None, function_call=None, tool_calls=None).tool_calls"
+        },
+        "traceback": [
+          {
+            "path": "tests/verifications/openai_api/test_chat_completion.py",
+            "lineno": 418,
+            "message": "AssertionError"
+          }
+        ],
+        "longrepr": "request = <FixtureRequest for <Function test_chat_non_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama-v3p3-70b-instruct-add_product_tool]>>\nopenai_client = <openai.OpenAI object at 0x10b8295a0>\nmodel = 'accounts/fireworks/models/llama-v3p3-70b-instruct'\nprovider = 'fireworks'\nverification_config = {'providers': {'cerebras': {'api_key_var': 'CEREBRAS_API_KEY', 'base_url': 'https://api.cerebras.ai/v1', 'model_displa...-versatile', 'meta-llama/llama-4-scout-17b-16e-instruct', 'meta-llama/llama-4-maverick-17b-128e-instruct'], ...}, ...}}\ncase = {'case_id': 'add_product_tool', 'expected': [{'num_tool_calls': 1, 'tool_arguments': {'inStock': True, 'name': 'Widget...}}, 'type': 'function'}]}, 'tool_responses': [{'response': \"{'response': 'Successfully added product with id: 123'}\"}]}\n\n    @pytest.mark.parametrize(\n        \"case\",\n        chat_completion_test_cases.get(\"test_chat_multi_turn_tool_calling\", {}).get(\"test_params\", {}).get(\"case\", []),\n        ids=case_id_generator,\n    )\n    def test_chat_non_streaming_multi_turn_tool_calling(request, openai_client, model, provider, verification_config, case):\n        \"\"\"\n        Test cases for multi-turn tool calling.\n        Tool calls are asserted.\n        Tool responses are provided in the test case.\n        Final response is asserted.\n        \"\"\"\n    \n        test_name_base = get_base_test_name(request)\n        if should_skip_test(verification_config, provider, model, test_name_base):\n            pytest.skip(f\"Skipping {test_name_base} for model {model} on provider {provider} based on config.\")\n    \n        # Create a copy of the messages list to avoid modifying the original\n        messages = []\n        tools = case[\"input\"][\"tools\"]\n        # Use deepcopy to prevent modification across runs/parametrization\n        expected_results = copy.deepcopy(case[\"expected\"])\n        tool_responses = copy.deepcopy(case.get(\"tool_responses\", []))\n    \n        # keep going until either\n        # 1. we have messages to test in multi-turn\n        # 2. no messages but last message is tool response\n        while len(case[\"input\"][\"messages\"]) > 0 or (len(messages) > 0 and messages[-1][\"role\"] == \"tool\"):\n            # do not take new messages if last message is tool response\n            if len(messages) == 0 or messages[-1][\"role\"] != \"tool\":\n                new_messages = case[\"input\"][\"messages\"].pop(0)\n                # Ensure new_messages is a list of message objects\n                if isinstance(new_messages, list):\n                    messages.extend(new_messages)\n                else:\n                    # If it's a single message object, add it directly\n                    messages.append(new_messages)\n    \n            # --- API Call ---\n            response = openai_client.chat.completions.create(\n                model=model,\n                messages=messages,\n                tools=tools,\n                tool_choice=\"auto\",  # Assuming auto, could be specified per turn if needed\n                stream=False,\n            )\n    \n            # --- Process Response ---\n            assistant_message = response.choices[0].message\n            messages.append(assistant_message.model_dump(exclude_unset=True))\n    \n            assert assistant_message.role == \"assistant\"\n    \n            # Get the expected result data\n            expected = expected_results.pop(0)\n            num_tool_calls = expected[\"num_tool_calls\"]\n    \n            # --- Assertions based on expected result ---\n>           assert len(assistant_message.tool_calls or []) == num_tool_calls, (\n                f\"Expected {num_tool_calls} tool calls, but got {len(assistant_message.tool_calls or [])}\"\n            )\nE           AssertionError: Expected 1 tool calls, but got 0\nE           assert 0 == 1\nE            +  where 0 = len((None or []))\nE            +    where None = ChatCompletionMessage(content='{\"type\": \"function\", \"name\": \"addProduct\", \"parameters\": {\"name\": \"Widget\", \"price\": \"19.99\", \"inStock\": \"true\", \"tags\": \"[\\\\\"new\\\\\", \\\\\"sale\\\\\"]\"}}', refusal=None, role='assistant', annotations=None, audio=None, function_call=None, tool_calls=None).tool_calls\n\ntests/verifications/openai_api/test_chat_completion.py:418: AssertionError"
+      },
+      "teardown": {
+        "duration": 0.0008378750644624233,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama-v3p3-70b-instruct-get_then_create_event_tool]",
+      "lineno": 359,
+      "outcome": "failed",
+      "keywords": [
+        "test_chat_non_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama-v3p3-70b-instruct-get_then_create_event_tool]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama-v3p3-70b-instruct-get_then_create_event_tool",
+        "test_chat_completion.py",
+        "openai_api",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama-v3p3-70b-instruct",
+        "case_id": "get_then_create_event_tool"
+      },
+      "setup": {
+        "duration": 0.022015166003257036,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.5984592500608414,
+        "outcome": "failed",
+        "crash": {
+          "path": "/Users/erichuang/projects/llama-stack/tests/verifications/openai_api/test_chat_completion.py",
+          "lineno": 418,
+          "message": "AssertionError: Expected 1 tool calls, but got 0\nassert 0 == 1\n +  where 0 = len((None or []))\n +    where None = ChatCompletionMessage(content='{\"type\": \"function\", \"name\": \"get_event\", \"parameters\": {\"date\": \"2025-03-03\", \"time\": \"10:00\"}}', refusal=None, role='assistant', annotations=None, audio=None, function_call=None, tool_calls=None).tool_calls"
+        },
+        "traceback": [
+          {
+            "path": "tests/verifications/openai_api/test_chat_completion.py",
+            "lineno": 418,
+            "message": "AssertionError"
+          }
+        ],
+        "longrepr": "request = <FixtureRequest for <Function test_chat_non_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama-v3p3-70b-instruct-get_then_create_event_tool]>>\nopenai_client = <openai.OpenAI object at 0x10b8bf430>\nmodel = 'accounts/fireworks/models/llama-v3p3-70b-instruct'\nprovider = 'fireworks'\nverification_config = {'providers': {'cerebras': {'api_key_var': 'CEREBRAS_API_KEY', 'base_url': 'https://api.cerebras.ai/v1', 'model_displa...-versatile', 'meta-llama/llama-4-scout-17b-16e-instruct', 'meta-llama/llama-4-maverick-17b-128e-instruct'], ...}, ...}}\ncase = {'case_id': 'get_then_create_event_tool', 'expected': [{'num_tool_calls': 1, 'tool_arguments': {'date': '2025-03-03', ...ents found for 2025-03-03 at 10:00'}\"}, {'response': \"{'response': 'Successfully created new event with id: e_123'}\"}]}\n\n    @pytest.mark.parametrize(\n        \"case\",\n        chat_completion_test_cases.get(\"test_chat_multi_turn_tool_calling\", {}).get(\"test_params\", {}).get(\"case\", []),\n        ids=case_id_generator,\n    )\n    def test_chat_non_streaming_multi_turn_tool_calling(request, openai_client, model, provider, verification_config, case):\n        \"\"\"\n        Test cases for multi-turn tool calling.\n        Tool calls are asserted.\n        Tool responses are provided in the test case.\n        Final response is asserted.\n        \"\"\"\n    \n        test_name_base = get_base_test_name(request)\n        if should_skip_test(verification_config, provider, model, test_name_base):\n            pytest.skip(f\"Skipping {test_name_base} for model {model} on provider {provider} based on config.\")\n    \n        # Create a copy of the messages list to avoid modifying the original\n        messages = []\n        tools = case[\"input\"][\"tools\"]\n        # Use deepcopy to prevent modification across runs/parametrization\n        expected_results = copy.deepcopy(case[\"expected\"])\n        tool_responses = copy.deepcopy(case.get(\"tool_responses\", []))\n    \n        # keep going until either\n        # 1. we have messages to test in multi-turn\n        # 2. no messages but last message is tool response\n        while len(case[\"input\"][\"messages\"]) > 0 or (len(messages) > 0 and messages[-1][\"role\"] == \"tool\"):\n            # do not take new messages if last message is tool response\n            if len(messages) == 0 or messages[-1][\"role\"] != \"tool\":\n                new_messages = case[\"input\"][\"messages\"].pop(0)\n                # Ensure new_messages is a list of message objects\n                if isinstance(new_messages, list):\n                    messages.extend(new_messages)\n                else:\n                    # If it's a single message object, add it directly\n                    messages.append(new_messages)\n    \n            # --- API Call ---\n            response = openai_client.chat.completions.create(\n                model=model,\n                messages=messages,\n                tools=tools,\n                tool_choice=\"auto\",  # Assuming auto, could be specified per turn if needed\n                stream=False,\n            )\n    \n            # --- Process Response ---\n            assistant_message = response.choices[0].message\n            messages.append(assistant_message.model_dump(exclude_unset=True))\n    \n            assert assistant_message.role == \"assistant\"\n    \n            # Get the expected result data\n            expected = expected_results.pop(0)\n            num_tool_calls = expected[\"num_tool_calls\"]\n    \n            # --- Assertions based on expected result ---\n>           assert len(assistant_message.tool_calls or []) == num_tool_calls, (\n                f\"Expected {num_tool_calls} tool calls, but got {len(assistant_message.tool_calls or [])}\"\n            )\nE           AssertionError: Expected 1 tool calls, but got 0\nE           assert 0 == 1\nE            +  where 0 = len((None or []))\nE            +    where None = ChatCompletionMessage(content='{\"type\": \"function\", \"name\": \"get_event\", \"parameters\": {\"date\": \"2025-03-03\", \"time\": \"10:00\"}}', refusal=None, role='assistant', annotations=None, audio=None, function_call=None, tool_calls=None).tool_calls\n\ntests/verifications/openai_api/test_chat_completion.py:418: AssertionError"
+      },
+      "teardown": {
+        "duration": 0.00032708398066461086,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama-v3p3-70b-instruct-compare_monthly_expense_tool]",
+      "lineno": 359,
+      "outcome": "failed",
+      "keywords": [
+        "test_chat_non_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama-v3p3-70b-instruct-compare_monthly_expense_tool]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama-v3p3-70b-instruct-compare_monthly_expense_tool",
+        "test_chat_completion.py",
+        "openai_api",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama-v3p3-70b-instruct",
+        "case_id": "compare_monthly_expense_tool"
+      },
+      "setup": {
+        "duration": 0.00839883298613131,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.4972036250401288,
+        "outcome": "failed",
+        "crash": {
+          "path": "/Users/erichuang/projects/llama-stack/tests/verifications/openai_api/test_chat_completion.py",
+          "lineno": 418,
+          "message": "AssertionError: Expected 1 tool calls, but got 0\nassert 0 == 1\n +  where 0 = len((None or []))\n +    where None = ChatCompletionMessage(content='{\"type\": \"function\", \"name\": \"getMonthlyExpenseSummary\", \"parameters\": {\"month\": \"1\", \"year\": \"2025\"}}', refusal=None, role='assistant', annotations=None, audio=None, function_call=None, tool_calls=None).tool_calls"
+        },
+        "traceback": [
+          {
+            "path": "tests/verifications/openai_api/test_chat_completion.py",
+            "lineno": 418,
+            "message": "AssertionError"
+          }
+        ],
+        "longrepr": "request = <FixtureRequest for <Function test_chat_non_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama-v3p3-70b-instruct-compare_monthly_expense_tool]>>\nopenai_client = <openai.OpenAI object at 0x10b1fb190>\nmodel = 'accounts/fireworks/models/llama-v3p3-70b-instruct'\nprovider = 'fireworks'\nverification_config = {'providers': {'cerebras': {'api_key_var': 'CEREBRAS_API_KEY', 'base_url': 'https://api.cerebras.ai/v1', 'model_displa...-versatile', 'meta-llama/llama-4-scout-17b-16e-instruct', 'meta-llama/llama-4-maverick-17b-128e-instruct'], ...}, ...}}\ncase = {'case_id': 'compare_monthly_expense_tool', 'expected': [{'num_tool_calls': 1, 'tool_arguments': {'month': 1, 'year': ... 'Total expenses for January 2025: $1000'}\"}, {'response': \"{'response': 'Total expenses for February 2024: $2000'}\"}]}\n\n    @pytest.mark.parametrize(\n        \"case\",\n        chat_completion_test_cases.get(\"test_chat_multi_turn_tool_calling\", {}).get(\"test_params\", {}).get(\"case\", []),\n        ids=case_id_generator,\n    )\n    def test_chat_non_streaming_multi_turn_tool_calling(request, openai_client, model, provider, verification_config, case):\n        \"\"\"\n        Test cases for multi-turn tool calling.\n        Tool calls are asserted.\n        Tool responses are provided in the test case.\n        Final response is asserted.\n        \"\"\"\n    \n        test_name_base = get_base_test_name(request)\n        if should_skip_test(verification_config, provider, model, test_name_base):\n            pytest.skip(f\"Skipping {test_name_base} for model {model} on provider {provider} based on config.\")\n    \n        # Create a copy of the messages list to avoid modifying the original\n        messages = []\n        tools = case[\"input\"][\"tools\"]\n        # Use deepcopy to prevent modification across runs/parametrization\n        expected_results = copy.deepcopy(case[\"expected\"])\n        tool_responses = copy.deepcopy(case.get(\"tool_responses\", []))\n    \n        # keep going until either\n        # 1. we have messages to test in multi-turn\n        # 2. no messages but last message is tool response\n        while len(case[\"input\"][\"messages\"]) > 0 or (len(messages) > 0 and messages[-1][\"role\"] == \"tool\"):\n            # do not take new messages if last message is tool response\n            if len(messages) == 0 or messages[-1][\"role\"] != \"tool\":\n                new_messages = case[\"input\"][\"messages\"].pop(0)\n                # Ensure new_messages is a list of message objects\n                if isinstance(new_messages, list):\n                    messages.extend(new_messages)\n                else:\n                    # If it's a single message object, add it directly\n                    messages.append(new_messages)\n    \n            # --- API Call ---\n            response = openai_client.chat.completions.create(\n                model=model,\n                messages=messages,\n                tools=tools,\n                tool_choice=\"auto\",  # Assuming auto, could be specified per turn if needed\n                stream=False,\n            )\n    \n            # --- Process Response ---\n            assistant_message = response.choices[0].message\n            messages.append(assistant_message.model_dump(exclude_unset=True))\n    \n            assert assistant_message.role == \"assistant\"\n    \n            # Get the expected result data\n            expected = expected_results.pop(0)\n            num_tool_calls = expected[\"num_tool_calls\"]\n    \n            # --- Assertions based on expected result ---\n>           assert len(assistant_message.tool_calls or []) == num_tool_calls, (\n                f\"Expected {num_tool_calls} tool calls, but got {len(assistant_message.tool_calls or [])}\"\n            )\nE           AssertionError: Expected 1 tool calls, but got 0\nE           assert 0 == 1\nE            +  where 0 = len((None or []))\nE            +    where None = ChatCompletionMessage(content='{\"type\": \"function\", \"name\": \"getMonthlyExpenseSummary\", \"parameters\": {\"month\": \"1\", \"year\": \"2025\"}}', refusal=None, role='assistant', annotations=None, audio=None, function_call=None, tool_calls=None).tool_calls\n\ntests/verifications/openai_api/test_chat_completion.py:418: AssertionError"
+      },
+      "teardown": {
+        "duration": 0.00023170886561274529,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-scout-instruct-basic-text_then_weather_tool]",
+      "lineno": 359,
+      "outcome": "failed",
+      "keywords": [
+        "test_chat_non_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-scout-instruct-basic-text_then_weather_tool]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama4-scout-instruct-basic-text_then_weather_tool",
+        "test_chat_completion.py",
+        "openai_api",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama4-scout-instruct-basic",
+        "case_id": "text_then_weather_tool"
+      },
+      "setup": {
+        "duration": 0.007468499941751361,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 1.669050875119865,
+        "outcome": "failed",
+        "crash": {
+          "path": "/Users/erichuang/projects/llama-stack/tests/verifications/openai_api/test_chat_completion.py",
+          "lineno": 446,
+          "message": "AssertionError: Expected one of ['sol'] in content, but got: '{\"name\": \"get_weather\", \"parameters\": {\"description\": \"Get the current weather\", \"parameters\": {\"type\": \"object\", \"properties\": {\"location\": {\"description\": \"The city and state (both required)\", \"type\": \"string\"}}}, \"required\": [\"location\"]}}'\nassert False\n +  where False = any(<generator object test_chat_non_streaming_multi_turn_tool_calling.<locals>.<genexpr> at 0x10b8387b0>)"
+        },
+        "traceback": [
+          {
+            "path": "tests/verifications/openai_api/test_chat_completion.py",
+            "lineno": 446,
+            "message": "AssertionError"
+          }
+        ],
+        "longrepr": "request = <FixtureRequest for <Function test_chat_non_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-scout-instruct-basic-text_then_weather_tool]>>\nopenai_client = <openai.OpenAI object at 0x10b834430>\nmodel = 'accounts/fireworks/models/llama4-scout-instruct-basic'\nprovider = 'fireworks'\nverification_config = {'providers': {'cerebras': {'api_key_var': 'CEREBRAS_API_KEY', 'base_url': 'https://api.cerebras.ai/v1', 'model_displa...-versatile', 'meta-llama/llama-4-scout-17b-16e-instruct', 'meta-llama/llama-4-maverick-17b-128e-instruct'], ...}, ...}}\ncase = {'case_id': 'text_then_weather_tool', 'expected': [{'answer': ['sol'], 'num_tool_calls': 0}, {'num_tool_calls': 1, 'to...], 'type': 'object'}}, 'type': 'function'}]}, 'tool_responses': [{'response': \"{'response': '70 degrees and foggy'}\"}]}\n\n    @pytest.mark.parametrize(\n        \"case\",\n        chat_completion_test_cases.get(\"test_chat_multi_turn_tool_calling\", {}).get(\"test_params\", {}).get(\"case\", []),\n        ids=case_id_generator,\n    )\n    def test_chat_non_streaming_multi_turn_tool_calling(request, openai_client, model, provider, verification_config, case):\n        \"\"\"\n        Test cases for multi-turn tool calling.\n        Tool calls are asserted.\n        Tool responses are provided in the test case.\n        Final response is asserted.\n        \"\"\"\n    \n        test_name_base = get_base_test_name(request)\n        if should_skip_test(verification_config, provider, model, test_name_base):\n            pytest.skip(f\"Skipping {test_name_base} for model {model} on provider {provider} based on config.\")\n    \n        # Create a copy of the messages list to avoid modifying the original\n        messages = []\n        tools = case[\"input\"][\"tools\"]\n        # Use deepcopy to prevent modification across runs/parametrization\n        expected_results = copy.deepcopy(case[\"expected\"])\n        tool_responses = copy.deepcopy(case.get(\"tool_responses\", []))\n    \n        # keep going until either\n        # 1. we have messages to test in multi-turn\n        # 2. no messages but last message is tool response\n        while len(case[\"input\"][\"messages\"]) > 0 or (len(messages) > 0 and messages[-1][\"role\"] == \"tool\"):\n            # do not take new messages if last message is tool response\n            if len(messages) == 0 or messages[-1][\"role\"] != \"tool\":\n                new_messages = case[\"input\"][\"messages\"].pop(0)\n                # Ensure new_messages is a list of message objects\n                if isinstance(new_messages, list):\n                    messages.extend(new_messages)\n                else:\n                    # If it's a single message object, add it directly\n                    messages.append(new_messages)\n    \n            # --- API Call ---\n            response = openai_client.chat.completions.create(\n                model=model,\n                messages=messages,\n                tools=tools,\n                tool_choice=\"auto\",  # Assuming auto, could be specified per turn if needed\n                stream=False,\n            )\n    \n            # --- Process Response ---\n            assistant_message = response.choices[0].message\n            messages.append(assistant_message.model_dump(exclude_unset=True))\n    \n            assert assistant_message.role == \"assistant\"\n    \n            # Get the expected result data\n            expected = expected_results.pop(0)\n            num_tool_calls = expected[\"num_tool_calls\"]\n    \n            # --- Assertions based on expected result ---\n            assert len(assistant_message.tool_calls or []) == num_tool_calls, (\n                f\"Expected {num_tool_calls} tool calls, but got {len(assistant_message.tool_calls or [])}\"\n            )\n    \n            if num_tool_calls > 0:\n                tool_call = assistant_message.tool_calls[0]\n                assert tool_call.function.name == expected[\"tool_name\"], (\n                    f\"Expected tool '{expected['tool_name']}', got '{tool_call.function.name}'\"\n                )\n                # Parse the JSON string arguments before comparing\n                actual_arguments = json.loads(tool_call.function.arguments)\n                assert actual_arguments == expected[\"tool_arguments\"], (\n                    f\"Expected arguments '{expected['tool_arguments']}', got '{actual_arguments}'\"\n                )\n    \n                # Prepare and append the tool response for the next turn\n                tool_response = tool_responses.pop(0)\n                messages.append(\n                    {\n                        \"role\": \"tool\",\n                        \"tool_call_id\": tool_call.id,\n                        \"content\": tool_response[\"response\"],\n                    }\n                )\n            else:\n                assert assistant_message.content is not None, \"Expected content, but none received.\"\n                expected_answers = expected[\"answer\"]  # This is now a list\n                content_lower = assistant_message.content.lower()\n>               assert any(ans.lower() in content_lower for ans in expected_answers), (\n                    f\"Expected one of {expected_answers} in content, but got: '{assistant_message.content}'\"\n                )\nE               AssertionError: Expected one of ['sol'] in content, but got: '{\"name\": \"get_weather\", \"parameters\": {\"description\": \"Get the current weather\", \"parameters\": {\"type\": \"object\", \"properties\": {\"location\": {\"description\": \"The city and state (both required)\", \"type\": \"string\"}}}, \"required\": [\"location\"]}}'\nE               assert False\nE                +  where False = any(<generator object test_chat_non_streaming_multi_turn_tool_calling.<locals>.<genexpr> at 0x10b8387b0>)\n\ntests/verifications/openai_api/test_chat_completion.py:446: AssertionError"
+      },
+      "teardown": {
+        "duration": 0.0002567500341683626,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-scout-instruct-basic-weather_tool_then_text]",
+      "lineno": 359,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_non_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-scout-instruct-basic-weather_tool_then_text]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama4-scout-instruct-basic-weather_tool_then_text",
+        "test_chat_completion.py",
+        "openai_api",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama4-scout-instruct-basic",
+        "case_id": "weather_tool_then_text"
+      },
+      "setup": {
+        "duration": 0.012511291075497866,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.00020695780403912067,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.00017141690477728844,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-scout-instruct-basic-add_product_tool]",
+      "lineno": 359,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_non_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-scout-instruct-basic-add_product_tool]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama4-scout-instruct-basic-add_product_tool",
+        "test_chat_completion.py",
+        "openai_api",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama4-scout-instruct-basic",
+        "case_id": "add_product_tool"
+      },
+      "setup": {
+        "duration": 0.012079291976988316,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.000177707988768816,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.00015608291141688824,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-scout-instruct-basic-get_then_create_event_tool]",
+      "lineno": 359,
+      "outcome": "failed",
+      "keywords": [
+        "test_chat_non_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-scout-instruct-basic-get_then_create_event_tool]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama4-scout-instruct-basic-get_then_create_event_tool",
+        "test_chat_completion.py",
+        "openai_api",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama4-scout-instruct-basic",
+        "case_id": "get_then_create_event_tool"
+      },
+      "setup": {
+        "duration": 0.010083584114909172,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 11.411405500024557,
+        "outcome": "failed",
+        "crash": {
+          "path": "/Users/erichuang/projects/llama-stack/tests/verifications/openai_api/test_chat_completion.py",
+          "lineno": 418,
+          "message": "AssertionError: Expected 1 tool calls, but got 0\nassert 0 == 1\n +  where 0 = len((None or []))\n +    where None = ChatCompletionMessage(content='To create an event with the specified details and obtain the created event ID, we will use the `create_event` function. The event details are as follows:\\n\\n- Event name: Team Building\\n- Date: (Assuming today\\'s date for simplicity, but since the exact date isn\\'t provided, we\\'ll skip it for now)\\n- Time: (Assuming current time for simplicity, e.g., 14:30)\\n- Location: Main Conference Room\\n- Participants: Alice, Bob, Charlie\\n\\nHere\\'s a JSON object representing the function call:\\n\\n```json\\n{\\n  \"name\": \"create_event\",\\n  \"parameters\": {\\n    \"name\": \"Team Building\",\\n    \"description\": \"Team Building event\",\\n    \"parameters\": {\\n      \"type\": \"object\",\\n      \"properties\": {\\n        \"name\": {\\n          \"description\": \"Name of the event\",\\n          \"type\": \"string\"\\n        },\\n        \"date\": {\\n          \"description\": \"Date of the event in ISO format\",\\n          \"type\": \"string\"\\n        },\\n        \"time\": {\\n          \"description\": \"Event Time (HH:MM)\",\\n          \"type\": \"string\"\\n        },\\n        \"location\": {\\n          \"description\": \"Location of the event\",\\n          \"type\": \"string\"\\n        },\\n        \"participants\": {\\n ...it into a request body that looks like the initial output:\\n\\n```json\\n{\\n  \"name\": \"create_event\",\\n  \"parameters\": {\\n    \"name\": \"Team Building\",\\n    \"description\": \"Create a new event\",\\n    \"parameters\": {\\n      \"type\": \"object\",\\n      \"properties\": {\\n        \"name\": {\\n          \"description\": \"Name of the event\",\\n          \"type\": \"string\"\\n        },\\n        \"date\": {\\n          \"description\": \"Date of the event in ISO format\",\\n          \"type\": \"string\"\\n        },\\n        \"time\": {\\n          \"description\": \"Event Time (HH:MM)\",\\n          \"type\": \"string\"\\n        },\\n        \"location\": {\\n          \"description\": \"Location of the event\",\\n          \"type\": \"string\"\\n        },\\n        \"participants\": {\\n          \"description\": \"List of participant names\",\\n          \"type\": \"array\",\\n          \"items\": {\\n            \"type\": \"string\"\\n          }\\n        }\\n      },\\n      \"required\": [\"date\", \"time\"]\\n    },\\n    \"date\": \"2023-04-01\",\\n    \"time\": \"14:30\",\\n    \"location\": \"Main Conference Room\",\\n    \"participants\": [\"Alice\", \"Bob\", \"Charlie\"]\\n  }\\n}\\n```', refusal=None, role='assistant', annotations=None, audio=None, function_call=None, tool_calls=None).tool_calls"
+        },
+        "traceback": [
+          {
+            "path": "tests/verifications/openai_api/test_chat_completion.py",
+            "lineno": 418,
+            "message": "AssertionError"
+          }
+        ],
+        "longrepr": "request = <FixtureRequest for <Function test_chat_non_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-scout-instruct-basic-get_then_create_event_tool]>>\nopenai_client = <openai.OpenAI object at 0x10b611e40>\nmodel = 'accounts/fireworks/models/llama4-scout-instruct-basic'\nprovider = 'fireworks'\nverification_config = {'providers': {'cerebras': {'api_key_var': 'CEREBRAS_API_KEY', 'base_url': 'https://api.cerebras.ai/v1', 'model_displa...-versatile', 'meta-llama/llama-4-scout-17b-16e-instruct', 'meta-llama/llama-4-maverick-17b-128e-instruct'], ...}, ...}}\ncase = {'case_id': 'get_then_create_event_tool', 'expected': [{'num_tool_calls': 1, 'tool_arguments': {'date': '2025-03-03', ...ents found for 2025-03-03 at 10:00'}\"}, {'response': \"{'response': 'Successfully created new event with id: e_123'}\"}]}\n\n    @pytest.mark.parametrize(\n        \"case\",\n        chat_completion_test_cases.get(\"test_chat_multi_turn_tool_calling\", {}).get(\"test_params\", {}).get(\"case\", []),\n        ids=case_id_generator,\n    )\n    def test_chat_non_streaming_multi_turn_tool_calling(request, openai_client, model, provider, verification_config, case):\n        \"\"\"\n        Test cases for multi-turn tool calling.\n        Tool calls are asserted.\n        Tool responses are provided in the test case.\n        Final response is asserted.\n        \"\"\"\n    \n        test_name_base = get_base_test_name(request)\n        if should_skip_test(verification_config, provider, model, test_name_base):\n            pytest.skip(f\"Skipping {test_name_base} for model {model} on provider {provider} based on config.\")\n    \n        # Create a copy of the messages list to avoid modifying the original\n        messages = []\n        tools = case[\"input\"][\"tools\"]\n        # Use deepcopy to prevent modification across runs/parametrization\n        expected_results = copy.deepcopy(case[\"expected\"])\n        tool_responses = copy.deepcopy(case.get(\"tool_responses\", []))\n    \n        # keep going until either\n        # 1. we have messages to test in multi-turn\n        # 2. no messages but last message is tool response\n        while len(case[\"input\"][\"messages\"]) > 0 or (len(messages) > 0 and messages[-1][\"role\"] == \"tool\"):\n            # do not take new messages if last message is tool response\n            if len(messages) == 0 or messages[-1][\"role\"] != \"tool\":\n                new_messages = case[\"input\"][\"messages\"].pop(0)\n                # Ensure new_messages is a list of message objects\n                if isinstance(new_messages, list):\n                    messages.extend(new_messages)\n                else:\n                    # If it's a single message object, add it directly\n                    messages.append(new_messages)\n    \n            # --- API Call ---\n            response = openai_client.chat.completions.create(\n                model=model,\n                messages=messages,\n                tools=tools,\n                tool_choice=\"auto\",  # Assuming auto, could be specified per turn if needed\n                stream=False,\n            )\n    \n            # --- Process Response ---\n            assistant_message = response.choices[0].message\n            messages.append(assistant_message.model_dump(exclude_unset=True))\n    \n            assert assistant_message.role == \"assistant\"\n    \n            # Get the expected result data\n            expected = expected_results.pop(0)\n            num_tool_calls = expected[\"num_tool_calls\"]\n    \n            # --- Assertions based on expected result ---\n>           assert len(assistant_message.tool_calls or []) == num_tool_calls, (\n                f\"Expected {num_tool_calls} tool calls, but got {len(assistant_message.tool_calls or [])}\"\n            )\nE           AssertionError: Expected 1 tool calls, but got 0\nE           assert 0 == 1\nE            +  where 0 = len((None or []))\nE            +    where None = ChatCompletionMessage(content='To create an event with the specified details and obtain the created event ID, we will use the `create_event` function. The event details are as follows:\\n\\n- Event name: Team Building\\n- Date: (Assuming today\\'s date for simplicity, but since the exact date isn\\'t provided, we\\'ll skip it for now)\\n- Time: (Assuming current time for simplicity, e.g., 14:30)\\n- Location: Main Conference Room\\n- Participants: Alice, Bob, Charlie\\n\\nHere\\'s a JSON object representing the function call:\\n\\n```json\\n{\\n  \"name\": \"create_event\",\\n  \"parameters\": {\\n    \"name\": \"Team Building\",\\n    \"description\": \"Team Building event\",\\n    \"parameters\": {\\n      \"type\": \"object\",\\n      \"properties\": {\\n        \"name\": {\\n          \"description\": \"Name of the event\",\\n          \"type\": \"string\"\\n        },\\n        \"date\": {\\n          \"description\": \"Date of the event in ISO format\",\\n          \"type\": \"string\"\\n        },\\n        \"time\": {\\n          \"description\": \"Event Time (HH:MM)\",\\n          \"type\": \"string\"\\n        },\\n        \"location\": {\\n          \"description\": \"Location of the event\",\\n          \"type\": \"string\"\\n        },\\n        \"participants\": {\\n ...it into a request body that looks like the initial output:\\n\\n```json\\n{\\n  \"name\": \"create_event\",\\n  \"parameters\": {\\n    \"name\": \"Team Building\",\\n    \"description\": \"Create a new event\",\\n    \"parameters\": {\\n      \"type\": \"object\",\\n      \"properties\": {\\n        \"name\": {\\n          \"description\": \"Name of the event\",\\n          \"type\": \"string\"\\n        },\\n        \"date\": {\\n          \"description\": \"Date of the event in ISO format\",\\n          \"type\": \"string\"\\n        },\\n        \"time\": {\\n          \"description\": \"Event Time (HH:MM)\",\\n          \"type\": \"string\"\\n        },\\n        \"location\": {\\n          \"description\": \"Location of the event\",\\n          \"type\": \"string\"\\n        },\\n        \"participants\": {\\n          \"description\": \"List of participant names\",\\n          \"type\": \"array\",\\n          \"items\": {\\n            \"type\": \"string\"\\n          }\\n        }\\n      },\\n      \"required\": [\"date\", \"time\"]\\n    },\\n    \"date\": \"2023-04-01\",\\n    \"time\": \"14:30\",\\n    \"location\": \"Main Conference Room\",\\n    \"participants\": [\"Alice\", \"Bob\", \"Charlie\"]\\n  }\\n}\\n```', refusal=None, role='assistant', annotations=None, audio=None, function_call=None, tool_calls=None).tool_calls\n\ntests/verifications/openai_api/test_chat_completion.py:418: AssertionError"
+      },
+      "teardown": {
+        "duration": 0.00041266693733632565,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-scout-instruct-basic-compare_monthly_expense_tool]",
+      "lineno": 359,
+      "outcome": "failed",
+      "keywords": [
+        "test_chat_non_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-scout-instruct-basic-compare_monthly_expense_tool]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama4-scout-instruct-basic-compare_monthly_expense_tool",
+        "test_chat_completion.py",
+        "openai_api",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama4-scout-instruct-basic",
+        "case_id": "compare_monthly_expense_tool"
+      },
+      "setup": {
+        "duration": 0.018786209169775248,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 11.774018208030611,
+        "outcome": "failed",
+        "crash": {
+          "path": "/Users/erichuang/projects/llama-stack/tests/verifications/openai_api/test_chat_completion.py",
+          "lineno": 418,
+          "message": "AssertionError: Expected 1 tool calls, but got 0\nassert 0 == 1\n +  where 0 = len((None or []))\n +    where None = ChatCompletionMessage(content='To accurately answer whether a given date was less than February of last year, we need to specify the date in question. Since the prompt doesn\\'t provide a specific date to compare against, I\\'ll construct a function call that compares a specific date against February of last year. Let\\'s assume the date in question is January 2023.\\n\\nThe function provided seems to be named \"getMonthlyExpenseSummary\". To use it for our purpose, we\\'ll compare the input date to February of last year.\\n\\nGiven that the current year is 2024 (for the sake of example), last year would be 2023, and February of 2023 would be the comparison point.\\n\\nHere\\'s a JSON for a function call that could help determine if January 2023 was less than February of 2023 (last year):\\n\\n```json\\n{\\n  \"name\": \"getMonthlyExpenseSummary\",\\n  \"parameters\": {\\n    \"month\": {\"description\": \"Month of the year (1-12)\", \"type\": \"integer\", \"value\": 1},\\n    \"year\": {\"description\": \"Year\", \"type\": \"integer\", \"value\": 2023}\\n  }\\n}\\n```\\n\\nHowever, to directly answer the question with a \"yes\" or \"no\" based on a comparison, we actually need to calculate and compare. Assuming we compare January 2023 t... a different date, say March 2023:\\n\\n```json\\n{\\n  \"name\": \"getMonthlyExpenseSummary\",\\n  \"parameters\": {\\n    \"month\": {\"description\": \"Month of the year (1-12)\", \"type\": \"integer\", \"value\": 3},\\n    \"year\": {\"description\": \"Year\", \"type\": \"integer\", \"value\": 2023}\\n  }\\n}\\n```\\n\\nMarch 2023 is after February 2023, so the answer would be \"no\".\\n\\nFor a direct comparison against February of last year (assuming current year is 2024) without specifying a particular function output but directly answering:\\n\\nIf we take \"February of last year\" as February 2023, and compare it with January 2023, the answer is \"yes\". \\n\\nTo give a JSON response based on a hypothetical comparison:\\n\\n```json\\n{\\n  \"name\": \"getMonthlyExpenseSummary\",\\n  \"parameters\": {\\n    \"type\": \"object\",\\n    \"properties\": {\\n      \"month\": {\"description\": \"Month of the year (1-12)\", \"type\": \"integer\", \"value\": 1},\\n      \"year\": {\"description\": \"Year\", \"type\": \"integer\", \"value\": 2023}\\n    }\\n  }\\n}\\n```\\n\\nThe response to \"Was it less than Feb of last year?\" would simply be:\\n\\n```json\\n{\\n  \"answer\": \"yes\"\\n}\\n```', refusal=None, role='assistant', annotations=None, audio=None, function_call=None, tool_calls=None).tool_calls"
+        },
+        "traceback": [
+          {
+            "path": "tests/verifications/openai_api/test_chat_completion.py",
+            "lineno": 418,
+            "message": "AssertionError"
+          }
+        ],
+        "longrepr": "request = <FixtureRequest for <Function test_chat_non_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-scout-instruct-basic-compare_monthly_expense_tool]>>\nopenai_client = <openai.OpenAI object at 0x10b1f80a0>\nmodel = 'accounts/fireworks/models/llama4-scout-instruct-basic'\nprovider = 'fireworks'\nverification_config = {'providers': {'cerebras': {'api_key_var': 'CEREBRAS_API_KEY', 'base_url': 'https://api.cerebras.ai/v1', 'model_displa...-versatile', 'meta-llama/llama-4-scout-17b-16e-instruct', 'meta-llama/llama-4-maverick-17b-128e-instruct'], ...}, ...}}\ncase = {'case_id': 'compare_monthly_expense_tool', 'expected': [{'num_tool_calls': 1, 'tool_arguments': {'month': 1, 'year': ... 'Total expenses for January 2025: $1000'}\"}, {'response': \"{'response': 'Total expenses for February 2024: $2000'}\"}]}\n\n    @pytest.mark.parametrize(\n        \"case\",\n        chat_completion_test_cases.get(\"test_chat_multi_turn_tool_calling\", {}).get(\"test_params\", {}).get(\"case\", []),\n        ids=case_id_generator,\n    )\n    def test_chat_non_streaming_multi_turn_tool_calling(request, openai_client, model, provider, verification_config, case):\n        \"\"\"\n        Test cases for multi-turn tool calling.\n        Tool calls are asserted.\n        Tool responses are provided in the test case.\n        Final response is asserted.\n        \"\"\"\n    \n        test_name_base = get_base_test_name(request)\n        if should_skip_test(verification_config, provider, model, test_name_base):\n            pytest.skip(f\"Skipping {test_name_base} for model {model} on provider {provider} based on config.\")\n    \n        # Create a copy of the messages list to avoid modifying the original\n        messages = []\n        tools = case[\"input\"][\"tools\"]\n        # Use deepcopy to prevent modification across runs/parametrization\n        expected_results = copy.deepcopy(case[\"expected\"])\n        tool_responses = copy.deepcopy(case.get(\"tool_responses\", []))\n    \n        # keep going until either\n        # 1. we have messages to test in multi-turn\n        # 2. no messages but last message is tool response\n        while len(case[\"input\"][\"messages\"]) > 0 or (len(messages) > 0 and messages[-1][\"role\"] == \"tool\"):\n            # do not take new messages if last message is tool response\n            if len(messages) == 0 or messages[-1][\"role\"] != \"tool\":\n                new_messages = case[\"input\"][\"messages\"].pop(0)\n                # Ensure new_messages is a list of message objects\n                if isinstance(new_messages, list):\n                    messages.extend(new_messages)\n                else:\n                    # If it's a single message object, add it directly\n                    messages.append(new_messages)\n    \n            # --- API Call ---\n            response = openai_client.chat.completions.create(\n                model=model,\n                messages=messages,\n                tools=tools,\n                tool_choice=\"auto\",  # Assuming auto, could be specified per turn if needed\n                stream=False,\n            )\n    \n            # --- Process Response ---\n            assistant_message = response.choices[0].message\n            messages.append(assistant_message.model_dump(exclude_unset=True))\n    \n            assert assistant_message.role == \"assistant\"\n    \n            # Get the expected result data\n            expected = expected_results.pop(0)\n            num_tool_calls = expected[\"num_tool_calls\"]\n    \n            # --- Assertions based on expected result ---\n>           assert len(assistant_message.tool_calls or []) == num_tool_calls, (\n                f\"Expected {num_tool_calls} tool calls, but got {len(assistant_message.tool_calls or [])}\"\n            )\nE           AssertionError: Expected 1 tool calls, but got 0\nE           assert 0 == 1\nE            +  where 0 = len((None or []))\nE            +    where None = ChatCompletionMessage(content='To accurately answer whether a given date was less than February of last year, we need to specify the date in question. Since the prompt doesn\\'t provide a specific date to compare against, I\\'ll construct a function call that compares a specific date against February of last year. Let\\'s assume the date in question is January 2023.\\n\\nThe function provided seems to be named \"getMonthlyExpenseSummary\". To use it for our purpose, we\\'ll compare the input date to February of last year.\\n\\nGiven that the current year is 2024 (for the sake of example), last year would be 2023, and February of 2023 would be the comparison point.\\n\\nHere\\'s a JSON for a function call that could help determine if January 2023 was less than February of 2023 (last year):\\n\\n```json\\n{\\n  \"name\": \"getMonthlyExpenseSummary\",\\n  \"parameters\": {\\n    \"month\": {\"description\": \"Month of the year (1-12)\", \"type\": \"integer\", \"value\": 1},\\n    \"year\": {\"description\": \"Year\", \"type\": \"integer\", \"value\": 2023}\\n  }\\n}\\n```\\n\\nHowever, to directly answer the question with a \"yes\" or \"no\" based on a comparison, we actually need to calculate and compare. Assuming we compare January 2023 t... a different date, say March 2023:\\n\\n```json\\n{\\n  \"name\": \"getMonthlyExpenseSummary\",\\n  \"parameters\": {\\n    \"month\": {\"description\": \"Month of the year (1-12)\", \"type\": \"integer\", \"value\": 3},\\n    \"year\": {\"description\": \"Year\", \"type\": \"integer\", \"value\": 2023}\\n  }\\n}\\n```\\n\\nMarch 2023 is after February 2023, so the answer would be \"no\".\\n\\nFor a direct comparison against February of last year (assuming current year is 2024) without specifying a particular function output but directly answering:\\n\\nIf we take \"February of last year\" as February 2023, and compare it with January 2023, the answer is \"yes\". \\n\\nTo give a JSON response based on a hypothetical comparison:\\n\\n```json\\n{\\n  \"name\": \"getMonthlyExpenseSummary\",\\n  \"parameters\": {\\n    \"type\": \"object\",\\n    \"properties\": {\\n      \"month\": {\"description\": \"Month of the year (1-12)\", \"type\": \"integer\", \"value\": 1},\\n      \"year\": {\"description\": \"Year\", \"type\": \"integer\", \"value\": 2023}\\n    }\\n  }\\n}\\n```\\n\\nThe response to \"Was it less than Feb of last year?\" would simply be:\\n\\n```json\\n{\\n  \"answer\": \"yes\"\\n}\\n```', refusal=None, role='assistant', annotations=None, audio=None, function_call=None, tool_calls=None).tool_calls\n\ntests/verifications/openai_api/test_chat_completion.py:418: AssertionError"
+      },
+      "teardown": {
+        "duration": 0.00027637509629130363,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-maverick-instruct-basic-text_then_weather_tool]",
+      "lineno": 359,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_non_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-maverick-instruct-basic-text_then_weather_tool]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama4-maverick-instruct-basic-text_then_weather_tool",
+        "test_chat_completion.py",
+        "openai_api",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama4-maverick-instruct-basic",
+        "case_id": "text_then_weather_tool"
+      },
+      "setup": {
+        "duration": 0.008338624844327569,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.00019133416935801506,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0001371670514345169,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-maverick-instruct-basic-weather_tool_then_text]",
+      "lineno": 359,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_non_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-maverick-instruct-basic-weather_tool_then_text]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama4-maverick-instruct-basic-weather_tool_then_text",
+        "test_chat_completion.py",
+        "openai_api",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama4-maverick-instruct-basic",
+        "case_id": "weather_tool_then_text"
+      },
+      "setup": {
+        "duration": 0.008176916977390647,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.00015862518921494484,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.00013633305206894875,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-maverick-instruct-basic-add_product_tool]",
+      "lineno": 359,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_non_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-maverick-instruct-basic-add_product_tool]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama4-maverick-instruct-basic-add_product_tool",
+        "test_chat_completion.py",
+        "openai_api",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama4-maverick-instruct-basic",
+        "case_id": "add_product_tool"
+      },
+      "setup": {
+        "duration": 0.007148416945710778,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.0001654159277677536,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0001307500060647726,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-maverick-instruct-basic-get_then_create_event_tool]",
+      "lineno": 359,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_non_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-maverick-instruct-basic-get_then_create_event_tool]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama4-maverick-instruct-basic-get_then_create_event_tool",
+        "test_chat_completion.py",
+        "openai_api",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama4-maverick-instruct-basic",
+        "case_id": "get_then_create_event_tool"
+      },
+      "setup": {
+        "duration": 0.007214584155008197,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.00017583300359547138,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.00012791692279279232,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_non_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-maverick-instruct-basic-compare_monthly_expense_tool]",
+      "lineno": 359,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_non_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-maverick-instruct-basic-compare_monthly_expense_tool]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama4-maverick-instruct-basic-compare_monthly_expense_tool",
+        "test_chat_completion.py",
+        "openai_api",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama4-maverick-instruct-basic",
+        "case_id": "compare_monthly_expense_tool"
+      },
+      "setup": {
+        "duration": 0.008587541989982128,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.00017120898701250553,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.00014054100029170513,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama-v3p3-70b-instruct-text_then_weather_tool]",
+      "lineno": 450,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama-v3p3-70b-instruct-text_then_weather_tool]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama-v3p3-70b-instruct-text_then_weather_tool",
+        "test_chat_completion.py",
+        "openai_api",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama-v3p3-70b-instruct",
+        "case_id": "text_then_weather_tool"
+      },
+      "setup": {
+        "duration": 0.007530583068728447,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.0001684578601270914,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.00013145804405212402,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama-v3p3-70b-instruct-weather_tool_then_text]",
+      "lineno": 450,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama-v3p3-70b-instruct-weather_tool_then_text]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama-v3p3-70b-instruct-weather_tool_then_text",
+        "test_chat_completion.py",
+        "openai_api",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama-v3p3-70b-instruct",
+        "case_id": "weather_tool_then_text"
+      },
+      "setup": {
+        "duration": 0.006859333021566272,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.0001607078593224287,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.00013308296911418438,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama-v3p3-70b-instruct-add_product_tool]",
+      "lineno": 450,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama-v3p3-70b-instruct-add_product_tool]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama-v3p3-70b-instruct-add_product_tool",
+        "test_chat_completion.py",
+        "openai_api",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama-v3p3-70b-instruct",
+        "case_id": "add_product_tool"
+      },
+      "setup": {
+        "duration": 0.0109507089946419,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.00017716712318360806,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0001336249988526106,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama-v3p3-70b-instruct-get_then_create_event_tool]",
+      "lineno": 450,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama-v3p3-70b-instruct-get_then_create_event_tool]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama-v3p3-70b-instruct-get_then_create_event_tool",
+        "test_chat_completion.py",
+        "openai_api",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama-v3p3-70b-instruct",
+        "case_id": "get_then_create_event_tool"
+      },
+      "setup": {
+        "duration": 0.009127957979217172,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.00016950001008808613,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.00014037499204277992,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama-v3p3-70b-instruct-compare_monthly_expense_tool]",
+      "lineno": 450,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama-v3p3-70b-instruct-compare_monthly_expense_tool]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama-v3p3-70b-instruct-compare_monthly_expense_tool",
+        "test_chat_completion.py",
+        "openai_api",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama-v3p3-70b-instruct",
+        "case_id": "compare_monthly_expense_tool"
+      },
+      "setup": {
+        "duration": 0.007667917059734464,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.00017758389003574848,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0001432080753147602,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-scout-instruct-basic-text_then_weather_tool]",
+      "lineno": 450,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-scout-instruct-basic-text_then_weather_tool]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama4-scout-instruct-basic-text_then_weather_tool",
+        "test_chat_completion.py",
+        "openai_api",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama4-scout-instruct-basic",
+        "case_id": "text_then_weather_tool"
+      },
+      "setup": {
+        "duration": 0.007006583968177438,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.00017304113134741783,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0001388750970363617,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-scout-instruct-basic-weather_tool_then_text]",
+      "lineno": 450,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-scout-instruct-basic-weather_tool_then_text]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama4-scout-instruct-basic-weather_tool_then_text",
+        "test_chat_completion.py",
+        "openai_api",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama4-scout-instruct-basic",
+        "case_id": "weather_tool_then_text"
+      },
+      "setup": {
+        "duration": 0.007732708007097244,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.00014608283527195454,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0001271669752895832,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-scout-instruct-basic-add_product_tool]",
+      "lineno": 450,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-scout-instruct-basic-add_product_tool]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama4-scout-instruct-basic-add_product_tool",
+        "test_chat_completion.py",
+        "openai_api",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama4-scout-instruct-basic",
+        "case_id": "add_product_tool"
+      },
+      "setup": {
+        "duration": 0.008482750039547682,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.00016700010746717453,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.00013258308172225952,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-scout-instruct-basic-get_then_create_event_tool]",
+      "lineno": 450,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-scout-instruct-basic-get_then_create_event_tool]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama4-scout-instruct-basic-get_then_create_event_tool",
+        "test_chat_completion.py",
+        "openai_api",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama4-scout-instruct-basic",
+        "case_id": "get_then_create_event_tool"
+      },
+      "setup": {
+        "duration": 0.014322124887257814,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.0001935421023517847,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.00013450020924210548,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-scout-instruct-basic-compare_monthly_expense_tool]",
+      "lineno": 450,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-scout-instruct-basic-compare_monthly_expense_tool]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama4-scout-instruct-basic-compare_monthly_expense_tool",
+        "test_chat_completion.py",
+        "openai_api",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama4-scout-instruct-basic",
+        "case_id": "compare_monthly_expense_tool"
+      },
+      "setup": {
+        "duration": 0.00860091601498425,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.00016062497161328793,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.00011958321556448936,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-maverick-instruct-basic-text_then_weather_tool]",
+      "lineno": 450,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-maverick-instruct-basic-text_then_weather_tool]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama4-maverick-instruct-basic-text_then_weather_tool",
+        "test_chat_completion.py",
+        "openai_api",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama4-maverick-instruct-basic",
+        "case_id": "text_then_weather_tool"
+      },
+      "setup": {
+        "duration": 0.009268000023439527,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.00016300007700920105,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0001294170506298542,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-maverick-instruct-basic-weather_tool_then_text]",
+      "lineno": 450,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-maverick-instruct-basic-weather_tool_then_text]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama4-maverick-instruct-basic-weather_tool_then_text",
+        "test_chat_completion.py",
+        "openai_api",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama4-maverick-instruct-basic",
+        "case_id": "weather_tool_then_text"
+      },
+      "setup": {
+        "duration": 0.007452582940459251,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.00017541693523526192,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.00012308405712246895,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-maverick-instruct-basic-add_product_tool]",
+      "lineno": 450,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-maverick-instruct-basic-add_product_tool]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama4-maverick-instruct-basic-add_product_tool",
+        "test_chat_completion.py",
+        "openai_api",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama4-maverick-instruct-basic",
+        "case_id": "add_product_tool"
+      },
+      "setup": {
+        "duration": 0.010961916064843535,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.00015945895574986935,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.00012612505815923214,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-maverick-instruct-basic-get_then_create_event_tool]",
+      "lineno": 450,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-maverick-instruct-basic-get_then_create_event_tool]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama4-maverick-instruct-basic-get_then_create_event_tool",
+        "test_chat_completion.py",
+        "openai_api",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama4-maverick-instruct-basic",
+        "case_id": "get_then_create_event_tool"
+      },
+      "setup": {
+        "duration": 0.009701041970402002,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.0001703340094536543,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.00012820796109735966,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/verifications/openai_api/test_chat_completion.py::test_chat_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-maverick-instruct-basic-compare_monthly_expense_tool]",
+      "lineno": 450,
+      "outcome": "passed",
+      "keywords": [
+        "test_chat_streaming_multi_turn_tool_calling[accounts/fireworks/models/llama4-maverick-instruct-basic-compare_monthly_expense_tool]",
+        "parametrize",
+        "pytestmark",
+        "accounts/fireworks/models/llama4-maverick-instruct-basic-compare_monthly_expense_tool",
+        "test_chat_completion.py",
+        "openai_api",
+        "verifications",
+        "tests",
+        "llama-stack",
+        ""
+      ],
+      "metadata": {
+        "model": "accounts/fireworks/models/llama4-maverick-instruct-basic",
+        "case_id": "compare_monthly_expense_tool"
+      },
+      "setup": {
+        "duration": 0.008269625017419457,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.00016854098066687584,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0008816660847514868,
         "outcome": "passed"
       }
     }
   ],
-  "run_timestamp": 1744328684
+  "run_timestamp": 1744671696
 }

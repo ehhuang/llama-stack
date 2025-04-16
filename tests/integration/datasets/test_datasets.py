@@ -38,7 +38,7 @@ def data_url_from_file(file_path: str) -> str:
             "eval/messages-answer",
             {
                 "type": "uri",
-                "uri": "huggingface://datasets/llamastack/simpleqa?split=train",
+                "uri": "huggingface://datasets/llamastack/mmlu?split=train",
             },
             "huggingface",
             10,

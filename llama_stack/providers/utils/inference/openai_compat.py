@@ -115,7 +115,6 @@ from llama_stack.apis.inference.inference import (
     OpenAIChatCompletion,
     OpenAICompletion,
     OpenAICompletionChoice,
-    OpenAIMessageParam,
     OpenAIResponseFormatParam,
     ToolConfig,
 )

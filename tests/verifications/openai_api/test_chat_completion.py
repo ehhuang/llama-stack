@@ -12,7 +12,9 @@ from typing import Any
 import pytest
 from pydantic import BaseModel
 
-from tests.verifications.openai_api.fixtures.fixtures import _load_all_verification_configs
+from tests.verifications.openai_api.fixtures.fixtures import (
+    _load_all_verification_configs,
+)
 from tests.verifications.openai_api.fixtures.load import load_test_cases
 
 chat_completion_test_cases = load_test_cases("chat_completion")
@@ -251,6 +253,7 @@ def test_chat_streaming_tool_calling(request, openai_client, model, provider, ve
         function = call["function"]
         assert function["name"] == "get_weather"
 
+        print(call)
         args_dict = json.loads(function["arguments"])
         assert "san francisco" in args_dict["location"].lower()
 
@@ -272,7 +275,6 @@ def test_chat_non_streaming_tool_choice_required(request, openai_client, model, 
         tool_choice="required",  # Force tool call
         stream=False,
     )
-    print(response)
 
     assert response.choices[0].message.role == "assistant"
     assert len(response.choices[0].message.tool_calls) > 0, "Expected tool call when tool_choice='required'"

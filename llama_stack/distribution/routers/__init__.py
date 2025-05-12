@@ -66,7 +66,7 @@ async def get_auto_router_impl(api: Api, routing_table: RoutingTable, deps: dict
         "tool_runtime": ToolRuntimeRouter,
     }
     api_to_deps = {
-        "inference": {"telemetry": Api.telemetry},
+        "inference": {"telemetry": Api.telemetry, "log": Api.log},
     }
     if api.value not in api_to_routers:
         raise ValueError(f"API {api.value} not found in router map")

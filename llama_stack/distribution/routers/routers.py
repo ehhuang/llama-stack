@@ -50,6 +50,7 @@ from llama_stack.apis.inference.inference import (
     OpenAIMessageParam,
     OpenAIResponseFormatParam,
 )
+from llama_stack.apis.log import ChatCompletion, Log
 from llama_stack.apis.models import Model, ModelType
 from llama_stack.apis.safety import RunShieldResponse, Safety
 from llama_stack.apis.scoring import (
@@ -141,10 +142,12 @@ class InferenceRouter(Inference):
         self,
         routing_table: RoutingTable,
         telemetry: Telemetry | None = None,
+        log: Log | None = None,
     ) -> None:
         logger.debug("Initializing InferenceRouter")
         self.routing_table = routing_table
         self.telemetry = telemetry
+        self.log = log
         if self.telemetry:
             self.tokenizer = Tokenizer.get_instance()
             self.formatter = ChatFormat(self.tokenizer)
@@ -609,7 +612,26 @@ class InferenceRouter(Inference):
         if stream:
             return await provider.openai_chat_completion(**params)
         else:
-            return await self._nonstream_openai_chat_completion(provider, params)
+            response = await self._nonstream_openai_chat_completion(provider, params)
+            if self.log:
+
+                def convert_response_to_chat_completion(response: ChatCompletionResponse) -> ChatCompletion:
+                    from rich.pretty import pprint
+
+                    pprint(response)
+                    all_messages = messages
+                    for choice in response.choices:
+                        all_messages.append(choice.message)
+                    return ChatCompletion(
+                        id=response.id,
+                        created=response.created,
+                        model=response.model,
+                        messages=all_messages,
+                    )
+
+                chat_completion = convert_response_to_chat_completion(response)
+                await self.log.store_chat_completion(chat_completion)
+            return response
 
     async def _nonstream_openai_chat_completion(self, provider: Inference, params: dict) -> OpenAIChatCompletion:
         response = await provider.openai_chat_completion(**params)

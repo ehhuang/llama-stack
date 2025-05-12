@@ -7,6 +7,7 @@ apis:
 - inference
 - safety
 - scoring
+- log
 - telemetry
 - tool_runtime
 - vector_io
@@ -72,6 +73,11 @@ providers:
         type: sqlite
         namespace: null
         db_path: ${env.SQLITE_STORE_DIR:~/.llama/distributions/dev}/agents_store.db
+  log:
+  - provider_id: meta-reference
+    provider_type: inline::meta-reference
+    config:
+      log_db_path: ${env.SQLITE_STORE_DIR:~/.llama/distributions/dev}/log_store.db
   telemetry:
   - provider_id: meta-reference
     provider_type: inline::meta-reference

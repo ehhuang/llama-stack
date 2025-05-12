@@ -24,6 +24,7 @@ class Api(Enum):
     post_training = "post_training"
     tool_runtime = "tool_runtime"
 
+    log = "log"
     telemetry = "telemetry"
 
     models = "models"

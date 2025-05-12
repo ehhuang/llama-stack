@@ -15,6 +15,7 @@ from llama_stack.apis.eval import Eval
 from llama_stack.apis.files import Files
 from llama_stack.apis.inference import Inference
 from llama_stack.apis.inspect import Inspect
+from llama_stack.apis.log import Log
 from llama_stack.apis.models import Models
 from llama_stack.apis.post_training import PostTraining
 from llama_stack.apis.providers import Providers as ProvidersAPI
@@ -70,6 +71,7 @@ def api_protocol_map() -> dict[Api, Any]:
         Api.safety: Safety,
         Api.shields: Shields,
         Api.telemetry: Telemetry,
+        Api.log: Log,
         Api.datasetio: DatasetIO,
         Api.datasets: Datasets,
         Api.scoring: Scoring,
@@ -169,8 +171,8 @@ def specs_for_autorouted_apis(apis_to_serve: list[str] | set[str]) -> dict[str, 
                     routing_table_api=info.routing_table_api,
                     api_dependencies=[info.routing_table_api],
                     # Add telemetry as an optional dependency to all auto-routed providers
-                    optional_api_dependencies=[Api.telemetry],
-                    deps__=([info.routing_table_api.value, Api.telemetry.value]),
+                    optional_api_dependencies=[Api.telemetry, Api.log],
+                    deps__=([info.routing_table_api.value, Api.telemetry.value, Api.log.value]),
                 ),
             )
         }

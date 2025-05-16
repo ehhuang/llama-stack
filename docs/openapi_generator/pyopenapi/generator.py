@@ -759,7 +759,7 @@ class Generator:
         )
 
         return Operation(
-            tags=[op.defining_class.__name__],
+            tags=[op.defining_class.__name__ if op.defining_class.__name__ != "InferenceProvider" else "Inference"],
             summary=None,
             # summary=doc_string.short_description,
             description=description,
@@ -805,6 +805,8 @@ class Generator:
         operation_tags: List[Tag] = []
         for cls in endpoint_classes:
             doc_string = parse_type(cls)
+            if cls.__name__ == "InferenceProvider":
+                continue
             operation_tags.append(
                 Tag(
                     name=cls.__name__,

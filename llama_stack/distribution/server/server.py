@@ -26,6 +26,7 @@ from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse, StreamingResponse
 from openai import BadRequestError
 from pydantic import BaseModel, ValidationError
+from fastapi.middleware.cors import CORSMiddleware
 
 from llama_stack.distribution.datatypes import LoggingConfig, StackRunConfig
 from llama_stack.distribution.distribution import builtin_automatically_routed_apis
@@ -431,6 +432,16 @@ def main(args: argparse.Namespace | None = None):
     if config.server.auth:
         logger.info(f"Enabling authentication with provider: {config.server.auth.provider_type.value}")
         app.add_middleware(AuthenticationMiddleware, auth_config=config.server.auth)
+
+    # --- CORS middleware for local development ---
+    ui_port = os.environ.get("LLAMA_STACK_UI_PORT", 3000)
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=[f"http://localhost:{ui_port}"],
+        allow_credentials=True,
+        allow_methods=["*"],
+        allow_headers=["*"],
+    )
 
     try:
         impls = asyncio.run(construct_stack(config))

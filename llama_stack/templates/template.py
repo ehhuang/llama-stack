@@ -27,6 +27,7 @@ from llama_stack.distribution.datatypes import (
 )
 from llama_stack.distribution.distribution import get_provider_registry
 from llama_stack.distribution.utils.dynamic import instantiate_class_type
+from llama_stack.providers.utils.inference.inference_store import SqliteInferenceStoreConfig
 from llama_stack.providers.utils.inference.model_registry import ProviderModelEntry
 from llama_stack.providers.utils.kvstore.config import SqliteKVStoreConfig
 
@@ -116,6 +117,9 @@ class RunConfigSettings(BaseModel):
             metadata_store=SqliteKVStoreConfig.sample_run_config(
                 __distro_dir__=f"~/.llama/distributions/{name}",
                 db_name="registry.db",
+            ),
+            inference_store=SqliteInferenceStoreConfig.sample_run_config(
+                __distro_dir__=f"~/.llama/distributions/{name}",
             ),
             models=self.default_models or [],
             shields=self.default_shields or [],

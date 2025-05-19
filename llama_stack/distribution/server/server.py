@@ -358,7 +358,6 @@ def main(args: argparse.Namespace | None = None):
         default=int(os.getenv("LLAMA_STACK_PORT", 8321)),
         help="Port to listen on",
     )
-    parser.add_argument("--disable-ipv6", action="store_true", help="Whether to disable IPv6 support")
     parser.add_argument(
         "--env",
         action="append",
@@ -372,9 +371,9 @@ def main(args: argparse.Namespace | None = None):
         args = parser.parse_args()
 
     # Check for deprecated argument usage
-    if "--yaml-config" in sys.argv:
+    if "--config" in sys.argv:
         warnings.warn(
-            "The '--yaml-config' argument is deprecated and will be removed in a future version. Use '--config' instead.",
+            "The '--config' argument is deprecated and will be removed in a future version. Use '--config' instead.",
             DeprecationWarning,
             stacklevel=2,
         )
@@ -392,7 +391,7 @@ def main(args: argparse.Namespace | None = None):
             raise ValueError(f"Template {args.template} does not exist")
         log_line = f"Using template {args.template} config file: {config_file}"
     else:
-        raise ValueError("Either --yaml-config or --template must be provided")
+        raise ValueError("Either --config or --template must be provided")
 
     logger_config = None
     with open(config_file) as fp:
@@ -514,7 +513,7 @@ def main(args: argparse.Namespace | None = None):
         else:
             logger.info(f"HTTPS enabled with certificates:\n  Key: {keyfile}\n  Cert: {certfile}")
 
-    listen_host = ["::", "0.0.0.0"] if not config.server.disable_ipv6 else "0.0.0.0"
+    listen_host = config.server.host or ["::", "0.0.0.0"]
     logger.info(f"Listening on {listen_host}:{port}")
 
     uvicorn_config = {

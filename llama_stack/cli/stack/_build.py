@@ -206,6 +206,8 @@ def run_stack_build_command(args: argparse.Namespace) -> None:
                 contents = yaml.safe_load(f)
                 contents = replace_env_vars(contents)
                 build_config = BuildConfig(**contents)
+                if args.image_type:
+                    build_config.image_type = args.image_type
             except Exception as e:
                 cprint(
                     f"Could not parse config file {args.config}: {e}",
@@ -254,7 +256,7 @@ def run_stack_build_command(args: argparse.Namespace) -> None:
         if not os.path.exists(str(config.external_providers_dir)):
             os.makedirs(str(config.external_providers_dir), exist_ok=True)
         run_args = formulate_run_args(args.image_type, args.image_name, config, args.template)
-        run_args.extend([run_config, str(os.getenv("LLAMA_STACK_PORT", 8321))])
+        run_args.extend([str(os.getenv("LLAMA_STACK_PORT", 8321)), "--config", run_config])
         run_command(run_args)
 
 

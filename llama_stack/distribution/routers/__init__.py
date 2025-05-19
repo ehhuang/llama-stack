@@ -7,8 +7,10 @@
 from typing import Any
 
 from llama_stack.distribution.datatypes import RoutedProtocol
+from llama_stack.distribution.stack import StackRunConfig
 from llama_stack.distribution.store import DistributionRegistry
 from llama_stack.providers.datatypes import Api, RoutingTable
+from llama_stack.providers.utils.inference.inference_store import inference_store_impl
 
 from .routing_tables import (
     BenchmarksRoutingTable,
@@ -45,7 +47,9 @@ async def get_routing_table_impl(
     return impl
 
 
-async def get_auto_router_impl(api: Api, routing_table: RoutingTable, deps: dict[str, Any]) -> Any:
+async def get_auto_router_impl(
+    api: Api, routing_table: RoutingTable, deps: dict[str, Any], run_config: StackRunConfig
+) -> Any:
     from .routers import (
         DatasetIORouter,
         EvalRouter,
@@ -75,6 +79,9 @@ async def get_auto_router_impl(api: Api, routing_table: RoutingTable, deps: dict
     for dep_name, dep_api in api_to_deps.get(api.value, {}).items():
         if dep_api in deps:
             api_to_dep_impl[dep_name] = deps[dep_api]
+
+    if api.value == "inference" and run_config.inference_store:
+        api_to_dep_impl["store"] = await inference_store_impl(run_config.inference_store)
 
     impl = api_to_routers[api.value](routing_table, **api_to_dep_impl)
     await impl.initialize()

@@ -26,6 +26,7 @@ from llama_stack.apis.vector_dbs import VectorDB, VectorDBInput
 from llama_stack.apis.vector_io import VectorIO
 from llama_stack.providers.datatypes import Api, ProviderSpec
 from llama_stack.providers.utils.kvstore.config import KVStoreConfig
+from llama_stack.providers.utils.sqlstore.sqlstore import SqlStoreConfig
 
 LLAMA_STACK_BUILD_CONFIG_VERSION = "2"
 LLAMA_STACK_RUN_CONFIG_VERSION = "2"
@@ -294,6 +295,13 @@ can be instantiated multiple times (with different configs) if necessary.
         default=None,
         description="""
 Configuration for the persistence store used by the distribution registry. If not specified,
+a default SQLite store will be used.""",
+    )
+
+    inference_store: SqlStoreConfig | None = Field(
+        default=None,
+        description="""
+Configuration for the persistence store used by the inference API. If not specified,
 a default SQLite store will be used.""",
     )
 

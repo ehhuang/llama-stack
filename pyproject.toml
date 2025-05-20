@@ -41,6 +41,7 @@ dependencies = [
     "pillow",
     "h11>=0.16.0",
     "kubernetes",
+    "sqlalchemy[asyncio]>=2.0.41",
 ]
 
 [project.optional-dependencies]

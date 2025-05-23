@@ -12,6 +12,7 @@ from typing import Any, cast
 from openai.types.chat import ChatCompletionToolParam
 from pydantic import BaseModel
 
+from llama_stack.apis.agents import Order
 from llama_stack.apis.agents.openai_responses import (
     OpenAIResponseInput,
     OpenAIResponseInputFunctionToolCallOutput,
@@ -23,6 +24,7 @@ from llama_stack.apis.agents.openai_responses import (
     OpenAIResponseInputToolFunction,
     OpenAIResponseMessage,
     OpenAIResponseObject,
+    OpenAIResponseObjectList,
     OpenAIResponseObjectStream,
     OpenAIResponseObjectStreamResponseCompleted,
     OpenAIResponseObjectStreamResponseCreated,
@@ -54,6 +56,7 @@ from llama_stack.log import get_logger
 from llama_stack.models.llama.datatypes import ToolDefinition, ToolParamDefinition
 from llama_stack.providers.utils.inference.openai_compat import convert_tooldef_to_openai_tool
 from llama_stack.providers.utils.kvstore import KVStore
+from llama_stack.providers.utils.responses.responses_store import ResponsesStore
 
 logger = get_logger(name=__name__, category="openai_responses")
 
@@ -169,34 +172,30 @@ class OpenAIResponsePreviousResponseWithInputItems(BaseModel):
 class OpenAIResponsesImpl:
     def __init__(
         self,
-        persistence_store: KVStore,
         inference_api: Inference,
         tool_groups_api: ToolGroups,
         tool_runtime_api: ToolRuntime,
+        responses_store: ResponsesStore,
     ):
-        self.persistence_store = persistence_store
         self.inference_api = inference_api
         self.tool_groups_api = tool_groups_api
         self.tool_runtime_api = tool_runtime_api
-
-    async def _get_previous_response_with_input(self, id: str) -> OpenAIResponsePreviousResponseWithInputItems:
-        key = f"{OPENAI_RESPONSES_PREFIX}{id}"
-        response_json = await self.persistence_store.get(key=key)
-        if response_json is None:
-            raise ValueError(f"OpenAI response with id '{id}' not found")
-        return OpenAIResponsePreviousResponseWithInputItems.model_validate_json(response_json)
+        self.responses_store = responses_store
 
     async def _prepend_previous_response(
         self, input: str | list[OpenAIResponseInput], previous_response_id: str | None = None
     ):
         if previous_response_id:
-            previous_response_with_input = await self._get_previous_response_with_input(previous_response_id)
+            previous_response_with_input = await self.responses_store.get_response_object(previous_response_id)
 
             # previous response input items
-            new_input_items = previous_response_with_input.input_items.data
+            new_input_items = previous_response_with_input.input
 
             # previous response output items
-            new_input_items.extend(previous_response_with_input.response.output)
+            new_input_items.extend(previous_response_with_input.output)
+
+            print(f"new_input_items: {new_input_items}")
+            print(f"input: {input}")
 
             # new input items from the current request
             if isinstance(input, str):
@@ -216,8 +215,17 @@ class OpenAIResponsesImpl:
         self,
         id: str,
     ) -> OpenAIResponseObject:
-        response_with_input = await self._get_previous_response_with_input(id)
-        return response_with_input.response
+        response_with_input = await self.responses_store.get_response_object(id)
+        return OpenAIResponseObject(**{k: v for k, v in response_with_input.model_dump().items() if k != "input"})
+
+    async def list_openai_responses(
+        self,
+        after: str | None = None,
+        limit: int | None = 50,
+        model: str | None = None,
+        order: Order | None = Order.desc,
+    ) -> OpenAIResponseObjectList:
+        return await self.responses_store.list_responses(after, limit, model, order)
 
     async def create_openai_response(
         self,
@@ -360,15 +368,9 @@ class OpenAIResponsesImpl:
                     else:
                         input_items_data.append(input_item)
 
-            input_items = OpenAIResponseInputItemList(data=input_items_data)
-            prev_response = OpenAIResponsePreviousResponseWithInputItems(
-                input_items=input_items,
-                response=response,
-            )
-            key = f"{OPENAI_RESPONSES_PREFIX}{response.id}"
-            await self.persistence_store.set(
-                key=key,
-                value=prev_response.model_dump_json(),
+            await self.responses_store.store_response_object(
+                response_object=response,
+                input=input_items_data,
             )
 
         if stream:

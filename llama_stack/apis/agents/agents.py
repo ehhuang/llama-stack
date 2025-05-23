@@ -13,7 +13,7 @@ from typing import Annotated, Any, Literal, Protocol, runtime_checkable
 from pydantic import BaseModel, ConfigDict, Field
 
 from llama_stack.apis.common.content_types import URL, ContentDelta, InterleavedContent
-from llama_stack.apis.common.responses import PaginatedResponse
+from llama_stack.apis.common.responses import Order, PaginatedResponse
 from llama_stack.apis.inference import (
     CompletionMessage,
     ResponseFormat,
@@ -34,6 +34,7 @@ from .openai_responses import (
     OpenAIResponseInput,
     OpenAIResponseInputTool,
     OpenAIResponseObject,
+    OpenAIResponseObjectList,
     OpenAIResponseObjectStream,
 )
 
@@ -609,5 +610,21 @@ class Agents(Protocol):
         :param model: The underlying LLM used for completions.
         :param previous_response_id: (Optional) if specified, the new response will be a continuation of the previous response. This can be used to easily fork-off new responses from existing responses.
         :returns: An OpenAIResponseObject.
+        """
+        ...
+
+    @webmethod(route="/openai/v1/responses", method="GET")
+    async def list_openai_responses(
+        self,
+        after: str | None = None,
+        limit: int | None = 50,
+        model: str | None = None,
+        order: Order | None = Order.desc,
+    ) -> OpenAIResponseObjectList:
+        """List all OpenAI responses.
+
+        :param start_index: The index to start the pagination from.
+        :param limit: The number of responses to return.
+        :returns: A PaginatedResponse.
         """
         ...

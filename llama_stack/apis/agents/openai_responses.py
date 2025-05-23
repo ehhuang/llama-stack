@@ -186,8 +186,31 @@ class OpenAIResponseInputToolFileSearch(BaseModel):
     # TODO: add filters
 
 
+class ApprovalFilter(BaseModel):
+    always: list[str] | None = None
+    never: list[str] | None = None
+
+
+class AllowedToolsFilter(BaseModel):
+    tool_names: list[str] | None = None
+
+
+@json_schema_type
+class OpenAIResponseInputToolMCP(BaseModel):
+    type: Literal["mcp"] = "mcp"
+    server_label: str
+    server_url: str
+    headers: dict[str, Any] | None = None
+
+    require_approval: Literal["always"] | Literal["never"] | ApprovalFilter = "never"
+    allowed_tools: list[str] | AllowedToolsFilter | None = None
+
+
 OpenAIResponseInputTool = Annotated[
-    OpenAIResponseInputToolWebSearch | OpenAIResponseInputToolFileSearch | OpenAIResponseInputToolFunction,
+    OpenAIResponseInputToolWebSearch
+    | OpenAIResponseInputToolFileSearch
+    | OpenAIResponseInputToolFunction
+    | OpenAIResponseInputToolMCP,
     Field(discriminator="type"),
 ]
 register_schema(OpenAIResponseInputTool, name="OpenAIResponseInputTool")
@@ -195,4 +218,18 @@ register_schema(OpenAIResponseInputTool, name="OpenAIResponseInputTool")
 
 class OpenAIResponseInputItemList(BaseModel):
     data: list[OpenAIResponseInput]
+    object: Literal["list"] = "list"
+
+
+@json_schema_type
+class OpenAIResponseObjectWithInput(OpenAIResponseObject):
+    input: list[OpenAIResponseInput]
+
+
+@json_schema_type
+class OpenAIResponseObjectList(BaseModel):
+    data: list[OpenAIResponseObjectWithInput]
+    has_more: bool
+    first_id: str
+    last_id: str
     object: Literal["list"] = "list"

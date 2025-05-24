@@ -15,7 +15,9 @@ from openai.types.chat.chat_completion_chunk import (
     ChoiceDeltaToolCallFunction,
 )
 
+from llama_stack.apis.agents import Order
 from llama_stack.apis.agents.openai_responses import (
+    ListOpenAIResponseInputItem,
     OpenAIResponseInputMessageContentText,
     OpenAIResponseInputToolFunction,
     OpenAIResponseInputToolWebSearch,
@@ -504,3 +506,246 @@ async def test_create_openai_response_with_instructions_and_previous_response(
     assert sent_messages[2].content == "Galway, Longford, Sligo"
     assert sent_messages[3].role == "user"
     assert sent_messages[3].content == "Which is the largest?"
+
+
+@pytest.mark.asyncio
+async def test_list_openai_response_input_items(openai_responses_impl, mock_responses_store):
+    """Test the list_openai_response_input_items method."""
+    # Setup
+    response_id = "resp_123"
+    input_item_message = OpenAIResponseMessage(
+        id="msg_123",
+        content="What is the capital of France?",
+        role="user",
+    )
+
+    expected_result = ListOpenAIResponseInputItem(data=[input_item_message])
+    mock_responses_store.list_response_input_items.return_value = expected_result
+
+    # Execute
+    result = await openai_responses_impl.list_openai_response_input_items(response_id)
+
+    # Verify
+    mock_responses_store.list_response_input_items.assert_called_once_with(
+        response_id, None, None, None, 20, Order.desc
+    )
+    assert result.object == "list"
+    assert len(result.data) == 1
+    assert result.data[0].id == "msg_123"
+    assert result.data[0].content == "What is the capital of France?"
+    assert result.data[0].role == "user"
+
+
+@pytest.mark.asyncio
+async def test_list_openai_response_input_items_with_limit(openai_responses_impl, mock_responses_store):
+    """Test the list_openai_response_input_items method with limit parameter."""
+    # Setup
+    response_id = "resp_123"
+    input_messages = [
+        OpenAIResponseMessage(id="msg_1", content="First message", role="user"),
+        OpenAIResponseMessage(id="msg_2", content="Second message", role="user"),
+        OpenAIResponseMessage(id="msg_3", content="Third message", role="user"),
+    ]
+
+    # Mock will return first 2 items due to limit=2
+    expected_result = ListOpenAIResponseInputItem(data=input_messages[:2])
+    mock_responses_store.list_response_input_items.return_value = expected_result
+
+    # Execute with limit=2
+    result = await openai_responses_impl.list_openai_response_input_items(response_id, limit=2)
+
+    # Verify
+    mock_responses_store.list_response_input_items.assert_called_once_with(response_id, None, None, None, 2, Order.desc)
+    assert result.object == "list"
+    assert len(result.data) == 2
+    assert result.data[0].id == "msg_1"
+    assert result.data[1].id == "msg_2"
+
+
+@pytest.mark.asyncio
+async def test_list_openai_response_input_items_with_order_asc(openai_responses_impl, mock_responses_store):
+    """Test the list_openai_response_input_items method with ascending order."""
+    # Setup
+    response_id = "resp_123"
+    input_messages = [
+        OpenAIResponseMessage(id="msg_1", content="First message", role="user"),
+        OpenAIResponseMessage(id="msg_2", content="Second message", role="user"),
+    ]
+
+    expected_result = ListOpenAIResponseInputItem(data=input_messages)
+    mock_responses_store.list_response_input_items.return_value = expected_result
+
+    # Execute with order=asc
+    result = await openai_responses_impl.list_openai_response_input_items(response_id, order=Order.asc)
+
+    # Verify
+    mock_responses_store.list_response_input_items.assert_called_once_with(response_id, None, None, None, 20, Order.asc)
+    assert result.object == "list"
+    assert len(result.data) == 2
+    assert result.data[0].id == "msg_1"
+    assert result.data[1].id == "msg_2"
+
+
+@pytest.mark.asyncio
+async def test_list_openai_response_input_items_with_order_desc(openai_responses_impl, mock_responses_store):
+    """Test the list_openai_response_input_items method with descending order."""
+    # Setup
+    response_id = "resp_123"
+    input_messages = [
+        OpenAIResponseMessage(id="msg_2", content="Second message", role="user"),
+        OpenAIResponseMessage(id="msg_1", content="First message", role="user"),
+    ]
+
+    # For desc order, items should be reversed
+    expected_result = ListOpenAIResponseInputItem(data=input_messages)
+    mock_responses_store.list_response_input_items.return_value = expected_result
+
+    # Execute with order=desc (explicit)
+    result = await openai_responses_impl.list_openai_response_input_items(response_id, order=Order.desc)
+
+    # Verify
+    mock_responses_store.list_response_input_items.assert_called_once_with(
+        response_id, None, None, None, 20, Order.desc
+    )
+    assert result.object == "list"
+    assert len(result.data) == 2
+    # With desc order, newest (msg_2) should come first
+    assert result.data[0].id == "msg_2"
+    assert result.data[1].id == "msg_1"
+
+
+@pytest.mark.asyncio
+async def test_list_openai_response_input_items_with_limit_and_order(openai_responses_impl, mock_responses_store):
+    """Test the list_openai_response_input_items method with both limit and order parameters."""
+    # Setup
+    response_id = "resp_123"
+    input_messages = [
+        OpenAIResponseMessage(id="msg_3", content="Third message", role="user"),
+        OpenAIResponseMessage(id="msg_2", content="Second message", role="user"),
+    ]
+
+    # Mock returns first 2 items in desc order with limit applied
+    expected_result = ListOpenAIResponseInputItem(data=input_messages)
+    mock_responses_store.list_response_input_items.return_value = expected_result
+
+    # Execute with both limit and order
+    result = await openai_responses_impl.list_openai_response_input_items(response_id, limit=2, order=Order.desc)
+
+    # Verify
+    mock_responses_store.list_response_input_items.assert_called_once_with(response_id, None, None, None, 2, Order.desc)
+    assert result.object == "list"
+    assert len(result.data) == 2
+    assert result.data[0].id == "msg_3"
+    assert result.data[1].id == "msg_2"
+
+
+@pytest.mark.asyncio
+async def test_list_openai_response_input_items_with_all_parameters(openai_responses_impl, mock_responses_store):
+    """Test the list_openai_response_input_items method with all parameters specified."""
+    # Setup
+    response_id = "resp_123"
+    after = "msg_after"
+    before = "msg_before"
+    include = ["metadata"]
+    limit = 5
+    order = Order.asc
+
+    input_message = OpenAIResponseMessage(
+        id="msg_123",
+        content="Test message",
+        role="user",
+    )
+
+    expected_result = ListOpenAIResponseInputItem(data=[input_message])
+    mock_responses_store.list_response_input_items.return_value = expected_result
+
+    # Execute with all parameters
+    result = await openai_responses_impl.list_openai_response_input_items(
+        response_id, after=after, before=before, include=include, limit=limit, order=order
+    )
+
+    # Verify all parameters are passed through correctly
+    mock_responses_store.list_response_input_items.assert_called_once_with(
+        response_id, after, before, include, limit, order
+    )
+    assert result.object == "list"
+    assert len(result.data) == 1
+    assert result.data[0].id == "msg_123"
+
+
+@pytest.mark.asyncio
+async def test_responses_store_list_input_items_with_limit_and_order():
+    """Test ResponsesStore list_response_input_items with limit and order parameters."""
+
+    # Create mock store and response store
+    mock_sql_store = AsyncMock()
+    responses_store = ResponsesStore(sql_store_config=None)
+    responses_store.sql_store = mock_sql_store
+
+    # Setup test data - multiple input items
+    input_items = [
+        OpenAIResponseMessage(id="msg_1", content="First message", role="user"),
+        OpenAIResponseMessage(id="msg_2", content="Second message", role="user"),
+        OpenAIResponseMessage(id="msg_3", content="Third message", role="user"),
+        OpenAIResponseMessage(id="msg_4", content="Fourth message", role="user"),
+    ]
+
+    response_with_input = OpenAIResponseObjectWithInput(
+        id="resp_123",
+        model="test_model",
+        created_at=1234567890,
+        object="response",
+        status="completed",
+        output=[],
+        input=input_items,
+    )
+
+    # Mock the get_response_object method to return our test data
+    mock_sql_store.fetch_one.return_value = {"response_object": response_with_input.model_dump()}
+
+    # Test 1: Default behavior (no limit, desc order)
+    result = await responses_store.list_response_input_items("resp_123")
+    assert result.object == "list"
+    assert len(result.data) == 4
+    # Should be reversed for desc order
+    assert result.data[0].id == "msg_4"
+    assert result.data[1].id == "msg_3"
+    assert result.data[2].id == "msg_2"
+    assert result.data[3].id == "msg_1"
+
+    # Test 2: With limit=2, desc order
+    result = await responses_store.list_response_input_items("resp_123", limit=2, order=Order.desc)
+    assert result.object == "list"
+    assert len(result.data) == 2
+    # Should be first 2 items in desc order
+    assert result.data[0].id == "msg_4"
+    assert result.data[1].id == "msg_3"
+
+    # Test 3: With limit=2, asc order
+    result = await responses_store.list_response_input_items("resp_123", limit=2, order=Order.asc)
+    assert result.object == "list"
+    assert len(result.data) == 2
+    # Should be first 2 items in original order (asc)
+    assert result.data[0].id == "msg_1"
+    assert result.data[1].id == "msg_2"
+
+    # Test 4: Asc order without limit
+    result = await responses_store.list_response_input_items("resp_123", order=Order.asc)
+    assert result.object == "list"
+    assert len(result.data) == 4
+    # Should be in original order (asc)
+    assert result.data[0].id == "msg_1"
+    assert result.data[1].id == "msg_2"
+    assert result.data[2].id == "msg_3"
+    assert result.data[3].id == "msg_4"
+
+    # Test 5: Large limit (larger than available items)
+    result = await responses_store.list_response_input_items("resp_123", limit=10, order=Order.desc)
+    assert result.object == "list"
+    assert len(result.data) == 4  # Should return all available items
+    assert result.data[0].id == "msg_4"
+
+    # Test 6: Zero limit edge case
+    result = await responses_store.list_response_input_items("resp_123", limit=0, order=Order.asc)
+    assert result.object == "list"
+    assert len(result.data) == 0  # Should return no items

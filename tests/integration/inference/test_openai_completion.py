@@ -225,13 +225,44 @@ def test_openai_chat_completion_streaming(compat_client, client_with_models, tex
 
 
 @pytest.mark.parametrize(
+    "test_case",
+    [
+        "inference:chat_completion:streaming_01",
+        "inference:chat_completion:streaming_02",
+    ],
+)
+def test_openai_chat_completion_streaming_with_n(compat_client, client_with_models, text_model_id, test_case):
+    skip_if_model_doesnt_support_openai_chat_completion(client_with_models, text_model_id)
+    tc = TestCase(test_case)
+    question = tc["question"]
+    expected = tc["expected"]
+
+    response = compat_client.chat.completions.create(
+        model=text_model_id,
+        messages=[{"role": "user", "content": question}],
+        stream=True,
+        timeout=120,  # Increase timeout to 2 minutes for large conversation history,
+        n=2,
+    )
+    streamed_content = {}
+    for chunk in response:
+        for choice in chunk.choices:
+            if choice.delta.content:
+                streamed_content[choice.index] = (
+                    streamed_content.get(choice.index, "") + choice.delta.content.lower().strip()
+                )
+    assert len(streamed_content) == 2
+    for i, content in streamed_content.items():
+        assert expected.lower() in content, f"Choice {i}: Expected {expected.lower()} in {content}"
+
+
+@pytest.mark.parametrize(
     "stream",
     [
         True,
         False,
     ],
 )
-@pytest.mark.skip(reason="Very flaky, keeps failing on CI")
 def test_inference_store(openai_client, client_with_models, text_model_id, stream):
     skip_if_model_doesnt_support_openai_chat_completion(client_with_models, text_model_id)
     client = openai_client
@@ -254,7 +285,8 @@ def test_inference_store(openai_client, client_with_models, text_model_id, strea
         for chunk in response:
             if response_id is None:
                 response_id = chunk.id
-            content += chunk.choices[0].delta.content
+            if chunk.choices[0].delta.content:
+                content += chunk.choices[0].delta.content
     else:
         response_id = response.id
         content = response.choices[0].message.content
@@ -264,8 +296,8 @@ def test_inference_store(openai_client, client_with_models, text_model_id, strea
 
     retrieved_response = client.chat.completions.retrieve(response_id)
     assert retrieved_response.id == response_id
-    assert retrieved_response.input_messages[0]["content"] == message
-    assert retrieved_response.choices[0].message.content == content
+    assert retrieved_response.input_messages[0]["content"] == message, retrieved_response
+    assert retrieved_response.choices[0].message.content == content, retrieved_response
 
 
 @pytest.mark.parametrize(
@@ -275,7 +307,7 @@ def test_inference_store(openai_client, client_with_models, text_model_id, strea
         False,
     ],
 )
-@pytest.mark.skip(reason="Very flaky, tool calling really wacky on CI")
+# @pytest.mark.skip(reason="Very flaky, tool calling really wacky on CI")
 def test_inference_store_tool_calls(openai_client, client_with_models, text_model_id, stream):
     skip_if_model_doesnt_support_openai_chat_completion(client_with_models, text_model_id)
     client = openai_client
@@ -313,7 +345,9 @@ def test_inference_store_tool_calls(openai_client, client_with_models, text_mode
         for chunk in response:
             if response_id is None:
                 response_id = chunk.id
-            content += chunk.choices[0].delta.content
+            if delta := chunk.choices[0].delta:
+                if delta.content:
+                    content += delta.content
     else:
         response_id = response.id
         content = response.choices[0].message.content
@@ -325,4 +359,4 @@ def test_inference_store_tool_calls(openai_client, client_with_models, text_mode
     assert retrieved_response.id == response_id
     assert retrieved_response.input_messages[0]["content"] == message
     assert retrieved_response.choices[0].message.tool_calls[0].function.name == "get_weather"
-    assert retrieved_response.choices[0].message.tool_calls[0].function.arguments == '{"city":"Tokyo"}'
+    assert retrieved_response.choices[0].message.tool_calls[0].function.arguments == '{"city": "Tokyo"}'

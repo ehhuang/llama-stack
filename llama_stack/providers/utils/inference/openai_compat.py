@@ -1377,6 +1377,7 @@ class OpenAIChatCompletionToLlamaStackMixin:
         outstanding_responses = []
         # "n" is the number of completions to generate per prompt
         n = n or 1
+        print(f"n: {n}")
         for _i in range(0, n):
             response = self.chat_completion(
                 model_id=model,
@@ -1402,9 +1403,8 @@ class OpenAIChatCompletionToLlamaStackMixin:
         outstanding_responses: list[Awaitable[AsyncIterator[ChatCompletionResponseStreamChunk]]],
     ):
         id = f"chatcmpl-{uuid.uuid4()}"
-        for outstanding_response in outstanding_responses:
+        for i, outstanding_response in enumerate(outstanding_responses):
             response = await outstanding_response
-            i = 0
             async for chunk in response:
                 event = chunk.event
                 finish_reason = _convert_stop_reason_to_openai_finish_reason(event.stop_reason)
@@ -1459,7 +1459,6 @@ class OpenAIChatCompletionToLlamaStackMixin:
                             model=model,
                             object="chat.completion.chunk",
                         )
-                i = i + 1
 
     async def _process_non_stream_response(
         self, model: str, outstanding_responses: list[Awaitable[ChatCompletionResponse]]

@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import LlamaStackClient from "llama-stack-client";
 import { ChatCompletion } from "@/lib/types";
-import { ChatCompletionsTable } from "@/components/chat-completions/chat-completion-table";
+import { ChatCompletionsTable } from "@/components/chat-completions/chat-completions-table";
 
 export default function ChatCompletionsPage() {
   const [completions, setCompletions] = useState<ChatCompletion[]>([]);
@@ -21,7 +21,7 @@ export default function ChatCompletionsPage() {
         const response = await client.chat.completions.list();
         const data = Array.isArray(response)
           ? response
-          : (response as any).data;
+          : (response as { data: ChatCompletion[] }).data;
 
         if (Array.isArray(data)) {
           setCompletions(data);
@@ -46,7 +46,7 @@ export default function ChatCompletionsPage() {
 
   return (
     <ChatCompletionsTable
-      completions={completions}
+      data={completions}
       isLoading={isLoading}
       error={error}
     />

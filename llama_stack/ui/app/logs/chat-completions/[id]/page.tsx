@@ -15,16 +15,16 @@ export default function ChatCompletionDetailPage() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<Error | null>(null);
 
+  const client = new LlamaStackClient({
+    baseURL: process.env.NEXT_PUBLIC_LLAMA_STACK_BASE_URL,
+  });
+
   useEffect(() => {
     if (!id) {
       setError(new Error("Completion ID is missing."));
       setIsLoading(false);
       return;
     }
-
-    const client = new LlamaStackClient({
-      baseURL: process.env.NEXT_PUBLIC_LLAMA_STACK_BASE_URL,
-    });
 
     const fetchCompletionDetail = async () => {
       setIsLoading(true);

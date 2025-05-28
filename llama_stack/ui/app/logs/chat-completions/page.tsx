@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import LlamaStackClient from "llama-stack-client";
 import { ChatCompletion } from "@/lib/types";
-import { ChatCompletionsTable } from "@/components/chat-completions/chat-completion-table";
+import { ChatCompletionsTable } from "@/components/chat-completions/chat-completions-table";
+import { llamaStackClient } from "@/lib/client";
 
 export default function ChatCompletionsPage() {
   const [completions, setCompletions] = useState<ChatCompletion[]>([]);
@@ -11,17 +11,14 @@ export default function ChatCompletionsPage() {
   const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
-    const client = new LlamaStackClient({
-      baseURL: process.env.NEXT_PUBLIC_LLAMA_STACK_BASE_URL,
-    });
     const fetchCompletions = async () => {
       setIsLoading(true);
       setError(null);
       try {
-        const response = await client.chat.completions.list();
+        const response = await llamaStackClient.chat.completions.list();
         const data = Array.isArray(response)
           ? response
-          : (response as any).data;
+          : (response as { data: ChatCompletion[] }).data;
 
         if (Array.isArray(data)) {
           setCompletions(data);
@@ -46,7 +43,7 @@ export default function ChatCompletionsPage() {
 
   return (
     <ChatCompletionsTable
-      completions={completions}
+      data={completions}
       isLoading={isLoading}
       error={error}
     />

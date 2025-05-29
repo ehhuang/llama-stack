@@ -9,7 +9,7 @@ from tempfile import TemporaryDirectory
 import pytest
 
 from llama_stack.providers.utils.sqlstore.api import ColumnType
-from llama_stack.providers.utils.sqlstore.sqlite.sqlite import SqliteSqlStoreImpl
+from llama_stack.providers.utils.sqlstore.sqlalchemy_sqlstore import SqliteSqlStoreImpl
 from llama_stack.providers.utils.sqlstore.sqlstore import SqliteSqlStoreConfig
 
 

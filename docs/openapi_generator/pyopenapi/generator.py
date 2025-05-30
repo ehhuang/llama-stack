@@ -618,6 +618,76 @@ class Generator:
                 },
                 required=True,
             )
+        # data passed in request body as multipart/form-data
+        elif op.multipart_params:
+            builder = ContentBuilder(self.schema_builder)
+            
+            # Create schema properties for multipart form fields
+            properties = {}
+            required_fields = []
+            
+            for name, param_type in op.multipart_params:
+                # Extract the base type from Annotated types
+                if hasattr(param_type, '__origin__') and hasattr(param_type, '__args__'):
+                    # For Annotated[T, ...], get T
+                    try:
+                        from typing import get_origin, get_args
+                        if get_origin(param_type) is not None:
+                            from typing import Annotated
+                            if get_origin(param_type) is Annotated:
+                                base_type = get_args(param_type)[0]
+                            else:
+                                base_type = param_type
+                        else:
+                            base_type = param_type
+                    except ImportError:
+                        try:
+                            from typing_extensions import get_origin, get_args, Annotated
+                            if get_origin(param_type) is Annotated:
+                                base_type = get_args(param_type)[0]
+                            else:
+                                base_type = param_type
+                        except ImportError:
+                            base_type = param_type
+                else:
+                    base_type = param_type
+                
+                # Handle different parameter types
+                try:
+                    from fastapi import UploadFile
+                    if base_type is UploadFile or (hasattr(base_type, '__name__') and base_type.__name__ == 'UploadFile'):
+                        # File upload
+                        properties[name] = {
+                            "type": "string",
+                            "format": "binary"
+                        }
+                    else:
+                        # Form field
+                        properties[name] = {
+                            "type": "string"
+                        }
+                except ImportError:
+                    # Fallback for when FastAPI is not available
+                    properties[name] = {
+                        "type": "string"
+                    }
+                
+                required_fields.append(name)
+            
+            multipart_schema = {
+                "type": "object",
+                "properties": properties,
+                "required": required_fields
+            }
+            
+            requestBody = RequestBody(
+                content={
+                    "multipart/form-data": {
+                        "schema": multipart_schema
+                    }
+                },
+                required=True,
+            )
         # data passed in payload as JSON and mapped to request parameters
         elif op.request_params:
             builder = ContentBuilder(self.schema_builder)

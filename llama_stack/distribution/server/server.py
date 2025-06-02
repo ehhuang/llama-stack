@@ -18,7 +18,7 @@ from collections.abc import Callable
 from contextlib import asynccontextmanager
 from importlib.metadata import version as parse_version
 from pathlib import Path
-from typing import Annotated, Any
+from typing import Annotated, Any, get_args, get_origin
 
 import rich.pretty
 import yaml
@@ -27,6 +27,7 @@ from fastapi import Body, FastAPI, HTTPException, Request
 from fastapi import Path as FastapiPath
 from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.params import File, Form
 from fastapi.responses import JSONResponse, StreamingResponse
 from openai import BadRequestError
 from pydantic import BaseModel, ValidationError
@@ -212,6 +213,21 @@ async def log_request_pre_validation(request: Request):
             logger.warning(f"Could not read or log request body for {request.method} {request.url.path}: {e}")
 
 
+def is_multipart_param(param_annotation: Any) -> bool:
+    """
+    Check if a parameter annotation indicates multipart form data.
+
+    Returns True if the annotation has File() or Form() in it.
+    """
+    if get_origin(param_annotation) is Annotated:
+        args = get_args(param_annotation)
+        if len(args) >= 2:
+            for annotation in args[1:]:
+                if isinstance(annotation, File | Form):
+                    return True
+    return False
+
+
 def create_dynamic_typed_route(func: Any, method: str, route: str) -> Callable:
     @functools.wraps(func)
     async def route_handler(request: Request, **kwargs):
@@ -244,15 +260,23 @@ def create_dynamic_typed_route(func: Any, method: str, route: str) -> Callable:
 
     path_params = extract_path_params(route)
     if method == "post":
-        # Annotate parameters that are in the path with Path(...) and others with Body(...)
-        new_params = [new_params[0]] + [
-            (
-                param.replace(annotation=Annotated[param.annotation, FastapiPath(..., title=param.name)])
-                if param.name in path_params
-                else param.replace(annotation=Annotated[param.annotation, Body(..., embed=True)])
-            )
-            for param in new_params[1:]
-        ]
+        # Annotate parameters that are in the path with Path(...) and others with Body(...),
+        # but preserve existing File() and Form() annotations for multipart form data
+        new_params = (
+            [new_params[0]]
+            + [
+                (
+                    param.replace(annotation=Annotated[param.annotation, FastapiPath(..., title=param.name)])
+                    if param.name in path_params
+                    else (
+                        param  # Keep original annotation if it's already a multipart param
+                        if is_multipart_param(param.annotation)
+                        else param.replace(annotation=Annotated[param.annotation, Body(..., embed=True)])
+                    )
+                )
+                for param in new_params[1:]
+            ]
+        )
 
     route_handler.__signature__ = sig.replace(parameters=new_params)
 

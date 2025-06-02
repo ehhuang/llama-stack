@@ -15,69 +15,68 @@ from llama_stack.providers.utils.telemetry.trace_protocol import trace_protocol
 from llama_stack.schema_utils import json_schema_type, webmethod
 
 
-@json_schema_type
-class FileUploadResponse(BaseModel):
+# OpenAI Files API Models
+class OpenAIFilePurpose(str, Enum):
     """
-    Response after initiating a file upload session.
+    Valid purpose values for OpenAI Files API.
+    """
 
-    :param id: ID of the upload session
-    :param url: Upload URL for the file or file parts
-    :param offset: Upload content offset
-    :param size: Upload content size
+    ASSISTANTS = "assistants"
+    # TODO: Add other purposes as needed
+
+
+@json_schema_type
+class OpenAIFileObject(BaseModel):
+    """
+    OpenAI File object as defined in the OpenAI Files API.
+
+    :param object: The object type, which is always "file"
+    :param id: The file identifier, which can be referenced in the API endpoints
+    :param bytes: The size of the file, in bytes
+    :param created_at: The Unix timestamp (in seconds) for when the file was created
+    :param expires_at: The Unix timestamp (in seconds) for when the file expires
+    :param filename: The name of the file
+    :param purpose: The intended purpose of the file
+    """
+
+    object: Literal["file"] = "file"
+    id: str
+    bytes: int
+    created_at: int
+    expires_at: int
+    filename: str
+    purpose: OpenAIFilePurpose
+
+
+@json_schema_type
+class ListOpenAIFileResponse(BaseModel):
+    """
+    Response for listing files in OpenAI Files API.
+
+    :param data: List of file objects
+    :param object: The object type, which is always "list"
+    """
+
+    data: list[OpenAIFileObject]
+    has_more: bool
+    first_id: str
+    last_id: str
+    object: Literal["list"] = "list"
+
+
+@json_schema_type
+class OpenAIFileDeleteResponse(BaseModel):
+    """
+    Response for deleting a file in OpenAI Files API.
+
+    :param id: The file identifier that was deleted
+    :param object: The object type, which is always "file"
+    :param deleted: Whether the file was successfully deleted
     """
 
     id: str
-    url: str
-    offset: int
-    size: int
-
-
-@json_schema_type
-class BucketResponse(BaseModel):
-    name: str
-
-
-@json_schema_type
-class ListBucketResponse(BaseModel):
-    """
-    Response representing a list of file entries.
-
-    :param data: List of FileResponse entries
-    """
-
-    data: list[BucketResponse]
-
-
-@json_schema_type
-class FileResponse(BaseModel):
-    """
-    Response representing a file entry.
-
-    :param bucket: Bucket under which the file is stored (valid chars: a-zA-Z0-9_-)
-    :param key: Key under which the file is stored (valid chars: a-zA-Z0-9_-/.)
-    :param mime_type: MIME type of the file
-    :param url: Upload URL for the file contents
-    :param bytes: Size of the file in bytes
-    :param created_at: Timestamp of when the file was created
-    """
-
-    bucket: str
-    key: str
-    mime_type: str
-    url: str
-    bytes: int
-    created_at: int
-
-
-@json_schema_type
-class ListFileResponse(BaseModel):
-    """
-    Response representing a list of file entries.
-
-    :param data: List of FileResponse entries
-    """
-
-    data: list[FileResponse]
+    object: Literal["file"] = "file"
+    deleted: bool
 
 
 # OpenAI Files API Models

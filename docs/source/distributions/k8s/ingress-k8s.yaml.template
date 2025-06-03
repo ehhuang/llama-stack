@@ -1,0 +1,62 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: llama-stack-ingress
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}]'
+    # Optional: Enable HTTPS
+    # alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
+    # alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:region:account:certificate/cert-id
+spec:
+  rules:
+  - http:  # No host specified - ALB will provide a hostname
+      paths:
+      # UI routes
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: llama-stack-ui-service
+            port:
+              number: 8322
+      # API routes
+      - path: /v1
+        pathType: Prefix
+        backend:
+          service:
+            name: llama-stack-service
+            port:
+              number: 8321
+---
+# Service for the UI
+apiVersion: v1
+kind: Service
+metadata:
+  name: llama-stack-ui-service
+spec:
+  selector:
+    app.kubernetes.io/name: llama-stack
+    app.kubernetes.io/component: ui
+  ports:
+    - name: ui-port
+      port: 8322
+      targetPort: 8322
+      protocol: TCP
+---
+# Service for the FastAPI backend
+apiVersion: v1
+kind: Service
+metadata:
+  name: llama-stack-service
+spec:
+  selector:
+    app.kubernetes.io/name: llama-stack
+    app.kubernetes.io/component: server
+  ports:
+    - name: api-port
+      port: 8321
+      targetPort: 8321
+      protocol: TCP

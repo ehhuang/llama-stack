@@ -28,7 +28,7 @@ class InferenceStore:
     async def initialize(self):
         """Create the necessary tables if they don't exist."""
         self.sql_store = sqlstore_impl(self.sql_store_config)
-        await self.sql_store.create_table(
+        await self.sql_store.create_table_with_access_control(
             "chat_completions",
             {
                 "id": ColumnDefinition(type=ColumnType.STRING, primary_key=True),
@@ -47,7 +47,7 @@ class InferenceStore:
 
         data = chat_completion.model_dump()
 
-        await self.sql_store.insert(
+        await self.sql_store.secure_insert(
             "chat_completions",
             {
                 "id": data["id"],
@@ -66,7 +66,7 @@ class InferenceStore:
         order: Order | None = Order.desc,
     ) -> ListOpenAIChatCompletionResponse:
         """
-        List chat completions from the database.
+        List chat completions from the database with automatic access control filtering.
 
         :param after: The ID of the last chat completion to return.
         :param limit: The maximum number of chat completions to return.
@@ -82,7 +82,7 @@ class InferenceStore:
         if not order:
             order = Order.desc
 
-        rows = await self.sql_store.fetch_all(
+        rows = await self.sql_store.secure_fetch_all(
             "chat_completions",
             where={"model": model} if model else None,
             order_by=[("created", order.value)],
@@ -111,9 +111,16 @@ class InferenceStore:
         if not self.sql_store:
             raise ValueError("Inference store is not initialized")
 
-        row = await self.sql_store.fetch_one("chat_completions", where={"id": completion_id})
+        row = await self.sql_store.secure_fetch_one(
+            "chat_completions",
+            where={"id": completion_id},
+        )
+
         if not row:
+            # SecureSqlStore will return None if record doesn't exist OR access is denied
+            # This provides security by not revealing whether the record exists
             raise ValueError(f"Chat completion with id {completion_id} not found") from None
+
         return OpenAICompletionWithInputMessages(
             id=row["id"],
             created=row["created"],

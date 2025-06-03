@@ -480,17 +480,6 @@ def main(args: argparse.Namespace | None = None):
             window_seconds=window_seconds,
         )
 
-    # --- CORS middleware for local development ---
-    # TODO: move to reverse proxy
-    ui_port = os.environ.get("LLAMA_STACK_UI_PORT", 8322)
-    app.add_middleware(
-        CORSMiddleware,
-        allow_origins=[f"http://localhost:{ui_port}"],
-        allow_credentials=True,
-        allow_methods=["*"],
-        allow_headers=["*"],
-    )
-
     try:
         impls = asyncio.run(construct_stack(config))
     except InvalidProviderError as e:

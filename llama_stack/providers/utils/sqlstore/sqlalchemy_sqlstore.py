@@ -18,8 +18,15 @@ from sqlalchemy import (
     Table,
     Text,
     select,
+    text,
 )
 from sqlalchemy.ext.asyncio import async_sessionmaker, create_async_engine
+
+from llama_stack.distribution.access_control.access_control import is_action_allowed
+from llama_stack.distribution.access_control.conditions import ProtectedResource
+from llama_stack.distribution.access_control.datatypes import AccessRule, Action
+from llama_stack.distribution.datatypes import User
+from llama_stack.distribution.request_headers import get_authenticated_user
 
 from .api import ColumnDefinition, ColumnType, SqlStore
 from .sqlstore import SqlAlchemySqlStoreConfig
@@ -33,6 +40,25 @@ TYPE_MAPPING: dict[ColumnType, Any] = {
     ColumnType.TEXT: Text,
     ColumnType.JSON: JSON,
 }
+
+
+class SqlRecord(ProtectedResource):
+    """Simple ProtectedResource implementation for SQL records."""
+
+    def __init__(self, record_id: str, table_name: str, access_attributes: dict[str, list[str]] | None = None):
+        self.type = f"sql_record::{table_name}"
+        self.identifier = record_id
+
+        if access_attributes:
+            self.owner = User(
+                principal="system",
+                attributes=access_attributes,
+            )
+        else:
+            self.owner = User(
+                principal="system_public",
+                attributes=None,
+            )
 
 
 class SqlAlchemySqlStoreImpl(SqlStore):
@@ -54,7 +80,7 @@ class SqlAlchemySqlStoreImpl(SqlStore):
         for col_name, col_props in schema.items():
             col_type = None
             is_primary_key = False
-            is_nullable = True  # Default to nullable
+            is_nullable = True
 
             if isinstance(col_props, ColumnType):
                 col_type = col_props
@@ -71,14 +97,11 @@ class SqlAlchemySqlStoreImpl(SqlStore):
                 Column(col_name, sqlalchemy_type, primary_key=is_primary_key, nullable=is_nullable)
             )
 
-        # Check if table already exists in metadata, otherwise define it
         if table not in self.metadata.tables:
             sqlalchemy_table = Table(table, self.metadata, *sqlalchemy_columns)
         else:
             sqlalchemy_table = self.metadata.tables[table]
 
-        # Create the table in the database if it doesn't exist
-        # checkfirst=True ensures it doesn't try to recreate if it's already there
         engine = create_async_engine(self.config.engine_str)
         async with engine.begin() as conn:
             await conn.run_sync(self.metadata.create_all, tables=[sqlalchemy_table], checkfirst=True)
@@ -92,6 +115,7 @@ class SqlAlchemySqlStoreImpl(SqlStore):
         self,
         table: str,
         where: Mapping[str, Any] | None = None,
+        where_sql: str | None = None,
         limit: int | None = None,
         order_by: list[tuple[str, Literal["asc", "desc"]]] | None = None,
     ) -> list[dict[str, Any]]:
@@ -100,6 +124,8 @@ class SqlAlchemySqlStoreImpl(SqlStore):
             if where:
                 for key, value in where.items():
                     query = query.where(self.metadata.tables[table].c[key] == value)
+            if where_sql:
+                query = query.where(text(where_sql))
             if limit:
                 query = query.limit(limit)
             if order_by:
@@ -120,17 +146,16 @@ class SqlAlchemySqlStoreImpl(SqlStore):
                     else:
                         raise ValueError(f"Invalid order '{order_type}' for column '{name}'")
             result = await session.execute(query)
-            if result.rowcount == 0:
-                return []
             return [dict(row._mapping) for row in result]
 
     async def fetch_one(
         self,
         table: str,
         where: Mapping[str, Any] | None = None,
+        where_sql: str | None = None,
         order_by: list[tuple[str, Literal["asc", "desc"]]] | None = None,
     ) -> dict[str, Any] | None:
-        rows = await self.fetch_all(table, where, limit=1, order_by=order_by)
+        rows = await self.fetch_all(table, where, where_sql, limit=1, order_by=order_by)
         if not rows:
             return None
         return rows[0]
@@ -161,3 +186,166 @@ class SqlAlchemySqlStoreImpl(SqlStore):
                 stmt = stmt.where(self.metadata.tables[table].c[key] == value)
             await session.execute(stmt)
             await session.commit()
+
+    async def create_table_with_access_control(
+        self, table: str, schema: Mapping[str, ColumnType | ColumnDefinition]
+    ) -> None:
+        """Create a table with built-in access control support."""
+        # TODO: clean this up
+        await self._migrate_access_attributes_column(table)
+
+        enhanced_schema = dict(schema)
+        if "access_attributes" not in enhanced_schema:
+            enhanced_schema["access_attributes"] = ColumnType.JSON
+
+        await self.create_table(table, enhanced_schema)
+
+    async def _migrate_access_attributes_column(self, table: str):
+        """Add access_attributes column to existing tables that don't have it.
+
+        This is called before table creation to handle migration of existing tables.
+        If the table doesn't exist, this method does nothing (table will be created with the column).
+        If the table exists but lacks the access_attributes column, it adds the column.
+        """
+        engine = create_async_engine(self.config.engine_str)
+
+        async with engine.begin() as conn:
+            try:
+                result = await conn.execute(
+                    text("SELECT name FROM sqlite_master WHERE type='table' AND name=:table_name"),
+                    {"table_name": table},
+                )
+                table_exists = result.fetchone() is not None
+
+                if not table_exists:
+                    return
+
+                result = await conn.execute(text("PRAGMA table_info(:table_name)"), {"table_name": table})
+                columns = result.fetchall()
+                column_names = [col[1] for col in columns]
+
+                if "access_attributes" in column_names:
+                    return
+
+                add_column_sql = text(f"ALTER TABLE {table} ADD COLUMN access_attributes JSON")
+                await conn.execute(add_column_sql)
+
+            except Exception as e:
+                # If any error occurs during migration, log it but don't fail
+                # The table creation will handle adding the column
+                pass
+
+    async def authorized_insert(self, table: str, data: Mapping[str, Any]) -> None:
+        """Insert a row with automatic access control attribute capture."""
+        enhanced_data = dict(data)
+
+        current_user = get_authenticated_user()
+        if current_user and current_user.attributes:
+            enhanced_data["access_attributes"] = current_user.attributes
+        else:
+            enhanced_data["access_attributes"] = None
+
+        await self.insert(table, enhanced_data)
+
+    def _build_access_control_where_clause(self) -> str:
+        """Build SQL WHERE clause for access control filtering.
+
+        This SQL filtering matches the policy logic exactly:
+        - Records with no/empty access control are always accessible (public)
+        - Missing attribute categories in resources default to ALLOW (no restriction)
+        - Only apply restrictions for attribute categories that exist in the resource
+        - Within categories, user needs ANY matching value (OR logic)
+        - Between categories, user needs ALL categories to match (AND logic)
+        """
+        current_user = get_authenticated_user()
+
+        if not current_user or not current_user.attributes:
+            # User has no attributes, only show public records
+            # Public = NULL, 'null', or empty object '{}'
+            return "(access_attributes IS NULL OR access_attributes = 'null' OR access_attributes = '{}')"
+        else:
+            # Show public records (no access control)
+            base_conditions = ["access_attributes IS NULL", "access_attributes = 'null'", "access_attributes = '{}'"]
+
+            # For records with access control, check each attribute category the user has
+            # Policy logic: missing categories in resource = no restriction (allow)
+            # SQL implementation: only check categories that exist in the resource
+            user_attr_conditions = []
+
+            for attr_key, user_values in current_user.attributes.items():
+                if user_values:  # User has values for this attribute category
+                    # Build condition: "IF resource has this category, user must match"
+                    # This implements the policy's "missing category = allow" logic
+                    value_conditions = []
+                    for value in user_values:
+                        # Check if user's value exists in the resource's array for this category
+                        value_conditions.append(f"JSON_EXTRACT(access_attributes, '$.{attr_key}') LIKE '%\"{value}\"%'")
+
+                    if value_conditions:
+                        # Category condition: (category_missing OR user_matches_category)
+                        # This matches policy logic: UserInOwnersList.matches() returns True when required=None
+                        category_missing = f"JSON_EXTRACT(access_attributes, '$.{attr_key}') IS NULL"
+                        user_matches_category = f"({' OR '.join(value_conditions)})"
+
+                        # If the category exists in the resource, user must match; if missing, allow
+                        user_attr_conditions.append(f"({category_missing} OR {user_matches_category})")
+
+            if user_attr_conditions:
+                # Records are accessible if they're public OR user satisfies all attribute requirements
+                # This creates: (public_records) OR (all_requirements_met_or_missing)
+                all_requirements_met = f"({' AND '.join(user_attr_conditions)})"
+                base_conditions.append(all_requirements_met)
+                return f"({' OR '.join(base_conditions)})"
+            else:
+                # User has no valid attributes, only show public records
+                return f"({' OR '.join(base_conditions)})"
+
+    async def authorized_fetch_all(
+        self,
+        table: str,
+        policy: list[AccessRule],
+        where: Mapping[str, Any] | None = None,
+        limit: int | None = None,
+        order_by: list[tuple[str, Literal["asc", "desc"]]] | None = None,
+    ) -> list[dict[str, Any]]:
+        """Fetch all rows with automatic access control filtering."""
+        access_where = self._build_access_control_where_clause()
+        rows = await self.fetch_all(
+            table=table,
+            where=where,
+            where_sql=access_where,
+            limit=limit,
+            order_by=order_by,
+        )
+
+        current_user = get_authenticated_user()
+        filtered_rows = []
+
+        for row in rows:
+            stored_access_attrs = row.get("access_attributes")
+
+            record_id = row.get("id", "unknown")
+            sql_record = SqlRecord(str(record_id), table, stored_access_attrs)
+
+            if is_action_allowed(policy, Action.READ, sql_record, current_user):
+                filtered_rows.append(row)
+
+        return filtered_rows
+
+    async def authorized_fetch_one(
+        self,
+        table: str,
+        policy: list[AccessRule],
+        where: Mapping[str, Any] | None = None,
+        order_by: list[tuple[str, Literal["asc", "desc"]]] | None = None,
+    ) -> dict[str, Any] | None:
+        """Fetch one row with automatic access control checking."""
+        results = await self.authorized_fetch_all(
+            table=table,
+            policy=policy,
+            where=where,
+            limit=1,
+            order_by=order_by,
+        )
+
+        return results[0] if results else None

@@ -592,7 +592,7 @@ async def test_responses_store_list_input_items_logic():
     )
 
     # Mock the get_response_object method to return our test data
-    mock_sql_store.fetch_one.return_value = {"response_object": response_with_input.model_dump()}
+    mock_sql_store.authorized_fetch_one.return_value = {"response_object": response_with_input.model_dump()}
 
     # Test 1: Default behavior (no limit, desc order)
     result = await responses_store.list_response_input_items("resp_123")

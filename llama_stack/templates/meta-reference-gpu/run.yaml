@@ -56,6 +56,7 @@ providers:
       service_name: "${env.OTEL_SERVICE_NAME:\u200B}"
       sinks: ${env.TELEMETRY_SINKS:console,sqlite}
       sqlite_db_path: ${env.SQLITE_STORE_DIR:~/.llama/distributions/meta-reference-gpu}/trace_store.db
+      otel_trace_endpoint: ${env.OTEL_TRACE_ENDPOINT:http://localhost:4318/v1/traces}
   eval:
   - provider_id: meta-reference
     provider_type: inline::meta-reference

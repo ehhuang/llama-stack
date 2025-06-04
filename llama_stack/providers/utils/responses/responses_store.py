@@ -29,7 +29,7 @@ class ResponsesStore:
 
     async def initialize(self):
         """Create the necessary tables if they don't exist."""
-        await self.sql_store.create_table(
+        await self.sql_store.create_table_with_access_control(
             "openai_responses",
             {
                 "id": ColumnDefinition(type=ColumnType.STRING, primary_key=True),
@@ -45,7 +45,7 @@ class ResponsesStore:
         data = response_object.model_dump()
         data["input"] = [input_item.model_dump() for input_item in input]
 
-        await self.sql_store.insert(
+        await self.sql_store.secure_insert(
             "openai_responses",
             {
                 "id": data["id"],
@@ -76,9 +76,12 @@ class ResponsesStore:
         if not order:
             order = Order.desc
 
-        rows = await self.sql_store.fetch_all(
+        # Build base WHERE conditions
+        where_conditions = {"model": model} if model else None
+
+        rows = await self.sql_store.secure_fetch_all(
             "openai_responses",
-            where={"model": model} if model else None,
+            where=where_conditions,
             order_by=[("created_at", order.value)],
             limit=limit,
         )
@@ -93,9 +96,19 @@ class ResponsesStore:
         )
 
     async def get_response_object(self, response_id: str) -> OpenAIResponseObjectWithInput:
-        row = await self.sql_store.fetch_one("openai_responses", where={"id": response_id})
+        """
+        Get a response object with automatic access control checking.
+        """
+        row = await self.sql_store.secure_fetch_one(
+            "openai_responses",
+            where={"id": response_id},
+        )
+
         if not row:
+            # SecureSqlStore will return None if record doesn't exist OR access is denied
+            # This provides security by not revealing whether the record exists
             raise ValueError(f"Response with id {response_id} not found") from None
+
         return OpenAIResponseObjectWithInput(**row["response_object"])
 
     async def list_response_input_items(

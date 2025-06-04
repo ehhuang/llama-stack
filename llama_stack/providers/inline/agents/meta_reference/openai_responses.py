@@ -37,6 +37,8 @@ from llama_stack.apis.agents.openai_responses import (
     OpenAIResponseOutputMessageFunctionToolCall,
     OpenAIResponseOutputMessageMCPListTools,
     OpenAIResponseOutputMessageWebSearchToolCall,
+    OpenAIResponseText,
+    OpenAIResponseTextFormat,
 )
 from llama_stack.apis.inference.inference import (
     Inference,
@@ -50,7 +52,12 @@ from llama_stack.apis.inference.inference import (
     OpenAIChoice,
     OpenAIDeveloperMessageParam,
     OpenAIImageURL,
+    OpenAIJSONSchema,
     OpenAIMessageParam,
+    OpenAIResponseFormatJSONObject,
+    OpenAIResponseFormatJSONSchema,
+    OpenAIResponseFormatParam,
+    OpenAIResponseFormatText,
     OpenAISystemMessageParam,
     OpenAIToolMessageParam,
     OpenAIUserMessageParam,
@@ -158,6 +165,21 @@ async def _convert_chat_choice_to_response_message(choice: OpenAIChoice) -> Open
     )
 
 
+async def _convert_response_text_to_chat_response_format(text: OpenAIResponseText) -> OpenAIResponseFormatParam:
+    """
+    Convert an OpenAI Response text parameter into an OpenAI Chat Completion response format.
+    """
+    if not text.format or text.format["type"] == "text":
+        return OpenAIResponseFormatText(type="text")
+    if text.format["type"] == "json_object":
+        return OpenAIResponseFormatJSONObject()
+    if text.format["type"] == "json_schema":
+        return OpenAIResponseFormatJSONSchema(
+            json_schema=OpenAIJSONSchema(name=text.format["name"], schema=text.format["schema"])
+        )
+    raise ValueError(f"Unsupported text format: {text.format}")
+
+
 async def _get_message_type_by_role(role: str):
     role_to_type = {
         "user": OpenAIUserMessageParam,
@@ -180,6 +202,7 @@ class ChatCompletionContext(BaseModel):
     mcp_tool_to_server: dict[str, OpenAIResponseInputToolMCP]
     stream: bool
     temperature: float | None
+    response_format: OpenAIResponseFormatParam
 
 
 class OpenAIResponsesImpl:
@@ -343,10 +366,12 @@ class OpenAIResponsesImpl:
         store: bool | None = True,
         stream: bool | None = False,
         temperature: float | None = None,
+        text: OpenAIResponseText | None = None,
         tools: list[OpenAIResponseInputTool] | None = None,
         max_infer_iters: int | None = 10,
     ):
         stream = False if stream is None else stream
+        text = OpenAIResponseText(format=OpenAIResponseTextFormat(type="text")) if text is None else text
 
         output_messages: list[OpenAIResponseOutput] = []
 
@@ -354,6 +379,9 @@ class OpenAIResponsesImpl:
         input = await self._prepend_previous_response(input, previous_response_id)
         messages = await _convert_response_input_to_chat_messages(input)
         await self._prepend_instructions(messages, instructions)
+
+        # Structured outputs
+        response_format = await _convert_response_text_to_chat_response_format(text)
 
         # Tool setup
         chat_tools, mcp_tool_to_server, mcp_list_message = (
@@ -369,6 +397,7 @@ class OpenAIResponsesImpl:
             mcp_tool_to_server=mcp_tool_to_server,
             stream=stream,
             temperature=temperature,
+            response_format=response_format,
         )
 
         # Fork to streaming vs non-streaming - let each handle ALL inference rounds
@@ -379,6 +408,7 @@ class OpenAIResponsesImpl:
                 input=input,
                 model=model,
                 store=store,
+                text=text,
                 tools=tools,
                 max_infer_iters=max_infer_iters,
             )
@@ -389,6 +419,7 @@ class OpenAIResponsesImpl:
                 input=input,
                 model=model,
                 store=store,
+                text=text,
                 tools=tools,
                 max_infer_iters=max_infer_iters,
             )
@@ -400,13 +431,12 @@ class OpenAIResponsesImpl:
         input: str | list[OpenAIResponseInput],
         model: str,
         store: bool | None,
+        text: OpenAIResponseText,
         tools: list[OpenAIResponseInputTool] | None,
-        max_infer_iters: int | None,
+        max_infer_iters: int,
     ) -> OpenAIResponseObject:
-        # Implement tool execution loop - handle ALL inference rounds including the first
         n_iter = 0
         messages = ctx.messages.copy()
-        current_response = None
 
         while True:
             # Do inference (including the first one)
@@ -416,14 +446,15 @@ class OpenAIResponsesImpl:
                 tools=ctx.tools,
                 stream=False,
                 temperature=ctx.temperature,
+                response_format=ctx.response_format,
             )
-            current_response = OpenAIChatCompletion(**inference_result.model_dump())
+            completion = OpenAIChatCompletion(**inference_result.model_dump())
 
             # Separate function vs non-function tool calls
             function_tool_calls = []
             non_function_tool_calls = []
 
-            for choice in current_response.choices:
+            for choice in completion.choices:
                 if choice.message.tool_calls and tools:
                     for tool_call in choice.message.tool_calls:
                         if self._is_function_tool_call(tool_call, tools):
@@ -435,7 +466,7 @@ class OpenAIResponsesImpl:
             if function_tool_calls:
                 # For function tool calls, use existing logic and return immediately
                 current_output_messages = await self._process_response_choices(
-                    chat_response=current_response,
+                    chat_response=completion,
                     ctx=ctx,
                     tools=tools,
                 )
@@ -443,7 +474,7 @@ class OpenAIResponsesImpl:
                 break
             elif non_function_tool_calls:
                 # For non-function tool calls, execute them and continue loop
-                for choice in current_response.choices:
+                for choice in completion.choices:
                     tool_outputs, tool_response_messages = await self._execute_tool_calls_only(choice, ctx)
                     output_messages.extend(tool_outputs)
 
@@ -452,24 +483,25 @@ class OpenAIResponsesImpl:
                     messages.extend(tool_response_messages)
 
                 n_iter += 1
-                if n_iter >= (max_infer_iters or 10):
+                if n_iter >= max_infer_iters:
                     break
 
                 # Continue with next iteration of the loop
                 continue
             else:
                 # No tool calls - convert response to message and we're done
-                for choice in current_response.choices:
+                for choice in completion.choices:
                     output_messages.append(await _convert_chat_choice_to_response_message(choice))
                 break
 
         response = OpenAIResponseObject(
-            created_at=current_response.created,
+            created_at=completion.created,
             id=f"resp-{uuid.uuid4()}",
             model=model,
             object="response",
             status="completed",
             output=output_messages,
+            text=text,
         )
         logger.debug(f"OpenAI Responses response: {response}")
 
@@ -489,6 +521,7 @@ class OpenAIResponsesImpl:
         input: str | list[OpenAIResponseInput],
         model: str,
         store: bool | None,
+        text: OpenAIResponseText,
         tools: list[OpenAIResponseInputTool] | None,
         max_infer_iters: int | None,
     ) -> AsyncIterator[OpenAIResponseObjectStream]:
@@ -503,6 +536,7 @@ class OpenAIResponsesImpl:
             object="response",
             status="in_progress",
             output=output_messages.copy(),
+            text=text,
         )
 
         # Emit response.created immediately
@@ -513,13 +547,13 @@ class OpenAIResponsesImpl:
         messages = ctx.messages.copy()
 
         while True:
-            # Do inference (including the first one) - streaming
             current_inference_result = await self.inference_api.openai_chat_completion(
                 model=ctx.model,
                 messages=messages,
                 tools=ctx.tools,
                 stream=True,
                 temperature=ctx.temperature,
+                response_format=ctx.response_format,
             )
 
             # Process streaming chunks and build complete response
@@ -645,6 +679,7 @@ class OpenAIResponsesImpl:
             model=model,
             object="response",
             status="completed",
+            text=text,
             output=output_messages,
         )
 

@@ -55,4 +55,5 @@ class TelemetryConfig(BaseModel):
             "service_name": "${env.OTEL_SERVICE_NAME:\u200b}",
             "sinks": "${env.TELEMETRY_SINKS:console,sqlite}",
             "sqlite_db_path": "${env.SQLITE_STORE_DIR:" + __distro_dir__ + "}/" + db_name,
+            "otel_trace_endpoint": "${env.OTEL_TRACE_ENDPOINT:http://localhost:4318/v1/traces}",
         }

@@ -20,6 +20,7 @@ def available_providers() -> list[ProviderSpec]:
             pip_packages=[
                 "opentelemetry-sdk",
                 "opentelemetry-exporter-otlp-proto-http",
+                "sqlite3",  # for sqlite span processor
             ],
             optional_api_dependencies=[Api.datasetio],
             module="llama_stack.providers.inline.telemetry.meta_reference",

@@ -70,24 +70,25 @@ class ResponsesStore:
         :param model: The model to filter by.
         :param order: The order to sort the responses by.
         """
-        # TODO: support after
-        if after:
-            raise NotImplementedError("After is not supported for SQLite")
         if not order:
             order = Order.desc
 
-        rows = await self.sql_store.fetch_all(
-            "openai_responses",
-            where={"model": model} if model else None,
+        where_conditions = {}
+        if model:
+            where_conditions["model"] = model
+
+        paginated_result = await self.sql_store.fetch_all(
+            table="openai_responses",
+            where=where_conditions if where_conditions else None,
             order_by=[("created_at", order.value)],
+            cursor=("id", after) if after else None,
             limit=limit,
         )
 
-        data = [OpenAIResponseObjectWithInput(**row["response_object"]) for row in rows]
+        data = [OpenAIResponseObjectWithInput(**row["response_object"]) for row in paginated_result.data]
         return ListOpenAIResponseObject(
             data=data,
-            # TODO: implement has_more
-            has_more=False,
+            has_more=paginated_result.has_more,
             first_id=data[0].id if data else "",
             last_id=data[-1].id if data else "",
         )

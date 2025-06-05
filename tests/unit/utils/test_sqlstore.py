@@ -31,8 +31,9 @@ async def test_sqlite_sqlstore():
         )
         await sqlstore.insert("test", {"id": 1, "name": "test"})
         await sqlstore.insert("test", {"id": 12, "name": "test12"})
-        rows = await sqlstore.fetch_all("test")
-        assert rows == [{"id": 1, "name": "test"}, {"id": 12, "name": "test12"}]
+        result = await sqlstore.fetch_all("test")
+        assert result.data == [{"id": 1, "name": "test"}, {"id": 12, "name": "test12"}]
+        assert result.has_more is False
 
         row = await sqlstore.fetch_one("test", {"id": 1})
         assert row == {"id": 1, "name": "test"}
@@ -41,15 +42,16 @@ async def test_sqlite_sqlstore():
         assert row == {"id": 12, "name": "test12"}
 
         # order by
-        rows = await sqlstore.fetch_all("test", order_by=[("id", "asc")])
-        assert rows == [{"id": 1, "name": "test"}, {"id": 12, "name": "test12"}]
+        result = await sqlstore.fetch_all("test", order_by=[("id", "asc")])
+        assert result.data == [{"id": 1, "name": "test"}, {"id": 12, "name": "test12"}]
 
-        rows = await sqlstore.fetch_all("test", order_by=[("id", "desc")])
-        assert rows == [{"id": 12, "name": "test12"}, {"id": 1, "name": "test"}]
+        result = await sqlstore.fetch_all("test", order_by=[("id", "desc")])
+        assert result.data == [{"id": 12, "name": "test12"}, {"id": 1, "name": "test"}]
 
         # limit
-        rows = await sqlstore.fetch_all("test", limit=1)
-        assert rows == [{"id": 1, "name": "test"}]
+        result = await sqlstore.fetch_all("test", limit=1)
+        assert result.data == [{"id": 1, "name": "test"}]
+        assert result.has_more is True
 
         # update
         await sqlstore.update("test", {"name": "test123"}, {"id": 1})
@@ -58,5 +60,6 @@ async def test_sqlite_sqlstore():
 
         # delete
         await sqlstore.delete("test", {"id": 1})
-        rows = await sqlstore.fetch_all("test")
-        assert rows == [{"id": 12, "name": "test12"}]
+        result = await sqlstore.fetch_all("test")
+        assert result.data == [{"id": 12, "name": "test12"}]
+        assert result.has_more is False

@@ -42,8 +42,20 @@ class ResponsesStore:
     async def store_response_object(
         self, response_object: OpenAIResponseObject, input: list[OpenAIResponseInput]
     ) -> None:
+        import uuid
+
         data = response_object.model_dump()
-        data["input"] = [input_item.model_dump() for input_item in input]
+
+        # Ensure all input items have unique IDs for proper pagination
+        input_data = []
+        for input_item in input:
+            input_dict = input_item.model_dump()
+            if not input_dict.get("id"):
+                # Generate a unique ID for items that don't have one
+                input_dict["id"] = f"input-{uuid.uuid4().hex[:12]}"
+            input_data.append(input_dict)
+
+        data["input"] = input_data
 
         await self.sql_store.insert(
             "openai_responses",
@@ -70,24 +82,25 @@ class ResponsesStore:
         :param model: The model to filter by.
         :param order: The order to sort the responses by.
         """
-        # TODO: support after
-        if after:
-            raise NotImplementedError("After is not supported for SQLite")
         if not order:
             order = Order.desc
 
-        rows = await self.sql_store.fetch_all(
-            "openai_responses",
-            where={"model": model} if model else None,
+        where_conditions = {}
+        if model:
+            where_conditions["model"] = model
+
+        paginated_result = await self.sql_store.fetch_all(
+            table="openai_responses",
+            where=where_conditions if where_conditions else None,
             order_by=[("created_at", order.value)],
+            cursor=("id", after) if after else None,
             limit=limit,
         )
 
-        data = [OpenAIResponseObjectWithInput(**row["response_object"]) for row in rows]
+        data = [OpenAIResponseObjectWithInput(**row["response_object"]) for row in paginated_result.data]
         return ListOpenAIResponseObject(
             data=data,
-            # TODO: implement has_more
-            has_more=False,
+            has_more=paginated_result.has_more,
             first_id=data[0].id if data else "",
             last_id=data[-1].id if data else "",
         )
@@ -117,19 +130,38 @@ class ResponsesStore:
         :param limit: A limit on the number of objects to be returned.
         :param order: The order to return the input items in.
         """
-        # TODO: support after/before pagination
-        if after or before:
-            raise NotImplementedError("After/before pagination is not supported yet")
         if include:
             raise NotImplementedError("Include is not supported yet")
+        if before and after:
+            raise ValueError("Cannot specify both 'before' and 'after' parameters")
 
         response_with_input = await self.get_response_object(response_id)
-        input_items = response_with_input.input
+        items = response_with_input.input
 
+        # Helper function to find item index by ID
+        def find_item_index(item_id: str) -> int:
+            for i, item in enumerate(items):
+                if getattr(item, "id", None) == item_id:
+                    return i
+            raise ValueError(f"Input item with id '{item_id}' not found for response '{response_id}'")
+
+        # Apply pagination
+        start_index = 0
+        end_index = len(items)
+
+        if after:
+            start_index = find_item_index(after) + 1
+        if before:
+            end_index = find_item_index(before)
+
+        items = items[start_index:end_index]
+
+        # Apply ordering
         if order == Order.desc:
-            input_items = list(reversed(input_items))
+            items = list(reversed(items))
 
-        if limit is not None and len(input_items) > limit:
-            input_items = input_items[:limit]
+        # Apply limit
+        if limit is not None:
+            items = items[:limit]
 
-        return ListOpenAIResponseInputItem(data=input_items)
+        return ListOpenAIResponseInputItem(data=items)

@@ -81,9 +81,15 @@ class AuthenticationMiddleware:
     def __init__(self, app, auth_config: AuthenticationConfig):
         self.app = app
         self.auth_provider = create_auth_provider(auth_config)
+        self.public_paths = self.auth_provider.get_public_paths()
 
     async def __call__(self, scope, receive, send):
         if scope["type"] == "http":
+            # Skip authentication for public paths defined by the provider
+            path = scope.get("path", "")
+            if any(path.startswith(public_path) for public_path in self.public_paths):
+                return await self.app(scope, receive, send)
+
             headers = dict(scope.get("headers", []))
             auth_header = headers.get(b"authorization", b"").decode()
 

@@ -31,7 +31,11 @@ from openai import BadRequestError
 from pydantic import BaseModel, ValidationError
 
 from llama_stack.apis.common.responses import PaginatedResponse
-from llama_stack.distribution.datatypes import AuthenticationRequiredError, LoggingConfig, StackRunConfig
+from llama_stack.distribution.datatypes import (
+    AuthenticationRequiredError,
+    LoggingConfig,
+    StackRunConfig,
+)
 from llama_stack.distribution.distribution import builtin_automatically_routed_apis
 from llama_stack.distribution.request_headers import PROVIDER_DATA_VAR, User, request_provider_data_context
 from llama_stack.distribution.resolver import InvalidProviderError
@@ -61,6 +65,7 @@ from llama_stack.providers.utils.telemetry.tracing import (
 )
 
 from .auth import AuthenticationMiddleware
+from .auth_providers import create_auth_provider
 from .quota import QuotaMiddleware
 
 REPO_ROOT = Path(__file__).parent.parent.parent.parent
@@ -448,9 +453,15 @@ def main(args: argparse.Namespace | None = None):
     if not os.environ.get("LLAMA_STACK_DISABLE_VERSION_CHECK"):
         app.add_middleware(ClientVersionMiddleware)
 
-    # Add authentication middleware if configured
+    # Add authentication middleware and routes if configured
     if config.server.auth:
-        logger.info(f"Enabling authentication with provider: {config.server.auth.provider_type.value}")
+        logger.info(f"Enabling authentication with provider: {config.server.auth.type.value}")
+
+        # Create auth provider and setup routes
+        auth_provider = create_auth_provider(config.server.auth)
+        auth_provider.setup_routes(app)
+
+        # Add authentication middleware
         app.add_middleware(AuthenticationMiddleware, auth_config=config.server.auth)
     else:
         if config.server.quota:

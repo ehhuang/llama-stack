@@ -29,10 +29,14 @@ async function proxyRequest(request: NextRequest, method: string) {
       }
     });
 
+    // Don't add auth token here - let the client handle it
+
     // Prepare the request options
     const requestOptions: RequestInit = {
       method,
       headers,
+      // Important: don't follow redirects automatically for auth routes
+      redirect: apiPath.startsWith("auth/") ? "manual" : "follow",
     };
 
     // Add body for methods that support it
@@ -42,6 +46,19 @@ async function proxyRequest(request: NextRequest, method: string) {
 
     // Make the request to FastAPI backend
     const response = await fetch(targetUrl, requestOptions);
+
+    // Handle redirects for auth routes
+    if (
+      response.type === "opaqueredirect" ||
+      response.status === 302 ||
+      response.status === 307
+    ) {
+      const location = response.headers.get("location");
+      if (location) {
+        console.log(`Auth redirect to: ${location}`);
+        return NextResponse.redirect(location);
+      }
+    }
 
     // Get response data
     const responseText = await response.text();

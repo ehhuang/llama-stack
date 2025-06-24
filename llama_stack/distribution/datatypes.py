@@ -6,7 +6,7 @@
 
 from enum import Enum
 from pathlib import Path
-from typing import Annotated, Any
+from typing import Annotated, Any, Literal
 
 from pydantic import BaseModel, Field, field_validator
 
@@ -164,18 +164,88 @@ class AuthProviderType(str, Enum):
 
     OAUTH2_TOKEN = "oauth2_token"
     CUSTOM = "custom"
+    GITHUB_OAUTH = "github_oauth"
 
 
-class AuthenticationConfig(BaseModel):
-    provider_type: AuthProviderType = Field(
-        ...,
-        description="Type of authentication provider",
-    )
+class OAuth2TokenAuthConfig(BaseModel):
+    """Configuration for OAuth2 token authentication."""
+
+    type: Literal[AuthProviderType.OAUTH2_TOKEN] = AuthProviderType.OAUTH2_TOKEN
     config: dict[str, Any] = Field(
         ...,
-        description="Provider-specific configuration",
+        description="OAuth2 token validation configuration",
     )
     access_policy: list[AccessRule] = Field(default=[], description="Rules for determining access to resources")
+
+
+class CustomAuthConfig(BaseModel):
+    """Configuration for custom authentication."""
+
+    type: Literal[AuthProviderType.CUSTOM] = AuthProviderType.CUSTOM
+    config: dict[str, Any] = Field(
+        ...,
+        description="Custom authentication endpoint configuration",
+    )
+    access_policy: list[AccessRule] = Field(default=[], description="Rules for determining access to resources")
+
+
+class GitHubAuthConfig(BaseModel):
+    """Configuration for GitHub OAuth authentication.
+
+    This provider implements GitHub OAuth authentication with the following endpoints:
+
+    - /auth/github/login: Initiates OAuth flow
+      - Accepts optional redirect_url parameter (must be in allowed_redirect_urls)
+      - Redirects to GitHub for authorization
+
+    - /auth/github/callback: Handles OAuth callback (should be used as the callback URL for your GitHub OAuth App)
+      - Exchanges authorization code for access token
+      - Creates JWT with user info
+      - With redirect_url: Redirects to specified URL with JWT in fragment (#token=...)
+      - Without redirect_url: Returns JSON response with JWT
+
+    Ensure your GitHub OAuth App's callback URL matches your server's URL + /auth/github/callback.
+    """
+
+    type: Literal[AuthProviderType.GITHUB_OAUTH] = AuthProviderType.GITHUB_OAUTH
+
+    # GitHub OAuth settings
+    github_client_id: str = Field(description="GitHub OAuth App Client ID")
+    github_client_secret: str = Field(description="GitHub OAuth App Client Secret")
+    allowed_redirect_urls: list[str] = Field(
+        default=[],
+        description="Allowed redirect URLs for OAuth callback, e.g. frontend URL",
+    )
+
+    # JWT configuration for token generation
+    jwt_secret: str = Field(description="Secret for signing JWT tokens")
+    jwt_algorithm: str = Field(default="HS256", description="JWT signing algorithm")
+    jwt_audience: str = Field(default="llama-stack", description="JWT audience")
+    jwt_issuer: str = Field(default="llama-stack-github", description="JWT issuer")
+    token_expiry: int = Field(default=86400, description="JWT token expiry in seconds")
+
+    # OAuth2 token validation config (for validating the JWTs we issue)
+    oauth2_config: dict[str, Any] = Field(
+        default_factory=dict,
+        description="Additional OAuth2 token validation configuration",
+    )
+
+    # Access control
+    access_policy: list[AccessRule] = Field(default=[], description="Rules for determining access to resources")
+
+    # Claims mapping for GitHub attributes
+    claims_mapping: dict[str, str] = Field(
+        default_factory=lambda: {
+            "sub": "roles",  # GitHub username as role
+        },
+        description="Mapping from JWT claims to Llama Stack attributes",
+    )
+
+
+# Discriminated union for authentication configurations
+AuthenticationConfig = Annotated[
+    OAuth2TokenAuthConfig | CustomAuthConfig | GitHubAuthConfig, Field(discriminator="type")
+]
 
 
 class AuthenticationRequiredError(Exception):

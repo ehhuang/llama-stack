@@ -16,7 +16,13 @@ import httpx
 from jose import jwt
 from pydantic import BaseModel, Field, field_validator, model_validator
 
-from llama_stack.distribution.datatypes import AuthenticationConfig, AuthProviderType, User
+from llama_stack.distribution.datatypes import (
+    AuthenticationConfig,
+    CustomAuthConfig,
+    GitHubAuthConfig,
+    OAuth2TokenAuthConfig,
+    User,
+)
 from llama_stack.log import get_logger
 
 logger = get_logger(name=__name__, category="auth")
@@ -61,6 +67,20 @@ class AuthProvider(ABC):
     async def close(self):
         """Clean up any resources."""
         pass
+
+    def setup_routes(self, app):
+        """Setup any provider-specific routes (e.g., OAuth callbacks).
+
+        This is optional - providers that don't need special routes can skip this.
+        """
+        return
+
+    def get_public_paths(self) -> list[str]:
+        """Return a list of path prefixes that should bypass authentication.
+
+        This is optional - providers that don't have public paths return empty list.
+        """
+        return []
 
 
 def get_attributes_from_claims(claims: dict[str, str], mapping: dict[str, str]) -> dict[str, list[str]]:
@@ -341,12 +361,13 @@ class CustomAuthProvider(AuthProvider):
 
 def create_auth_provider(config: AuthenticationConfig) -> AuthProvider:
     """Factory function to create the appropriate auth provider."""
-    provider_type = config.provider_type.lower()
-
-    if provider_type == "custom":
+    if isinstance(config, CustomAuthConfig):
         return CustomAuthProvider(CustomAuthProviderConfig.model_validate(config.config))
-    elif provider_type == "oauth2_token":
+    elif isinstance(config, OAuth2TokenAuthConfig):
         return OAuth2TokenAuthProvider(OAuth2TokenAuthProviderConfig.model_validate(config.config))
+    elif isinstance(config, GitHubAuthConfig):
+        from .github_oauth_auth_provider import GitHubAuthProvider
+
+        return GitHubAuthProvider(config)
     else:
-        supported_providers = ", ".join([t.value for t in AuthProviderType])
-        raise ValueError(f"Unsupported auth provider type: {provider_type}. Supported types are: {supported_providers}")
+        raise ValueError(f"Unknown authentication config type: {type(config)}")

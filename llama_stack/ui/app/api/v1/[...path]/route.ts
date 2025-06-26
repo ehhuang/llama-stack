@@ -1,9 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-
-// Get backend URL from environment variable or default to localhost for development
-const BACKEND_URL =
-  process.env.LLAMA_STACK_BACKEND_URL ||
-  `http://localhost:${process.env.LLAMA_STACK_PORT || 8321}`;
+import { BACKEND_URL } from "@/lib/server-config";
 
 async function proxyRequest(request: NextRequest, method: string) {
   try {
@@ -16,8 +12,6 @@ async function proxyRequest(request: NextRequest, method: string) {
     const apiPath = pathSegments.slice(2).join("/"); // Remove 'api' segment
     const targetUrl = `${BACKEND_URL}/${apiPath}${url.search}`;
 
-    console.log(`Proxying ${method} ${url.pathname} -> ${targetUrl}`);
-
     // Prepare headers (exclude host and other problematic headers)
     const headers = new Headers();
     request.headers.forEach((value, key) => {
@@ -29,10 +23,14 @@ async function proxyRequest(request: NextRequest, method: string) {
       }
     });
 
+    // Don't add auth token here - let the client handle it
+
     // Prepare the request options
     const requestOptions: RequestInit = {
       method,
       headers,
+      // Important: don't follow redirects automatically for auth routes
+      redirect: apiPath.startsWith("auth/") ? "manual" : "follow",
     };
 
     // Add body for methods that support it
@@ -42,6 +40,18 @@ async function proxyRequest(request: NextRequest, method: string) {
 
     // Make the request to FastAPI backend
     const response = await fetch(targetUrl, requestOptions);
+
+    // Handle redirects for auth routes
+    if (
+      response.type === "opaqueredirect" ||
+      response.status === 302 ||
+      response.status === 307
+    ) {
+      const location = response.headers.get("location");
+      if (location) {
+        return NextResponse.redirect(location);
+      }
+    }
 
     // Get response data
     const responseText = await response.text();

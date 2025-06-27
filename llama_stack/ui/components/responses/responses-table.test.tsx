@@ -40,7 +40,7 @@ jest.mock("@/hooks/usePagination", () => ({
 import { truncateText as originalTruncateText } from "@/lib/truncate-text";
 
 // Import the mocked hook
-import { usePagination } from "@/hooks/usePagination";
+import { usePagination } from "@/hooks/use-pagination";
 const mockedUsePagination = usePagination as jest.MockedFunction<
   typeof usePagination
 >;

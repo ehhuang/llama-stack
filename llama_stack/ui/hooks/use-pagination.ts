@@ -2,6 +2,8 @@
 
 import { useState, useCallback, useEffect, useRef } from "react";
 import { PaginationStatus, UsePaginationOptions } from "@/lib/types";
+import { useSession } from "next-auth/react";
+import { useAuthClient } from "@/hooks/use-auth-client";
 
 interface PaginationState<T> {
   data: T[];
@@ -28,13 +30,18 @@ export interface PaginationReturn<T> {
 }
 
 interface UsePaginationParams<T> extends UsePaginationOptions {
-  fetchFunction: (params: {
-    after?: string;
-    limit: number;
-    model?: string;
-    order?: string;
-  }) => Promise<PaginationResponse<T>>;
+  fetchFunction: (
+    client: ReturnType<typeof useAuthClient>,
+    params: {
+      after?: string;
+      limit: number;
+      model?: string;
+      order?: string;
+    },
+  ) => Promise<PaginationResponse<T>>;
   errorMessagePrefix: string;
+  enabled?: boolean;
+  useAuth?: boolean;
 }
 
 export function usePagination<T>({
@@ -43,7 +50,11 @@ export function usePagination<T>({
   order = "desc",
   fetchFunction,
   errorMessagePrefix,
+  enabled = true,
+  useAuth = true,
 }: UsePaginationParams<T>): PaginationReturn<T> {
+  const { status: sessionStatus } = useSession();
+  const client = useAuthClient();
   const [state, setState] = useState<PaginationState<T>>({
     data: [],
     status: "loading",
@@ -74,7 +85,7 @@ export function usePagination<T>({
           error: null,
         }));
 
-        const response = await fetchFunction({
+        const response = await fetchFunction(client, {
           after: after || undefined,
           limit: fetchLimit,
           ...(model && { model }),
@@ -107,7 +118,7 @@ export function usePagination<T>({
         }));
       }
     },
-    [limit, model, order, fetchFunction, errorMessagePrefix],
+    [limit, model, order, fetchFunction, errorMessagePrefix, client],
   );
 
   /**
@@ -120,17 +131,28 @@ export function usePagination<T>({
     }
   }, [fetchData]);
 
-  // Auto-load initial data on mount
+  // Auto-load initial data on mount when enabled
   useEffect(() => {
-    if (!hasFetchedInitialData.current) {
+    // If using auth, wait for session to load
+    const isAuthReady = !useAuth || sessionStatus !== "loading";
+    const shouldFetch = enabled && isAuthReady;
+
+    if (shouldFetch && !hasFetchedInitialData.current) {
       hasFetchedInitialData.current = true;
       fetchData();
+    } else if (!shouldFetch) {
+      // Reset the flag when disabled so it can fetch when re-enabled
+      hasFetchedInitialData.current = false;
     }
-  }, [fetchData]);
+  }, [fetchData, enabled, useAuth, sessionStatus]);
+
+  // Override status if we're waiting for auth
+  const effectiveStatus =
+    useAuth && sessionStatus === "loading" ? "loading" : state.status;
 
   return {
     data: state.data,
-    status: state.status,
+    status: effectiveStatus,
     hasMore: state.hasMore,
     error: state.error,
     loadMore,

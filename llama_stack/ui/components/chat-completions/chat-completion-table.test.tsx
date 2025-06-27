@@ -47,7 +47,7 @@ import {
 } from "@/lib/format-message-content";
 
 // Import the mocked hook
-import { usePagination } from "@/hooks/usePagination";
+import { usePagination } from "@/hooks/use-pagination";
 const mockedUsePagination = usePagination as jest.MockedFunction<
   typeof usePagination
 >;

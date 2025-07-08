@@ -155,7 +155,7 @@ async def test_sql_policy_consistency(mock_get_authenticated_user):
                 sql_record = SqlRecord(
                     record_id=scenario["id"],
                     table_name="resources",
-                    owner=User(principal="", attributes=scenario["access_attributes"])
+                    access_attributes=scenario["access_attributes"]
                 )
 
                 if is_action_allowed(policy, Action.READ, sql_record, user):

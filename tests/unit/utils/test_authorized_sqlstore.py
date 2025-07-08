@@ -35,7 +35,7 @@ async def test_authorized_fetch_with_where_sql_access_control(mock_get_authentic
         await sqlstore.create_table(
             table="documents",
             schema={
-                "id": ColumnType.INTEGER,
+                "id": ColumnType.STRING,
                 "title": ColumnType.STRING,
                 "content": ColumnType.TEXT,
             },
@@ -48,35 +48,35 @@ async def test_authorized_fetch_with_where_sql_access_control(mock_get_authentic
         mock_get_authenticated_user.return_value = admin_user
 
         # Insert documents with access attributes
-        await sqlstore.insert("documents", {"id": 1, "title": "Admin Document", "content": "This is admin content"})
+        await sqlstore.insert("documents", {"id": "1", "title": "Admin Document", "content": "This is admin content"})
 
         # Change user attributes
         mock_get_authenticated_user.return_value = regular_user
 
-        await sqlstore.insert("documents", {"id": 2, "title": "User Document", "content": "Public user content"})
+        await sqlstore.insert("documents", {"id": "2", "title": "User Document", "content": "Public user content"})
 
         # Test that access control works with where parameter
         mock_get_authenticated_user.return_value = admin_user
 
         # Admin should see both documents
-        result = await sqlstore.fetch_all("documents", policy=default_policy(), where={"id": 1})
+        result = await sqlstore.fetch_all("documents", policy=default_policy(), where={"id": "1"})
         assert len(result.data) == 1
         assert result.data[0]["title"] == "Admin Document"
 
         # User should only see their document
         mock_get_authenticated_user.return_value = regular_user
 
-        result = await sqlstore.fetch_all("documents", policy=default_policy(), where={"id": 1})
+        result = await sqlstore.fetch_all("documents", policy=default_policy(), where={"id": "1"})
         assert len(result.data) == 0
 
-        result = await sqlstore.fetch_all("documents", policy=default_policy(), where={"id": 2})
+        result = await sqlstore.fetch_all("documents", policy=default_policy(), where={"id": "2"})
         assert len(result.data) == 1
         assert result.data[0]["title"] == "User Document"
 
-        row = await sqlstore.fetch_one("documents", policy=default_policy(), where={"id": 1})
+        row = await sqlstore.fetch_one("documents", policy=default_policy(), where={"id": "1"})
         assert row is None
 
-        row = await sqlstore.fetch_one("documents", policy=default_policy(), where={"id": 2})
+        row = await sqlstore.fetch_one("documents", policy=default_policy(), where={"id": "2"})
         assert row is not None
         assert row["title"] == "User Document"
 
@@ -153,7 +153,9 @@ async def test_sql_policy_consistency(mock_get_authenticated_user):
             policy_ids = set()
             for scenario in test_scenarios:
                 sql_record = SqlRecord(
-                    record_id=scenario["id"], table_name="resources", access_attributes=scenario["access_attributes"]
+                    record_id=scenario["id"],
+                    table_name="resources",
+                    owner=User(principal="", attributes=scenario["access_attributes"])
                 )
 
                 if is_action_allowed(policy, Action.READ, sql_record, user):

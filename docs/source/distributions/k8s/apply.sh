@@ -10,8 +10,8 @@ export POSTGRES_USER=${POSTGRES_USER:-llamastack}
 export POSTGRES_DB=${POSTGRES_DB:-llamastack}
 export POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-llamastack}
 
-export INFERENCE_MODEL=${INFERENCE_MODEL:-meta-llama/Llama-3.2-3B-Instruct}
-export SAFETY_MODEL=${SAFETY_MODEL:-meta-llama/Llama-Guard-3-1B}
+export INFERENCE_MODEL=${INFERENCE_MODEL:-meta-llama/Llama-4-Scout-17B-16E-Instruct}
+export SAFETY_MODEL=${SAFETY_MODEL:-meta-llama/Llama-Guard-4-12B}
 
 # HF_TOKEN should be set by the user; base64 encode it for the secret
 if [ -n "${HF_TOKEN:-}" ]; then

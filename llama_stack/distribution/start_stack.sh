@@ -117,16 +117,16 @@ if [[ "$env_type" == "venv" || "$env_type" == "conda" ]]; then
     set -x
 
     if [ -n "$yaml_config" ]; then
-        yaml_config_arg="--config $yaml_config"
+        yaml_config_arg="$yaml_config"
     else
         yaml_config_arg=""
     fi
 
-    $PYTHON_BINARY -m llama_stack.distribution.server.server \
+        $PYTHON_BINARY -m llama_stack.distribution.server.server \
     $yaml_config_arg \
-    --port "$port" \
-    $env_vars \
-    $other_args
+        --port "$port" \
+        $env_vars \
+        $other_args
 elif [[ "$env_type" == "container" ]]; then
     echo -e "${RED}Warning: Llama Stack no longer supports running Containers via the 'llama stack run' command.${NC}"
     echo -e "Please refer to the documentation for more information: https://llama-stack.readthedocs.io/en/latest/distributions/building_distro.html#llama-stack-build"

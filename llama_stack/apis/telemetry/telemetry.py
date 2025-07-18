@@ -16,11 +16,14 @@ from typing import (
 
 from pydantic import BaseModel, Field
 
+from llama_stack.distribution.access_control.decorator import requires_access
 from llama_stack.models.llama.datatypes import Primitive
 from llama_stack.schema_utils import json_schema_type, register_schema, webmethod
 
 # Add this constant near the top of the file, after the imports
 DEFAULT_TTL_DAYS = 7
+
+READ_ACCESS_POLICY = "user with monitoring.viewer in roles"
 
 
 @json_schema_type
@@ -259,6 +262,7 @@ class Telemetry(Protocol):
         """
         ...
 
+    @requires_access(READ_ACCESS_POLICY)
     @webmethod(route="/telemetry/traces", method="POST")
     async def query_traces(
         self,
@@ -277,6 +281,7 @@ class Telemetry(Protocol):
         """
         ...
 
+    @requires_access(READ_ACCESS_POLICY)
     @webmethod(route="/telemetry/traces/{trace_id:path}", method="GET")
     async def get_trace(self, trace_id: str) -> Trace:
         """Get a trace by its ID.
@@ -286,6 +291,7 @@ class Telemetry(Protocol):
         """
         ...
 
+    @requires_access(READ_ACCESS_POLICY)
     @webmethod(route="/telemetry/traces/{trace_id:path}/spans/{span_id:path}", method="GET")
     async def get_span(self, trace_id: str, span_id: str) -> Span:
         """Get a span by its ID.
@@ -296,6 +302,7 @@ class Telemetry(Protocol):
         """
         ...
 
+    @requires_access(READ_ACCESS_POLICY)
     @webmethod(route="/telemetry/spans/{span_id:path}/tree", method="POST")
     async def get_span_tree(
         self,
@@ -312,6 +319,7 @@ class Telemetry(Protocol):
         """
         ...
 
+    @requires_access(READ_ACCESS_POLICY)
     @webmethod(route="/telemetry/spans", method="POST")
     async def query_spans(
         self,
@@ -345,6 +353,7 @@ class Telemetry(Protocol):
         """
         ...
 
+    @requires_access(READ_ACCESS_POLICY)
     @webmethod(route="/telemetry/metrics/{metric_name}", method="POST")
     async def query_metrics(
         self,

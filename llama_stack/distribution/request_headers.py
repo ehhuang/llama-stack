@@ -10,7 +10,7 @@ import logging
 from contextlib import AbstractContextManager
 from typing import Any
 
-from llama_stack.distribution.datatypes import User
+from llama_stack.distribution.user import User
 
 from .utils.dynamic import instantiate_class_type
 

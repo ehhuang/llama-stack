@@ -472,7 +472,7 @@ class AsyncLlamaStackAsLibraryClient(AsyncLlamaStackClient):
 
         exclude_params = exclude_params or set()
 
-        func, _, _ = find_matching_route(method, path, self.route_impls)
+        func, _, _, _ = find_matching_route(method, path, self.route_impls)
         sig = inspect.signature(func)
 
         # Strip NOT_GIVENs to use the defaults in signature

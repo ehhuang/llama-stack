@@ -56,6 +56,7 @@ from llama_stack.distribution.stack import (
     cast_image_name_to_string,
     construct_stack,
     replace_env_vars,
+    shutdown_stack,
     validate_env_pair,
 )
 from llama_stack.distribution.utils.config import redact_sensitive_fields
@@ -151,18 +152,7 @@ async def shutdown(app):
     Handled by the lifespan context manager. The shutdown process involves
     shutting down all implementations registered in the application.
     """
-    for impl in app.__llama_stack_impls__.values():
-        impl_name = impl.__class__.__name__
-        logger.info("Shutting down %s", impl_name)
-        try:
-            if hasattr(impl, "shutdown"):
-                await asyncio.wait_for(impl.shutdown(), timeout=5)
-            else:
-                logger.warning("No shutdown method for %s", impl_name)
-        except TimeoutError:
-            logger.exception("Shutdown timeout for %s ", impl_name, exc_info=True)
-        except (Exception, asyncio.CancelledError) as e:
-            logger.exception("Failed to shutdown %s: %s", impl_name, {e})
+    await shutdown_stack(app.__llama_stack_impls__)
 
 
 @asynccontextmanager
@@ -621,11 +611,8 @@ def extract_path_params(route: str) -> list[str]:
 
 def remove_disabled_providers(obj):
     if isinstance(obj, dict):
-        if (
-            obj.get("provider_id") == "__disabled__"
-            or obj.get("shield_id") == "__disabled__"
-            or obj.get("provider_model_id") == "__disabled__"
-        ):
+        keys = ["provider_id", "shield_id", "provider_model_id", "model_id"]
+        if any(k in obj and obj[k] in ("__disabled__", "", None) for k in keys):
             return None
         return {k: v for k, v in ((k, remove_disabled_providers(v)) for k, v in obj.items()) if v is not None}
     elif isinstance(obj, list):

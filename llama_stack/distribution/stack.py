@@ -93,6 +93,7 @@ RESOURCES = [
 
 
 REGISTRY_REFRESH_INTERVAL_SECONDS = 300
+REGISTRY_REFRESH_TASK = None
 
 
 async def register_resources(run_config: StackRunConfig, impls: dict[Api, Any]):
@@ -104,23 +105,10 @@ async def register_resources(run_config: StackRunConfig, impls: dict[Api, Any]):
         method = getattr(impls[api], register_method)
         for obj in objects:
             logger.debug(f"registering {rsrc.capitalize()} {obj} for provider {obj.provider_id}")
-            # Do not register models on disabled providers
-            if hasattr(obj, "provider_id") and obj.provider_id is not None and obj.provider_id == "__disabled__":
-                logger.debug(f"Skipping {rsrc.capitalize()} registration for disabled provider.")
-                continue
-            # In complex templates, like our starter template, we may have dynamic model ids
-            # given by environment variables. This allows those environment variables to have
-            # a default value of __disabled__ to skip registration of the model if not set.
-            if (
-                hasattr(obj, "provider_model_id")
-                and obj.provider_model_id is not None
-                and "__disabled__" in obj.provider_model_id
-            ):
-                logger.debug(f"Skipping {rsrc.capitalize()} registration for disabled model.")
-                continue
 
-            if hasattr(obj, "shield_id") and obj.shield_id is not None and obj.shield_id == "__disabled__":
-                logger.debug(f"Skipping {rsrc.capitalize()} registration for disabled shield.")
+            # Do not register models on disabled providers
+            if hasattr(obj, "provider_id") and (not obj.provider_id or obj.provider_id == "__disabled__"):
+                logger.debug(f"Skipping {rsrc.capitalize()} registration for disabled provider.")
                 continue
 
             # we want to maintain the type information in arguments to method.
@@ -330,7 +318,10 @@ async def construct_stack(
 
     await register_resources(run_config, impls)
 
-    task = asyncio.create_task(refresh_registry(impls))
+    await refresh_registry_once(impls)
+
+    global REGISTRY_REFRESH_TASK
+    REGISTRY_REFRESH_TASK = asyncio.create_task(refresh_registry_task(impls))
 
     def cb(task):
         import traceback
@@ -343,15 +334,40 @@ async def construct_stack(
         else:
             logger.debug("Model refresh task completed")
 
-    task.add_done_callback(cb)
+    REGISTRY_REFRESH_TASK.add_done_callback(cb)
     return impls
 
 
-async def refresh_registry(impls: dict[Api, Any]):
+async def shutdown_stack(impls: dict[Api, Any]):
+    for impl in impls.values():
+        impl_name = impl.__class__.__name__
+        logger.info(f"Shutting down {impl_name}")
+        try:
+            if hasattr(impl, "shutdown"):
+                await asyncio.wait_for(impl.shutdown(), timeout=5)
+            else:
+                logger.warning(f"No shutdown method for {impl_name}")
+        except TimeoutError:
+            logger.exception(f"Shutdown timeout for {impl_name}")
+        except (Exception, asyncio.CancelledError) as e:
+            logger.exception(f"Failed to shutdown {impl_name}: {e}")
+
+    global REGISTRY_REFRESH_TASK
+    if REGISTRY_REFRESH_TASK:
+        REGISTRY_REFRESH_TASK.cancel()
+
+
+async def refresh_registry_once(impls: dict[Api, Any]):
+    logger.debug("refreshing registry")
     routing_tables = [v for v in impls.values() if isinstance(v, CommonRoutingTableImpl)]
+    for routing_table in routing_tables:
+        await routing_table.refresh()
+
+
+async def refresh_registry_task(impls: dict[Api, Any]):
+    logger.info("starting registry refresh task")
     while True:
-        for routing_table in routing_tables:
-            await routing_table.refresh()
+        await refresh_registry_once(impls)
 
         await asyncio.sleep(REGISTRY_REFRESH_INTERVAL_SECONDS)
 

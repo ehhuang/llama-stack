@@ -13,6 +13,7 @@ from pydantic import BaseModel
 from termcolor import cprint
 
 from llama_stack.apis.common.content_types import (
+    InterleavedContentItem,
     TextDelta,
     ToolCallDelta,
     ToolCallParseStatus,
@@ -33,9 +34,11 @@ from llama_stack.apis.inference import (
     InterleavedContent,
     LogProbConfig,
     Message,
+    RerankResponse,
     ResponseFormat,
     SamplingParams,
     StopReason,
+    TextTruncation,
     TokenLogProbs,
     ToolChoice,
     ToolConfig,
@@ -441,6 +444,16 @@ class MetaReferenceInferenceImpl(
 
         results = await self._nonstream_chat_completion(request_batch)
         return BatchChatCompletionResponse(batch=results)
+
+    async def rerank(
+        self,
+        model: str,
+        query: str | InterleavedContentItem,
+        items: list[str | InterleavedContentItem],
+        max_num_results: int | None = None,
+        text_truncation: TextTruncation | None = TextTruncation.none,
+    ) -> RerankResponse:
+        raise NotImplementedError("Reranking is not supported for Meta Reference")
 
     async def _nonstream_chat_completion(
         self, request_batch: list[ChatCompletionRequest]

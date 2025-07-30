@@ -45,6 +45,7 @@ from llama_stack.apis.inference import (
     OpenAIEmbeddingUsage,
     OpenAIMessageParam,
     OpenAIResponseFormatParam,
+    RerankResponse,
     ResponseFormat,
     SamplingParams,
     TextTruncation,
@@ -732,4 +733,14 @@ class VLLMInferenceAdapter(Inference, ModelsProtocolPrivate):
         response_format: ResponseFormat | None = None,
         logprobs: LogProbConfig | None = None,
     ):
-        raise NotImplementedError("Batch chat completion is not supported for Ollama")
+        raise NotImplementedError("Batch chat completion is not supported for vLLM")
+
+    async def rerank(
+        self,
+        model: str,
+        query: str | InterleavedContentItem,
+        items: list[str | InterleavedContentItem],
+        max_num_results: int | None = None,
+        text_truncation: TextTruncation | None = TextTruncation.none,
+    ) -> RerankResponse:
+        raise NotImplementedError("Reranking is not supported for vLLM")

@@ -7,14 +7,17 @@
 import logging
 from collections.abc import AsyncGenerator
 
+from llama_stack.apis.common.content_types import InterleavedContentItem
 from llama_stack.apis.inference import (
     CompletionResponse,
     InferenceProvider,
     InterleavedContent,
     LogProbConfig,
     Message,
+    RerankResponse,
     ResponseFormat,
     SamplingParams,
+    TextTruncation,
     ToolChoice,
     ToolConfig,
     ToolDefinition,
@@ -122,3 +125,13 @@ class SentenceTransformersInferenceImpl(
         logprobs: LogProbConfig | None = None,
     ):
         raise NotImplementedError("Batch chat completion is not supported for Sentence Transformers")
+
+    async def rerank(
+        self,
+        model: str,
+        query: str | InterleavedContentItem,
+        items: list[str | InterleavedContentItem],
+        max_num_results: int | None = None,
+        text_truncation: TextTruncation | None = TextTruncation.none,
+    ) -> RerankResponse:
+        raise NotImplementedError("Reranking is not supported for Sentence Transformers")

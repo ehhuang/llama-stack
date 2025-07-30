@@ -9,6 +9,9 @@ from typing import Annotated, Any, Literal
 from pydantic import BaseModel, Field
 from typing_extensions import TypedDict
 
+from llama_stack.apis.input import (
+    OpenAIResponseInputMessageContent,
+)
 from llama_stack.apis.vector_io import SearchRankingOptions as FileSearchRankingOptions
 from llama_stack.schema_utils import json_schema_type, register_schema
 
@@ -20,28 +23,6 @@ from llama_stack.schema_utils import json_schema_type, register_schema
 class OpenAIResponseError(BaseModel):
     code: str
     message: str
-
-
-@json_schema_type
-class OpenAIResponseInputMessageContentText(BaseModel):
-    text: str
-    type: Literal["input_text"] = "input_text"
-
-
-@json_schema_type
-class OpenAIResponseInputMessageContentImage(BaseModel):
-    detail: Literal["low"] | Literal["high"] | Literal["auto"] = "auto"
-    type: Literal["input_image"] = "input_image"
-    # TODO: handle file_id
-    image_url: str | None = None
-
-
-# TODO: handle file content types
-OpenAIResponseInputMessageContent = Annotated[
-    OpenAIResponseInputMessageContentText | OpenAIResponseInputMessageContentImage,
-    Field(discriminator="type"),
-]
-register_schema(OpenAIResponseInputMessageContent, name="OpenAIResponseInputMessageContent")
 
 
 @json_schema_type

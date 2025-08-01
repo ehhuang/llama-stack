@@ -137,12 +137,20 @@ runs:
         echo "=== Running all collected tests in a single pytest command ==="
         echo "Total test files: $(echo $TEST_FILES | wc -w)"
 
-        if uv run pytest -s -v $TEST_FILES --stack-config=${stack_config} \
-          -k "not( ${EXCLUDE_TESTS} )" \
-          --text-model=$TEXT_MODEL \
-          --embedding-model=sentence-transformers/all-MiniLM-L6-v2 \
-          --color=yes ${EXTRA_PARAMS} \
-          --capture=tee-sys | tee pytest-${{ inputs.inference-mode }}-all.log; then
+        PYTEST_CMD=$(
+          cat <<EOF
+uv run pytest -s -v $TEST_FILES \
+  --stack-config=${stack_config} \
+  -k "not( ${EXCLUDE_TESTS} )" \
+  --text-model=$TEXT_MODEL \
+  --embedding-model=sentence-transformers/all-MiniLM-L6-v2 \
+  --color=yes \
+  ${EXTRA_PARAMS} \
+  --capture=tee-sys | tee pytest-${{ inputs.inference-mode }}-all.log
+EOF
+        )
+        echo "Running: $PYTEST_CMD"
+        if eval $PYTEST_CMD; then
           echo "✅ All tests completed successfully"
         else
           echo "❌ Tests failed"

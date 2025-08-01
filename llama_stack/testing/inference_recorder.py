@@ -356,6 +356,7 @@ def patch_inference_clients():
             _original_methods["ollama_generate"], self, "ollama", "/api/generate", *args, **kwargs
         )
 
+
     async def patched_ollama_chat(self, *args, **kwargs):
         return await _patched_inference_method(
             _original_methods["ollama_chat"], self, "ollama", "/api/chat", *args, **kwargs

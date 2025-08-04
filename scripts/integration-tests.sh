@@ -167,13 +167,16 @@ fi
 # Run vision tests if specified
 if [[ "$RUN_VISION_TESTS" == "true" ]]; then
     echo "Running vision tests..."
-    if uv run pytest -s -v tests/integration/inference/test_vision_inference.py \
+    uv run pytest -s -v tests/integration/inference/test_vision_inference.py \
         --stack-config="$STACK_CONFIG" \
         -k "not( $EXCLUDE_TESTS )" \
         --vision-model=ollama/llama3.2-vision:11b \
         --embedding-model=sentence-transformers/all-MiniLM-L6-v2 \
         --color=yes $EXTRA_PARAMS \
-        --capture=tee-sys | tee pytest-${INFERENCE_MODE}-vision.log; then
+        --capture=tee-sys | tee pytest-${INFERENCE_MODE}-vision.log
+    
+    # Check the exit status of pytest (not tee)
+    if [[ ${PIPESTATUS[0]} -eq 0 ]]; then
         echo "✅ Vision tests completed successfully"
     else
         echo "❌ Vision tests failed"
@@ -217,13 +220,16 @@ echo ""
 echo "=== Running all collected tests in a single pytest command ==="
 echo "Total test files: $(echo $TEST_FILES | wc -w)"
 
-if uv run pytest -s -v $TEST_FILES \
+uv run pytest -s -v $TEST_FILES \
     --stack-config="$STACK_CONFIG" \
     -k "not( $EXCLUDE_TESTS )" \
     --text-model="$TEXT_MODEL" \
     --embedding-model=sentence-transformers/all-MiniLM-L6-v2 \
     --color=yes $EXTRA_PARAMS \
-    --capture=tee-sys | tee pytest-${INFERENCE_MODE}-all.log; then
+    --capture=tee-sys | tee pytest-${INFERENCE_MODE}-all.log
+
+# Check the exit status of pytest (not tee)
+if [[ ${PIPESTATUS[0]} -eq 0 ]]; then
     echo "✅ All tests completed successfully"
 else
     echo "❌ Tests failed"

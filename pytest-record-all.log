@@ -1,0 +1,123 @@
+INFO     2025-08-04 15:53:54,860 tests.integration.conftest:59 tests: Setting DISABLE_CODE_SANDBOX=1 for macOS                                        
+[1m============================= test session starts ==============================[0m
+platform darwin -- Python 3.12.3, pytest-8.4.1, pluggy-1.6.0 -- /Users/erichuang/projects/llama-stack-git/.venv/bin/python3
+cachedir: .pytest_cache
+metadata: {'Python': '3.12.3', 'Platform': 'macOS-15.5-arm64-arm-64bit', 'Packages': {'pytest': '8.4.1', 'pluggy': '1.6.0'}, 'Plugins': {'anyio': '4.9.0', 'html': '4.1.1', 'socket': '0.7.0', 'asyncio': '1.1.0', 'json-report': '1.5.0', 'timeout': '2.4.0', 'metadata': '3.1.1', 'cov': '6.2.1', 'nbval': '0.11.0'}}
+rootdir: /Users/erichuang/projects/llama-stack-git
+configfile: pyproject.toml
+plugins: anyio-4.9.0, html-4.1.1, socket-0.7.0, asyncio-1.1.0, json-report-1.5.0, timeout-2.4.0, metadata-3.1.1, cov-6.2.1, nbval-0.11.0
+asyncio: mode=Mode.AUTO, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+[1mcollecting ... [0mcollected 97 items
+
+tests/integration/inference/test_text_inference.py::test_text_completion_non_streaming[txt=ollama/llama3.2:3b-instruct-fp16-inference:completion:sanity] INFO     2025-08-04 15:53:58,009 llama_stack.core.stack:318 core: Inference recording enabled: mode=record                                            
+INFO     2025-08-04 15:53:58,284 llama_stack.providers.remote.inference.ollama.ollama:119 inference: checking connectivity to Ollama at               
+         `http://0.0.0.0:11434`...                                                                                                                    
+WARNING  2025-08-04 15:54:50,660 llama_stack.providers.remote.inference.ollama.ollama:439 inference: Imprecise provider resource id was used but      
+         'latest' is available in Ollama - using 'nomic-embed-text:latest'                                                                            
+INFO     2025-08-04 15:54:51,492 llama_stack.core.stack:385 core: starting registry refresh task                                                      
+[32mPASSED[0m[33m [  1%][0m
+tests/integration/inference/test_text_inference.py::test_text_completion_streaming[txt=ollama/llama3.2:3b-instruct-fp16-inference:completion:sanity] [32mPASSED[0m[33m [  2%][0m
+tests/integration/inference/test_text_inference.py::test_text_completion_stop_sequence[txt=ollama/llama3.2:3b-instruct-fp16-inference:completion:stop_sequence] [33mXFAIL[0m[33m [  3%][0m
+tests/integration/inference/test_text_inference.py::test_text_completion_log_probs_non_streaming[txt=ollama/llama3.2:3b-instruct-fp16-inference:completion:log_probs] [33mXFAIL[0m[33m [  4%][0m
+tests/integration/inference/test_text_inference.py::test_text_completion_log_probs_streaming[txt=ollama/llama3.2:3b-instruct-fp16-inference:completion:log_probs] [33mXFAIL[0m[33m [  5%][0m
+tests/integration/inference/test_text_inference.py::test_text_completion_structured_output[txt=ollama/llama3.2:3b-instruct-fp16-inference:completion:structured_output] [32mPASSED[0m[33m [  6%][0m
+tests/integration/inference/test_text_inference.py::test_text_chat_completion_non_streaming[txt=ollama/llama3.2:3b-instruct-fp16-inference:chat_completion:non_streaming_01] [32mPASSED[0m[33m [  7%][0m
+tests/integration/inference/test_text_inference.py::test_text_chat_completion_streaming[txt=ollama/llama3.2:3b-instruct-fp16-inference:chat_completion:streaming_01] [32mPASSED[0m[33m [  8%][0m
+tests/integration/inference/test_text_inference.py::test_text_chat_completion_with_tool_calling_and_non_streaming[txt=ollama/llama3.2:3b-instruct-fp16-inference:chat_completion:tool_calling] [32mPASSED[0m[33m [  9%][0m
+tests/integration/inference/test_text_inference.py::test_text_chat_completion_with_tool_calling_and_streaming[txt=ollama/llama3.2:3b-instruct-fp16-inference:chat_completion:tool_calling] [32mPASSED[0m[33m [ 10%][0m
+tests/integration/inference/test_text_inference.py::test_text_chat_completion_with_tool_choice_required[txt=ollama/llama3.2:3b-instruct-fp16-inference:chat_completion:tool_calling] [32mPASSED[0m[33m [ 11%][0m
+tests/integration/inference/test_text_inference.py::test_text_chat_completion_with_tool_choice_none[txt=ollama/llama3.2:3b-instruct-fp16-inference:chat_completion:tool_calling] [32mPASSED[0m[33m [ 12%][0m
+tests/integration/inference/test_text_inference.py::test_text_chat_completion_structured_output[txt=ollama/llama3.2:3b-instruct-fp16-inference:chat_completion:structured_output] [32mPASSED[0m[33m [ 13%][0m
+tests/integration/inference/test_text_inference.py::test_text_chat_completion_tool_calling_tools_not_in_request[txt=ollama/llama3.2:3b-instruct-fp16-inference:chat_completion:tool_calling_tools_absent-True] [32mPASSED[0m[33m [ 14%][0m
+tests/integration/inference/test_text_inference.py::test_text_chat_completion_with_multi_turn_tool_calling[txt=ollama/llama3.2:3b-instruct-fp16-inference:chat_completion:text_then_tool] [33mXFAIL[0m[33m [ 15%][0m
+tests/integration/inference/test_batch_inference.py::test_batch_completion_non_streaming[txt=ollama/llama3.2:3b-instruct-fp16-inference:completion:batch_completion] [33mSKIPPED[0m[33m [ 16%][0m
+tests/integration/inference/test_batch_inference.py::test_batch_chat_completion_non_streaming[txt=ollama/llama3.2:3b-instruct-fp16-inference:chat_completion:batch_completion] [33mSKIPPED[0m[33m [ 17%][0m
+tests/integration/inference/test_openai_embeddings.py::test_openai_embeddings_single_string[openai_client-emb=sentence-transformers/all-MiniLM-L6-v2] [33mSKIPPED[0m[33m [ 18%][0m
+tests/integration/inference/test_openai_embeddings.py::test_openai_embeddings_multiple_strings[openai_client-emb=sentence-transformers/all-MiniLM-L6-v2] [33mSKIPPED[0m[33m [ 19%][0m
+tests/integration/inference/test_openai_embeddings.py::test_openai_embeddings_with_encoding_format_float[openai_client-emb=sentence-transformers/all-MiniLM-L6-v2] [33mSKIPPED[0m[33m [ 20%][0m
+tests/integration/inference/test_openai_embeddings.py::test_openai_embeddings_with_dimensions[openai_client-emb=sentence-transformers/all-MiniLM-L6-v2] [33mSKIPPED[0m[33m [ 21%][0m
+tests/integration/inference/test_openai_embeddings.py::test_openai_embeddings_with_user_parameter[openai_client-emb=sentence-transformers/all-MiniLM-L6-v2] [33mSKIPPED[0m[33m [ 22%][0m
+tests/integration/inference/test_openai_embeddings.py::test_openai_embeddings_empty_list_error[openai_client-emb=sentence-transformers/all-MiniLM-L6-v2] [33mSKIPPED[0m[33m [ 23%][0m
+tests/integration/inference/test_openai_embeddings.py::test_openai_embeddings_invalid_model_error[openai_client-emb=sentence-transformers/all-MiniLM-L6-v2] [33mSKIPPED[0m[33m [ 24%][0m
+tests/integration/inference/test_openai_embeddings.py::test_openai_embeddings_different_inputs_different_outputs[openai_client-emb=sentence-transformers/all-MiniLM-L6-v2] [33mSKIPPED[0m[33m [ 25%][0m
+tests/integration/inference/test_openai_embeddings.py::test_openai_embeddings_with_encoding_format_base64[openai_client-emb=sentence-transformers/all-MiniLM-L6-v2] [33mSKIPPED[0m[33m [ 26%][0m
+tests/integration/inference/test_openai_embeddings.py::test_openai_embeddings_base64_batch_processing[openai_client-emb=sentence-transformers/all-MiniLM-L6-v2] [33mSKIPPED[0m[33m [ 27%][0m
+tests/integration/inference/test_vision_inference.py::test_image_chat_completion_non_streaming[ollama/llama3.2:3b-instruct-fp16-None-sentence-transformers/all-MiniLM-L6-v2-None-384] [33mSKIPPED[0m[33m [ 28%][0m
+tests/integration/inference/test_vision_inference.py::test_image_chat_completion_multiple_images[ollama/llama3.2:3b-instruct-fp16-None-sentence-transformers/all-MiniLM-L6-v2-None-384-True] [33mSKIPPED[0m[33m [ 29%][0m
+tests/integration/inference/test_vision_inference.py::test_image_chat_completion_streaming[ollama/llama3.2:3b-instruct-fp16-None-sentence-transformers/all-MiniLM-L6-v2-None-384] [33mSKIPPED[0m[33m [ 30%][0m
+tests/integration/inference/test_vision_inference.py::test_image_chat_completion_base64[ollama/llama3.2:3b-instruct-fp16-None-sentence-transformers/all-MiniLM-L6-v2-None-384] [33mSKIPPED[0m[33m [ 31%][0m
+tests/integration/inference/test_openai_completion.py::test_openai_completion_non_streaming[txt=ollama/llama3.2:3b-instruct-fp16-inference:completion:sanity] [32mPASSED[0m[33m [ 32%][0m
+tests/integration/inference/test_openai_completion.py::test_openai_completion_non_streaming_suffix[txt=ollama/llama3.2:3b-instruct-fp16-inference:completion:suffix] [33mSKIPPED[0m[33m [ 34%][0m
+tests/integration/inference/test_openai_completion.py::test_openai_completion_streaming[txt=ollama/llama3.2:3b-instruct-fp16-inference:completion:sanity] [32mPASSED[0m[33m [ 35%][0m
+tests/integration/inference/test_openai_completion.py::test_openai_completion_prompt_logprobs[txt=ollama/llama3.2:3b-instruct-fp16-1] [33mSKIPPED[0m[33m [ 36%][0m
+tests/integration/inference/test_openai_completion.py::test_openai_completion_guided_choice[txt=ollama/llama3.2:3b-instruct-fp16] [33mSKIPPED[0m[33m [ 37%][0m
+tests/integration/inference/test_openai_completion.py::test_openai_chat_completion_non_streaming[openai_client-txt=ollama/llama3.2:3b-instruct-fp16-inference:chat_completion:non_streaming_01] [33mSKIPPED[0m[33m [ 38%][0m
+tests/integration/inference/test_openai_completion.py::test_openai_chat_completion_streaming[openai_client-txt=ollama/llama3.2:3b-instruct-fp16-inference:chat_completion:streaming_01] [33mSKIPPED[0m[33m [ 39%][0m
+tests/integration/inference/test_openai_completion.py::test_openai_chat_completion_streaming_with_n[openai_client-txt=ollama/llama3.2:3b-instruct-fp16-inference:chat_completion:streaming_01] [33mSKIPPED[0m[33m [ 40%][0m
+tests/integration/inference/test_openai_completion.py::test_inference_store[openai_client-txt=ollama/llama3.2:3b-instruct-fp16-True] [33mSKIPPED[0m[33m [ 41%][0m
+tests/integration/inference/test_openai_completion.py::test_inference_store_tool_calls[openai_client-txt=ollama/llama3.2:3b-instruct-fp16-True] [33mSKIPPED[0m[33m [ 42%][0m
+tests/integration/inference/test_openai_completion.py::test_openai_chat_completion_non_streaming_with_file[txt=ollama/llama3.2:3b-instruct-fp16] [33mSKIPPED[0m[33m [ 43%][0m
+tests/integration/inference/test_embedding.py::test_embedding_text[emb=sentence-transformers/all-MiniLM-L6-v2-list[string]] [33mXFAIL[0m[33m [ 44%][0m
+tests/integration/inference/test_embedding.py::test_embedding_image[emb=sentence-transformers/all-MiniLM-L6-v2-list[url,base64]] [33mXFAIL[0m[33m [ 45%][0m
+tests/integration/inference/test_embedding.py::test_embedding_truncation[emb=sentence-transformers/all-MiniLM-L6-v2-long-end] [33mXFAIL[0m[33m [ 46%][0m
+tests/integration/inference/test_embedding.py::test_embedding_truncation_error[emb=sentence-transformers/all-MiniLM-L6-v2-long-text-None] [33mXFAIL[0m[33m [ 47%][0m
+tests/integration/inference/test_embedding.py::test_embedding_output_dimension[emb=sentence-transformers/all-MiniLM-L6-v2] [33mXFAIL[0m[33m [ 48%][0m
+tests/integration/inference/test_embedding.py::test_embedding_task_type[emb=sentence-transformers/all-MiniLM-L6-v2] [33mXFAIL[0m[33m [ 49%][0m
+tests/integration/inference/test_embedding.py::test_embedding_text_truncation[emb=sentence-transformers/all-MiniLM-L6-v2-None] [33mXFAIL[0m[33m [ 50%][0m
+tests/integration/inference/test_embedding.py::test_embedding_text_truncation_error[emb=sentence-transformers/all-MiniLM-L6-v2-NONE] [33mXFAIL[0m[33m [ 51%][0m
+tests/integration/inference/test_text_inference.py::test_text_chat_completion_non_streaming[txt=ollama/llama3.2:3b-instruct-fp16-inference:chat_completion:non_streaming_02] [32mPASSED[0m[33m [ 52%][0m
+tests/integration/inference/test_text_inference.py::test_text_chat_completion_streaming[txt=ollama/llama3.2:3b-instruct-fp16-inference:chat_completion:streaming_02] [32mPASSED[0m[33m [ 53%][0m
+tests/integration/inference/test_text_inference.py::test_text_chat_completion_tool_calling_tools_not_in_request[txt=ollama/llama3.2:3b-instruct-fp16-inference:chat_completion:tool_calling_tools_absent-False] [32mPASSED[0m[33m [ 54%][0m
+tests/integration/inference/test_text_inference.py::test_text_chat_completion_with_multi_turn_tool_calling[txt=ollama/llama3.2:3b-instruct-fp16-inference:chat_completion:tool_then_answer] [33mXFAIL[0m[33m [ 55%][0m
+tests/integration/inference/test_openai_embeddings.py::test_openai_embeddings_single_string[llama_stack_client-emb=sentence-transformers/all-MiniLM-L6-v2] INFO     2025-08-04 15:55:58,002 llama_stack.providers.utils.inference.embedding_mixin:102 uncategorized: Loading sentence transformer for            
+         all-MiniLM-L6-v2...                                                                                                                          
+INFO     2025-08-04 15:55:58,787 sentence_transformers.SentenceTransformer:219 uncategorized: Use pytorch device_name: mps                            
+INFO     2025-08-04 15:55:58,788 sentence_transformers.SentenceTransformer:227 uncategorized: Load pretrained SentenceTransformer: all-MiniLM-L6-v2   
+[32mPASSED[0m[33m [ 56%][0m
+tests/integration/inference/test_openai_embeddings.py::test_openai_embeddings_multiple_strings[llama_stack_client-emb=sentence-transformers/all-MiniLM-L6-v2] [32mPASSED[0m[33m [ 57%][0m
+tests/integration/inference/test_openai_embeddings.py::test_openai_embeddings_with_encoding_format_float[llama_stack_client-emb=sentence-transformers/all-MiniLM-L6-v2] [32mPASSED[0m[33m [ 58%][0m
+tests/integration/inference/test_openai_embeddings.py::test_openai_embeddings_with_dimensions[llama_stack_client-emb=sentence-transformers/all-MiniLM-L6-v2] [33mSKIPPED[0m[33m [ 59%][0m
+tests/integration/inference/test_openai_embeddings.py::test_openai_embeddings_with_user_parameter[llama_stack_client-emb=sentence-transformers/all-MiniLM-L6-v2] [32mPASSED[0m[33m [ 60%][0m
+tests/integration/inference/test_openai_embeddings.py::test_openai_embeddings_empty_list_error[llama_stack_client-emb=sentence-transformers/all-MiniLM-L6-v2] [32mPASSED[0m[33m [ 61%][0m
+tests/integration/inference/test_openai_embeddings.py::test_openai_embeddings_invalid_model_error[llama_stack_client-emb=sentence-transformers/all-MiniLM-L6-v2] WARNING  2025-08-04 15:56:08,800 llama_stack.core.routing_tables.common:251 core: WARNING: model identifier 'invalid-model-id' not found in routing   
+         table. Falling back to searching in all providers. This is only for backwards compatibility and will stop working soon. Migrate your calls to
+         use fully scoped `provider_id/model_id` names.                                                                                               
+[32mPASSED[0m[33m [ 62%][0m
+tests/integration/inference/test_openai_embeddings.py::test_openai_embeddings_different_inputs_different_outputs[llama_stack_client-emb=sentence-transformers/all-MiniLM-L6-v2] [32mPASSED[0m[33m [ 63%][0m
+tests/integration/inference/test_openai_embeddings.py::test_openai_embeddings_with_encoding_format_base64[llama_stack_client-emb=sentence-transformers/all-MiniLM-L6-v2] [33mSKIPPED[0m[33m [ 64%][0m
+tests/integration/inference/test_openai_embeddings.py::test_openai_embeddings_base64_batch_processing[llama_stack_client-emb=sentence-transformers/all-MiniLM-L6-v2] [32mPASSED[0m[33m [ 65%][0m
+tests/integration/inference/test_vision_inference.py::test_image_chat_completion_multiple_images[ollama/llama3.2:3b-instruct-fp16-None-sentence-transformers/all-MiniLM-L6-v2-None-384-False] [33mSKIPPED[0m[33m [ 67%][0m
+tests/integration/inference/test_openai_completion.py::test_openai_completion_prompt_logprobs[txt=ollama/llama3.2:3b-instruct-fp16-0] [33mSKIPPED[0m[33m [ 68%][0m
+tests/integration/inference/test_openai_completion.py::test_openai_chat_completion_non_streaming[openai_client-txt=ollama/llama3.2:3b-instruct-fp16-inference:chat_completion:non_streaming_02] [33mSKIPPED[0m[33m [ 69%][0m
+tests/integration/inference/test_openai_completion.py::test_openai_chat_completion_streaming[openai_client-txt=ollama/llama3.2:3b-instruct-fp16-inference:chat_completion:streaming_02] [33mSKIPPED[0m[33m [ 70%][0m
+tests/integration/inference/test_openai_completion.py::test_openai_chat_completion_streaming_with_n[openai_client-txt=ollama/llama3.2:3b-instruct-fp16-inference:chat_completion:streaming_02] [33mSKIPPED[0m[33m [ 71%][0m
+tests/integration/inference/test_openai_completion.py::test_inference_store[openai_client-txt=ollama/llama3.2:3b-instruct-fp16-False] [33mSKIPPED[0m[33m [ 72%][0m
+tests/integration/inference/test_openai_completion.py::test_inference_store_tool_calls[openai_client-txt=ollama/llama3.2:3b-instruct-fp16-False] [33mSKIPPED[0m[33m [ 73%][0m
+tests/integration/inference/test_embedding.py::test_embedding_text[emb=sentence-transformers/all-MiniLM-L6-v2-list[text]] [33mXFAIL[0m[33m [ 74%][0m
+tests/integration/inference/test_embedding.py::test_embedding_image[emb=sentence-transformers/all-MiniLM-L6-v2-list[url,string,base64,text]] [33mXFAIL[0m[33m [ 75%][0m
+tests/integration/inference/test_embedding.py::test_embedding_truncation[emb=sentence-transformers/all-MiniLM-L6-v2-long-start] [33mXFAIL[0m[33m [ 76%][0m
+tests/integration/inference/test_embedding.py::test_embedding_truncation_error[emb=sentence-transformers/all-MiniLM-L6-v2-long-text-none] [33mXFAIL[0m[33m [ 77%][0m
+tests/integration/inference/test_embedding.py::test_embedding_text_truncation[emb=sentence-transformers/all-MiniLM-L6-v2-none] [33mXFAIL[0m[33m [ 78%][0m
+tests/integration/inference/test_embedding.py::test_embedding_text_truncation_error[emb=sentence-transformers/all-MiniLM-L6-v2-END] [33mXFAIL[0m[33m [ 79%][0m
+tests/integration/inference/test_text_inference.py::test_text_chat_completion_with_multi_turn_tool_calling[txt=ollama/llama3.2:3b-instruct-fp16-inference:chat_completion:array_parameter] [33mXFAIL[0m[33m [ 80%][0m
+tests/integration/inference/test_openai_completion.py::test_openai_chat_completion_non_streaming[llama_stack_client-txt=ollama/llama3.2:3b-instruct-fp16-inference:chat_completion:non_streaming_01] [33mSKIPPED[0m[33m [ 81%][0m
+tests/integration/inference/test_openai_completion.py::test_openai_chat_completion_streaming[llama_stack_client-txt=ollama/llama3.2:3b-instruct-fp16-inference:chat_completion:streaming_01] [33mSKIPPED[0m[33m [ 82%][0m
+tests/integration/inference/test_openai_completion.py::test_openai_chat_completion_streaming_with_n[llama_stack_client-txt=ollama/llama3.2:3b-instruct-fp16-inference:chat_completion:streaming_01] [33mSKIPPED[0m[33m [ 83%][0m
+tests/integration/inference/test_openai_completion.py::test_inference_store[llama_stack_client-txt=ollama/llama3.2:3b-instruct-fp16-True] [33mSKIPPED[0m[33m [ 84%][0m
+tests/integration/inference/test_openai_completion.py::test_inference_store_tool_calls[llama_stack_client-txt=ollama/llama3.2:3b-instruct-fp16-True] [33mSKIPPED[0m[33m [ 85%][0m
+tests/integration/inference/test_embedding.py::test_embedding_truncation[emb=sentence-transformers/all-MiniLM-L6-v2-short-end] [33mXFAIL[0m[33m [ 86%][0m
+tests/integration/inference/test_embedding.py::test_embedding_truncation_error[emb=sentence-transformers/all-MiniLM-L6-v2-long-str-None] [33mXFAIL[0m[33m [ 87%][0m
+tests/integration/inference/test_embedding.py::test_embedding_text_truncation[emb=sentence-transformers/all-MiniLM-L6-v2-end] [33mXFAIL[0m[33m [ 88%][0m
+tests/integration/inference/test_embedding.py::test_embedding_text_truncation_error[emb=sentence-transformers/all-MiniLM-L6-v2-START] [33mXFAIL[0m[33m [ 89%][0m
+tests/integration/inference/test_embedding.py::test_embedding_truncation[emb=sentence-transformers/all-MiniLM-L6-v2-short-start] [33mXFAIL[0m[33m [ 90%][0m
+tests/integration/inference/test_embedding.py::test_embedding_truncation_error[emb=sentence-transformers/all-MiniLM-L6-v2-long-str-none] [33mXFAIL[0m[33m [ 91%][0m
+tests/integration/inference/test_embedding.py::test_embedding_text_truncation[emb=sentence-transformers/all-MiniLM-L6-v2-start] [33mXFAIL[0m[33m [ 92%][0m
+tests/integration/inference/test_embedding.py::test_embedding_text_truncation_error[emb=sentence-transformers/all-MiniLM-L6-v2-left] [33mXFAIL[0m[33m [ 93%][0m
+tests/integration/inference/test_openai_completion.py::test_openai_chat_completion_non_streaming[llama_stack_client-txt=ollama/llama3.2:3b-instruct-fp16-inference:chat_completion:non_streaming_02] [33mSKIPPED[0m[33m [ 94%][0m
+tests/integration/inference/test_openai_completion.py::test_openai_chat_completion_streaming[llama_stack_client-txt=ollama/llama3.2:3b-instruct-fp16-inference:chat_completion:streaming_02] [33mSKIPPED[0m[33m [ 95%][0m
+tests/integration/inference/test_openai_completion.py::test_openai_chat_completion_streaming_with_n[llama_stack_client-txt=ollama/llama3.2:3b-instruct-fp16-inference:chat_completion:streaming_02] [33mSKIPPED[0m[33m [ 96%][0m
+tests/integration/inference/test_openai_completion.py::test_inference_store[llama_stack_client-txt=ollama/llama3.2:3b-instruct-fp16-False] [33mSKIPPED[0m[33m [ 97%][0m
+tests/integration/inference/test_openai_completion.py::test_inference_store_tool_calls[llama_stack_client-txt=ollama/llama3.2:3b-instruct-fp16-False] [33mSKIPPED[0m[33m [ 98%][0m
+tests/integration/inference/test_embedding.py::test_embedding_text_truncation_error[emb=sentence-transformers/all-MiniLM-L6-v2-right] [33mXFAIL[0m[33m [100%][0m
+
+[33m===== [32m24 passed[0m, [33m[1m44 skipped[0m, [33m[1m29 xfailed[0m, [33m[1m505 warnings[0m[33m in 134.38s (0:02:14)[0m[33m =====[0m

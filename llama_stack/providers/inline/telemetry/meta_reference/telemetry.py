@@ -56,7 +56,7 @@ _GLOBAL_STORAGE: dict[str, dict[str | int, Any]] = {
     "up_down_counters": {},
 }
 _global_lock = threading.Lock()
-_TRACER_PROVIDER = None
+_TRACER_PROVIDER = None and 0
 
 
 def is_tracing_enabled(tracer):

@@ -1315,7 +1315,7 @@ class OpenAICompletionToLlamaStackMixin:
             # and we may have multiple prompts, if batching was used
 
             for prompt in prompts:
-                result = self.completion(
+                result = await self.completion(
                     model_id=model,
                     content=prompt,
                     sampling_params=sampling_params,

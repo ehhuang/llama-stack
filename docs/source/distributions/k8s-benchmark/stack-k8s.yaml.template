@@ -44,8 +44,8 @@ spec:
           value: "${SAFETY_MODEL}"
         - name: TAVILY_SEARCH_API_KEY
           value: "${TAVILY_SEARCH_API_KEY}"
-        - name: MOCK_INFERENCE_PORT
-          value: "${MOCK_INFERENCE_PORT}"
+        - name: MOCK_INFERENCE_URL
+          value: "${MOCK_INFERENCE_URL}"
         - name: VLLM_URL
           value: http://vllm-server.default.svc.cluster.local:8000/v1
         - name: VLLM_MAX_TOKENS

@@ -49,13 +49,13 @@ def generate_random_text(length=50):
     ]
     return " ".join(random.choices(words, k=length))
 
-@app.route('/models', methods=['GET'])
+@app.route('/v1/models', methods=['GET'])
 def list_models():
     models = get_models()
     print(f"[MOCK] Returning models: {[m['id'] for m in models['data']]}")
     return jsonify(models)
 
-@app.route('/chat/completions', methods=['POST'])
+@app.route('/v1/chat/completions', methods=['POST'])
 def chat_completions():
     """Return OpenAI-formatted chat completion responses."""
     data = request.get_json()

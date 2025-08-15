@@ -6,3 +6,5 @@
 
 ```{include} ../../../tests/integration/README.md
 ```
+
+```{include} ../../../docs/source/distributions/k8s-benchmark/README.md

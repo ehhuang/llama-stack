@@ -73,9 +73,9 @@ def build_hf_repo_model_entries():
 
 
 class _HfAdapter(
-    Inference,
     OpenAIChatCompletionToLlamaStackMixin,
     OpenAICompletionToLlamaStackMixin,
+    Inference,
     ModelsProtocolPrivate,
 ):
     client: AsyncInferenceClient

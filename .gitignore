@@ -30,3 +30,4 @@ AGENTS.md
 server.log
 CLAUDE.md
 .claude/
+*.log

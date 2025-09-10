@@ -46,10 +46,10 @@ def setup_telemetry_metrics_data(openai_client, client_with_models, text_model_i
                 break
         except Exception:
             pass
-        time.sleep(1)
+        time.sleep(0.1)
 
     # Wait additional time to ensure all metrics are processed
-    time.sleep(5)
+    # time.sleep(5)
 
     # Return the token lists for use in tests
     return {"prompt_tokens": prompt_tokens, "completion_tokens": completion_tokens, "total_tokens": total_tokens}

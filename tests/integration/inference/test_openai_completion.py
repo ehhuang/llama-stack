@@ -48,7 +48,6 @@ def skip_if_model_doesnt_support_openai_completion(client_with_models, model_id)
         "remote::nvidia",
         "remote::runpod",
         "remote::sambanova",
-        "remote::tgi",
         "remote::vertexai",
         # {"error":{"message":"Unknown request URL: GET /openai/v1/completions. Please check the URL for typos,
         # or see the docs at https://console.groq.com/docs/","type":"invalid_request_error","code":"unknown_url"}}
@@ -110,7 +109,6 @@ def skip_if_model_doesnt_support_openai_chat_completion(client_with_models, mode
         "remote::cerebras",
         "remote::databricks",
         "remote::runpod",
-        "remote::tgi",
     ):
         pytest.skip(f"Model {model_id} hosted by {provider.provider_type} doesn't support OpenAI chat completions.")
 

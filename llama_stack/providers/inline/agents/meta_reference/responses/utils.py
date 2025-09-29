@@ -16,9 +16,11 @@ from llama_stack.apis.agents.openai_responses import (
     OpenAIResponseMessage,
     OpenAIResponseOutputMessageContent,
     OpenAIResponseOutputMessageContentOutputText,
+    OpenAIResponseOutputMessageFileSearchToolCall,
     OpenAIResponseOutputMessageFunctionToolCall,
     OpenAIResponseOutputMessageMCPCall,
     OpenAIResponseOutputMessageMCPListTools,
+    OpenAIResponseOutputMessageWebSearchToolCall,
     OpenAIResponseText,
 )
 from llama_stack.apis.inference import (
@@ -148,6 +150,13 @@ async def convert_response_input_to_chat_messages(
                 )
             elif isinstance(input_item, OpenAIResponseOutputMessageMCPListTools):
                 # the tool list will be handled separately
+                pass
+            elif isinstance(input_item, OpenAIResponseOutputMessageWebSearchToolCall):
+                # web search tool calls are metadata only and don't need to be converted to chat messages
+                pass
+            elif isinstance(input_item, OpenAIResponseOutputMessageFileSearchToolCall):
+                # file search tool calls are metadata only and don't need to be converted to chat messages
+                # OpenAI re-executes file search on each turn rather than caching results
                 pass
             else:
                 content = await convert_response_content_to_chat_content(input_item.content)

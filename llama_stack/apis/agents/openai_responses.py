@@ -9,6 +9,7 @@ from typing import Annotated, Any, Literal
 from pydantic import BaseModel, Field
 from typing_extensions import TypedDict
 
+from llama_stack.apis.inference import OpenAIMessageParam
 from llama_stack.apis.vector_io import SearchRankingOptions as FileSearchRankingOptions
 from llama_stack.schema_utils import json_schema_type, register_schema
 
@@ -884,9 +885,15 @@ class OpenAIResponseObjectWithInput(OpenAIResponseObject):
     """OpenAI response object extended with input context information.
 
     :param input: List of input items that led to this response
+    :param messages: Chat completion messages used for this response
     """
 
     input: list[OpenAIResponseInput]
+    messages: list[OpenAIMessageParam]
+
+    def to_response_object(self) -> OpenAIResponseObject:
+        """Convert to OpenAIResponseObject by excluding input and messages fields."""
+        return OpenAIResponseObject(**{k: v for k, v in self.model_dump().items() if k not in ("input", "messages")})
 
 
 @json_schema_type

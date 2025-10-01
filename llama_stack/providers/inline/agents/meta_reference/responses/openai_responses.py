@@ -8,7 +8,7 @@ import time
 import uuid
 from collections.abc import AsyncIterator
 
-from pydantic import BaseModel
+from pydantic import BaseModel, TypeAdapter
 
 from llama_stack.apis.agents import Order
 from llama_stack.apis.agents.openai_responses import (
@@ -26,6 +26,7 @@ from llama_stack.apis.agents.openai_responses import (
 )
 from llama_stack.apis.inference import (
     Inference,
+    OpenAIMessageParam,
     OpenAISystemMessageParam,
 )
 from llama_stack.apis.tools import ToolGroups, ToolRuntime
@@ -102,7 +103,7 @@ class OpenAIResponsesImpl:
         response_id: str,
     ) -> OpenAIResponseObject:
         response_with_input = await self.responses_store.get_response_object(response_id)
-        return OpenAIResponseObject(**{k: v for k, v in response_with_input.model_dump().items() if k != "input"})
+        return response_with_input.to_response_object()
 
     async def list_openai_responses(
         self,
@@ -138,6 +139,7 @@ class OpenAIResponsesImpl:
         self,
         response: OpenAIResponseObject,
         input: str | list[OpenAIResponseInput],
+        messages: list[OpenAIMessageParam],
     ) -> None:
         new_input_id = f"msg_{uuid.uuid4()}"
         if isinstance(input, str):
@@ -165,6 +167,7 @@ class OpenAIResponsesImpl:
         await self.responses_store.store_response_object(
             response_object=response,
             input=input_items_data,
+            messages=messages,
         )
 
     async def create_openai_response(
@@ -224,8 +227,22 @@ class OpenAIResponsesImpl:
         max_infer_iters: int | None = 10,
     ) -> AsyncIterator[OpenAIResponseObjectStream]:
         # Input preprocessing
-        input = await self._prepend_previous_response(input, previous_response_id)
-        messages = await convert_response_input_to_chat_messages(input)
+        if previous_response_id:
+            previous_response_with_input = await self.responses_store.get_response_object(previous_response_id)
+            if previous_response_with_input.messages:
+                # Use stored messages directly and convert only new input
+                message_adapter = TypeAdapter(list[OpenAIMessageParam])
+                messages = message_adapter.validate_python(previous_response_with_input.messages)
+                new_messages = await convert_response_input_to_chat_messages(input)
+                messages.extend(new_messages)
+            else:
+                # Backward compatibility: reconstruct from inputs
+                input = await self._prepend_previous_response(input, previous_response_id)
+                messages = await convert_response_input_to_chat_messages(input)
+        else:
+            # No previous response, convert input to messages as usual
+            messages = await convert_response_input_to_chat_messages(input)
+
         await self._prepend_instructions(messages, instructions)
 
         # Structured outputs
@@ -266,6 +283,7 @@ class OpenAIResponsesImpl:
             await self._store_response(
                 response=final_response,
                 input=input,
+                messages=orchestrator.final_messages,
             )
 
     async def delete_openai_response(self, response_id: str) -> OpenAIDeleteResponseObject:

@@ -51,12 +51,6 @@ class StackRun(Subcommand):
             help="Name of the image to run. Defaults to the current environment",
         )
         self.parser.add_argument(
-            "--env",
-            action="append",
-            help="Environment variables to pass to the server in KEY=VALUE format. Can be specified multiple times.",
-            metavar="KEY=VALUE",
-        )
-        self.parser.add_argument(
             "--image-type",
             type=str,
             help="Image Type used during the build. This can be only venv.",
@@ -146,23 +140,7 @@ class StackRun(Subcommand):
         # using the current environment packages.
         if not image_type and not image_name:
             logger.info("No image type or image name provided. Assuming environment packages.")
-            from llama_stack.core.server.server import main as server_main
-
-            # Build the server args from the current args passed to the CLI
-            server_args = argparse.Namespace()
-            for arg in vars(args):
-                # If this is a function, avoid passing it
-                # "args" contains:
-                # func=<bound method StackRun._run_stack_run_cmd of <llama_stack.cli.stack.run.StackRun object at 0x10484b010>>
-                if callable(getattr(args, arg)):
-                    continue
-                if arg == "config":
-                    server_args.config = str(config_file)
-                else:
-                    setattr(server_args, arg, getattr(args, arg))
-
-            # Run the server
-            server_main(server_args)
+            self._run_server_directly(config_file, args)
         else:
             run_args = formulate_run_args(image_type, image_name)
 
@@ -183,6 +161,53 @@ class StackRun(Subcommand):
                     run_args.extend(["--env", f"{key}={value}"])
 
             run_command(run_args)
+
+    def _run_server_directly(self, config_file: Path | None, args: argparse.Namespace) -> None:
+        """Run the server using uvicorn.run()."""
+        import yaml
+
+        from llama_stack.core.datatypes import StackRunConfig
+        from llama_stack.core.stack import cast_image_name_to_string, replace_env_vars
+        from llama_stack.core.utils.config_resolution import Mode, resolve_config_or_distro
+
+        if not config_file:
+            self.parser.error("Config file is required")
+
+        config_file = resolve_config_or_distro(str(config_file), Mode.RUN)
+        with open(config_file) as fp:
+            config_contents = yaml.safe_load(fp)
+            config = StackRunConfig(**cast_image_name_to_string(replace_env_vars(config_contents)))
+
+        port = args.port or config.server.port
+        listen_host = config.server.host or ["::", "0.0.0.0"]
+
+        # Uvicorn expects a single host, take the first one if it's a list
+        host_arg = listen_host[0] if isinstance(listen_host, list) else listen_host
+
+        # Set the config file in environment so create_app can find it
+        os.environ["LLAMA_STACK_CONFIG"] = str(config_file)
+
+        uvicorn_config = {
+            "factory": True,
+            "host": host_arg,
+            "port": port,
+        }
+
+        if config.server.tls_keyfile and config.server.tls_certfile:
+            uvicorn_config["ssl_keyfile"] = config.server.tls_keyfile
+            uvicorn_config["ssl_certfile"] = config.server.tls_certfile
+            if config.server.tls_cafile:
+                uvicorn_config["ssl_ca_certs"] = config.server.tls_cafile
+            logger.info("HTTPS enabled with certificates")
+
+        logger.info(f"Listening on {host_arg}:{port}")
+
+        import uvicorn
+
+        try:
+            uvicorn.run("llama_stack.core.server.server:create_app", **uvicorn_config)
+        except (KeyboardInterrupt, SystemExit):
+            logger.info("Received interrupt signal, shutting down gracefully...")
 
     def _start_ui_development_server(self, stack_server_port: int):
         logger.info("Attempting to start UI development server...")

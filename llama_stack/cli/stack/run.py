@@ -149,17 +149,6 @@ class StackRun(Subcommand):
             if config_file:
                 run_args.extend(["--config", str(config_file)])
 
-            if args.env:
-                for env_var in args.env:
-                    if "=" not in env_var:
-                        self.parser.error(f"Environment variable '{env_var}' must be in KEY=VALUE format")
-                        return
-                    key, value = env_var.split("=", 1)  # split on first = only
-                    if not key:
-                        self.parser.error(f"Environment variable '{env_var}' has empty key")
-                        return
-                    run_args.extend(["--env", f"{key}={value}"])
-
             run_command(run_args)
 
     def _run_server_directly(self, config_file: Path | None, args: argparse.Namespace) -> None:

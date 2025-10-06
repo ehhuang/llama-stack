@@ -132,7 +132,8 @@ class OpenAIMixin(NeedsRequestProviderData, ABC, BaseModel):
 
         :return: An iterable of model IDs or None if not implemented
         """
-        return [m.id async for m in self.client.models.list()]
+        async with self.client as client:
+            return [m.id async for m in client.models.list()]
 
     async def initialize(self) -> None:
         """
